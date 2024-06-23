@@ -1,0 +1,16 @@
+///
+/// @function to-rem
+/// @example Usage
+/// .foo {
+///  font-size: to-rem(16px)
+///  }
+/// @example CSS output
+/// .foo {
+///   font-size: 1rem;
+///  }
+///
+
+@function to-rem($value) {
+  $rem-value: calc($value / 16) + rem;
+  @return $rem-value;
+}

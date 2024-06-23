@@ -1,0 +1,18 @@
+@use "sass:map";
+@use "./variables" as *;
+
+///
+/// @function get-color
+/// @example Usage
+/// .foo {
+///   color: get-color('primary', 'main')
+/// }
+/// @example CSS output
+/// .foo {
+///  color: #ec1c24;
+/// }
+///
+
+@function get-color($palette, $color) {
+  @return map.get(map.get($colours, $palette), $color);
+}

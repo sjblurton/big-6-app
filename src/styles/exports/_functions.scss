@@ -1,0 +1,15 @@
+@use "sass:map";
+@use "sass:meta";
+
+@function generate-export($map, $prefix: "") {
+  $output: ();
+  @each $key, $value in $map {
+    $new-prefix: if($prefix != "", $prefix + "-" + $key, $key);
+    @if meta.type-of($value) == "map" {
+      $output: map.merge($output, generate-export($value, $new-prefix));
+    } @else {
+      $output: map.set($output, $new-prefix, $value);
+    }
+  }
+  @return $output;
+}
