@@ -1,20 +1,24 @@
-import { getServerSession } from "next-auth";
-import { Responses } from "@/modules/rest/responses/responses";
+import {getServerSession} from "next-auth";
+import {Responses} from "@/modules/rest/responses/responses";
 import WorkoutValidation from "@/modules/model/workouts/WorkoutValidation";
-import { WorkoutService } from "./workout.service";
+import {ZodError} from "zod";
+import {WorkoutService} from "./workout.service";
 import authOptions from "../../auth/authOptions";
 
 class WorkoutController {
-  request: Request;
-
   workoutCollection: string;
 
-  constructor(request: Request, params: { workout: string }) {
-    this.request = request;
+  constructor(
+    request: Request,
+    params: {workout: string},
+    private readonly workoutService: WorkoutService = new WorkoutService(
+      request
+    )
+  ) {
     this.workoutCollection = params.workout;
   }
 
-  async POST(): Promise<Response> {
+  async GET(): Promise<Response> {
     const session = await getServerSession(authOptions);
 
     if (!session) {
@@ -22,18 +26,12 @@ class WorkoutController {
     }
 
     const parsedWorkoutCollection = WorkoutValidation.validateWorkoutCollection(
-      this.workoutCollection,
-    );
-
-    const parsedLimitBy = await WorkoutService.getJson(this.request).catch(
-      () => ({
-        limitBy: 12,
-      }),
+      this.workoutCollection
     );
 
     if (!parsedWorkoutCollection.success) {
       return Responses.createNotFoundResponse(
-        `Workout collection ${this.workoutCollection} not found`,
+        `Workout collection ${this.workoutCollection} not found`
       );
     }
 
@@ -43,10 +41,15 @@ class WorkoutController {
       return Responses.createForbiddenResponse();
     }
 
-    const parsedWorkoutData = await WorkoutService.getWorkoutCollection({
+    const isValidSearchParam = this.workoutService.validateSearchParams();
+
+    if (isValidSearchParam instanceof ZodError) {
+      return Responses.createJSONBadRequestResponse(isValidSearchParam.errors);
+    }
+
+    const parsedWorkoutData = await this.workoutService.getWorkoutCollection({
       email: parsedEmail.data,
       workoutCollection: parsedWorkoutCollection.data,
-      limitBy: parsedLimitBy.limitBy,
     });
 
     return Responses.createJSONResponse(parsedWorkoutData);

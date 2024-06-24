@@ -1,5 +1,5 @@
-import { generateSchema } from "@anatine/zod-openapi";
-import { z } from "zod";
+import {generateSchema} from "@anatine/zod-openapi";
+import {z} from "zod";
 import workoutSchema from "../../model/workouts/workoutSchemas";
 
 export const workoutOpenApiSchema = generateSchema(workoutSchema.array());
@@ -23,15 +23,16 @@ export const badRequestBodySchema = z
 export const badRequestOpenApiResponseSchema =
   generateSchema(badRequestBodySchema);
 
-export const requestBodySchema = z
-  .object({
-    limitBy: z.number().int().openapi({
-      title: "Limit",
-      description: "The number of documents to return | Default: 12",
-      example: 12,
-    }),
+export const limitBySchema = z
+  .number()
+  .int()
+  .min(1)
+  .openapi({
+    title: "Limit",
+    description: "The number of documents to return | Default: 12",
+    example: 12,
   })
   .optional()
-  .default({ limitBy: 12 });
+  .default(12);
 
-export const requestOpenApiResponseSchema = generateSchema(requestBodySchema);
+export const requestOpenApiResponseSchema = generateSchema(limitBySchema);

@@ -1,9 +1,9 @@
 import WorkoutController from "./workout.controller";
 
-export async function POST(
+export async function GET(
   request: Request,
-  { params }: { params: { workout: string } },
+  {params}: {params: {workout: string}}
 ) {
   const controller = new WorkoutController(request, params);
-  return controller.POST();
+  return controller.GET();
 }

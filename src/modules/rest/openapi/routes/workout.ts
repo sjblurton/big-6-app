@@ -1,12 +1,9 @@
-import type { PathItemObject } from "openapi3-ts/oas31";
-import { WORKOUT_COLLECTIONS } from "@/modules/database/config/db";
-import {
-  requestOpenApiResponseSchema,
-  workoutOpenApiSchema,
-} from "../../schemas/openapiSchema";
+import type {PathItemObject} from "openapi3-ts/oas31";
+import {WORKOUT_COLLECTIONS} from "@/modules/database/config/db";
+import {workoutOpenApiSchema} from "../../schemas/openapiSchema";
 
 const workoutPath: PathItemObject = {
-  post: {
+  get: {
     tags: ["workouts"],
     summary: "Get all workouts for a collection",
     description: "Get all workouts for a specific collection",
@@ -20,14 +17,15 @@ const workoutPath: PathItemObject = {
           type: "string",
         },
       },
-    ],
-    requestBody: {
-      content: {
-        "application/json": {
-          schema: requestOpenApiResponseSchema,
+      {
+        name: "limitBy",
+        in: "query",
+        description: "The numbers of items to return",
+        schema: {
+          type: "integer",
         },
       },
-    },
+    ],
     responses: {
       200: {
         description: "Successful response",

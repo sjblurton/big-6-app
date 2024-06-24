@@ -1,4 +1,4 @@
-import { WorkoutCollections } from "@/modules/model/workouts";
+import {WorkoutCollections} from "@/modules/model/workouts";
 import {
   firestoreDb,
   query,
@@ -9,23 +9,27 @@ import {
   limit,
 } from "@/modules/database/config/db";
 import WorkoutValidation from "@/modules/model/workouts/WorkoutValidation";
-import { requestBodySchema } from "@/modules/rest/schemas/openapiSchema";
+import {limitBySchema} from "@/modules/rest/schemas/openapiSchema";
 
 export class WorkoutService {
-  static async getWorkoutCollection({
+  request: Request;
+
+  constructor(request: Request) {
+    this.request = request;
+  }
+
+  async getWorkoutCollection({
     email,
     workoutCollection,
-    limitBy,
   }: {
     email: string;
     workoutCollection: WorkoutCollections;
-    limitBy: number;
   }) {
     const q = query(
       collection(firestoreDb, workoutCollection),
-      limit(limitBy),
+      limit(this.getSearchParams()),
       orderBy("date", "desc"),
-      where("user", "==", email),
+      where("user", "==", email)
     );
 
     const workoutColSnapshot = await getDocs(q);
@@ -41,7 +45,23 @@ export class WorkoutService {
     return workoutColList.filter((workout) => workout !== null);
   }
 
-  static async getJson(request: Request) {
-    return requestBodySchema.parseAsync(await request.json());
+  private getSearchParams() {
+    const {searchParams} = new URL(this.request.url);
+    const value = searchParams.get("limitBy");
+    const limitBy = value ? parseInt(value, 10) : undefined;
+    return limitBySchema.parse(limitBy);
+  }
+
+  validateSearchParams() {
+    const {searchParams} = new URL(this.request.url);
+    const value = searchParams.get("limitBy");
+    const limitBy = value ? parseInt(value, 10) : undefined;
+
+    const safeLimitBy = limitBySchema.safeParse(limitBy);
+
+    if (!safeLimitBy.success) {
+      return safeLimitBy.error;
+    }
+    return true;
   }
 }
