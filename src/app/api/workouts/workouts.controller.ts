@@ -1,8 +1,8 @@
-import {getServerSession} from "next-auth";
-import {Responses} from "@/modules/rest/responses/responses";
+import { getServerSession } from "next-auth";
+import { Responses } from "@/modules/rest/responses/responses";
 import WorkoutValidation from "@/modules/model/workouts/WorkoutValidation";
 
-import {WorkoutsService} from "./workouts.service";
+import { WorkoutsService } from "./workouts.service";
 import authOptions from "../auth/authOptions";
 
 class WorkoutsController {
@@ -11,8 +11,8 @@ class WorkoutsController {
   constructor(
     request: Request,
     private readonly workoutsService: WorkoutsService = new WorkoutsService(
-      request
-    )
+      request,
+    ),
   ) {
     this.request = request;
   }
