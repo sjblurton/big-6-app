@@ -1,5 +1,5 @@
-import type { PathItemObject } from "openapi3-ts/oas31";
-import { workoutOpenApiSchema } from "../../schemas/openapiSchema";
+import type {PathItemObject} from "openapi3-ts/oas31";
+import {workoutOpenApiSchema} from "../openapiSchema";
 
 const workoutsPath: PathItemObject = {
   get: {
