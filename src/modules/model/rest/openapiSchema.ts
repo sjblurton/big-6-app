@@ -1,5 +1,5 @@
-import {generateSchema} from "@anatine/zod-openapi";
-import {z} from "zod";
+import { generateSchema } from "@anatine/zod-openapi";
+import { z } from "zod";
 import workoutSchema from "../workouts/workoutSchemas";
 
 export const workoutOpenApiSchema = generateSchema(workoutSchema.array());

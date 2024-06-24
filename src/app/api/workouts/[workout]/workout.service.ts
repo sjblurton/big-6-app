@@ -1,4 +1,4 @@
-import {WorkoutCollections} from "@/modules/model/workouts";
+import { WorkoutCollections } from "@/modules/model/workouts";
 import {
   firestoreDb,
   query,
@@ -9,7 +9,7 @@ import {
   limit,
 } from "@/modules/database/config/db";
 import WorkoutValidation from "@/modules/model/workouts/WorkoutValidation";
-import {limitBySchema} from "@/modules/model/rest/openapiSchema";
+import { limitBySchema } from "@/modules/model/rest/openapiSchema";
 
 export class WorkoutService {
   request: Request;
@@ -29,7 +29,7 @@ export class WorkoutService {
       collection(firestoreDb, workoutCollection),
       limit(this.getSearchParams()),
       orderBy("date", "desc"),
-      where("user", "==", email)
+      where("user", "==", email),
     );
 
     const workoutColSnapshot = await getDocs(q);
@@ -46,14 +46,14 @@ export class WorkoutService {
   }
 
   private getSearchParams() {
-    const {searchParams} = new URL(this.request.url);
+    const { searchParams } = new URL(this.request.url);
     const value = searchParams.get("limitBy");
     const limitBy = value ? parseInt(value, 10) : undefined;
     return limitBySchema.parse(limitBy);
   }
 
   validateSearchParams() {
-    const {searchParams} = new URL(this.request.url);
+    const { searchParams } = new URL(this.request.url);
     const value = searchParams.get("limitBy");
     const limitBy = value ? parseInt(value, 10) : undefined;
 

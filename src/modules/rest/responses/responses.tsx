@@ -1,38 +1,38 @@
-import {ZodError} from "zod";
-import {badRequestBodySchema} from "../../model/rest/openapiSchema";
-import {BadRequestBody} from "../../model/rest/@types";
+import { ZodError } from "zod";
+import { badRequestBodySchema } from "../../model/rest/openapiSchema";
+import { BadRequestBody } from "../../model/rest/@types";
 
 export class Responses {
   private static defaultHeaders: HeadersInit = {};
 
-  static configure = ({defaultHeaders}: {defaultHeaders: HeadersInit}) => {
+  static configure = ({ defaultHeaders }: { defaultHeaders: HeadersInit }) => {
     Responses.defaultHeaders = defaultHeaders;
   };
 
   private static createResponse = (
     message: string | null | BodyInit,
-    config: ResponseInit = {}
+    config: ResponseInit = {},
   ): Response =>
     new Response(message, {
       ...config,
-      headers: {...config.headers, ...Responses.defaultHeaders},
+      headers: { ...config.headers, ...Responses.defaultHeaders },
     });
 
   static createTextResponse = (text: string, config: ResponseInit = {}) =>
     Responses.createResponse(text, {
       ...config,
-      headers: {...config.headers, "content-type": "text/plain"},
+      headers: { ...config.headers, "content-type": "text/plain" },
     });
 
   static createJSONResponse = (object: unknown, config: ResponseInit = {}) =>
     Responses.createResponse(JSON.stringify(object), {
       ...config,
-      headers: {...config.headers, "content-type": "application/json"},
+      headers: { ...config.headers, "content-type": "application/json" },
     });
 
   static createJSONCreatedResponse = (
     object: unknown,
-    config: ResponseInit = {}
+    config: ResponseInit = {},
   ) =>
     Responses.createJSONResponse(object, {
       ...config,
@@ -41,7 +41,7 @@ export class Responses {
 
   static createJSONBadRequestResponse = (
     object: BadRequestBody,
-    config: ResponseInit = {status: 400}
+    config: ResponseInit = { status: 400 },
   ): Response =>
     Responses.createJSONResponse(badRequestBodySchema.parse(object), config);
 

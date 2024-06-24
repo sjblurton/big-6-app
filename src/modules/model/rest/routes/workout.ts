@@ -1,6 +1,6 @@
-import type {PathItemObject} from "openapi3-ts/oas31";
-import {WORKOUT_COLLECTIONS} from "@/modules/database/config/db";
-import {workoutOpenApiSchema} from "../openapiSchema";
+import type { PathItemObject } from "openapi3-ts/oas31";
+import { WORKOUT_COLLECTIONS } from "@/modules/database/config/db";
+import { workoutOpenApiSchema } from "../openapiSchema";
 
 const workoutPath: PathItemObject = {
   get: {
