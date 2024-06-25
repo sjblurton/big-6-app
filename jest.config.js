@@ -9,8 +9,8 @@ const customJestConfig = {
   testEnvironment: "jest-environment-jsdom",
   setupFilesAfterEnv: ["<rootDir>/jest.setup.js"],
   collectCoverage: true,
-  coverageReporters:["json-summary","text"],
-  coverageDirectory:"./src/app/docs/test-coverage",
+  coverageReporters: ["json-summary", "text"],
+  coverageDirectory: "./src/app/docs/test-coverage",
   coverageThreshold: {
     global: {
       branches: 100,
