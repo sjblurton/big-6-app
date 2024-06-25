@@ -1,7 +1,6 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-npm ci
 npm run generate-scss-types
 npm run lint
 npm run check-types

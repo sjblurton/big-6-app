@@ -1,8 +1,11 @@
-import SwaggerUI from "swagger-ui-react";
-import "swagger-ui-react/swagger-ui.css";
+import React from "react"
 
-function Swagger() {
-  return <SwaggerUI url="http://localhost:3000/api/docs" />;
+function Docs() {
+  return (
+    <div>Docs
+    
+    </div>
+  )
 }
 
-export default Swagger;
+export default Docs
