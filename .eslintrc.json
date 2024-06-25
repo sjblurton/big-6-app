@@ -8,15 +8,32 @@
     "plugin:jsx-a11y/recommended",
     "prettier"
   ],
+  "env": {
+    "jest/globals": true
+  },
+  "overrides": [
+    {
+      "files": ["**.test.*"],
+      "plugins": ["jest"],
+      "extends": ["plugin:jest/recommended"],
+      "rules": { "import/no-extraneous-dependencies": "off" }
+    }
+  ],
   "parser": "@typescript-eslint/parser",
   "plugins": [
     "import",
     "jsx-a11y",
     "react",
     "react-hooks",
-    "@typescript-eslint"
+    "@typescript-eslint",
+    "jest"
   ],
   "rules": {
+    "jest/no-disabled-tests": "error",
+    "jest/no-focused-tests": "error",
+    "jest/no-identical-title": "error",
+    "jest/prefer-to-have-length": "error",
+    "jest/valid-expect": "error",
     "no-console": "error",
     "react/require-default-props": "off",
     "@typescript-eslint/no-explicit-any": "error",
