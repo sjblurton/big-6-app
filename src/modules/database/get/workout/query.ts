@@ -17,7 +17,7 @@ class DatabaseQueries {
       collection(firestoreDb, workoutCollection),
       limit(limitBy),
       orderBy("date", "desc"),
-      where("user", "==", this.email)
+      where("user", "==", this.email),
     );
   }
 }

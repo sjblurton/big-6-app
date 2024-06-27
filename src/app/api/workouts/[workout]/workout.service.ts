@@ -1,7 +1,7 @@
-import {WorkoutCollections, WorkoutData} from "@/modules/model/workouts";
-import {limitBySchema} from "@/modules/model/rest/openapiSchema";
+import { WorkoutCollections, WorkoutData } from "@/modules/model/workouts";
+import { limitBySchema } from "@/modules/model/rest/openapiSchema";
 import GetWorkoutData from "@/modules/database/get/workout/getWortoutData";
-import {z} from "zod";
+import { z } from "zod";
 
 export class WorkoutService {
   private readonly request: Request;
@@ -31,19 +31,19 @@ export class WorkoutService {
   }): Promise<WorkoutData[]> {
     return this.getWorkoutData.getWorkoutData(
       workoutCollection,
-      this.getSearchParams()
+      this.getSearchParams(),
     );
   }
 
   private getSearchParams() {
-    const {searchParams} = new URL(this.request.url);
+    const { searchParams } = new URL(this.request.url);
     const value = searchParams.get("limitBy");
     const limitBy = value ? parseInt(value, 10) : undefined;
     return limitBySchema.parse(limitBy);
   }
 
   validateSearchParams() {
-    const {searchParams} = new URL(this.request.url);
+    const { searchParams } = new URL(this.request.url);
     const value = searchParams.get("limitBy");
     const limitBy = value ? parseInt(value, 10) : undefined;
 

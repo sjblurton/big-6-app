@@ -1,7 +1,7 @@
-import {ESLintUtils} from "@typescript-eslint/utils";
+import { ESLintUtils } from "@typescript-eslint/utils";
 
 const createRule = ESLintUtils.RuleCreator(
-  (name) => `https://example.com/rule/${name}`
+  (name) => `https://example.com/rule/${name}`,
 );
 
 type MessageIds = "lowercase" | "uppercase";

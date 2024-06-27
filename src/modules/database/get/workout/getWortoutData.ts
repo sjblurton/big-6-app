@@ -4,7 +4,7 @@ import {
   WORKOUT_COLLECTIONS,
 } from "@/modules/database/config/db";
 import WorkoutValidation from "@/modules/model/workouts/WorkoutValidation";
-import {WorkoutCollections, WorkoutData} from "@/modules/model/workouts";
+import { WorkoutCollections, WorkoutData } from "@/modules/model/workouts";
 import DatabaseQueries from "./query";
 
 class GetWorkoutData {
@@ -45,14 +45,14 @@ class GetWorkoutData {
     const workoutCollectionPromises = WORKOUT_COLLECTIONS.map(
       async (workoutType) => {
         const collectionData = await this.getWorkoutData(workoutType, limitBy);
-        return {workoutType, collectionData};
-      }
+        return { workoutType, collectionData };
+      },
     );
     const workoutCollectionResults = await Promise.all(
-      workoutCollectionPromises
+      workoutCollectionPromises,
     );
 
-    workoutCollectionResults.forEach(({workoutType, collectionData}) => {
+    workoutCollectionResults.forEach(({ workoutType, collectionData }) => {
       this.workoutNames[workoutType] = collectionData;
     });
 

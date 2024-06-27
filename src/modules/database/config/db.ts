@@ -1,4 +1,4 @@
-import {getFirestore} from "firebase/firestore";
+import { getFirestore } from "firebase/firestore";
 
 import firebaseApp from "./config";
 
@@ -41,4 +41,4 @@ export {
   doc,
 } from "firebase/firestore";
 
-export type {Firestore} from "firebase/firestore";
+export type { Firestore } from "firebase/firestore";

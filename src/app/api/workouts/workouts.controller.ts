@@ -1,7 +1,7 @@
-import {Responses} from "@/modules/rest/responses/responses";
+import { Responses } from "@/modules/rest/responses/responses";
 import WorkoutValidation from "@/modules/model/workouts/WorkoutValidation";
 
-import {WorkoutsService} from "./workouts.service";
+import { WorkoutsService } from "./workouts.service";
 
 class WorkoutsController {
   request: Request;
@@ -9,8 +9,8 @@ class WorkoutsController {
   constructor(
     request: Request,
     private readonly workoutsService: WorkoutsService = new WorkoutsService(
-      request
-    )
+      request,
+    ),
   ) {
     this.request = request;
   }

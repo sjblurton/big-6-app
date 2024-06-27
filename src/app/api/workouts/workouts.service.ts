@@ -1,6 +1,6 @@
-import {WorkoutCollections, WorkoutData} from "@/modules/model/workouts";
-import {WORKOUT_COLLECTIONS} from "@/modules/database/config/db";
-import {WorkoutService} from "./[workout]/workout.service";
+import { WorkoutCollections, WorkoutData } from "@/modules/model/workouts";
+import { WORKOUT_COLLECTIONS } from "@/modules/database/config/db";
+import { WorkoutService } from "./[workout]/workout.service";
 
 export class WorkoutsService {
   request: Request;
@@ -27,15 +27,15 @@ export class WorkoutsService {
         const collectionData = await this.workoutService.getWorkoutCollection({
           workoutCollection: workoutType,
         });
-        return {workoutType, collectionData};
-      }
+        return { workoutType, collectionData };
+      },
     );
 
     const workoutCollectionResults = await Promise.all(
-      workoutCollectionPromises
+      workoutCollectionPromises,
     );
 
-    workoutCollectionResults.forEach(({workoutType, collectionData}) => {
+    workoutCollectionResults.forEach(({ workoutType, collectionData }) => {
       workoutData[workoutType] = collectionData;
     });
 

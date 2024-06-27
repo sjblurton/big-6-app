@@ -1,7 +1,7 @@
-import {Responses} from "@/modules/rest/responses/responses";
+import { Responses } from "@/modules/rest/responses/responses";
 import WorkoutValidation from "@/modules/model/workouts/WorkoutValidation";
-import {ZodError} from "zod";
-import {WorkoutService} from "./workout.service";
+import { ZodError } from "zod";
+import { WorkoutService } from "./workout.service";
 
 class WorkoutController {
   request: Request;
@@ -10,10 +10,10 @@ class WorkoutController {
 
   constructor(
     request: Request,
-    params: {workout: string},
+    params: { workout: string },
     private readonly workoutService: WorkoutService = new WorkoutService(
-      request
-    )
+      request,
+    ),
   ) {
     this.workoutCollection = params.workout;
     this.request = request;
@@ -25,12 +25,12 @@ class WorkoutController {
     const parsedEmail = WorkoutValidation.validateEmail(email);
 
     const parsedWorkoutCollection = WorkoutValidation.validateWorkoutCollection(
-      this.workoutCollection
+      this.workoutCollection,
     );
 
     if (!parsedWorkoutCollection.success) {
       return Responses.createNotFoundResponse(
-        `Workout collection ${this.workoutCollection} not found`
+        `Workout collection ${this.workoutCollection} not found`,
       );
     }
 
