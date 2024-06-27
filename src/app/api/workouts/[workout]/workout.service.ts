@@ -1,59 +1,49 @@
-import { WorkoutCollections } from "@/modules/model/workouts";
-import {
-  firestoreDb,
-  query,
-  collection,
-  orderBy,
-  getDocs,
-  where,
-  limit,
-} from "@/modules/database/config/db";
-import WorkoutValidation from "@/modules/model/workouts/WorkoutValidation";
-import { limitBySchema } from "@/modules/model/rest/openapiSchema";
+import {WorkoutCollections, WorkoutData} from "@/modules/model/workouts";
+import {limitBySchema} from "@/modules/model/rest/openapiSchema";
+import GetWorkoutData from "@/modules/database/get/workout/getWortoutData";
+import {z} from "zod";
 
 export class WorkoutService {
-  request: Request;
+  private readonly request: Request;
+
+  private readonly getWorkoutData: GetWorkoutData;
 
   constructor(request: Request) {
     this.request = request;
+
+    const email = this.getEmailFromHeaders();
+
+    this.getWorkoutData = new GetWorkoutData(email);
+  }
+
+  private getEmailFromHeaders(): string {
+    const email = this.request.headers.get("x-user-email");
+    if (!email) {
+      throw new Error("Email header is missing");
+    }
+    return z.string().email().parse(email);
   }
 
   async getWorkoutCollection({
-    email,
     workoutCollection,
   }: {
-    email: string;
     workoutCollection: WorkoutCollections;
-  }) {
-    const q = query(
-      collection(firestoreDb, workoutCollection),
-      limit(this.getSearchParams()),
-      orderBy("date", "desc"),
-      where("user", "==", email),
+  }): Promise<WorkoutData[]> {
+    return this.getWorkoutData.getWorkoutData(
+      workoutCollection,
+      this.getSearchParams()
     );
-
-    const workoutColSnapshot = await getDocs(q);
-
-    const workoutColList = workoutColSnapshot.docs.map((doc) => {
-      const workout = {
-        key: doc.id,
-        ...doc.data(),
-      };
-      return WorkoutValidation.validateWorkoutEmailLiteral(workout, email);
-    });
-
-    return workoutColList.filter((workout) => workout !== null);
   }
 
   private getSearchParams() {
-    const { searchParams } = new URL(this.request.url);
+    const {searchParams} = new URL(this.request.url);
     const value = searchParams.get("limitBy");
     const limitBy = value ? parseInt(value, 10) : undefined;
     return limitBySchema.parse(limitBy);
   }
 
   validateSearchParams() {
-    const { searchParams } = new URL(this.request.url);
+    const {searchParams} = new URL(this.request.url);
     const value = searchParams.get("limitBy");
     const limitBy = value ? parseInt(value, 10) : undefined;
 

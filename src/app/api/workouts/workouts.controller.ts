@@ -1,9 +1,7 @@
-import { getServerSession } from "next-auth";
-import { Responses } from "@/modules/rest/responses/responses";
+import {Responses} from "@/modules/rest/responses/responses";
 import WorkoutValidation from "@/modules/model/workouts/WorkoutValidation";
 
-import { WorkoutsService } from "./workouts.service";
-import authOptions from "../auth/authOptions";
+import {WorkoutsService} from "./workouts.service";
 
 class WorkoutsController {
   request: Request;
@@ -11,28 +9,23 @@ class WorkoutsController {
   constructor(
     request: Request,
     private readonly workoutsService: WorkoutsService = new WorkoutsService(
-      request,
-    ),
+      request
+    )
   ) {
     this.request = request;
   }
 
   async GET(): Promise<Response> {
-    const session = await getServerSession(authOptions);
+    const email = this.request.headers.get("x-user-email");
 
-    if (!session) {
-      return Responses.createUnauthorizedResponse();
-    }
-
-    const parsedEmail = WorkoutValidation.validateEmail(session.user?.email);
+    const parsedEmail = WorkoutValidation.validateEmail(email);
 
     if (!parsedEmail.success) {
       return Responses.createForbiddenResponse();
     }
 
-    const parsedWorkoutData = await this.workoutsService.getWorkoutCollections({
-      email: parsedEmail.data,
-    });
+    const parsedWorkoutData =
+      await this.workoutsService.getWorkoutCollections();
 
     return Responses.createJSONResponse(parsedWorkoutData);
   }

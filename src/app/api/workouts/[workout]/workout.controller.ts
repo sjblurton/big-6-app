@@ -1,41 +1,38 @@
-import { getServerSession } from "next-auth";
-import { Responses } from "@/modules/rest/responses/responses";
+import {Responses} from "@/modules/rest/responses/responses";
 import WorkoutValidation from "@/modules/model/workouts/WorkoutValidation";
-import { ZodError } from "zod";
-import { WorkoutService } from "./workout.service";
-import authOptions from "../../auth/authOptions";
+import {ZodError} from "zod";
+import {WorkoutService} from "./workout.service";
 
 class WorkoutController {
+  request: Request;
+
   workoutCollection: string;
 
   constructor(
     request: Request,
-    params: { workout: string },
+    params: {workout: string},
     private readonly workoutService: WorkoutService = new WorkoutService(
-      request,
-    ),
+      request
+    )
   ) {
     this.workoutCollection = params.workout;
+    this.request = request;
   }
 
   async GET(): Promise<Response> {
-    const session = await getServerSession(authOptions);
+    const email = this.request.headers.get("x-user-email");
 
-    if (!session) {
-      return Responses.createUnauthorizedResponse();
-    }
+    const parsedEmail = WorkoutValidation.validateEmail(email);
 
     const parsedWorkoutCollection = WorkoutValidation.validateWorkoutCollection(
-      this.workoutCollection,
+      this.workoutCollection
     );
 
     if (!parsedWorkoutCollection.success) {
       return Responses.createNotFoundResponse(
-        `Workout collection ${this.workoutCollection} not found`,
+        `Workout collection ${this.workoutCollection} not found`
       );
     }
-
-    const parsedEmail = WorkoutValidation.validateEmail(session.user?.email);
 
     if (!parsedEmail.success) {
       return Responses.createForbiddenResponse();
@@ -48,7 +45,6 @@ class WorkoutController {
     }
 
     const parsedWorkoutData = await this.workoutService.getWorkoutCollection({
-      email: parsedEmail.data,
       workoutCollection: parsedWorkoutCollection.data,
     });
 
