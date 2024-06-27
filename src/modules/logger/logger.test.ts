@@ -11,7 +11,7 @@ jest.mock("pino", () => {
           colorize: true,
         },
       },
-    })
+    }),
   );
 });
 

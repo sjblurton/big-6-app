@@ -1,4 +1,4 @@
-import {ApiError, API_ERROR_NAMES, HTTP_ERROR_CODES} from "./ApiErrors";
+import { ApiError, API_ERROR_NAMES, HTTP_ERROR_CODES } from "./ApiErrors";
 
 describe("ApiError", () => {
   it("should create an ApiError instance with the correct properties", () => {

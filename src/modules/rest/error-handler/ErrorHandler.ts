@@ -1,4 +1,4 @@
-import {ApiError} from "./ApiErrors";
+import { ApiError } from "./ApiErrors";
 import logger from "../../logger/logger";
 
 class ErrorHandler {
@@ -22,7 +22,7 @@ class ErrorHandler {
       return new ApiError(
         "INTERNAL_SERVER_ERROR",
         500,
-        "Internal Server Error"
+        "Internal Server Error",
       );
     }
     return this.error;

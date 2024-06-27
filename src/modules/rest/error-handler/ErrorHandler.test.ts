@@ -1,5 +1,5 @@
 import logger from "../../logger/logger";
-import {ApiError, API_ERROR_NAMES, HTTP_ERROR_CODES} from "./ApiErrors";
+import { ApiError, API_ERROR_NAMES, HTTP_ERROR_CODES } from "./ApiErrors";
 import ErrorHandler from "./ErrorHandler";
 
 jest.mock("../../logger/logger", () => ({
@@ -22,7 +22,7 @@ describe("ErrorHandler", () => {
       API_ERROR_NAMES.UNAUTHORIZED,
       HTTP_ERROR_CODES.UNAUTHORIZED,
       "Unauthorized access",
-      true
+      true,
     );
 
     const errorHandler = new ErrorHandler(error, mockRequest);
@@ -41,10 +41,10 @@ describe("ErrorHandler", () => {
     expect(logger.error).toHaveBeenCalledWith(error);
     expect(result).toBeInstanceOf(ApiError);
     expect((result as ApiError).name).toBe(
-      API_ERROR_NAMES.INTERNAL_SERVER_ERROR
+      API_ERROR_NAMES.INTERNAL_SERVER_ERROR,
     );
     expect((result as ApiError).httpCode).toBe(
-      HTTP_ERROR_CODES.INTERNAL_SERVER_ERROR
+      HTTP_ERROR_CODES.INTERNAL_SERVER_ERROR,
     );
     expect((result as ApiError).message).toBe("Internal Server Error");
   });
@@ -54,7 +54,7 @@ describe("ErrorHandler", () => {
       API_ERROR_NAMES.INTERNAL_SERVER_ERROR,
       HTTP_ERROR_CODES.INTERNAL_SERVER_ERROR,
       "Some critical error",
-      false
+      false,
     );
 
     const errorHandler = new ErrorHandler(error, mockRequest);

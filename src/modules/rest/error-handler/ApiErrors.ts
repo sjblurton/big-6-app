@@ -29,7 +29,7 @@ export class ApiError extends Error {
     name: ApiErrorNames,
     httpCode: HttpCode,
     description: string,
-    isOperational = true
+    isOperational = true,
   ) {
     super(description);
 
