@@ -1,8 +1,13 @@
 import { WorkoutCollections, WorkoutData } from "@/modules/model/workouts";
-import { limitBySchema } from "@/modules/model/rest/openapiSchema";
+
 import GetWorkoutData from "@/modules/database/get/workout/getWortoutData";
 import { z } from "zod";
-import { ApiError } from "next/dist/server/api-utils";
+import { limitBySchema } from "@/modules/model/rest/routes/workouts/workout/querySchema";
+import {
+  API_ERROR_NAMES,
+  ApiError,
+  HTTP_ERROR_CODES,
+} from "@/modules/rest/error-handler/ApiErrors";
 
 export class WorkoutService {
   private readonly request: Request;
@@ -32,15 +37,8 @@ export class WorkoutService {
   }): Promise<WorkoutData[]> {
     return this.getWorkoutData.getWorkoutData(
       workoutCollection,
-      this.getSearchParams(),
+      this.validateSearchParams(),
     );
-  }
-
-  private getSearchParams() {
-    const { searchParams } = new URL(this.request.url);
-    const value = searchParams.get("limitBy");
-    const limitBy = value ? parseInt(value, 10) : undefined;
-    return limitBySchema.parse(limitBy);
   }
 
   validateSearchParams() {
@@ -51,11 +49,12 @@ export class WorkoutService {
     const safeLimitBy = limitBySchema.safeParse(limitBy);
 
     if (!safeLimitBy.success) {
-      throw new ApiError(
-        400,
-        "limitBy parameter should be a integer 1 or greater",
-      );
+      throw new ApiError({
+        codeName: API_ERROR_NAMES.BAD_REQUEST,
+        httpCode: HTTP_ERROR_CODES.BAD_REQUEST,
+        description: "Invalid limitBy parameter: must be a positive integer",
+      });
     }
-    return true;
+    return safeLimitBy.data;
   }
 }

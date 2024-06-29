@@ -1,9 +1,13 @@
-import { WorkoutData, workoutSchema } from "@/modules/model/workouts";
+import {
+  WorkoutCollections,
+  WorkoutData,
+  workoutSchema,
+} from "@/modules/model/workouts";
 import { extendApi, generateSchema } from "@anatine/zod-openapi";
 import { generateMock } from "@anatine/zod-mock";
 import { z } from "zod";
 import { faker } from "@faker-js/faker";
-import { COLLECTION_NAMES } from "@/modules/database/config/db";
+import { WORKOUT_COLLECTIONS } from "@/modules/database/config/db";
 
 const mockExampleFields = (workout: string): WorkoutData[] => {
   const mock = generateMock(workoutSchema.array(), {
@@ -29,7 +33,9 @@ const mockExampleFields = (workout: string): WorkoutData[] => {
   }));
 };
 
-const generateWorkoutResponseSchema = (workoutName: string) =>
+export const generateWorkoutResponseSchema = (
+  workoutName: WorkoutCollections,
+) =>
   extendApi(
     workoutSchema.array().openapi({
       example: mockExampleFields(workoutName),
@@ -37,7 +43,7 @@ const generateWorkoutResponseSchema = (workoutName: string) =>
   );
 
 const workoutSchemas = Object.fromEntries(
-  Object.values(COLLECTION_NAMES).map((name) => [
+  Object.values(WORKOUT_COLLECTIONS).map((name) => [
     name,
     generateWorkoutResponseSchema(name),
   ]),

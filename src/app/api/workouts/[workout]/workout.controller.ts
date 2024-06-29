@@ -26,8 +26,6 @@ class WorkoutController {
 
     WorkoutValidation.validateWorkoutCollection(this.workoutCollection);
 
-    this.workoutService.validateSearchParams();
-
     const parsedWorkoutData = await this.workoutService.getWorkoutCollection({
       workoutCollection: this.workoutCollection,
     });
