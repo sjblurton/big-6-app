@@ -16,11 +16,13 @@
     "prepare": "husky install",
     "test": "jest",
     "test:watch": "jest --watch",
-    "test:coverage": "jest --collect-coverage"
+    "test:coverage": "jest --collect-coverage",
+    "precommit": "npm run generate-scss-types && npm run lint && npm run check-types && npm run format && npm run lint:styles && npm run stylelint-scss-check && npm run test:coverage"
   },
   "dependencies": {
     "@anatine/zod-mock": "^3.13.4",
     "@anatine/zod-openapi": "^2.2.6",
+    "@faker-js/faker": "^8.4.1",
     "@firebase/firestore": "^4.6.1",
     "@ts-rest/core": "^3.45.2",
     "@ts-rest/next": "^3.45.2",
@@ -37,7 +39,8 @@
     "sass": "^1.77.5",
     "swagger-ui-react": "^5.17.14",
     "ts-node": "^10.9.2",
-    "zod": "^3.23.8"
+    "zod": "^3.23.8",
+    "zod-validation-error": "^3.3.0"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.24.7",

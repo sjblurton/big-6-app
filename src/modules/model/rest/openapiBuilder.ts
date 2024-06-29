@@ -1,5 +1,5 @@
 import { OpenApiBuilder } from "openapi3-ts/oas31";
-import workoutsPath from "./routes/workouts";
+import workoutsPath from "./routes/workouts/workouts";
 import workoutPath from "./routes/workout";
 
 function buildOas() {

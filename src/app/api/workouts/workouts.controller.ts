@@ -1,13 +1,12 @@
-import { Responses } from "@/modules/rest/responses/responses";
 import WorkoutValidation from "@/modules/model/workouts/WorkoutValidation";
-
+import { NextRequest, NextResponse } from "next/server";
 import { WorkoutsService } from "./workouts.service";
 
 class WorkoutsController {
-  request: Request;
+  request: NextRequest;
 
   constructor(
-    request: Request,
+    request: NextRequest,
     private readonly workoutsService: WorkoutsService = new WorkoutsService(
       request,
     ),
@@ -16,18 +15,14 @@ class WorkoutsController {
   }
 
   async GET(): Promise<Response> {
-    const email = this.request.headers.get("x-user-email");
-
-    const parsedEmail = WorkoutValidation.validateEmail(email);
-
-    if (!parsedEmail.success) {
-      return Responses.createForbiddenResponse();
-    }
+    WorkoutValidation.validateEmail(this.request.headers.get("x-user-email"));
 
     const parsedWorkoutData =
       await this.workoutsService.getWorkoutCollections();
 
-    return Responses.createJSONResponse(parsedWorkoutData);
+    return NextResponse.json({
+      ...parsedWorkoutData,
+    });
   }
 }
 

@@ -1,16 +1,16 @@
-import { Responses } from "@/modules/rest/responses/responses";
 import WorkoutValidation from "@/modules/model/workouts/WorkoutValidation";
-import { ZodError } from "zod";
+import { WorkoutCollections } from "@/modules/model/workouts";
+import { NextResponse } from "next/server";
 import { WorkoutService } from "./workout.service";
 
 class WorkoutController {
   request: Request;
 
-  workoutCollection: string;
+  workoutCollection: WorkoutCollections;
 
   constructor(
     request: Request,
-    params: { workout: string },
+    params: { workout: WorkoutCollections },
     private readonly workoutService: WorkoutService = new WorkoutService(
       request,
     ),
@@ -22,33 +22,19 @@ class WorkoutController {
   async GET(): Promise<Response> {
     const email = this.request.headers.get("x-user-email");
 
-    const parsedEmail = WorkoutValidation.validateEmail(email);
+    WorkoutValidation.validateEmail(email);
 
-    const parsedWorkoutCollection = WorkoutValidation.validateWorkoutCollection(
-      this.workoutCollection,
-    );
+    WorkoutValidation.validateWorkoutCollection(this.workoutCollection);
 
-    if (!parsedWorkoutCollection.success) {
-      return Responses.createNotFoundResponse(
-        `Workout collection ${this.workoutCollection} not found`,
-      );
-    }
-
-    if (!parsedEmail.success) {
-      return Responses.createForbiddenResponse();
-    }
-
-    const isValidSearchParam = this.workoutService.validateSearchParams();
-
-    if (isValidSearchParam instanceof ZodError) {
-      return Responses.createJSONBadRequestResponse(isValidSearchParam.errors);
-    }
+    this.workoutService.validateSearchParams();
 
     const parsedWorkoutData = await this.workoutService.getWorkoutCollection({
-      workoutCollection: parsedWorkoutCollection.data,
+      workoutCollection: this.workoutCollection,
     });
 
-    return Responses.createJSONResponse(parsedWorkoutData);
+    return NextResponse.json({
+      ...parsedWorkoutData,
+    });
   }
 }
 

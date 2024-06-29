@@ -27,17 +27,20 @@ const workoutSchema = z.object({
         nanoseconds: 0,
       },
     }),
-  reps: z.array(z.number()).openapi({
-    title: "Reps",
-    description: "An array with the number of reps, one for each set",
-    example: [10, 10, 10],
-  }),
+  reps: z
+    .array(z.number().min(1).max(200))
+    .max(100)
+    .openapi({
+      title: "Reps",
+      description: "An array with the number of reps, one for each set",
+      example: [10, 10, 10],
+    }),
   level: z.number().min(1).max(10).int().openapi({
     title: "Level",
     description: "The level of the workout from 1 to 10",
     example: 5,
   }),
-  workout: workoutCollectionsSchema.openapi({
+  workout: z.string().openapi({
     title: "Workout",
     description: "The name of the workout",
     example: "pull-ups",

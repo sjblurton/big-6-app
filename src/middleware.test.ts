@@ -3,6 +3,7 @@ import { getToken } from "next-auth/jwt";
 import { NextRequest, NextResponse } from "next/server";
 import ErrorHandler from "./modules/rest/error-handler/ErrorHandler";
 import { middleware } from "./middleware";
+import { ApiError } from "./modules/rest/error-handler/ApiErrors";
 
 jest.mock("next-auth/jwt", () => ({
   getToken: jest.fn(),
@@ -54,13 +55,13 @@ describe("middleware", () => {
     expect(headers.get("x-user-email")).toBe(testEmail);
   });
 
-  it("should throw an error and call ErrorHandler.handle when no token is provided", async () => {
+  it("should call the error handler with a ApiError", async () => {
     (getToken as jest.Mock).mockResolvedValue(null);
 
     const response = await middleware(req);
 
     expect(getToken).toHaveBeenCalledWith({ req, secret });
-    expect(ErrorHandler).toHaveBeenCalledWith(expect.any(Error), req);
+    expect(ErrorHandler).toHaveBeenCalledWith(expect.any(ApiError));
     expect(response).toBe("ErrorHandlerResponse");
   });
 
@@ -71,17 +72,17 @@ describe("middleware", () => {
     const response = await middleware(req);
 
     expect(getToken).toHaveBeenCalledWith({ req, secret });
-    expect(ErrorHandler).toHaveBeenCalledWith(expect.any(Error), req);
+    expect(ErrorHandler).toHaveBeenCalledWith(expect.any(ApiError));
     expect(response).toBe("ErrorHandlerResponse");
   });
 
   it("should handle errors and call ErrorHandler.handle", async () => {
-    (getToken as jest.Mock).mockRejectedValue(new Error("Test error"));
-
+    const testError = new Error("Test error");
+    (getToken as jest.Mock).mockRejectedValue(testError);
     const response = await middleware(req);
 
     expect(getToken).toHaveBeenCalledWith({ req, secret });
-    expect(ErrorHandler).toHaveBeenCalledWith(expect.any(Error), req);
+    expect(ErrorHandler).toHaveBeenCalledWith(testError);
     expect(response).toBe("ErrorHandlerResponse");
   });
 });

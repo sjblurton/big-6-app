@@ -2,6 +2,7 @@ import { WorkoutCollections, WorkoutData } from "@/modules/model/workouts";
 import { limitBySchema } from "@/modules/model/rest/openapiSchema";
 import GetWorkoutData from "@/modules/database/get/workout/getWortoutData";
 import { z } from "zod";
+import { ApiError } from "next/dist/server/api-utils";
 
 export class WorkoutService {
   private readonly request: Request;
@@ -50,7 +51,10 @@ export class WorkoutService {
     const safeLimitBy = limitBySchema.safeParse(limitBy);
 
     if (!safeLimitBy.success) {
-      return safeLimitBy.error;
+      throw new ApiError(
+        400,
+        "limitBy parameter should be a integer 1 or greater",
+      );
     }
     return true;
   }

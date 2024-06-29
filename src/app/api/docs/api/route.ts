@@ -1,6 +1,6 @@
 import buildOas from "@/modules/model/rest/openapiBuilder";
-import { Responses } from "@/modules/rest/responses/responses";
+import { NextResponse } from "next/server";
 
 export async function GET() {
-  return Responses.createJSONCreatedResponse(buildOas());
+  return NextResponse.json(buildOas());
 }
