@@ -4,7 +4,7 @@ import {
   ApiError,
   HTTP_ERROR_CODES,
 } from "@/modules/rest/error-handler/ApiErrors";
-import GetWorkoutData from "@/modules/database/get/workout/getWortoutData";
+import GetWorkoutData from "@/modules/database/get/workout/getWorkoutData";
 import { NextRequest } from "next/server";
 
 // Abstract class

@@ -16,13 +16,13 @@ class GetWorkoutData {
 
   private queries: DatabaseQueries;
 
-  private workoutNames: WorkoutsData;
+  private workoutData: WorkoutsData;
 
   constructor(email: string) {
     this.email = email;
     this.queries = new DatabaseQueries(this.email);
 
-    this.workoutNames = {
+    this.workoutData = {
       [COLLECTION_NAMES.LEG_RAISES]: [],
       [COLLECTION_NAMES.PULL_UPS]: [],
       [COLLECTION_NAMES.BRIDGES]: [],
@@ -59,7 +59,7 @@ class GetWorkoutData {
       workoutCollectionPromises,
     );
 
-    this.workoutNames = workoutCollectionResults.reduce(
+    this.workoutData = workoutCollectionResults.reduce(
       (acc, { workoutType, collectionData }) => {
         acc[workoutType] = collectionData;
         return acc;
@@ -67,7 +67,7 @@ class GetWorkoutData {
       {} as WorkoutsData,
     );
 
-    return workoutsSchema.parse(this.workoutNames);
+    return workoutsSchema.parse(this.workoutData);
   }
 }
 

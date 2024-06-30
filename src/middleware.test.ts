@@ -36,20 +36,26 @@ describe("middleware", () => {
   afterEach(() => {
     jest.clearAllMocks();
   });
+
   const testEmail = "test@example.com";
+
   it("should call NextResponse.next with the request headers set when a valid token is provided", async () => {
     const token = { email: testEmail };
+
     (getToken as jest.Mock).mockResolvedValue(token);
 
     const response = await middleware(req);
 
     expect(getToken).toHaveBeenCalledWith({ req, secret });
+
     expect(response).toBe("NextResponse");
+
     expect(NextResponse.next).toHaveBeenCalledWith({
       request: expect.objectContaining({
         headers: expect.any(Headers),
       }),
     });
+
     const { headers } = (NextResponse.next as jest.Mock).mock.calls[0][0]
       .request;
     expect(headers.get("x-user-email")).toBe(testEmail);
@@ -61,28 +67,37 @@ describe("middleware", () => {
     const response = await middleware(req);
 
     expect(getToken).toHaveBeenCalledWith({ req, secret });
+
     expect(ErrorHandler).toHaveBeenCalledWith(expect.any(ApiError));
+
     expect(response).toBe("ErrorHandlerResponse");
   });
 
   it("should throw an error and call ErrorHandler.handle when token has no email", async () => {
     const token = { email: null };
+
     (getToken as jest.Mock).mockResolvedValue(token);
 
     const response = await middleware(req);
 
     expect(getToken).toHaveBeenCalledWith({ req, secret });
+
     expect(ErrorHandler).toHaveBeenCalledWith(expect.any(ApiError));
+
     expect(response).toBe("ErrorHandlerResponse");
   });
 
   it("should handle errors and call ErrorHandler.handle", async () => {
     const testError = new Error("Test error");
+
     (getToken as jest.Mock).mockRejectedValue(testError);
+
     const response = await middleware(req);
 
     expect(getToken).toHaveBeenCalledWith({ req, secret });
+
     expect(ErrorHandler).toHaveBeenCalledWith(testError);
+
     expect(response).toBe("ErrorHandlerResponse");
   });
 });

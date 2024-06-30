@@ -22,12 +22,12 @@ export class WorkoutService extends BaseService<WorkoutData[]> {
 
   async getServiceData() {
     return this.getWorkoutData.getWorkoutData(
-      this.validateParams(),
+      this.validateUrlParams(),
       this.validateSearchParams(),
     );
   }
 
-  private validateParams() {
+  private validateUrlParams() {
     const safeWorkout = workoutCollectionsSchema.safeParse(
       this.workoutCollection,
     );
