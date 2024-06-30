@@ -3,6 +3,6 @@ import BaseService from "./base.service";
 
 export class WorkoutsService extends BaseService<WorkoutsData> {
   async getServiceData() {
-    return this.getWorkoutData.getWorkoutsData(12);
+    return this.getWorkoutData.getWorkoutsData();
   }
 }

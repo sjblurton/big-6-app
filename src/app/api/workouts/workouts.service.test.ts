@@ -28,14 +28,13 @@ describe("WorkoutsService", () => {
     expect(workoutsService).toBeDefined();
   });
 
-  it("should call GetWorkoutsData.getWorkoutsData with the correct argument", async () => {
+  it("should call GetWorkoutsData.getWorkoutsData", async () => {
     const mockReturnValue = "Mocked data";
     getWorkoutsDataMock.mockResolvedValue(mockReturnValue);
 
     const result = await workoutsService.getServiceData();
 
     expect(getWorkoutsDataMock).toHaveBeenCalledTimes(1);
-    expect(getWorkoutsDataMock).toHaveBeenCalledWith(12);
     expect(result).toEqual(mockReturnValue);
   });
 });

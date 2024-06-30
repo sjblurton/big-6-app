@@ -1,16 +1,14 @@
 import { NextRequest } from "next/server";
 
-import { mockExampleWorkouts } from "@/modules/model/rest/routes/workouts-id/mockData/workoutMock";
+import GetWorkoutData from "@/modules/database/get/workout/getWorkoutData";
+import { hardCodedMockWorkout } from "@/modules/model/rest/routes/workouts-id/mockData/workoutMock";
 import { WorkoutCollections } from "../../../../modules/model/rest/routes/workouts/inputs/inputs";
 import { WorkoutService } from "./workout.service";
-import GetWorkoutData from "../../../../modules/database/get/workout/getWorkoutData";
 
 describe("WorkoutService", () => {
   const testEmail = "test@example.com";
 
   let workoutService: WorkoutService;
-
-  let getWorkoutDataMock: jest.Mock;
 
   const mockRequest = {
     headers: new Headers({
@@ -23,11 +21,7 @@ describe("WorkoutService", () => {
 
   beforeEach(() => {
     jest.clearAllMocks();
-    getWorkoutDataMock = jest.fn();
 
-    jest
-      .spyOn(GetWorkoutData.prototype, "getWorkoutData")
-      .mockImplementation(getWorkoutDataMock);
     workoutService = new WorkoutService(mockRequest, mockWorkoutCollection);
   });
 
@@ -36,17 +30,14 @@ describe("WorkoutService", () => {
   });
 
   it("should call getServiceData", async () => {
-    const mockReturnValue = mockExampleWorkouts({
-      entries: 5,
-      workout: mockWorkoutCollection,
-    });
-
-    getWorkoutDataMock.mockResolvedValue(mockReturnValue);
+    const mockResult = hardCodedMockWorkout(mockWorkoutCollection, 5);
+    const getWorkoutDataMock = jest.spyOn(GetWorkoutData, "getWorkoutData");
+    getWorkoutDataMock.mockReturnValue(mockResult);
 
     const result = await workoutService.getServiceData();
 
     expect(getWorkoutDataMock).toHaveBeenCalledTimes(1);
     expect(getWorkoutDataMock).toHaveBeenCalledWith(mockWorkoutCollection, 5);
-    expect(result).toEqual(mockReturnValue);
+    expect(result).toEqual(mockResult);
   });
 });

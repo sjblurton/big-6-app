@@ -1,7 +1,7 @@
 import { generateMock } from "@anatine/zod-mock";
-import { faker } from "@faker-js/faker";
+
 import { WorkoutCollections, workoutCollectionsSchema } from "../inputs/inputs";
-import { workoutsSchema } from "../outputs/workoutsDataSchemas";
+import { WorkoutsData, workoutsSchema } from "../outputs/workoutsDataSchemas";
 import { WorkoutData } from "../../workouts-id/outputs/workoutDataSchemas";
 
 export function mockExampleWorkouts(
@@ -10,21 +10,41 @@ export function mockExampleWorkouts(
   const mock = generateMock(workoutsSchema);
   Object.entries(mock).forEach(([workout, entries]) => {
     const parsedWorkout = workoutCollectionsSchema.parse(workout);
-    mock[parsedWorkout] = entries.map((entry) => ({
+    mock[parsedWorkout] = entries.map((entry, i) => ({
       ...entry,
       user: email,
       date: {
-        seconds: faker.date.recent().getTime(),
+        seconds: 1719673447005,
         nanoseconds: 0,
       },
-      reps: [
-        faker.number.int({ max: 20, min: 1 }),
-        faker.number.int({ max: 20, min: 1 }),
-        faker.number.int({ max: 20, min: 1 }),
-      ].sort((a, b) => a - b),
-      key: faker.string.uuid(),
+      workout,
+      reps: [20, 15, 10].sort((a, b) => a - b),
+      level: 10,
+      key: `0ec2272c-51c9-4972-9438-3d2cb49834cc-${i}`,
+      comments: "This is a comment",
     }));
   });
 
   return mock;
 }
+
+export const hardCodedMockWorkouts = (email: string): WorkoutsData => {
+  const exampleWorkout = (workout: WorkoutCollections): WorkoutData => ({
+    key: "0ec2272c-51c9-4972-9438-3d2cb49834cc-0",
+    date: { seconds: 1719673447005, nanoseconds: 0 },
+    reps: [10, 15, 20],
+    level: 10,
+    comments: "This is a comment",
+    user: email,
+    workout,
+  });
+
+  return workoutsSchema.parse({
+    "pull-ups": Array(2).fill(exampleWorkout("pull-ups")),
+    "push-ups": Array(2).fill(exampleWorkout("push-ups")),
+    squats: Array(2).fill(exampleWorkout("squats")),
+    handstands: Array(2).fill(exampleWorkout("handstands")),
+    bridges: Array(2).fill(exampleWorkout("bridges")),
+    "leg-raises": Array(2).fill(exampleWorkout("leg-raises")),
+  });
+};

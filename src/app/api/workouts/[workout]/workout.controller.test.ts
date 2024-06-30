@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { WorkoutCollections } from "@/modules/model/rest/routes/workouts/inputs/inputs";
-import { mockExampleWorkouts } from "@/modules/model/rest/routes/workouts-id/mockData/workoutMock";
+import { mockExampleWorkout } from "@/modules/model/rest/routes/workouts-id/mockData/workoutMock";
 import WorkoutController from "./workout.controller";
 
 jest.mock("next/server", () => ({
@@ -44,7 +44,7 @@ describe("WorkoutController", () => {
   });
 
   it("should return a valid response when calling GET()", async () => {
-    const mockResponse = mockExampleWorkouts({
+    const mockResponse = mockExampleWorkout({
       entries: 5,
       workout: mockWorkoutCollection,
     });

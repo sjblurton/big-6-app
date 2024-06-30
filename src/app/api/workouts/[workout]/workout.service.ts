@@ -10,6 +10,7 @@ import {
   HTTP_ERROR_CODES,
 } from "@/modules/rest/error-handler/ApiErrors";
 import { NextRequest } from "next/server";
+import GetWorkoutData from "@/modules/database/get/workout/getWorkoutData";
 import BaseService from "../base.service";
 
 export class WorkoutService extends BaseService<WorkoutData[]> {
@@ -21,7 +22,7 @@ export class WorkoutService extends BaseService<WorkoutData[]> {
   }
 
   async getServiceData() {
-    return this.getWorkoutData.getWorkoutData(
+    return GetWorkoutData.getWorkoutData(
       this.validateUrlParams(),
       this.validateSearchParams(),
     );
