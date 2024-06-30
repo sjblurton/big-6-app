@@ -1,6 +1,6 @@
 import { OpenApiBuilder } from "openapi3-ts/oas31";
-import workoutsPath from "./routes/workouts/workouts";
-import workoutPath from "./routes/workouts/workout/workout";
+import workoutsPath from "./routes/workouts/openApiRouteWorkouts";
+import workoutPath from "./routes/workouts-id/openApiRouteWorkout";
 
 function buildOas() {
   const test = OpenApiBuilder.create()

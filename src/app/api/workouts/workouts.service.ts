@@ -1,44 +1,8 @@
-import { WorkoutCollections, WorkoutData } from "@/modules/model/workouts";
-import { WORKOUT_COLLECTIONS } from "@/modules/database/config/db";
-import { WorkoutService } from "./[workout]/workout.service";
+import { WorkoutsData } from "@/modules/model/rest/routes/workouts/outputs/workoutsDataSchemas";
+import BaseService from "./base.service";
 
-export class WorkoutsService {
-  request: Request;
-
-  workoutService: WorkoutService;
-
-  constructor(request: Request) {
-    this.request = request;
-    this.workoutService = new WorkoutService(request);
-  }
-
-  async getWorkoutCollections() {
-    const workoutData: Record<WorkoutCollections, WorkoutData[]> = {
-      "leg-raises": [],
-      "pull-ups": [],
-      "push-ups": [],
-      squats: [],
-      handstands: [],
-      bridges: [],
-    };
-
-    const workoutCollectionPromises = WORKOUT_COLLECTIONS.map(
-      async (workoutType) => {
-        const collectionData = await this.workoutService.getWorkoutCollection({
-          workoutCollection: workoutType,
-        });
-        return { workoutType, collectionData };
-      },
-    );
-
-    const workoutCollectionResults = await Promise.all(
-      workoutCollectionPromises,
-    );
-
-    workoutCollectionResults.forEach(({ workoutType, collectionData }) => {
-      workoutData[workoutType] = collectionData;
-    });
-
-    return workoutData;
+export class WorkoutsService extends BaseService<WorkoutsData> {
+  async getServiceData() {
+    return this.getWorkoutData.getWorkoutsData(12);
   }
 }

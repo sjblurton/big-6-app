@@ -1,6 +1,6 @@
 import type { PathItemObject } from "openapi3-ts/oas31";
-import { workoutsOpenApiSchema } from "./responsSechema";
-import { commonOpenApiErrorResponses } from "../../errorResponse";
+import { workoutsOpenApiSchema } from "./outputs/responseSechema";
+import { commonOpenApiErrorResponses } from "../shared/openApiErrorResponse";
 
 const workoutsPath: PathItemObject = {
   get: {

@@ -1,8 +1,10 @@
 import type { PathItemObject } from "openapi3-ts/oas31";
 import { WORKOUT_COLLECTIONS } from "@/modules/database/config/db";
-import { workoutOpenApiSchema } from "./responseSchema";
-import { commonOpenApiErrorResponses } from "../../../errorResponse";
-import { error400ResponseOpenApiSchema } from "./errorRosponse";
+import { workoutOpenApiSchema } from "./outputs/responseSchema";
+import {
+  commonOpenApiErrorResponses,
+  errorResponseOpenApiSchema,
+} from "../shared/openApiErrorResponse";
 
 const workoutPath: PathItemObject = {
   get: {
@@ -33,7 +35,7 @@ const workoutPath: PathItemObject = {
         description: "Successful response",
         content: {
           "application/json": {
-            schema: workoutOpenApiSchema(WORKOUT_COLLECTIONS[0]),
+            schema: workoutOpenApiSchema,
           },
         },
       },
@@ -42,7 +44,7 @@ const workoutPath: PathItemObject = {
         description: "Bad request",
         content: {
           "application/json": {
-            schema: error400ResponseOpenApiSchema,
+            schema: errorResponseOpenApiSchema,
           },
         },
       },

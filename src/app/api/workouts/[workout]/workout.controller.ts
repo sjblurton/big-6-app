@@ -1,38 +1,22 @@
-import WorkoutValidation from "@/modules/model/workouts/WorkoutValidation";
-import { WorkoutCollections } from "@/modules/model/workouts";
-import { NextResponse } from "next/server";
+import { NextRequest } from "next/server";
+import { WorkoutData } from "@/modules/model/rest/routes/workouts-id/outputs/workoutDataSchemas";
+import { WorkoutCollections } from "@/modules/model/rest/routes/workouts/inputs/inputs";
 import { WorkoutService } from "./workout.service";
+import BaseController from "../base.controller";
 
-class WorkoutController {
-  request: Request;
+class WorkoutController extends BaseController<WorkoutData[]> {
+  private readonly workoutService: WorkoutService;
 
   workoutCollection: WorkoutCollections;
 
-  constructor(
-    request: Request,
-    params: { workout: WorkoutCollections },
-    private readonly workoutService: WorkoutService = new WorkoutService(
-      request,
-    ),
-  ) {
+  constructor(request: NextRequest, params: { workout: WorkoutCollections }) {
+    super(request);
     this.workoutCollection = params.workout;
-    this.request = request;
+    this.workoutService = new WorkoutService(request, params.workout);
   }
 
-  async GET(): Promise<Response> {
-    const email = this.request.headers.get("x-user-email");
-
-    WorkoutValidation.validateEmail(email);
-
-    WorkoutValidation.validateWorkoutCollection(this.workoutCollection);
-
-    const parsedWorkoutData = await this.workoutService.getWorkoutCollection({
-      workoutCollection: this.workoutCollection,
-    });
-
-    return NextResponse.json({
-      ...parsedWorkoutData,
-    });
+  async getServiceData() {
+    return this.workoutService.getServiceData();
   }
 }
 

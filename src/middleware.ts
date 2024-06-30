@@ -47,5 +47,5 @@ export async function middleware(req: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/api/workouts/:path*"],
+  matcher: ["/api/workouts/:path*", "/api/workouts"],
 };

@@ -3,8 +3,12 @@ import {
   getDocs,
   WORKOUT_COLLECTIONS,
 } from "@/modules/database/config/db";
-import WorkoutValidation from "@/modules/model/workouts/WorkoutValidation";
-import { WorkoutCollections, WorkoutData } from "@/modules/model/workouts";
+
+import {
+  WorkoutsData,
+  workoutsSchema,
+} from "@/modules/model/rest/routes/workouts/outputs/workoutsDataSchemas";
+import { workoutSchema } from "@/modules/model/rest/routes/workouts-id/outputs/workoutDataSchemas";
 import DatabaseQueries from "./query";
 
 class GetWorkoutData {
@@ -12,7 +16,7 @@ class GetWorkoutData {
 
   private queries: DatabaseQueries;
 
-  private workoutNames: Record<WorkoutCollections, WorkoutData[]>;
+  private workoutNames: WorkoutsData;
 
   constructor(email: string) {
     this.email = email;
@@ -36,9 +40,12 @@ class GetWorkoutData {
         key: doc.id,
         ...doc.data(),
       };
-      return WorkoutValidation.validateWorkoutEmailLiteral(workout, this.email);
+      return workout;
     });
-    return workoutColList.filter((workout) => workout !== null);
+
+    return workoutSchema
+      .array()
+      .parse(workoutColList.filter((workout) => workout !== null));
   }
 
   async getWorkoutsData(limitBy: number) {
@@ -52,11 +59,15 @@ class GetWorkoutData {
       workoutCollectionPromises,
     );
 
-    workoutCollectionResults.forEach(({ workoutType, collectionData }) => {
-      this.workoutNames[workoutType] = collectionData;
-    });
+    this.workoutNames = workoutCollectionResults.reduce(
+      (acc, { workoutType, collectionData }) => {
+        acc[workoutType] = collectionData;
+        return acc;
+      },
+      {} as WorkoutsData,
+    );
 
-    return this.workoutNames;
+    return workoutsSchema.parse(this.workoutNames);
   }
 }
 
