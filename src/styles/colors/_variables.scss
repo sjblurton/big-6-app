@@ -2,27 +2,32 @@
 
 $colors: (
   "common": (
-    "dark": #000,
-    "light": #fff,
+    "black": #000,
+    "white": #fff,
     "accent": #3b3b3b,
   ),
   "primary": (
     "main": #2b3953,
     "light": #34425d,
-    "contrast": #fff,
   ),
   "secondary": (
     "main": #f18701,
     "gradient": "linear-gradient(200deg, #f5af19 20%, #f12711 80%)",
-    "contrast": #fff,
   ),
   "error": (
-    "main": #ea2b2b,
-    "contrast": #fff,
+    "main": #f44336,
+    "dark": #d32f2f,
+    "light": #e57373,
   ),
   "success": (
-    "main": #31d0aa,
-    "contrast": #fff,
+    "main": #66bb6a,
+    "dark": #388e3c,
+    "light": #81c784,
+  ),
+  "warning": (
+    "main": #ffa726,
+    "dark": #f57c00,
+    "light": #ffb74d,
   ),
   "grey": (
     "100": #f5f5f5,

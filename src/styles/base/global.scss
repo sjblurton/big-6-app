@@ -1,0 +1,6 @@
+@use "../colors/functions" as color;
+
+body {
+  background-color: color.get-color("primary", "main");
+  color: color.get-color("common", "light");
+}

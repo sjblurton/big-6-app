@@ -1,8 +1,0 @@
-@use "../exports/mixin" as *;
-@use "./variables" as *;
-
-/* stylelint-disable */
-:export {
-  @include export-map($breakpoints, "breakpoint");
-}
-/* stylelint-enable */

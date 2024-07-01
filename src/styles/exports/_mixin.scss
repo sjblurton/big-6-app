@@ -1,7 +1,0 @@
-@use "./functions" as functions;
-
-@mixin export-map($map, $prefix: "") {
-  @each $key, $value in functions.generate-export($map, $prefix) {
-    #{$key}: $value;
-  }
-}
