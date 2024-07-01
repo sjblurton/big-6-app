@@ -1,0 +1,11 @@
+@use "./functions" as *;
+
+/* stylelint-disable */
+:export {
+  primary: get-color("primary", "main");
+  primaryLight: get-color("primary", "light");
+  secondaryLight: get-color("secondary", "light");
+  secondaryDark: get-color("secondary", "dark");
+  white: get-color("common", "white");
+}
+/* stylelint-enable */
