@@ -1,0 +1,27 @@
+@use "../../../styles/colors/functions" as color;
+
+.success {
+  background-color: color.get-color("success", "dark") !important;
+}
+
+.error {
+  background-color: color.get-color("error", "dark") !important;
+}
+
+.warning {
+  background-color: color.get-color("warning", "dark") !important;
+}
+
+.cell {
+  background-color: color.get-color("primary", "main");
+  color: color.get-color("common", "white");
+  font-weight: 700;
+}
+
+.hr {
+  text-transform: capitalize;
+}
+
+.white {
+  color: color.get-color("common", "white");
+}
