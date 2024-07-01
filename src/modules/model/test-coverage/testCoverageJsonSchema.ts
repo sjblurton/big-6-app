@@ -14,17 +14,17 @@ const fileCoverageSchema = z.object({
   branches: coverageMetricsSchema,
 });
 
-const totalCoverageSchema = z.object({
-  lines: coverageMetricsSchema,
-  statements: coverageMetricsSchema,
-  functions: coverageMetricsSchema,
-  branches: coverageMetricsSchema,
-  branchesTrue: coverageMetricsSchema,
+export const testCoverageSummarySchema = z.object({
+  key: z.string().uuid(),
+  name: z.string(),
+  lines: z.number(),
+  statements: z.number(),
+  functions: z.number(),
+  branches: z.number(),
 });
 
-const dynamicFilesSchema = z.record(z.string(), fileCoverageSchema);
+export const testCoverageJsonSchema = z.record(z.string(), fileCoverageSchema);
 
-export const testCoverageSchema = z.union([
-  totalCoverageSchema,
-  dynamicFilesSchema,
-]);
+export type TestCoverageData = z.infer<typeof fileCoverageSchema>;
+
+export type TestCoverageSummary = z.infer<typeof testCoverageSummarySchema>;

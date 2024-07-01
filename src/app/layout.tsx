@@ -1,4 +1,6 @@
 import "../styles/base/reset.scss";
+import "../styles/base/global.scss";
+import "../styles/main.scss";
 
 import { Metadata } from "next";
 import { Inter } from "next/font/google";

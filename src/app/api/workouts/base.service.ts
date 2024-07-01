@@ -7,7 +7,6 @@ import {
 import GetWorkoutData from "@/modules/database/get/workout/getWorkoutData";
 import { NextRequest } from "next/server";
 
-// Abstract class
 abstract class BaseService<Data> {
   protected request: NextRequest;
 
