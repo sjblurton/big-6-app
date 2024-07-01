@@ -1,0 +1,10 @@
+export { default as MuiContainer } from "@mui/material/Container";
+export { default as MuiBox } from "@mui/material/Box";
+export { default as MuiTypography } from "@mui/material/Typography";
+export { default as MuiTable } from "@mui/material/Table";
+export { default as MuiTableBody } from "@mui/material/TableBody";
+export { default as MuiTableCell } from "@mui/material/TableCell";
+export { default as MuiTableContainer } from "@mui/material/TableContainer";
+export { default as MuiTableHead } from "@mui/material/TableHead";
+export { default as MuiTableRow } from "@mui/material/TableRow";
+export { default as MuiPaper } from "@mui/material/Paper";
