@@ -6,15 +6,9 @@ import {
   testCoverageSummarySchema,
 } from "@/modules/model/test-coverage/testCoverageJsonSchema";
 import coverage from "./coverage-summary.json";
+import { tableColumnNames } from "./constants";
 
 const coverageData = testCoverageJsonSchema.parse(coverage);
-
-export const tableColumnNames = [
-  "lines",
-  "statements",
-  "functions",
-  "branches",
-] as const;
 
 function createData(name: string, data: TestCoverageData): TestCoverageSummary {
   const result: TestCoverageSummary = {
@@ -39,9 +33,10 @@ function parseName(name: string): string {
   return result;
 }
 
-const summarizedCoverageData = Object.entries(coverageData).map(
-  ([name, data]) => createData(parseName(name), data),
-);
+const summarizedCoverageData =
+  Object.entries(coverageData).map(([name, data]) =>
+    createData(parseName(name), data),
+  ) ?? [];
 
 function useCoverageData() {
   return testCoverageSummarySchema.array().parse(summarizedCoverageData);
