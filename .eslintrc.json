@@ -6,7 +6,8 @@
     "plugin:@typescript-eslint/recommended",
     "plugin:react/recommended",
     "plugin:jsx-a11y/recommended",
-    "prettier"
+    "prettier",
+    "plugin:storybook/recommended"
   ],
   "env": {
     "jest/globals": true
@@ -16,7 +17,9 @@
       "files": ["**.test.*"],
       "plugins": ["jest"],
       "extends": ["plugin:jest/recommended"],
-      "rules": { "import/no-extraneous-dependencies": "off" }
+      "rules": {
+        "import/no-extraneous-dependencies": "off"
+      }
     }
   ],
   "parser": "@typescript-eslint/parser",
@@ -33,7 +36,9 @@
     "@typescript-eslint/no-explicit-any": "error",
     "@typescript-eslint/no-unused-vars": [
       "error",
-      { "argsIgnorePattern": "^_" }
+      {
+        "argsIgnorePattern": "^_"
+      }
     ],
     "import/no-unresolved": "off",
     "import/prefer-default-export": "off",
@@ -54,10 +59,21 @@
     "jest/valid-expect": "error",
     "no-console": "error",
     "no-throw-literal": "error",
-    "quotes": ["error", "double", { "avoidEscape": true }],
+    "quotes": [
+      "error",
+      "double",
+      {
+        "avoidEscape": true
+      }
+    ],
     "react-hooks/exhaustive-deps": "warn",
     "react-hooks/rules-of-hooks": "error",
-    "react/jsx-filename-extension": [1, { "extensions": [".tsx"] }],
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [".tsx"]
+      }
+    ],
     "react/jsx-props-no-spreading": "off",
     "react/prop-types": "off",
     "react/react-in-jsx-scope": "off",
