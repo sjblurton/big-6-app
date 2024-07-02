@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 
 abstract class BaseController<Data> {
-  request: NextRequest;
+  protected readonly request: NextRequest;
 
   constructor(request: NextRequest) {
     this.request = request;

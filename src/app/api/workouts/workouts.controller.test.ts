@@ -30,13 +30,6 @@ describe("WorkoutsController", () => {
     } as NextRequest;
   });
 
-  it("should initialize WorkoutsController with request and WorkoutsService", () => {
-    const controller = new WorkoutsController(mockRequest);
-
-    expect(controller).toBeInstanceOf(WorkoutsController);
-    expect(controller.request).toBe(mockRequest);
-  });
-
   it("should call WorkoutsService.getServiceData() when calling getServiceData()", async () => {
     const mockResponse = mockExampleWorkouts();
 

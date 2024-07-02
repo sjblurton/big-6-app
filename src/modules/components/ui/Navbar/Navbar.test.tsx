@@ -1,32 +1,27 @@
 import React from "react";
 import { render, fireEvent, act, waitFor } from "@testing-library/react";
-import { useRouter } from "next/router";
+import { usePathname } from "next/navigation";
 import { toKebabCase } from "@/modules/strings/transform";
 import Navbar from "./Navbar";
 import { pages } from "./routes";
 
-const useRouterMock = useRouter as jest.Mock;
+jest.mock("next/navigation", () => ({
+  usePathname: jest.fn(),
+}));
 
-jest.mock("next/router", () => ({
-  useRouter: jest.fn(),
+const mockUsePathname = usePathname as jest.Mock;
+
+jest.mock("./routes", () => ({
+  __esModule: true,
+  pages: [],
 }));
 
 describe("Navbar", () => {
-  let mockPush: jest.Mock;
-
   beforeEach(() => {
-    mockPush = jest.fn();
     jest.clearAllMocks();
-    (useRouter as jest.Mock).mockReturnValue({
-      pathname: "/docs",
-      push: mockPush,
-      events: {
-        on: jest.fn(),
-        off: jest.fn(),
-      },
-      beforePopState: jest.fn(() => null),
-      prefetch: jest.fn(() => null),
-    });
+    jest.resetModules();
+    pages.pop();
+    mockUsePathname.mockReturnValue("/docs");
   });
 
   it("should render successfully", () => {
@@ -47,17 +42,7 @@ describe("Navbar", () => {
   });
 
   it("should display the active page name", () => {
-    (useRouterMock as jest.Mock).mockReturnValueOnce({
-      pathname: "/docs",
-      push: jest.fn(),
-      events: {
-        on: jest.fn(),
-        off: jest.fn(),
-      },
-      beforePopState: jest.fn(() => null),
-      prefetch: jest.fn(() => null),
-    });
-
+    pages.push({ name: "Docs", path: "/docs" });
     const { getByTestId } = render(<Navbar />);
     const activePage = getByTestId("nav-active-page");
     expect(activePage).toHaveTextContent("Docs");
@@ -76,6 +61,7 @@ describe("Navbar", () => {
   });
 
   it("should close the menu when a menu item is clicked", async () => {
+    pages.push({ name: "Home", path: "/" });
     const { getByTestId, queryByTestId } = render(<Navbar />);
     const menuButton = getByTestId("nav-menu-button");
 
@@ -96,6 +82,7 @@ describe("Navbar", () => {
   });
 
   it("should have <a> tags with all the path in the routes", async () => {
+    pages.push({ name: "Home", path: "/" });
     const { getByTestId, getAllByTestId } = render(<Navbar />);
     const menuButton = getByTestId("nav-menu");
 
@@ -116,6 +103,7 @@ describe("Navbar", () => {
   });
 
   it("should render all menu items", () => {
+    pages.push({ name: "Home", path: "/" });
     const { getByTestId } = render(<Navbar />);
     const menuButton = getByTestId("nav-menu-button");
 
@@ -127,5 +115,25 @@ describe("Navbar", () => {
       const menuItem = getByTestId(`nav-menu-item-${toKebabCase(name)}`);
       expect(menuItem).toBeTruthy();
     });
+  });
+
+  it("should handle empty pages array", async () => {
+    const { getByTestId, queryAllByTestId } = render(<Navbar />);
+    const menuButton = getByTestId("nav-menu-button");
+
+    act(() => {
+      fireEvent.click(menuButton);
+    });
+
+    const links = queryAllByTestId(/^nav-menu-link-.*$/);
+    expect(links).toHaveLength(0);
+  });
+
+  it("should handle a pathname that is not in the routes", () => {
+    mockUsePathname.mockReturnValueOnce("/not-found");
+
+    const { getByTestId } = render(<Navbar />);
+    const activePage = getByTestId("nav-active-page");
+    expect(activePage).toHaveTextContent("");
   });
 });

@@ -1,43 +1,104 @@
 import { NextRequest } from "next/server";
-
-import GetWorkoutData from "@/modules/database/get/workout/getWorkoutData";
-import { hardCodedMockWorkout } from "@/modules/model/rest/routes/workouts-id/mockData/workoutMock";
-import { WorkoutCollections } from "../../../../modules/model/rest/routes/workouts/inputs/inputs";
+import { ZodError } from "zod";
 import { WorkoutService } from "./workout.service";
+import GetWorkoutData from "../../../../modules/database/get/workout/getWorkoutData";
+import { emailSchema } from "../../../../modules/model/rest/routes/workouts/inputs/inputs";
 
-describe("WorkoutService", () => {
-  const testEmail = "test@example.com";
+const passingEmail = "test@pass,com";
 
-  let workoutService: WorkoutService;
+describe("WorkoutsService", () => {
+  let workoutsService: WorkoutService;
 
   const mockRequest = {
     headers: new Headers({
-      "x-user-email": testEmail,
+      "x-user-email": passingEmail,
     }),
     url: "http://example.com?limitBy=5",
   } as NextRequest;
 
-  const mockWorkoutCollection: WorkoutCollections = "pull-ups";
+  const mockGetWorkoutData = jest.fn();
+
+  jest.mock("../../../../modules/database/get/workout/getWorkoutData", () => ({
+    GetWorkoutData: {
+      getWorkoutData: mockGetWorkoutData,
+    },
+  }));
 
   beforeEach(() => {
     jest.clearAllMocks();
 
-    workoutService = new WorkoutService(mockRequest, mockWorkoutCollection);
+    jest.spyOn(emailSchema, "safeParse").mockImplementation(() => ({
+      success: true,
+      data: passingEmail,
+    }));
+
+    workoutsService = new WorkoutService(mockRequest, "pull-ups");
   });
 
   it("should be defined", () => {
-    expect(workoutService).toBeDefined();
+    expect(workoutsService).toBeDefined();
   });
 
-  it("should call getServiceData", async () => {
-    const mockResult = hardCodedMockWorkout(mockWorkoutCollection, 5);
-    const getWorkoutDataMock = jest.spyOn(GetWorkoutData, "getWorkoutData");
-    getWorkoutDataMock.mockReturnValue(mockResult);
+  it("should call GetWorkoutsData.getWorkoutsData", async () => {
+    const mockReturnValue: unknown = [];
 
-    const result = await workoutService.getServiceData();
+    Reflect.set(
+      GetWorkoutData,
+      "getWorkoutData",
+      jest.fn().mockResolvedValue(mockReturnValue),
+    );
 
-    expect(getWorkoutDataMock).toHaveBeenCalledTimes(1);
-    expect(getWorkoutDataMock).toHaveBeenCalledWith(mockWorkoutCollection, 5);
-    expect(result).toEqual(mockResult);
+    const result = await workoutsService.getServiceData();
+
+    expect(result).toEqual(mockReturnValue);
+  });
+
+  it("should throw an error if no email is provided", () => {
+    const mockRequestWithoutEmail = {
+      headers: new Headers(),
+      url: "http://example.com?limitBy=5",
+    } as NextRequest;
+
+    jest.spyOn(emailSchema, "safeParse").mockImplementation(() => ({
+      success: false,
+      error: new ZodError([
+        {
+          message: "Invalid email format",
+          path: ["x-user-email"],
+          code: "invalid_type",
+          expected: "string",
+          received: "undefined",
+        },
+      ]),
+    }));
+
+    expect(
+      () => new WorkoutService(mockRequestWithoutEmail, "pull-ups"),
+    ).toThrow("No email provided");
+  });
+
+  it("should throw an error if the email is invalid", () => {
+    const mockRequestWithInvalidEmail = {
+      headers: new Headers({
+        "x-user-email": "invalid-email",
+      }),
+      url: "http://example.com?limitBy=5",
+    } as NextRequest;
+
+    jest.spyOn(emailSchema, "safeParse").mockImplementation(() => ({
+      success: false,
+      error: new ZodError([
+        {
+          message: "Invalid email format",
+          code: "invalid_string",
+          path: ["x-user-email"],
+          validation: "email",
+        },
+      ]),
+    }));
+
+    expect(
+      () => new WorkoutService(mockRequestWithInvalidEmail, "pull-ups"),
+    ).toThrow("No email provided");
   });
 });

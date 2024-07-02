@@ -8,9 +8,9 @@ import GetWorkoutData from "@/modules/database/get/workout/getWorkoutData";
 import { NextRequest } from "next/server";
 
 abstract class BaseService<Data> {
-  protected request: NextRequest;
+  protected readonly request: NextRequest;
 
-  protected getWorkoutData: GetWorkoutData;
+  protected readonly getWorkoutData: GetWorkoutData;
 
   constructor(request: NextRequest) {
     this.request = request;

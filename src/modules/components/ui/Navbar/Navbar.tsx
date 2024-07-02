@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { useRouter } from "next/router";
+import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { toKebabCase } from "@/modules/strings/transform";
 import {
@@ -20,7 +20,7 @@ import { primary } from "./Navbar.module.scss";
 import { pages } from "./routes";
 
 function Navbar() {
-  const { pathname } = useRouter();
+  const pathname = usePathname();
 
   const activePage = pages.find(({ path }) => path === pathname);
 
@@ -88,20 +88,22 @@ function Navbar() {
               }}
               data-testid="nav-menu"
             >
-              {pages.map(({ name, path }) => (
-                <Link
-                  href={path}
-                  key={path}
-                  data-testid={`nav-menu-link-${toKebabCase(name)}`}
-                >
-                  <MuiMenuItem
-                    onClick={handleCloseNavMenu}
-                    data-testid={`nav-menu-item-${toKebabCase(name)}`}
-                  >
-                    <MuiTypography textAlign="center">{name}</MuiTypography>
-                  </MuiMenuItem>
-                </Link>
-              ))}
+              {pages.length > 0
+                ? pages.map(({ name, path }) => (
+                    <Link
+                      href={path}
+                      key={path}
+                      data-testid={`nav-menu-link-${toKebabCase(name)}`}
+                    >
+                      <MuiMenuItem
+                        onClick={handleCloseNavMenu}
+                        data-testid={`nav-menu-item-${toKebabCase(name)}`}
+                      >
+                        <MuiTypography textAlign="center">{name}</MuiTypography>
+                      </MuiMenuItem>
+                    </Link>
+                  ))
+                : null}
             </MuiMenu>
           </MuiBox>
         </MuiToolbar>
