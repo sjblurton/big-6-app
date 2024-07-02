@@ -10,16 +10,21 @@ const mockRequest = {
   url: "http://example.com",
 };
 
+const mockHandle = jest.fn();
 jest.mock("../../../modules/rest/error-handler/ErrorHandler", () => ({
   __esModule: true,
   default: jest.fn().mockImplementation(() => ({
-    handle: jest.fn(),
+    handle: mockHandle,
   })),
 }));
 
 jest.mock("next/server", () => ({
   NextResponse: {
-    json: jest.fn(),
+    json: jest.fn((data, init) => ({
+      json: () => data,
+      status: init?.status || 200,
+      headers: {},
+    })),
   },
 }));
 
@@ -39,15 +44,22 @@ describe("GET function", () => {
     expect(getSpy).toHaveBeenCalledTimes(1);
     expect(getSpy).toHaveBeenCalledWith();
 
-    expect(result).toBe(mockResponse);
+    expect(result).toEqual(mockResponse);
   });
 
   it("should call ErrorHandler.handle if WorkoutsController.GET throws an error", async () => {
     const mockError = new Error("test error");
-    const mockResponse = NextResponse.json({ example: "data" });
+    const mockErrorResponse = NextResponse.json(
+      {
+        error: { message: "test error" },
+      },
+      { status: 500 },
+    );
 
     const getSpy = jest.spyOn(WorkoutsController.prototype, "GET");
     getSpy.mockRejectedValue(mockError);
+
+    mockHandle.mockReturnValue(mockErrorResponse);
 
     const result = await GET(mockRequest as NextRequest);
 
@@ -57,6 +69,9 @@ describe("GET function", () => {
     expect(ErrorHandler).toHaveBeenCalledTimes(1);
     expect(ErrorHandler).toHaveBeenCalledWith(mockError);
 
-    expect(result).toBe(mockResponse);
+    expect(mockHandle).toHaveBeenCalledTimes(1);
+    expect(mockHandle).toHaveBeenCalledWith();
+
+    expect(result).toEqual(mockErrorResponse);
   });
 });

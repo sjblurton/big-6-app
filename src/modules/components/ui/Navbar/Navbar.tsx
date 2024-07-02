@@ -2,6 +2,8 @@
 
 import React from "react";
 import { useRouter } from "next/router";
+import Link from "next/link";
+import { toKebabCase } from "@/modules/strings/transform";
 import {
   MuiAppBar,
   MuiBox,
@@ -46,7 +48,9 @@ function Navbar() {
               alignItems: "center",
             }}
           >
-            <LogoSvg />
+            <Link href="/">
+              <LogoSvg />
+            </Link>
             <MuiTypography
               variant="h6"
               textAlign="center"
@@ -85,13 +89,18 @@ function Navbar() {
               data-testid="nav-menu"
             >
               {pages.map(({ name, path }) => (
-                <MuiMenuItem
-                  data-testid={`nav-menu-item-${name}`}
+                <Link
+                  href={path}
                   key={path}
-                  onClick={handleCloseNavMenu}
+                  data-testid={`nav-menu-link-${toKebabCase(name)}`}
                 >
-                  <MuiTypography textAlign="center">{name}</MuiTypography>
-                </MuiMenuItem>
+                  <MuiMenuItem
+                    onClick={handleCloseNavMenu}
+                    data-testid={`nav-menu-item-${toKebabCase(name)}`}
+                  >
+                    <MuiTypography textAlign="center">{name}</MuiTypography>
+                  </MuiMenuItem>
+                </Link>
               ))}
             </MuiMenu>
           </MuiBox>
