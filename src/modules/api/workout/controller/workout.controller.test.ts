@@ -10,7 +10,7 @@ jest.mock("next/server", () => ({
   },
 }));
 
-jest.mock("./workout.service", () => ({
+jest.mock("../services/workout.service", () => ({
   WorkoutService: jest.fn().mockImplementation(() => ({
     getServiceData: jest.fn(),
   })),

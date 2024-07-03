@@ -1,7 +1,7 @@
 import { NextRequest } from "next/server";
 import { WorkoutsData } from "@/modules/model/rest/routes/workouts/outputs/workoutsDataSchemas";
-import { WorkoutsService } from "./workouts.service";
-import BaseController from "./base.controller";
+import { WorkoutsService } from "../services/workouts.service";
+import BaseController from "../../baseClasses/base.controller";
 
 class WorkoutsController extends BaseController<WorkoutsData> {
   private readonly workoutsService: WorkoutsService;

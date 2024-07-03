@@ -6,7 +6,7 @@ jest.mock("next/server", () => ({
   NextRequest: jest.fn(),
 }));
 
-jest.mock("./workouts.service", () => {
+jest.mock("../services/workouts.service", () => {
   const mockGetServiceData = jest.fn();
   return {
     WorkoutsService: jest.fn().mockImplementation(() => ({
@@ -33,7 +33,9 @@ describe("WorkoutsController", () => {
   it("should call WorkoutsService.getServiceData() when calling getServiceData()", async () => {
     const mockResponse = mockExampleWorkouts();
 
-    const { mockGetServiceData } = jest.requireMock("./workouts.service");
+    const { mockGetServiceData } = jest.requireMock(
+      "../services/workouts.service",
+    );
 
     mockGetServiceData.mockResolvedValue(mockResponse);
 

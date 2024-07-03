@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import ErrorHandler from "@/modules/rest/error-handler/ErrorHandler";
-import WorkoutController from "./workout.controller";
+import WorkoutController from "@/modules/api/workout/controller/workout.controller";
 import { GET } from "./route";
 
 const mockRequest = {

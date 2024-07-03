@@ -1,13 +1,15 @@
 import { NextRequest } from "next/server";
 import { ZodError } from "zod";
-import { WorkoutService } from "./workout.service";
-import GetWorkoutData from "../../../../modules/database/get/workout/getWorkoutData";
-import { emailSchema } from "../../../../modules/model/rest/routes/workouts/inputs/inputs";
+import { WorkoutsService } from "./workouts.service";
+import GetWorkoutsData from "../../../database/get/workout/getWorkoutData";
+import { emailSchema } from "../../../model/rest/routes/workouts/inputs/inputs";
 
 const passingEmail = "test@pass,com";
 
 describe("WorkoutsService", () => {
-  let workoutsService: WorkoutService;
+  let workoutsService: WorkoutsService;
+
+  let getWorkoutsDataMock: jest.Mock;
 
   const mockRequest = {
     headers: new Headers({
@@ -16,23 +18,20 @@ describe("WorkoutsService", () => {
     url: "http://example.com?limitBy=5",
   } as NextRequest;
 
-  const mockGetWorkoutData = jest.fn();
-
-  jest.mock("../../../../modules/database/get/workout/getWorkoutData", () => ({
-    GetWorkoutData: {
-      getWorkoutData: mockGetWorkoutData,
-    },
-  }));
-
   beforeEach(() => {
     jest.clearAllMocks();
+    getWorkoutsDataMock = jest.fn();
+
+    jest
+      .spyOn(GetWorkoutsData.prototype, "getWorkoutsData")
+      .mockImplementation(getWorkoutsDataMock);
 
     jest.spyOn(emailSchema, "safeParse").mockImplementation(() => ({
       success: true,
       data: passingEmail,
     }));
 
-    workoutsService = new WorkoutService(mockRequest, "pull-ups");
+    workoutsService = new WorkoutsService(mockRequest);
   });
 
   it("should be defined", () => {
@@ -40,16 +39,12 @@ describe("WorkoutsService", () => {
   });
 
   it("should call GetWorkoutsData.getWorkoutsData", async () => {
-    const mockReturnValue: unknown = [];
-
-    Reflect.set(
-      GetWorkoutData,
-      "getWorkoutData",
-      jest.fn().mockResolvedValue(mockReturnValue),
-    );
+    const mockReturnValue = "Mocked data";
+    getWorkoutsDataMock.mockResolvedValue(mockReturnValue);
 
     const result = await workoutsService.getServiceData();
 
+    expect(getWorkoutsDataMock).toHaveBeenCalledTimes(1);
     expect(result).toEqual(mockReturnValue);
   });
 
@@ -72,9 +67,9 @@ describe("WorkoutsService", () => {
       ]),
     }));
 
-    expect(
-      () => new WorkoutService(mockRequestWithoutEmail, "pull-ups"),
-    ).toThrow("No email provided");
+    expect(() => new WorkoutsService(mockRequestWithoutEmail)).toThrow(
+      "No email provided",
+    );
   });
 
   it("should throw an error if the email is invalid", () => {
@@ -97,8 +92,8 @@ describe("WorkoutsService", () => {
       ]),
     }));
 
-    expect(
-      () => new WorkoutService(mockRequestWithInvalidEmail, "pull-ups"),
-    ).toThrow("No email provided");
+    expect(() => new WorkoutsService(mockRequestWithInvalidEmail)).toThrow(
+      "No email provided",
+    );
   });
 });

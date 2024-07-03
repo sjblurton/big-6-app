@@ -11,7 +11,7 @@ import {
 } from "@/modules/rest/error-handler/ApiErrors";
 import { NextRequest } from "next/server";
 import GetWorkoutData from "@/modules/database/get/workout/getWorkoutData";
-import BaseService from "../base.service";
+import BaseService from "../../baseClasses/base.service";
 
 export class WorkoutService extends BaseService<WorkoutData[]> {
   private workoutCollection: WorkoutCollections;

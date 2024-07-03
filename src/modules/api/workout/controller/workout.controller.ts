@@ -1,8 +1,8 @@
 import { NextRequest } from "next/server";
 import { WorkoutData } from "@/modules/model/rest/routes/workouts-id/outputs/workoutDataSchemas";
 import { WorkoutCollections } from "@/modules/model/rest/routes/workouts/inputs/inputs";
-import { WorkoutService } from "./workout.service";
-import BaseController from "../base.controller";
+import { WorkoutService } from "../services/workout.service";
+import BaseController from "../../baseClasses/base.controller";
 
 class WorkoutController extends BaseController<WorkoutData[]> {
   private readonly workoutService: WorkoutService;
