@@ -1,6 +1,7 @@
 import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
 import { TestCoverageSummary } from "@/modules/model/test-coverage/testCoverageJsonSchema";
+import { axe, toHaveNoViolations } from "jest-axe";
 import TestCoveragePage from "./page";
 import useCoverageData from "./useCoverageData";
 
@@ -30,19 +31,24 @@ const mockData: TestCoverageSummary[] = [
   },
 ];
 
-jest.mock("./page.module.scss", () => ({
+jest.mock("../../../styles/utilityClasses/_background.module.scss", () => ({
   success: "mock-success-class",
   error: "mock-error-class",
   warning: "mock-warning-class",
-  cell: "mock-cell-class",
-  hr: "mock-hr-class",
-  white: "mock-white-class",
 }));
 
 describe("TestCoveragePage - no data", () => {
   beforeEach(() => {
     jest.clearAllMocks();
     (useCoverageData as jest.Mock).mockReturnValueOnce(mockEmptyData);
+  });
+
+  it("should render without a11y violations", async () => {
+    expect.extend(toHaveNoViolations);
+    const { container } = render(<TestCoveragePage />);
+    const results = await axe(container);
+
+    expect(results).toHaveNoViolations();
   });
 
   it("should render with a title", () => {

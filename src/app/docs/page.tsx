@@ -3,7 +3,7 @@ import {
   MuiContainer,
   MuiTypography,
 } from "@/modules/components/ui/library/mui";
-import { white } from "./page.module.scss";
+import { white as textColorWhite } from "@/styles/utilityClasses/typography.module.scss";
 
 function Docs() {
   return (
@@ -21,7 +21,7 @@ function Docs() {
           variant="h2"
           component="h1"
           sx={{ mb: 2 }}
-          className={white}
+          className={textColorWhite}
         >
           Documentation
         </MuiTypography>

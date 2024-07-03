@@ -3,18 +3,19 @@ import { render, fireEvent, act, waitFor } from "@testing-library/react";
 import { usePathname } from "next/navigation";
 import { toKebabCase } from "@/modules/strings/transform";
 import Navbar from "./Navbar";
-import { pages } from "./routes";
+
+const pages = [
+  { name: "Home", path: "/" },
+  { name: "Docs", path: "/docs" },
+  { name: "API Docs", path: "/docs/api" },
+  { name: "Test Coverage", path: "/docs/test-coverage" },
+];
 
 jest.mock("next/navigation", () => ({
   usePathname: jest.fn(),
 }));
 
 const mockUsePathname = usePathname as jest.Mock;
-
-jest.mock("./routes", () => ({
-  __esModule: true,
-  pages: [],
-}));
 
 describe("Navbar", () => {
   beforeEach(() => {
@@ -25,31 +26,31 @@ describe("Navbar", () => {
   });
 
   it("should render successfully", () => {
-    const { baseElement } = render(<Navbar />);
+    const { baseElement } = render(<Navbar routes={pages} />);
     expect(baseElement).toBeTruthy();
   });
 
   it("should render a header element", () => {
-    const { getByRole } = render(<Navbar />);
+    const { getByRole } = render(<Navbar routes={pages} />);
     const header = getByRole("banner");
     expect(header).toBeTruthy();
   });
 
   it("should render an svg logo element", () => {
-    const { getByTestId } = render(<Navbar />);
+    const { getByTestId } = render(<Navbar routes={pages} />);
     const logo = getByTestId("nav-logo");
     expect(logo).toBeTruthy();
   });
 
   it("should display the active page name", () => {
     pages.push({ name: "Docs", path: "/docs" });
-    const { getByTestId } = render(<Navbar />);
+    const { getByTestId } = render(<Navbar routes={pages} />);
     const activePage = getByTestId("nav-active-page");
     expect(activePage).toHaveTextContent("Docs");
   });
 
   it("should open the menu when the menu button is clicked", () => {
-    const { getByTestId } = render(<Navbar />);
+    const { getByTestId } = render(<Navbar routes={pages} />);
     const menuButton = getByTestId("nav-menu-button");
 
     act(() => {
@@ -62,7 +63,7 @@ describe("Navbar", () => {
 
   it("should close the menu when a menu item is clicked", async () => {
     pages.push({ name: "Home", path: "/" });
-    const { getByTestId, queryByTestId } = render(<Navbar />);
+    const { getByTestId, queryByTestId } = render(<Navbar routes={pages} />);
     const menuButton = getByTestId("nav-menu-button");
 
     act(() => {
@@ -83,7 +84,7 @@ describe("Navbar", () => {
 
   it("should have <a> tags with all the path in the routes", async () => {
     pages.push({ name: "Home", path: "/" });
-    const { getByTestId, getAllByTestId } = render(<Navbar />);
+    const { getByTestId, getAllByTestId } = render(<Navbar routes={pages} />);
     const menuButton = getByTestId("nav-menu");
 
     act(() => {
@@ -104,7 +105,7 @@ describe("Navbar", () => {
 
   it("should render all menu items", () => {
     pages.push({ name: "Home", path: "/" });
-    const { getByTestId } = render(<Navbar />);
+    const { getByTestId } = render(<Navbar routes={pages} />);
     const menuButton = getByTestId("nav-menu-button");
 
     act(() => {
@@ -118,7 +119,7 @@ describe("Navbar", () => {
   });
 
   it("should handle empty pages array", async () => {
-    const { getByTestId, queryAllByTestId } = render(<Navbar />);
+    const { getByTestId, queryAllByTestId } = render(<Navbar routes={[]} />);
     const menuButton = getByTestId("nav-menu-button");
 
     act(() => {
@@ -132,7 +133,7 @@ describe("Navbar", () => {
   it("should handle a pathname that is not in the routes", () => {
     mockUsePathname.mockReturnValueOnce("/not-found");
 
-    const { getByTestId } = render(<Navbar />);
+    const { getByTestId } = render(<Navbar routes={pages} />);
     const activePage = getByTestId("nav-active-page");
     expect(activePage).toHaveTextContent("");
   });

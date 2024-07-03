@@ -11,21 +11,34 @@ import {
   MuiTableRow,
   MuiTypography,
 } from "@/modules/components/ui/library/mui";
-import { error, hr, cell, white, success, warning } from "./page.module.scss";
+import {
+  primary as backgroundColorPrimary,
+  error as backgroundError,
+  success as backgroundSuccess,
+  warning as backgroundWarning,
+} from "@/styles/utilityClasses/background.module.scss";
+import {
+  white as textWhite,
+  bold as textBold,
+  capitalize as textCapitalize,
+} from "@/styles/utilityClasses/typography.module.scss";
+
 import useCoverageData from "./useCoverageData";
 import { tableColumnNames } from "./constants";
 
 function Coverage() {
   const data = useCoverageData();
 
+  const cellClassName = `${textCapitalize} ${textBold} ${backgroundColorPrimary} ${textWhite}`;
+
   const selectClassName = (value: number) => {
     if (value < 80) {
-      return error;
+      return backgroundError;
     }
     if (value < 90) {
-      return warning;
+      return backgroundWarning;
     }
-    return success;
+    return backgroundSuccess;
   };
 
   return (
@@ -43,12 +56,17 @@ function Coverage() {
           variant="h2"
           component="h1"
           sx={{ mb: 2 }}
-          className={white}
+          className={textWhite}
         >
           Test Coverage
         </MuiTypography>
         {data.length === 0 ? (
-          <MuiTypography variant="h6" sx={{ mt: 4 }} className={white}>
+          <MuiTypography
+            variant="h6"
+            component="h2"
+            sx={{ mt: 4 }}
+            className={textWhite}
+          >
             No data available
           </MuiTypography>
         ) : (
@@ -56,12 +74,15 @@ function Coverage() {
             <MuiTable stickyHeader sx={{ minWidth: 650 }}>
               <MuiTableHead>
                 <MuiTableRow>
-                  <MuiTableCell className={`${hr} ${cell}`} key="header-name">
+                  <MuiTableCell
+                    className={`${cellClassName}`}
+                    key="header-name"
+                  >
                     name
                   </MuiTableCell>
                   {tableColumnNames.map((columnName) => (
                     <MuiTableCell
-                      className={`${hr} ${cell}`}
+                      className={`${cellClassName}`}
                       key={`header-${columnName}`}
                     >
                       {columnName}
@@ -72,10 +93,12 @@ function Coverage() {
               <MuiTableBody>
                 {data.map((row) => (
                   <MuiTableRow key={row.key}>
-                    <MuiTableCell className={cell}>{row.name}</MuiTableCell>
+                    <MuiTableCell className={cellClassName}>
+                      {row.name}
+                    </MuiTableCell>
                     {tableColumnNames.map((columnName) => (
                       <MuiTableCell
-                        className={`${cell} ${selectClassName(row[columnName])}`}
+                        className={`${cellClassName} ${selectClassName(row[columnName])}`}
                         key={`${row.key}-${columnName}`}
                       >
                         {`${row[columnName]}%`}

@@ -4,6 +4,7 @@ import React from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { toKebabCase } from "@/modules/strings/transform";
+import { primary as primaryBackground } from "@/styles/utilityClasses/background.module.scss";
 import {
   MuiAppBar,
   MuiBox,
@@ -16,13 +17,15 @@ import {
   MuiTypography,
 } from "../library/mui";
 import LogoSvg from "../Logo/Logo";
-import { primary } from "./Navbar.module.scss";
-import { pages } from "./routes";
 
-function Navbar() {
+type NavbarProps = {
+  routes: { name: string; path: string }[];
+};
+
+function Navbar({ routes }: NavbarProps) {
   const pathname = usePathname();
 
-  const activePage = pages.find(({ path }) => path === pathname);
+  const activePage = routes.find(({ path }) => path === pathname);
 
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null,
@@ -37,7 +40,7 @@ function Navbar() {
   };
 
   return (
-    <MuiAppBar className={primary} position="static">
+    <MuiAppBar className={primaryBackground} position="static">
       <MuiContainer maxWidth="md">
         <MuiToolbar disableGutters>
           <MuiBox
@@ -88,8 +91,8 @@ function Navbar() {
               }}
               data-testid="nav-menu"
             >
-              {pages.length > 0
-                ? pages.map(({ name, path }) => (
+              {routes.length > 0
+                ? routes.map(({ name, path }) => (
                     <Link
                       href={path}
                       key={path}

@@ -1,4 +1,4 @@
-@use "../../../styles/colors/functions" as color;
+@use "../colors/functions" as color;
 
 .success {
   background-color: color.get-color("success", "dark") !important;
@@ -12,16 +12,6 @@
   background-color: color.get-color("warning", "dark") !important;
 }
 
-.cell {
+.primary {
   background-color: color.get-color("primary", "main");
-  color: color.get-color("common", "white");
-  font-weight: 700;
-}
-
-.hr {
-  text-transform: capitalize;
-}
-
-.white {
-  color: color.get-color("common", "white");
 }
