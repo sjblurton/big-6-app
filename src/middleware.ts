@@ -1,12 +1,12 @@
 import { NextResponse } from "next/server";
 import { getToken } from "next-auth/jwt";
 import type { NextRequest } from "next/server";
-import ErrorHandler from "./modules/rest/error-handler/ErrorHandler";
+import ErrorHandler from "./modules/api/error-handler/ErrorHandler";
 import {
   API_ERROR_NAMES,
   ApiError,
   HTTP_ERROR_CODES,
-} from "./modules/rest/error-handler/ApiErrors";
+} from "./modules/api/error-handler/ApiErrors";
 
 export async function middleware(req: NextRequest) {
   try {

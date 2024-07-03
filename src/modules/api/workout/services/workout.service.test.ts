@@ -1,7 +1,7 @@
 import { NextRequest } from "next/server";
 import { ZodError } from "zod";
 import { WorkoutService } from "./workout.service";
-import GetWorkoutData from "../../../database/get/workout/getWorkoutData";
+import GetWorkoutData from "../../../database/workouts/get/getWorkoutData";
 import { emailSchema } from "../../../model/rest/routes/workouts/inputs/inputs";
 
 const passingEmail = "test@pass,com";
@@ -18,7 +18,7 @@ describe("WorkoutsService", () => {
 
   const mockGetWorkoutData = jest.fn();
 
-  jest.mock("../../../../modules/database/get/workout/getWorkoutData", () => ({
+  jest.mock("../../../database/workouts/get/getWorkoutData.ts", () => ({
     GetWorkoutData: {
       getWorkoutData: mockGetWorkoutData,
     },

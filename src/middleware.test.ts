@@ -1,9 +1,9 @@
 import { getToken } from "next-auth/jwt";
 
 import { NextRequest, NextResponse } from "next/server";
-import ErrorHandler from "./modules/rest/error-handler/ErrorHandler";
+import ErrorHandler from "./modules/api/error-handler/ErrorHandler";
 import { middleware } from "./middleware";
-import { ApiError } from "./modules/rest/error-handler/ApiErrors";
+import { ApiError } from "./modules/api/error-handler/ApiErrors";
 
 jest.mock("next-auth/jwt", () => ({
   getToken: jest.fn(),
@@ -15,7 +15,7 @@ jest.mock("next/server", () => ({
   },
 }));
 
-jest.mock("./modules/rest/error-handler/ErrorHandler");
+jest.mock("./modules/api/error-handler/ErrorHandler");
 
 describe("middleware", () => {
   const secret = "test-secret";

@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import ErrorHandler from "@/modules/rest/error-handler/ErrorHandler";
+import ErrorHandler from "@/modules/api/error-handler/ErrorHandler";
 import WorkoutsController from "../../../modules/api/workouts/controller/workouts.controller";
 import { GET } from "./route";
 
@@ -11,7 +11,7 @@ const mockRequest = {
 };
 
 const mockHandle = jest.fn();
-jest.mock("../../../modules/rest/error-handler/ErrorHandler", () => ({
+jest.mock("../../../modules/api/error-handler/ErrorHandler", () => ({
   __esModule: true,
   default: jest.fn().mockImplementation(() => ({
     handle: mockHandle,

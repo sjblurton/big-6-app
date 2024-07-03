@@ -51,7 +51,7 @@ function Navbar({ routes }: NavbarProps) {
               alignItems: "center",
             }}
           >
-            <Link href="/">
+            <Link href="/" aria-label="link to home">
               <LogoSvg />
             </Link>
             <MuiTypography

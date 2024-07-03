@@ -1,5 +1,5 @@
 import { NextRequest } from "next/server";
-import ErrorHandler from "@/modules/rest/error-handler/ErrorHandler";
+import ErrorHandler from "@/modules/api/error-handler/ErrorHandler";
 
 import WorkoutsController from "../../../modules/api/workouts/controller/workouts.controller";
 

@@ -1,6 +1,6 @@
 import { WorkoutCollections } from "@/modules/model/rest/routes/workouts/inputs/inputs";
 import { NextRequest } from "next/server";
-import ErrorHandler from "@/modules/rest/error-handler/ErrorHandler";
+import ErrorHandler from "@/modules/api/error-handler/ErrorHandler";
 import WorkoutController from "@/modules/api/workout/controller/workout.controller";
 
 export async function GET(

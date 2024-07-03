@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import ErrorHandler from "@/modules/rest/error-handler/ErrorHandler";
+import ErrorHandler from "@/modules/api/error-handler/ErrorHandler";
 import WorkoutController from "@/modules/api/workout/controller/workout.controller";
 import { GET } from "./route";
 
@@ -10,7 +10,7 @@ const mockRequest = {
   url: "http://example.com",
 };
 
-jest.mock("../../../../modules/rest/error-handler/ErrorHandler", () => ({
+jest.mock("../../../../modules/api/error-handler/ErrorHandler", () => ({
   __esModule: true,
   default: jest.fn().mockImplementation(() => ({
     handle: jest.fn(),

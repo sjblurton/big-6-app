@@ -3,8 +3,8 @@ import {
   API_ERROR_NAMES,
   ApiError,
   HTTP_ERROR_CODES,
-} from "@/modules/rest/error-handler/ApiErrors";
-import GetWorkoutData from "@/modules/database/get/workout/getWorkoutData";
+} from "@/modules/api/error-handler/ApiErrors";
+import GetWorkoutData from "@/modules/database/workouts/get/getWorkoutData";
 import { NextRequest } from "next/server";
 
 abstract class BaseService<Data> {

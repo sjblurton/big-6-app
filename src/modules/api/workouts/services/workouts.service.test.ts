@@ -1,7 +1,7 @@
 import { NextRequest } from "next/server";
 import { ZodError } from "zod";
 import { WorkoutsService } from "./workouts.service";
-import GetWorkoutsData from "../../../database/get/workout/getWorkoutData";
+import GetWorkoutsData from "../../../database/workouts/get/getWorkoutData";
 import { emailSchema } from "../../../model/rest/routes/workouts/inputs/inputs";
 
 const passingEmail = "test@pass,com";

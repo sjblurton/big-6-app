@@ -8,9 +8,9 @@ import {
   API_ERROR_NAMES,
   ApiError,
   HTTP_ERROR_CODES,
-} from "@/modules/rest/error-handler/ApiErrors";
+} from "@/modules/api/error-handler/ApiErrors";
 import { NextRequest } from "next/server";
-import GetWorkoutData from "@/modules/database/get/workout/getWorkoutData";
+import GetWorkoutData from "@/modules/database/workouts/get/getWorkoutData";
 import BaseService from "../../baseClasses/base.service";
 
 export class WorkoutService extends BaseService<WorkoutData[]> {
