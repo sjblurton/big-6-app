@@ -1,11 +1,7 @@
-import { emailSchema } from "@/modules/model/rest/routes/workouts/inputs/inputs";
-import {
-  API_ERROR_NAMES,
-  ApiError,
-  HTTP_ERROR_CODES,
-} from "@/modules/api/error-handler/ApiErrors";
-import GetWorkoutData from "@/modules/database/workouts/get/getWorkoutData";
+import { emailSchema } from "@/modules/model/api/routes/workouts/inputs/inputs";
+import GetWorkoutData from "@/modules/database/workouts/read/getWorkoutData";
 import { NextRequest } from "next/server";
+import { ApiForbiddenError } from "../error-handler/errors/api.error.forbidden";
 
 abstract class BaseService<Data> {
   protected readonly request: NextRequest;
@@ -23,10 +19,9 @@ abstract class BaseService<Data> {
       this.request.headers.get("x-user-email"),
     );
     if (!safe.success) {
-      throw new ApiError({
-        codeName: API_ERROR_NAMES.FORBIDDEN,
-        httpCode: HTTP_ERROR_CODES.FORBIDDEN,
-        description: "No email provided",
+      throw new ApiForbiddenError({
+        description: "Forbidden",
+        isOperational: true,
       });
     }
     return safe.data;

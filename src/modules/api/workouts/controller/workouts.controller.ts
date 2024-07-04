@@ -1,5 +1,5 @@
 import { NextRequest } from "next/server";
-import { WorkoutsData } from "@/modules/model/rest/routes/workouts/outputs/workoutsDataSchemas";
+import { WorkoutsData } from "@/modules/model/api/routes/workouts/outputs/workoutsDataSchemas";
 import { WorkoutsService } from "../services/workouts.service";
 import BaseController from "../../baseClasses/base.controller";
 

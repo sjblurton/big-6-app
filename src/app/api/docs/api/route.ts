@@ -1,4 +1,4 @@
-import buildOas from "@/modules/model/rest/openapiBuilder";
+import buildOas from "@/modules/model/api/openapiBuilder";
 import { NextResponse } from "next/server";
 
 export async function GET() {

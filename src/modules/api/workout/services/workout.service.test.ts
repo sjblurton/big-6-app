@@ -1,8 +1,8 @@
 import { NextRequest } from "next/server";
 import { ZodError } from "zod";
 import { WorkoutService } from "./workout.service";
-import GetWorkoutData from "../../../database/workouts/get/getWorkoutData";
-import { emailSchema } from "../../../model/rest/routes/workouts/inputs/inputs";
+import GetWorkoutData from "../../../database/workouts/read/getWorkoutData";
+import { emailSchema } from "../../../model/api/routes/workouts/inputs/inputs";
 
 const passingEmail = "test@pass,com";
 
@@ -18,7 +18,7 @@ describe("WorkoutsService", () => {
 
   const mockGetWorkoutData = jest.fn();
 
-  jest.mock("../../../database/workouts/get/getWorkoutData.ts", () => ({
+  jest.mock("../../../database/workouts/read/getWorkoutData.ts", () => ({
     GetWorkoutData: {
       getWorkoutData: mockGetWorkoutData,
     },
@@ -74,7 +74,7 @@ describe("WorkoutsService", () => {
 
     expect(
       () => new WorkoutService(mockRequestWithoutEmail, "pull-ups"),
-    ).toThrow("No email provided");
+    ).toThrow("Forbidden");
   });
 
   it("should throw an error if the email is invalid", () => {
@@ -99,6 +99,6 @@ describe("WorkoutsService", () => {
 
     expect(
       () => new WorkoutService(mockRequestWithInvalidEmail, "pull-ups"),
-    ).toThrow("No email provided");
+    ).toThrow("Forbidden");
   });
 });

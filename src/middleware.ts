@@ -2,31 +2,25 @@ import { NextResponse } from "next/server";
 import { getToken } from "next-auth/jwt";
 import type { NextRequest } from "next/server";
 import ErrorHandler from "./modules/api/error-handler/ErrorHandler";
-import {
-  API_ERROR_NAMES,
-  ApiError,
-  HTTP_ERROR_CODES,
-} from "./modules/api/error-handler/ApiErrors";
+import { ApiUnauthorizedError } from "./modules/api/error-handler/errors/api.error.Unauthorized";
+import { ApiForbiddenError } from "./modules/api/error-handler/errors/api.error.forbidden";
 
 export async function middleware(req: NextRequest) {
   try {
     const token = await getToken({ req, secret: process.env.NEXTAUTH_SECRET });
 
     if (!token) {
-      throw new ApiError({
-        codeName: API_ERROR_NAMES.UNAUTHORIZED,
-        httpCode: HTTP_ERROR_CODES.UNAUTHORIZED,
+      throw new ApiUnauthorizedError({
         description: "no token provided",
+        isOperational: true,
       });
     }
 
     const { email } = token;
 
     if (!email) {
-      throw new ApiError({
-        codeName: API_ERROR_NAMES.FORBIDDEN,
-        httpCode: HTTP_ERROR_CODES.FORBIDDEN,
-        description: "no email provided in token",
+      throw new ApiForbiddenError({
+        description: "Forbidden",
         isOperational: true,
       });
     }

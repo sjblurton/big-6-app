@@ -26,3 +26,5 @@ export const errorResponseSchema = z.union([
   errorResponseBodySchema,
   errorZodResponseBodySchema,
 ]);
+
+export type ErrorResponse = z.infer<typeof errorResponseBodySchema>;

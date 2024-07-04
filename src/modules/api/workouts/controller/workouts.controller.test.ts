@@ -1,5 +1,5 @@
 import { NextRequest } from "next/server";
-import { mockExampleWorkouts } from "@/modules/model/rest/routes/workouts/mockData/workoutsMock";
+import { mockExampleWorkouts } from "@/modules/model/api/routes/workouts/mockData/workoutsMock";
 import WorkoutsController from "./workouts.controller";
 
 jest.mock("next/server", () => ({

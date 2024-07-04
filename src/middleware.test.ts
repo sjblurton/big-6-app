@@ -3,7 +3,7 @@ import { getToken } from "next-auth/jwt";
 import { NextRequest, NextResponse } from "next/server";
 import ErrorHandler from "./modules/api/error-handler/ErrorHandler";
 import { middleware } from "./middleware";
-import { ApiError } from "./modules/api/error-handler/ApiErrors";
+import { ApiBaseError } from "./modules/api/error-handler/errors/api.error.base";
 
 jest.mock("next-auth/jwt", () => ({
   getToken: jest.fn(),
@@ -68,7 +68,7 @@ describe("middleware", () => {
 
     expect(getToken).toHaveBeenCalledWith({ req, secret });
 
-    expect(ErrorHandler).toHaveBeenCalledWith(expect.any(ApiError));
+    expect(ErrorHandler).toHaveBeenCalledWith(expect.any(ApiBaseError));
 
     expect(response).toBe("ErrorHandlerResponse");
   });
@@ -82,7 +82,7 @@ describe("middleware", () => {
 
     expect(getToken).toHaveBeenCalledWith({ req, secret });
 
-    expect(ErrorHandler).toHaveBeenCalledWith(expect.any(ApiError));
+    expect(ErrorHandler).toHaveBeenCalledWith(expect.any(ApiBaseError));
 
     expect(response).toBe("ErrorHandlerResponse");
   });

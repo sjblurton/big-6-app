@@ -1,7 +1,8 @@
 import { FirestoreError } from "@firebase/firestore";
 import { ZodError, ZodIssue } from "zod";
-import { API_ERROR_NAMES, ApiError, HTTP_ERROR_CODES } from "./ApiErrors";
 import ErrorHandler from "./ErrorHandler";
+import { HTTP_ERROR_CODES } from "./errors/api.error.base";
+import { ApiBadRequestError } from "./errors/api.error.bad-request";
 
 jest.mock("next/server", () => ({
   NextResponse: {
@@ -14,14 +15,13 @@ jest.mock("next/server", () => ({
 
 jest.mock("../../logger/logger", () => ({
   error: jest.fn(),
+  info: jest.fn(),
 }));
 
 describe("ErrorHandler", () => {
   it("should handle an operational error", () => {
-    const error = new ApiError({
-      codeName: API_ERROR_NAMES.UNAUTHORIZED,
-      httpCode: HTTP_ERROR_CODES.UNAUTHORIZED,
-      description: "Unauthorized access",
+    const error = new ApiBadRequestError({
+      description: "Bad request",
       isOperational: true,
     });
     const errorHandler = new ErrorHandler(error);
@@ -42,18 +42,16 @@ describe("ErrorHandler", () => {
     expect(parsedResponse).toEqual({
       body: {
         error: {
-          message: "Unauthorized access",
+          message: "Bad request",
         },
       },
-      status: HTTP_ERROR_CODES.UNAUTHORIZED,
+      status: HTTP_ERROR_CODES.BAD_REQUEST,
     });
   });
 
   it("should handle a non-operational error", () => {
-    const error = new ApiError({
-      codeName: API_ERROR_NAMES.UNAUTHORIZED,
-      httpCode: HTTP_ERROR_CODES.UNAUTHORIZED,
-      description: "Unauthorized access",
+    const error = new ApiBadRequestError({
+      description: "Bad request",
       isOperational: false,
     });
     const errorHandler = new ErrorHandler(error);
@@ -74,10 +72,10 @@ describe("ErrorHandler", () => {
     expect(parsedResponse).toEqual({
       body: {
         error: {
-          message: "Unauthorized access",
+          message: "Internal Server Error",
         },
       },
-      status: HTTP_ERROR_CODES.UNAUTHORIZED,
+      status: HTTP_ERROR_CODES.INTERNAL_SERVER_ERROR,
     });
   });
 
@@ -140,11 +138,10 @@ describe("ErrorHandler", () => {
     expect(parsedResponse).toEqual({
       body: {
         error: {
-          message: 'Validation error: Invalid email at "email"',
-          issues: zodIssues,
+          message: "Internal Server Error",
         },
       },
-      status: HTTP_ERROR_CODES.BAD_REQUEST,
+      status: HTTP_ERROR_CODES.INTERNAL_SERVER_ERROR,
     });
   });
 

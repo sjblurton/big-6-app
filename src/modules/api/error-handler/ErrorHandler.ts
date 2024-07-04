@@ -1,9 +1,10 @@
-import { FirestoreError } from "@firebase/firestore";
 import { ZodError } from "zod";
 import { NextResponse } from "next/server";
 import { fromError } from "zod-validation-error";
-import { ApiError, HTTP_ERROR_CODES } from "./ApiErrors";
+import { ErrorResponse } from "@/modules/model/api/routes/shared/outputs/responseSchema";
 import logger from "../../logger/logger";
+import { ErrorResponses } from "./responses/responses";
+import { ApiBaseError } from "./errors/api.error.base";
 
 // TODO: Add request and response objects to the constructor for logging to the database when ready
 class ErrorHandler {
@@ -13,59 +14,44 @@ class ErrorHandler {
     this.error = error;
   }
 
-  handle() {
-    if (this.error instanceof ApiError && this.error.isOperational) {
-      logger.error("Operational error:", this.error);
-
-      return NextResponse.json(
-        { error: { message: this.error.message } },
-        { status: this.error.httpCode },
-      );
+  handle(): NextResponse<ErrorResponse> {
+    if (
+      !(this.error instanceof ApiBaseError) ||
+      this.error instanceof ZodError ||
+      (this.error instanceof ApiBaseError && !this.error.isOperational)
+    ) {
+      this.logToDatabase();
+      return this.handelNoneOperationalError();
     }
 
-    if (this.error instanceof ApiError) {
-      // TODO: Log the error to the database for further analysis
+    return this.handelOperationalError(this.error);
+  }
 
-      logger.error("Non-operational error:", this.error);
-      return NextResponse.json(
-        { error: { message: this.error.message } },
-        { status: this.error.httpCode },
-      );
-    }
+  private logError(prefix: string) {
+    logger.error(prefix, this.error);
+  }
 
-    if (this.error instanceof FirestoreError) {
-      logger.error("Firestore Error:", this.error);
-      // TODO: Log the error to the database for further analysis
-
-      return NextResponse.json(
-        { error: { message: "Internal Server Error" } },
-        { status: HTTP_ERROR_CODES.INTERNAL_SERVER_ERROR },
-      );
-    }
-
+  private logToDatabase() {
     if (this.error instanceof ZodError) {
-      // TODO: Log the error to the database for further analysis
-
-      logger.error("Zod Error:", this.error);
-
-      return NextResponse.json(
-        {
-          error: {
-            message: fromError(this.error).toString(),
-            issues: this.error.issues,
-          },
-        },
-        { status: HTTP_ERROR_CODES.BAD_REQUEST },
+      logger.info(
+        "Request, response, and error objects will be logged here",
+        "Zod error:",
+        fromError(this.error).toString(),
+        this.error.issues,
       );
     }
+    logger.info("Request, response, and error objects will be logged here");
+  }
 
-    logger.error("Unknown error:", this.error);
-    // TODO: Log the error to the database for further analysis
+  private handelNoneOperationalError() {
+    this.logToDatabase();
+    this.logError("Non-operational error:");
+    return ErrorResponses.respondToClientWithInternalServerError();
+  }
 
-    return NextResponse.json(
-      { error: { message: "Internal Server Error" } },
-      { status: HTTP_ERROR_CODES.INTERNAL_SERVER_ERROR },
-    );
+  private handelOperationalError(error: ApiBaseError) {
+    this.logError("Operational error:");
+    return ErrorResponses.respondToClient(error.message, error.httpCode);
   }
 }
 

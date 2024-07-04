@@ -1,8 +1,8 @@
 import { NextRequest } from "next/server";
 import { ZodError } from "zod";
 import { WorkoutsService } from "./workouts.service";
-import GetWorkoutsData from "../../../database/workouts/get/getWorkoutData";
-import { emailSchema } from "../../../model/rest/routes/workouts/inputs/inputs";
+import GetWorkoutsData from "../../../database/workouts/read/getWorkoutData";
+import { emailSchema } from "../../../model/api/routes/workouts/inputs/inputs";
 
 const passingEmail = "test@pass,com";
 
@@ -68,7 +68,7 @@ describe("WorkoutsService", () => {
     }));
 
     expect(() => new WorkoutsService(mockRequestWithoutEmail)).toThrow(
-      "No email provided",
+      "Forbidden",
     );
   });
 
@@ -93,7 +93,7 @@ describe("WorkoutsService", () => {
     }));
 
     expect(() => new WorkoutsService(mockRequestWithInvalidEmail)).toThrow(
-      "No email provided",
+      "Forbidden",
     );
   });
 });

@@ -1,17 +1,13 @@
 import {
   WorkoutCollections,
   workoutCollectionsSchema,
-} from "@/modules/model/rest/routes/workouts/inputs/inputs";
-import { WorkoutData } from "@/modules/model/rest/routes/workouts-id/outputs/workoutDataSchemas";
-import { limitBySchema } from "@/modules/model/rest/routes/workouts-id/inputs/querySchema";
-import {
-  API_ERROR_NAMES,
-  ApiError,
-  HTTP_ERROR_CODES,
-} from "@/modules/api/error-handler/ApiErrors";
+} from "@/modules/model/api/routes/workouts/inputs/inputs";
+import { WorkoutData } from "@/modules/model/api/routes/workouts-id/outputs/workoutDataSchemas";
+import { limitBySchema } from "@/modules/model/api/routes/workouts-id/inputs/querySchema";
 import { NextRequest } from "next/server";
-import GetWorkoutData from "@/modules/database/workouts/get/getWorkoutData";
+import GetWorkoutData from "@/modules/database/workouts/read/getWorkoutData";
 import BaseService from "../../baseClasses/base.service";
+import { ApiBadRequestError } from "../../error-handler/errors/api.error.bad-request";
 
 export class WorkoutService extends BaseService<WorkoutData[]> {
   private workoutCollection: WorkoutCollections;
@@ -33,10 +29,8 @@ export class WorkoutService extends BaseService<WorkoutData[]> {
       this.workoutCollection,
     );
     if (!safeWorkout.success) {
-      throw new ApiError({
-        codeName: API_ERROR_NAMES.BAD_REQUEST,
-        httpCode: HTTP_ERROR_CODES.BAD_REQUEST,
-        description: "Invalid workout parameter",
+      throw new ApiBadRequestError({
+        description: "Invalid workout",
         isOperational: true,
       });
     }
@@ -50,12 +44,9 @@ export class WorkoutService extends BaseService<WorkoutData[]> {
 
     const safeLimitBy = limitBySchema.safeParse(limitBy);
     if (!safeLimitBy.success) {
-      throw new ApiError({
-        codeName: API_ERROR_NAMES.BAD_REQUEST,
-        httpCode: HTTP_ERROR_CODES.BAD_REQUEST,
+      throw new ApiBadRequestError({
         description: "Invalid limitBy parameter: must be a positive integer",
         isOperational: true,
-        cause: safeLimitBy.error,
       });
     }
     return safeLimitBy.data;

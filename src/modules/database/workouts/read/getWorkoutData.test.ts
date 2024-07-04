@@ -1,6 +1,6 @@
-import { WorkoutCollections } from "@/modules/model/rest/routes/workouts/inputs/inputs";
-import { hardCodedMockWorkout } from "@/modules/model/rest/routes/workouts-id/mockData/workoutMock";
-import { hardCodedMockWorkouts } from "@/modules/model/rest/routes/workouts/mockData/workoutsMock";
+import { WorkoutCollections } from "@/modules/model/api/routes/workouts/inputs/inputs";
+import { hardCodedMockWorkout } from "@/modules/model/api/routes/workouts-id/mockData/workoutMock";
+import { hardCodedMockWorkouts } from "@/modules/model/api/routes/workouts/mockData/workoutsMock";
 import GetWorkoutData from "./getWorkoutData";
 
 const mockCollectionName: WorkoutCollections = "pull-ups";

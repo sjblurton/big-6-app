@@ -14,9 +14,9 @@ export const HTTP_ERROR_CODES = {
   NOT_FOUND: 404,
   INTERNAL_SERVER_ERROR: 500,
   BAD_REQUEST: 400,
-};
+} as const;
 
-type HttpCode = (typeof HTTP_ERROR_CODES)[keyof typeof HTTP_ERROR_CODES];
+export type HttpCode = (typeof HTTP_ERROR_CODES)[keyof typeof HTTP_ERROR_CODES];
 
 export type ErrorInputs = {
   codeName: ApiErrorNames;
@@ -27,7 +27,7 @@ export type ErrorInputs = {
   cause?: unknown;
 };
 
-export class ApiError extends Error {
+export abstract class ApiBaseError extends Error {
   public readonly codeName: ApiErrorNames;
 
   public readonly httpCode: HttpCode;
@@ -48,7 +48,7 @@ export class ApiError extends Error {
   }: ErrorInputs) {
     super(description);
 
-    Object.setPrototypeOf(this, ApiError.prototype);
+    Object.setPrototypeOf(this, ApiBaseError.prototype);
 
     this.codeName = codeName;
     this.httpCode = httpCode;
