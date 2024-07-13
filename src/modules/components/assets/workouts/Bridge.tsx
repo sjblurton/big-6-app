@@ -4,8 +4,8 @@ function Bridge() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="736"
-      height="567"
+      width="100%"
+      height="100%"
       fill="none"
       viewBox="0 0 736 567"
     >
