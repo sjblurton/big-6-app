@@ -6,6 +6,16 @@ const meta: Meta = {
   title: "Components/ProgressBar",
   component: ProgressBar,
   tags: ["autodocs"],
+  argTypes: {
+    goal: {
+      control: "number",
+      description: "The goal that the user is trying to reach",
+    },
+    actual: {
+      control: "number",
+      description: "The actual progress the user has made",
+    },
+  },
 };
 
 export default meta;

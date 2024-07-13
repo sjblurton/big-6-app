@@ -6,6 +6,13 @@ const meta: Meta = {
   title: "Components/Spinner",
   component: Spinner,
   tags: ["autodocs"],
+  argTypes: {
+    speed: {
+      control: "select",
+      options: ["slow", "medium", "fast"],
+      description: "The speed of the spinner",
+    },
+  },
 };
 
 export default meta;
