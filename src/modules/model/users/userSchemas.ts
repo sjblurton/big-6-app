@@ -14,3 +14,7 @@ export const sessionSchema = z.object({
   user: userWithEmailSchema,
   expires: z.string(),
 });
+
+export const databaseUserSchema = userWithEmailSchema.extend({
+  id: z.string(),
+});
