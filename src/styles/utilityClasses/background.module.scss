@@ -15,3 +15,7 @@
 .primary {
   background-color: color.get-color("primary", "main");
 }
+
+.light {
+  background-color: color.get-color("primary", "light");
+}

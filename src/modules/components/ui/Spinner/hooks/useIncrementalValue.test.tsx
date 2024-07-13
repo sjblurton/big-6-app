@@ -3,6 +3,8 @@ import useIncrementalValue from "./useIncrementalValue";
 
 const SPEED = { slow: 500, medium: 1000, fast: 2000 } as const;
 
+const INTERVAL = 70;
+
 describe("useIncrementalValue", () => {
   beforeEach(() => {
     jest.useFakeTimers();
@@ -21,16 +23,16 @@ describe("useIncrementalValue", () => {
       expect(result.current).toBe(0);
 
       act(() => {
-        jest.advanceTimersByTime(70);
+        jest.advanceTimersByTime(INTERVAL);
       });
 
-      expect(result.current).toBeCloseTo(SPEED[speed] / 70);
+      expect(result.current).toBeCloseTo(SPEED[speed] / INTERVAL);
 
       act(() => {
-        jest.advanceTimersByTime(70);
+        jest.advanceTimersByTime(INTERVAL);
       });
 
-      expect(result.current).toBeCloseTo((SPEED[speed] / 70) * 2);
+      expect(result.current).toBeCloseTo((SPEED[speed] / INTERVAL) * 2);
     },
   );
 
@@ -41,10 +43,10 @@ describe("useIncrementalValue", () => {
     expect(result.current).toBe(0);
 
     act(() => {
-      jest.advanceTimersByTime(140);
+      jest.advanceTimersByTime(INTERVAL * 2);
     });
 
-    expect(result.current).toBeCloseTo((SPEED.fast / 70) * 2);
+    expect(result.current).toBeCloseTo((SPEED.fast / INTERVAL) * 2);
 
     act(() => {
       unmount();
