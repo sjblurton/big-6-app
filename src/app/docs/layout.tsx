@@ -1,3 +1,6 @@
+"use client";
+
+import MuiThemeProvider from "@/modules/components/ui/library/MuiThemeProvider";
 import Navbar from "@/modules/components/ui/Navbar/Navbar";
 
 const docsRoutes = [
@@ -13,10 +16,10 @@ function DocsLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div>
+    <MuiThemeProvider>
       <Navbar routes={docsRoutes} />
       {children}
-    </div>
+    </MuiThemeProvider>
   );
 }
 

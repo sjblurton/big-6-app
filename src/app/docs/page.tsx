@@ -3,7 +3,6 @@ import {
   MuiContainer,
   MuiTypography,
 } from "@/modules/components/ui/library/mui";
-import { white as textColorWhite } from "@/styles/utilityClasses/typography.module.scss";
 
 function Docs() {
   return (
@@ -17,12 +16,7 @@ function Docs() {
           alignItems: "center",
         }}
       >
-        <MuiTypography
-          variant="h2"
-          component="h1"
-          sx={{ mb: 2 }}
-          className={textColorWhite}
-        >
+        <MuiTypography variant="h2" component="h1" sx={{ mb: 2 }}>
           Documentation
         </MuiTypography>
       </MuiBox>

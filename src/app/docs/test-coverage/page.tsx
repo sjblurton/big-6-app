@@ -18,7 +18,6 @@ import {
   warning as backgroundWarning,
 } from "@/styles/utilityClasses/background.module.scss";
 import {
-  white as textWhite,
   bold as textBold,
   capitalize as textCapitalize,
 } from "@/styles/utilityClasses/typography.module.scss";
@@ -29,7 +28,7 @@ import { tableColumnNames } from "./constants";
 function Coverage() {
   const data = useCoverageData();
 
-  const cellClassName = `${textCapitalize} ${textBold} ${backgroundColorPrimary} ${textWhite}`;
+  const cellClassName = `${textCapitalize} ${textBold} ${backgroundColorPrimary}`;
 
   const selectClassName = (value: number) => {
     if (value < 80) {
@@ -52,21 +51,11 @@ function Coverage() {
           alignItems: "center",
         }}
       >
-        <MuiTypography
-          variant="h2"
-          component="h1"
-          sx={{ mb: 2 }}
-          className={textWhite}
-        >
+        <MuiTypography variant="h2" component="h1" sx={{ mb: 2 }}>
           Test Coverage
         </MuiTypography>
         {data.length === 0 ? (
-          <MuiTypography
-            variant="h6"
-            component="h2"
-            sx={{ mt: 4 }}
-            className={textWhite}
-          >
+          <MuiTypography variant="h6" component="h2" sx={{ mt: 4 }}>
             No data available
           </MuiTypography>
         ) : (
