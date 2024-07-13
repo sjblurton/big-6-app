@@ -1,6 +1,6 @@
 "use client";
 
-import Circle from "../Circle/Circle";
+import Circle from "../../assets/Circle/Circle";
 import useIncrementalValue, {
   UseIncrementalValueSpeed,
 } from "./hooks/useIncrementalValue";
