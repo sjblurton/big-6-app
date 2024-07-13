@@ -4,6 +4,7 @@ import React from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { toKebabCase } from "@/modules/strings/transform";
+import { black as blackText } from "@/styles/colors/_exports.module.scss";
 import {
   MuiAppBar,
   MuiBox,
@@ -101,7 +102,9 @@ function Navbar({ routes }: NavbarProps) {
                         onClick={handleCloseNavMenu}
                         data-testid={`nav-menu-item-${toKebabCase(name)}`}
                       >
-                        <MuiTypography textAlign="center">{name}</MuiTypography>
+                        <MuiTypography textAlign="center" color={blackText}>
+                          {name}
+                        </MuiTypography>
                       </MuiMenuItem>
                     </Link>
                   ))
