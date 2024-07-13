@@ -1,13 +1,33 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import Navbar from "./Navbar";
+import Navbar, { NavbarProps } from "./Navbar";
 
-const meta: Meta = {
+const meta: Meta<NavbarProps> = {
   title: "Navigation/DocsNavbar",
   component: Navbar,
   tags: ["autodocs"],
   parameters: {
     layout: "fullscreen",
+  },
+  args: {
+    routes: [
+      {
+        name: "Getting Started",
+        path: "/docs",
+      },
+      {
+        name: "Components",
+        path: "/docs",
+      },
+      {
+        name: "API",
+        path: "/docs",
+      },
+      {
+        name: "GitHub",
+        path: "/github",
+      },
+    ],
   },
 };
 

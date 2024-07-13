@@ -4,7 +4,6 @@ import React from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { toKebabCase } from "@/modules/strings/transform";
-import { primary as primaryBackground } from "@/styles/utilityClasses/background.module.scss";
 import {
   MuiAppBar,
   MuiBox,
@@ -18,7 +17,7 @@ import {
 } from "../library/mui";
 import LogoSvg from "../Logo/Logo";
 
-type NavbarProps = {
+export type NavbarProps = {
   routes: { name: string; path: string }[];
 };
 
@@ -40,7 +39,7 @@ function Navbar({ routes }: NavbarProps) {
   };
 
   return (
-    <MuiAppBar className={primaryBackground} position="static">
+    <MuiAppBar color="primary" position="static">
       <MuiContainer maxWidth="md">
         <MuiToolbar disableGutters>
           <MuiBox
