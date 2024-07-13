@@ -18,10 +18,7 @@ export const mockExampleWorkout = ({
   return mock.map((entry, i) => ({
     ...entry,
     user: email,
-    date: {
-      seconds: 1719673447005,
-      nanoseconds: 0,
-    },
+    date: 1719673447005,
     workout,
     reps: [20, 15, 10].sort((a, b) => a - b),
     level: 10,
@@ -36,7 +33,7 @@ export const hardCodedMockWorkout = (
 ): WorkoutData[] => {
   const exampleWorkout = {
     key: "0ec2272c-51c9-4972-9438-3d2cb49834cc-0",
-    date: { seconds: 1719673447005, nanoseconds: 0 },
+    date: 1719673447005,
     reps: [10, 15, 20],
     level: 10,
     workout,
