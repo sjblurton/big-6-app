@@ -2,9 +2,11 @@ import { DateTime } from "luxon";
 import * as background from "@/styles/utilityClasses/background.module.scss";
 import * as box from "@/styles/utilityClasses/boxShadow.module.scss";
 import * as radius from "@/styles/utilityClasses/borderRadius.module.scss";
+import * as width from "@/styles/utilityClasses/width.module.scss";
 
 import { secondaryLight } from "@/styles/colors/_exports.module.scss";
 import { WorkoutData } from "@/modules/model/api/routes/workouts-id/outputs/workoutDataSchemas";
+import { wrapper } from "./MonthlyLineChart.module.scss";
 import { MuiLineChart } from "../library/muix";
 
 type Props = {
@@ -19,8 +21,7 @@ export default function MonthlyLineChart({ data }: Props) {
 
   return (
     <div
-      className={`${background.light} ${box.shadow} ${radius.medium}`}
-      style={{ width: "90%", minHeight: 250, maxWidth: 600 }}
+      className={`${background.light} ${box.shadow} ${radius.medium} ${width.w90} ${wrapper}`}
     >
       <MuiLineChart
         xAxis={[

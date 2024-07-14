@@ -18,3 +18,5 @@ export { default as MuiStepper } from "@mui/material/Stepper";
 export { default as MuiStep } from "@mui/material/Step";
 export { default as MuiStepLabel } from "@mui/material/StepLabel";
 export { default as MuiStack } from "@mui/material/Stack";
+export { default as MuiFloatingActionButton } from "@mui/material/Fab";
+export { default as MuiTextField } from "@mui/material/TextField";
