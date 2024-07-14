@@ -13,3 +13,8 @@ export { default as MuiIconButton } from "@mui/material/IconButton";
 export { default as MuiMenu } from "@mui/material/Menu";
 export { default as MuiMenuIcon } from "@mui/icons-material/Menu";
 export { default as MuiMenuItem } from "@mui/material/MenuItem";
+export { default as MuiButton } from "@mui/material/Button";
+export { default as MuiStepper } from "@mui/material/Stepper";
+export { default as MuiStep } from "@mui/material/Step";
+export { default as MuiStepLabel } from "@mui/material/StepLabel";
+export { default as MuiStack } from "@mui/material/Stack";

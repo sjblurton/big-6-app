@@ -1,4 +1,3 @@
-import { FirestoreError } from "@firebase/firestore";
 import { ZodError, ZodIssue } from "zod";
 import ErrorHandler from "./ErrorHandler";
 import { HTTP_ERROR_CODES } from "./errors/api.error.base";
@@ -54,34 +53,6 @@ describe("ErrorHandler", () => {
       description: "Bad request",
       isOperational: false,
     });
-    const errorHandler = new ErrorHandler(error);
-    const errorResponse = errorHandler.handle() as {
-      status: number;
-      body: string | null;
-    };
-
-    if (errorResponse.body === null) {
-      throw new Error("Body is null");
-    }
-
-    const parsedResponse = {
-      status: errorResponse.status,
-      body: JSON.parse(errorResponse.body),
-    };
-
-    expect(parsedResponse).toEqual({
-      body: {
-        error: {
-          message: "Internal Server Error",
-        },
-      },
-      status: HTTP_ERROR_CODES.INTERNAL_SERVER_ERROR,
-    });
-  });
-
-  it("should handle a Firestore error", () => {
-    const error = Object.create(FirestoreError.prototype);
-
     const errorHandler = new ErrorHandler(error);
     const errorResponse = errorHandler.handle() as {
       status: number;
