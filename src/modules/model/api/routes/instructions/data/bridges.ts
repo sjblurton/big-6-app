@@ -1,6 +1,6 @@
 import { WorkoutInstructions } from "@/modules/model/api/routes/instructions/outputs/workoutInstructionsSchema";
 
-export const bridges: WorkoutInstructions = [
+const bridges: WorkoutInstructions = [
   {
     workoutId: "bridges",
     level: 1,
@@ -311,3 +311,5 @@ export const bridges: WorkoutInstructions = [
     video: "https://www.youtube.com/watch?v=wZnixqvk-24",
   },
 ] as const;
+
+export default bridges;

@@ -1,7 +1,7 @@
 import { extendApi, generateSchema } from "@anatine/zod-openapi";
 
 import { workoutInstructionsSchema } from "./workoutInstructionsSchema";
-import { bridges } from "../data/instructions";
+import  bridges  from "../data/bridges";
 
 export const workoutsInstructionsBody200ResponseSchema = extendApi(
   workoutInstructionsSchema,
