@@ -1,6 +1,6 @@
-import {z} from "zod";
-import {WORKOUT_ID_LIST} from "@/modules/database/config/db";
-import {emailSchema} from "../../workouts/inputs/inputs";
+import { z } from "zod";
+import { WORKOUT_ID_LIST } from "@/modules/database/config/db";
+import { emailSchema } from "../../workouts/inputs/inputs";
 
 export const workoutSchema = z.object({
   key: z.string(),

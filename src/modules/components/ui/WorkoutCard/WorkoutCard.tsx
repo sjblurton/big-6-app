@@ -1,22 +1,22 @@
 import React from "react";
 
-import {DateTime} from "luxon";
+import { DateTime } from "luxon";
 import Link from "next/link";
-import {MuiTypography} from "@/modules/components/ui/library/mui";
-import {light} from "@/styles/utilityClasses/background.module.scss";
-import {shadow} from "@/styles/utilityClasses/boxShadow.module.scss";
-import {WorkoutData} from "@/modules/model/api/routes/workouts-id/outputs/workoutDataSchemas";
+import { MuiTypography } from "@/modules/components/ui/library/mui";
+import { light } from "@/styles/utilityClasses/background.module.scss";
+import { shadow } from "@/styles/utilityClasses/boxShadow.module.scss";
+import { WorkoutData } from "@/modules/model/api/routes/workouts-id/outputs/workoutDataSchemas";
 import ProgressBar from "../ProgressBar/ProgressBar";
-import {box, card, svg} from "./WorkoutCard.module.scss";
-import {workoutSvgs} from "../../assets/workouts";
+import { box, card, svg } from "./WorkoutCard.module.scss";
+import { workoutSvgs } from "../../assets/workouts";
 
 type Props = {
   workout: WorkoutData;
 };
 
-function Card({workout: {date, level, reps, workoutId: workout}}: Props) {
+function Card({ workout: { date, level, reps, workoutId: workout } }: Props) {
   const totalReps = reps.reduce((acc, curr) => acc + curr, 0);
-  const {title, component: Workout} = workoutSvgs[workout];
+  const { title, component: Workout } = workoutSvgs[workout];
   const time = DateTime.fromMillis(date).toRelativeCalendar();
 
   return (

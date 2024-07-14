@@ -1,14 +1,14 @@
-import {generateMock} from "@anatine/zod-mock";
+import { generateMock } from "@anatine/zod-mock";
 
-import {WorkoutIds, workoutIdsSchema} from "../inputs/inputs";
-import {WorkoutsData, workoutsSchema} from "../outputs/workoutsDataSchemas";
+import { WorkoutIds, workoutIdsSchema } from "../inputs/inputs";
+import { WorkoutsData, workoutsSchema } from "../outputs/workoutsDataSchemas";
 import {
   WorkoutData,
   workoutSchema,
 } from "../../workouts-id/outputs/workoutDataSchemas";
 
 export function mockExampleWorkouts(
-  email = "email@email.co.uk"
+  email = "email@email.co.uk",
 ): Record<WorkoutIds, WorkoutData[]> {
   const mock = generateMock(workoutsSchema);
   Object.entries(mock).forEach(([workout, entries]) => {

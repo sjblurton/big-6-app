@@ -1,6 +1,6 @@
-import {generateMock} from "@anatine/zod-mock";
-import {WorkoutIds} from "../../workouts/inputs/inputs";
-import {WorkoutData, workoutSchema} from "../outputs/workoutDataSchemas";
+import { generateMock } from "@anatine/zod-mock";
+import { WorkoutIds } from "../../workouts/inputs/inputs";
+import { WorkoutData, workoutSchema } from "../outputs/workoutDataSchemas";
 
 export const mockExampleWorkout = ({
   workoutId,
@@ -29,7 +29,7 @@ export const mockExampleWorkout = ({
 
 export const hardCodedMockWorkout = (
   workoutId: WorkoutIds,
-  numberOf: number
+  numberOf: number,
 ): WorkoutData[] => {
   const exampleWorkout = {
     key: "0ec2272c-51c9-4972-9438-3d2cb49834cc-0",
