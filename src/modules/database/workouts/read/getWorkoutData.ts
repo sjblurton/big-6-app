@@ -1,9 +1,9 @@
-import { workoutsSchema } from "@/modules/model/api/routes/workouts/outputs/workoutsDataSchemas";
-import { workoutSchema } from "@/modules/model/api/routes/workouts-id/outputs/workoutDataSchemas";
-import { hardCodedMockWorkout } from "@/modules/model/api/routes/workouts-id/mockData/workoutMock";
-import { WorkoutCollections } from "@/modules/model/api/routes/workouts/inputs/inputs";
+import {workoutsSchema} from "@/modules/model/api/routes/workouts/outputs/workoutsDataSchemas";
+import {workoutSchema} from "@/modules/model/api/routes/workouts-id/outputs/workoutDataSchemas";
+import {hardCodedMockWorkout} from "@/modules/model/api/routes/workouts-id/mockData/workoutMock";
+import {WorkoutIds} from "@/modules/model/api/routes/workouts/inputs/inputs";
 
-import { hardCodedMockWorkouts } from "@/modules/model/api/routes/workouts/mockData/workoutsMock";
+import {hardCodedMockWorkouts} from "@/modules/model/api/routes/workouts/mockData/workoutsMock";
 
 class GetWorkoutData {
   email: string;
@@ -12,10 +12,10 @@ class GetWorkoutData {
     this.email = email;
   }
 
-  static getWorkoutData(collectionName: WorkoutCollections, limitBy: number) {
+  static getWorkoutData(workoutId: WorkoutIds, limitBy: number) {
     return workoutSchema
       .array()
-      .parse(hardCodedMockWorkout(collectionName, limitBy));
+      .parse(hardCodedMockWorkout(workoutId, limitBy));
   }
 
   getWorkoutsData() {

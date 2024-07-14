@@ -1,11 +1,11 @@
-import { WorkoutCollections } from "@/modules/model/api/routes/workouts/inputs/inputs";
+import { WorkoutIds } from "@/modules/model/api/routes/workouts/inputs/inputs";
 import { NextRequest } from "next/server";
 import ErrorHandler from "@/modules/api/error-handler/ErrorHandler";
 import WorkoutController from "@/modules/api/workout/controller/workout.controller";
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { workout: WorkoutCollections } },
+  { params }: { params: { id: WorkoutIds } },
 ) {
   try {
     const controller = new WorkoutController(request, params);

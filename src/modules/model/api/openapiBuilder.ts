@@ -25,7 +25,7 @@ function buildOas() {
       description: "Workout tracking",
     })
     .addPath("/api/workouts", workoutsPath)
-    .addPath("/api/workouts/{workoutCollection}", workoutPath);
+    .addPath("/api/workouts/{id}", workoutPath);
 
   return test.getSpec();
 }

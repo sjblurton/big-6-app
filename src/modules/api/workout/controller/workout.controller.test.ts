@@ -1,6 +1,6 @@
-import { NextRequest, NextResponse } from "next/server";
-import { WorkoutCollections } from "@/modules/model/api/routes/workouts/inputs/inputs";
-import { mockExampleWorkout } from "@/modules/model/api/routes/workouts-id/mockData/workoutMock";
+import {NextRequest, NextResponse} from "next/server";
+import {WorkoutIds} from "@/modules/model/api/routes/workouts/inputs/inputs";
+import {mockExampleWorkout} from "@/modules/model/api/routes/workouts-id/mockData/workoutMock";
 import WorkoutController from "./workout.controller";
 
 jest.mock("next/server", () => ({
@@ -30,7 +30,7 @@ describe("WorkoutController", () => {
     } as NextRequest;
   });
 
-  const workoutCollections: WorkoutCollections[] = [
+  const workoutIds: WorkoutIds[] = [
     "pull-ups",
     "push-ups",
     "squats",
@@ -39,16 +39,16 @@ describe("WorkoutController", () => {
     "bridges",
   ];
 
-  workoutCollections.forEach((workoutCollection) => {
+  workoutIds.forEach((workoutCollection) => {
     it(`should return a valid response for ${workoutCollection} when calling GET()`, async () => {
       const mockResponse = mockExampleWorkout({
         entries: 5,
-        workout: workoutCollection,
+        workoutId: workoutCollection,
       });
 
       const getServiceDataSpy = jest.spyOn(
         WorkoutController.prototype,
-        "getServiceData",
+        "getServiceData"
       );
       getServiceDataSpy.mockResolvedValue(mockResponse);
 
@@ -59,7 +59,7 @@ describe("WorkoutController", () => {
       (NextResponse.json as jest.Mock).mockReturnValue(mockedJsonResponse);
 
       const controller = new WorkoutController(mockRequest, {
-        workout: workoutCollection,
+        id: workoutCollection,
       });
       const response = await controller.GET();
 

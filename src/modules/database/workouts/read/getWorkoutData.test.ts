@@ -1,9 +1,9 @@
-import { WorkoutCollections } from "@/modules/model/api/routes/workouts/inputs/inputs";
+import { WorkoutIds } from "@/modules/model/api/routes/workouts/inputs/inputs";
 import { hardCodedMockWorkout } from "@/modules/model/api/routes/workouts-id/mockData/workoutMock";
 import { hardCodedMockWorkouts } from "@/modules/model/api/routes/workouts/mockData/workoutsMock";
 import GetWorkoutData from "./getWorkoutData";
 
-const mockCollectionName: WorkoutCollections = "pull-ups";
+const mockCollectionName: WorkoutIds = "pull-ups";
 
 const mockLimitBy = 5;
 

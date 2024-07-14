@@ -1,9 +1,9 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type {Meta, StoryObj} from "@storybook/react";
 
-import { mockExampleWorkout } from "@/modules/model/api/routes/workouts/mockData/workoutsMock";
-import { disableArg } from "@/modules/storybook/argTypes/disableArgs";
-import { WorkoutData } from "@/modules/model/api/routes/workouts-id/outputs/workoutDataSchemas";
-import { workoutCollectionsSchema } from "@/modules/model/api/routes/workouts/inputs/inputs";
+import {mockExampleWorkout} from "@/modules/model/api/routes/workouts/mockData/workoutsMock";
+import {disableArg} from "@/modules/storybook/argTypes/disableArgs";
+import {WorkoutData} from "@/modules/model/api/routes/workouts-id/outputs/workoutDataSchemas";
+import {workoutIdsSchema} from "@/modules/model/api/routes/workouts/inputs/inputs";
 import Card from "./WorkoutCard";
 
 type Args = {
@@ -17,12 +17,10 @@ function mergeUserOverrides(args: Args) {
   const mergedArgs = args;
 
   if (args.workoutName && args.mockProps) {
-    mergedArgs.mockProps.workout = workoutCollectionsSchema.parse(
-      args.workoutName,
-    );
+    mergedArgs.mockProps.workoutId = workoutIdsSchema.parse(args.workoutName);
   }
 
-  return { workout: mergedArgs.mockProps };
+  return {workout: mergedArgs.mockProps};
 }
 
 const meta: Meta = {
@@ -51,7 +49,7 @@ const meta: Meta = {
   },
   decorators: [
     (Story) => (
-      <div style={{ width: "500px" }}>
+      <div style={{width: "500px"}}>
         <Story />
       </div>
     ),

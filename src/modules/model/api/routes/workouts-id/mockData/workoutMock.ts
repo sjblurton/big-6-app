@@ -1,13 +1,13 @@
-import { generateMock } from "@anatine/zod-mock";
-import { WorkoutCollections } from "../../workouts/inputs/inputs";
-import { WorkoutData, workoutSchema } from "../outputs/workoutDataSchemas";
+import {generateMock} from "@anatine/zod-mock";
+import {WorkoutIds} from "../../workouts/inputs/inputs";
+import {WorkoutData, workoutSchema} from "../outputs/workoutDataSchemas";
 
 export const mockExampleWorkout = ({
-  workout,
+  workoutId,
   entries,
   email = "email@email.com",
 }: {
-  workout: WorkoutCollections;
+  workoutId: WorkoutIds;
   entries: number;
   email?: string;
 }): WorkoutData[] => {
@@ -19,7 +19,7 @@ export const mockExampleWorkout = ({
     ...entry,
     user: email,
     date: 1719673447005,
-    workout,
+    workoutId,
     reps: [20, 15, 10].sort((a, b) => a - b),
     level: 10,
     key: `0ec2272c-51c9-4972-9438-3d2cb49834cc-${i}`,
@@ -28,15 +28,15 @@ export const mockExampleWorkout = ({
 };
 
 export const hardCodedMockWorkout = (
-  workout: WorkoutCollections,
-  numberOf: number,
+  workoutId: WorkoutIds,
+  numberOf: number
 ): WorkoutData[] => {
   const exampleWorkout = {
     key: "0ec2272c-51c9-4972-9438-3d2cb49834cc-0",
     date: 1719673447005,
     reps: [10, 15, 20],
     level: 10,
-    workout,
+    workoutId,
     comments: "This is a comment",
     user: "test@example.com",
   };

@@ -1,7 +1,7 @@
 import { NextRequest } from "next/server";
 import ErrorHandler from "@/modules/api/error-handler/ErrorHandler";
 
-import WorkoutsController from "../../../modules/api/workouts/controller/workouts.controller";
+import WorkoutsController from "@/modules/api/workouts/controller/workouts.controller";
 
 export async function GET(request: NextRequest) {
   try {

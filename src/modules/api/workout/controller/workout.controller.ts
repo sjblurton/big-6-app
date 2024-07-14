@@ -1,18 +1,18 @@
 import { NextRequest } from "next/server";
 import { WorkoutData } from "@/modules/model/api/routes/workouts-id/outputs/workoutDataSchemas";
-import { WorkoutCollections } from "@/modules/model/api/routes/workouts/inputs/inputs";
+import { WorkoutIds } from "@/modules/model/api/routes/workouts/inputs/inputs";
 import { WorkoutService } from "../services/workout.service";
 import BaseController from "../../baseClasses/base.controller";
 
 class WorkoutController extends BaseController<WorkoutData[]> {
   private readonly workoutService: WorkoutService;
 
-  workoutCollection: WorkoutCollections;
+  workoutCollection: WorkoutIds;
 
-  constructor(request: NextRequest, params: { workout: WorkoutCollections }) {
+  constructor(request: NextRequest, params: { id: WorkoutIds }) {
     super(request);
-    this.workoutCollection = params.workout;
-    this.workoutService = new WorkoutService(request, params.workout);
+    this.workoutCollection = params.id;
+    this.workoutService = new WorkoutService(request, params.id);
   }
 
   async getServiceData() {

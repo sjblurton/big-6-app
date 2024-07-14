@@ -1,4 +1,4 @@
-import { WorkoutCollections } from "@/modules/model/api/routes/workouts/inputs/inputs";
+import { WorkoutIds } from "@/modules/model/api/routes/workouts/inputs/inputs";
 import { ReactNode } from "react";
 import Bridge from "./Bridge";
 import Handstand from "./Handstand";
@@ -9,7 +9,7 @@ import Squat from "./Squat";
 import Rest from "./Rest";
 
 export const workoutSvgs: Record<
-  WorkoutCollections | "rest",
+  WorkoutIds | "rest",
   { component: () => ReactNode; title: string }
 > = {
   bridges: { component: Bridge, title: "Bridges" },

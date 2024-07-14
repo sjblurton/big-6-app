@@ -1,6 +1,6 @@
 import {
-  WorkoutCollections,
-  workoutCollectionsSchema,
+  WorkoutIds,
+  workoutIdsSchema,
 } from "@/modules/model/api/routes/workouts/inputs/inputs";
 import { WorkoutData } from "@/modules/model/api/routes/workouts-id/outputs/workoutDataSchemas";
 import { limitBySchema } from "@/modules/model/api/routes/workouts-id/inputs/querySchema";
@@ -10,11 +10,11 @@ import BaseService from "../../baseClasses/base.service";
 import { ApiBadRequestError } from "../../error-handler/errors/api.error.bad-request";
 
 export class WorkoutService extends BaseService<WorkoutData[]> {
-  private workoutCollection: WorkoutCollections;
+  private workoutId: WorkoutIds;
 
-  constructor(request: NextRequest, workoutCollection: WorkoutCollections) {
+  constructor(request: NextRequest, workoutId: WorkoutIds) {
     super(request);
-    this.workoutCollection = workoutCollection;
+    this.workoutId = workoutId;
   }
 
   async getServiceData() {
@@ -25,9 +25,7 @@ export class WorkoutService extends BaseService<WorkoutData[]> {
   }
 
   private validateUrlParams() {
-    const safeWorkout = workoutCollectionsSchema.safeParse(
-      this.workoutCollection,
-    );
+    const safeWorkout = workoutIdsSchema.safeParse(this.workoutId);
     if (!safeWorkout.success) {
       throw new ApiBadRequestError({
         description: "Invalid workout",

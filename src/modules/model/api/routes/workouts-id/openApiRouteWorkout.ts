@@ -1,5 +1,5 @@
 import type { PathItemObject } from "openapi3-ts/oas31";
-import { WORKOUT_COLLECTIONS } from "@/modules/database/config/db";
+import { WORKOUT_ID_LIST } from "@/modules/database/config/db";
 import { workoutOpenApiSchema } from "./outputs/responseSchema";
 import {
   commonOpenApiErrorResponses,
@@ -9,13 +9,13 @@ import {
 const workoutPath: PathItemObject = {
   get: {
     tags: ["workouts"],
-    summary: "Get all workouts for a collection",
-    description: "Get all workouts for a specific collection",
+    summary: "Get all workouts for the Id",
+    description: "Get all workouts for a specific Id",
     parameters: [
       {
-        name: "workoutCollection",
+        name: "workoutId",
         in: "path",
-        description: `The collection of workouts to get. Available collections are: ${WORKOUT_COLLECTIONS.join(", ")}`,
+        description: `The Id of workouts to get. Available Ids are: ${WORKOUT_ID_LIST.join(", ")}`,
         required: true,
         schema: {
           type: "string",
