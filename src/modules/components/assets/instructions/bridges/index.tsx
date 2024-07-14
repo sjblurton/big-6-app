@@ -18,16 +18,47 @@ import L9pos from "./level9/pos";
 import L9neg from "./level9/neg";
 import L10pos from "./level10/pos";
 import L10neg from "./level10/neg";
+import { LevelInstructionImages } from "../types";
 
-export const Bridges = [
-  [<L1pos key="pos" />, <L1neg key="neg" />],
-  [<L2pos key="pos" />, <L2neg key="neg" />],
-  [<L3pos key="pos" />, <L3neg key="neg" />],
-  [<L4pos key="pos" />, <L4neg key="neg" />],
-  [<L5pos key="pos" />, <L5neg key="neg" />],
-  [<L6pos key="pos" />, <L6neg key="neg" />],
-  [<L7pos key="pos" />, <L7neg key="neg" />],
-  [<L8pos key="pos" />, <L8neg key="neg" />],
-  [<L9pos key="pos" />, <L9neg key="neg" />],
-  [<L10pos key="pos" />, <L10neg key="neg" />],
-];
+export const bridgesInstructionImages: LevelInstructionImages = {
+  level1: {
+    positive: L1pos,
+    negative: L1neg,
+  },
+  level2: {
+    positive: L2pos,
+    negative: L2neg,
+  },
+  level3: {
+    positive: L3pos,
+    negative: L3neg,
+  },
+  level4: {
+    positive: L4pos,
+    negative: L4neg,
+  },
+  level5: {
+    positive: L5pos,
+    negative: L5neg,
+  },
+  level6: {
+    positive: L6pos,
+    negative: L6neg,
+  },
+  level7: {
+    positive: L7pos,
+    negative: L7neg,
+  },
+  level8: {
+    positive: L8pos,
+    negative: L8neg,
+  },
+  level9: {
+    positive: L9pos,
+    negative: L9neg,
+  },
+  level10: {
+    positive: L10pos,
+    negative: L10neg,
+  },
+} as const;

@@ -26,10 +26,7 @@ const legRaises: WorkoutInstructions = [
       negative:
         "By the time the motion is complete, you should have exhaled fully.",
     },
-    images: {
-      positive: "Images.LegRaises",
-      negative: "Images.LegRaises",
-    },
+
     video: "https://youtu.be/N8k-SeCkR0s",
   },
   {
@@ -57,10 +54,7 @@ const legRaises: WorkoutInstructions = [
       negative:
         "Keep the knees at a right angle throughout and exhale as you go.",
     },
-    images: {
-      positive: "Images.LegRaises",
-      negative: "Images.LegRaises",
-    },
+
     video: "https://youtu.be/98ragSP4gC8",
   },
   {
@@ -88,10 +82,7 @@ const legRaises: WorkoutInstructions = [
       negative:
         "As you move, the angle of the knee should not change: it must remain 'Locked' iin the same position.",
     },
-    images: {
-      positive: "Images.LegRaises",
-      negative: "Images.LegRaises",
-    },
+
     video: "https://youtu.be/qq69_MifXAc",
   },
   {
@@ -118,10 +109,7 @@ const legRaises: WorkoutInstructions = [
       negative:
         "Lower your legs, keeping them perfectly straight until they are just off the floor.",
     },
-    images: {
-      positive: "Images.LegRaises",
-      negative: "Images.LegRaises",
-    },
+
     video: "https://youtu.be/esoUyks3PZM",
   },
   {
@@ -149,10 +137,7 @@ const legRaises: WorkoutInstructions = [
       negative:
         "Keeping your legs locked, raise your feet until they are directly above your pelvis.",
     },
-    images: {
-      positive: "Images.LegRaises",
-      negative: "Images.LegRaises",
-    },
+
     video: "https://youtu.be/hav89ezKkPA",
   },
   {
@@ -180,10 +165,7 @@ const legRaises: WorkoutInstructions = [
       negative:
         "Bring your knees up smoothly until they are level with your pelvis, and your knees are at a right angle.",
     },
-    images: {
-      positive: "Images.LegRaises",
-      negative: "Images.LegRaises",
-    },
+
     video: "https://youtu.be/t2MU4Q4V3Xk",
   },
   {
@@ -211,10 +193,7 @@ const legRaises: WorkoutInstructions = [
       negative:
         "Only move at the hips: keep your knees angle 'locked' into place.",
     },
-    images: {
-      positive: "Images.LegRaises",
-      negative: "Images.LegRaises",
-    },
+
     video: "https://youtu.be/CtFMjDbU0P4",
   },
   {
@@ -241,10 +220,7 @@ const legRaises: WorkoutInstructions = [
       negative:
         "lower your legs, until fully extended keeping them locked straight.",
     },
-    images: {
-      positive: "Images.LegRaises",
-      negative: "Images.LegRaises",
-    },
+
     video: "https://youtu.be/GsZGSxGhcWk",
   },
   {
@@ -272,10 +248,7 @@ const legRaises: WorkoutInstructions = [
       negative:
         "Smoothly raise your legs until they are parallel with the floor.",
     },
-    images: {
-      positive: "Images.LegRaises",
-      negative: "Images.LegRaises",
-    },
+
     video: "https://youtu.be/y4cCwSpScPo",
   },
   {
@@ -302,10 +275,7 @@ const legRaises: WorkoutInstructions = [
       negative:
         "Exhale as your legs raise, blowing all the air you can out of your lungs so that the abdomen is fully contracted.",
     },
-    images: {
-      positive: "Images.LegRaises",
-      negative: "Images.LegRaises",
-    },
+
     video: "https://youtu.be/7jI6fDNY_yM",
   },
 ] as const;

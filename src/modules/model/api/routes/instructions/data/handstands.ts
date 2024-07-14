@@ -24,10 +24,7 @@ const handstands: WorkoutInstructions = [
 
       negative: "",
     },
-    images: {
-      positive: "Images.Handstands",
-      negative: "Images.Handstands",
-    },
+
     video: "https://youtu.be/tYX-9RQyiJA",
   },
   {
@@ -53,10 +50,7 @@ const handstands: WorkoutInstructions = [
 
       negative: "",
     },
-    images: {
-      positive: "Images.Handstands",
-      negative: "Images.Handstands",
-    },
+
     video: "https://youtu.be/oLGMF0yilWQ",
   },
   {
@@ -82,10 +76,7 @@ const handstands: WorkoutInstructions = [
 
       negative: "",
     },
-    images: {
-      positive: "Images.Handstands",
-      negative: "Images.Handstands",
-    },
+
     video: "https://youtu.be/gI4vnrDAxEQ",
   },
   {
@@ -110,10 +101,7 @@ const handstands: WorkoutInstructions = [
       positive: "",
       negative: "",
     },
-    images: {
-      positive: "Images.Handstands",
-      negative: "Images.Handstands",
-    },
+
     video: "https://youtu.be/a9WJRuue0YA",
   },
   {
@@ -139,10 +127,7 @@ const handstands: WorkoutInstructions = [
 
       negative: "",
     },
-    images: {
-      positive: "Images.Handstands",
-      negative: "Images.Handstands",
-    },
+
     video: "https://youtu.be/S27I9QGHtzo",
   },
   {
@@ -168,10 +153,7 @@ const handstands: WorkoutInstructions = [
 
       negative: "",
     },
-    images: {
-      positive: "Images.Handstands",
-      negative: "Images.Handstands",
-    },
+
     video: "https://youtu.be/vWv3P2-zvRQ",
   },
   {
@@ -197,10 +179,7 @@ const handstands: WorkoutInstructions = [
 
       negative: "",
     },
-    images: {
-      positive: "Images.Handstands",
-      negative: "Images.Handstands",
-    },
+
     video: "https://youtu.be/bzuf-4law2k",
   },
   {
@@ -227,10 +206,7 @@ const handstands: WorkoutInstructions = [
 
       negative: "",
     },
-    images: {
-      positive: "Images.Handstands",
-      negative: "Images.Handstands",
-    },
+
     video: "",
   },
   {
@@ -257,10 +233,7 @@ const handstands: WorkoutInstructions = [
 
       negative: "",
     },
-    images: {
-      positive: "Images.Handstands",
-      negative: "Images.Handstands",
-    },
+
     video: "https://youtu.be/3IJMlCWovF8",
   },
   {
@@ -286,10 +259,7 @@ const handstands: WorkoutInstructions = [
 
       negative: "",
     },
-    images: {
-      positive: "Images.Handstands",
-      negative: "Images.Handstands",
-    },
+
     video: "https://youtu.be/hYnmRO37SRQ",
   },
 ] as const;

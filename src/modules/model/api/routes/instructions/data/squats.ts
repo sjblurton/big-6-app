@@ -26,10 +26,7 @@ const squats: WorkoutInstructions = [
       negative:
         "Keeping your torso as upright as possible, bend at the hips and knees until your knees touch your forehead.",
     },
-    images: {
-      negative: "Images.Squats",
-      positive: "Images.Squats",
-    },
+
     video:
       "https://www.youtube.com/watch?v=a-JNXY_hnSs&list=PLZsDuSZDsUoYOuq2RgSqZSV-11BdHYViN&index=4",
   },
@@ -58,10 +55,7 @@ const squats: WorkoutInstructions = [
       negative:
         "Bend at the knees and hips until your hamstrings reach your calves, and you can not go any further.",
     },
-    images: {
-      positive: "Images.Squats",
-      negative: "Images.Squats",
-    },
+
     video:
       "https://www.youtube.com/watch?v=QhyRsrPOkoY&list=PLZsDuSZDsUoYOuq2RgSqZSV-11BdHYViN&index=5",
   },
@@ -90,10 +84,7 @@ const squats: WorkoutInstructions = [
       negative:
         "Slowly lower yourself down by bending at the hips and knees, keeping your back as straight as possible.",
     },
-    images: {
-      positive: "Images.Squats",
-      negative: "Images.Squats",
-    },
+
     video:
       "https://www.youtube.com/watch?v=cLQS5mZmXN0&list=PLZsDuSZDsUoYOuq2RgSqZSV-11BdHYViN&index=6",
   },
@@ -122,10 +113,7 @@ const squats: WorkoutInstructions = [
       negative:
         "Bend at the hips and knees until your knees are angled at ninety degrees.",
     },
-    images: {
-      positive: "Images.Squats",
-      negative: "Images.Squats",
-    },
+
     video:
       "https://www.youtube.com/watch?v=tIHNkW0nGFg&list=PLZsDuSZDsUoYOuq2RgSqZSV-11BdHYViN&index=7",
   },
@@ -154,10 +142,7 @@ const squats: WorkoutInstructions = [
       negative:
         "Continue descending at a controlled speed until the backs of your thighs are resting against your calves.",
     },
-    images: {
-      positive: "Images.Squats",
-      negative: "Images.Squats",
-    },
+
     video:
       "https://www.youtube.com/watch?v=S3bNmmxkh_k&list=PLZsDuSZDsUoYOuq2RgSqZSV-11BdHYViN&index=8",
   },
@@ -186,10 +171,7 @@ const squats: WorkoutInstructions = [
       negative:
         "To prevent yourself from tipping backwards you may have to flex your shins.",
     },
-    images: {
-      positive: "Images.Squats",
-      negative: "Images.Squats",
-    },
+
     video:
       "https://www.youtube.com/watch?v=MiNzsa9MIpI&list=PLZsDuSZDsUoYOuq2RgSqZSV-11BdHYViN&index=9",
   },
@@ -218,10 +200,7 @@ const squats: WorkoutInstructions = [
       negative:
         "Bend at the knees and hips until seated keeping the other foot off the floor.",
     },
-    images: {
-      positive: "Images.Squats",
-      negative: "Images.Squats",
-    },
+
     video: "",
   },
   {
@@ -249,10 +228,7 @@ const squats: WorkoutInstructions = [
       negative:
         "Keep the back flat and the heel of your supported leg on the floor at all times.",
     },
-    images: {
-      positive: "Images.Squats",
-      negative: "Images.Squats",
-    },
+
     video: "https://www.youtube.com/watch?v=dZON2MCVdfg",
   },
   {
@@ -280,10 +256,7 @@ const squats: WorkoutInstructions = [
       negative:
         "Press down on the basketball to help you over the first few centimeters.",
     },
-    images: {
-      positive: "Images.Squats",
-      negative: "Images.Squats",
-    },
+
     video:
       "https://www.youtube.com/watch?v=9Mcs9M1HORQ&list=PLZsDuSZDsUoYOuq2RgSqZSV-11BdHYViN&index=12",
   },
@@ -311,10 +284,7 @@ const squats: WorkoutInstructions = [
       negative:
         "Descend smoothly, until the back of the thigh of your supporting leg rests against the calf.",
     },
-    images: {
-      positive: "Images.Squats",
-      negative: "Images.Squats",
-    },
+
     video:
       "https://www.youtube.com/watch?v=fNCTWGl1Q8A&list=PLZsDuSZDsUoYOuq2RgSqZSV-11BdHYViN&index=13",
   },

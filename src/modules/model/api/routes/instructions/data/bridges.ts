@@ -26,10 +26,7 @@ const bridges: WorkoutInstructions = [
       negative:
         "Your thighs, trunk and torso should form a straight line, with no sagging of the hips.",
     },
-    images: {
-      positive: "Images.Bridges",
-      negative: "Images.Bridges",
-    },
+
     video: "https://youtu.be/JQFddjAFWZw",
   },
   {
@@ -57,10 +54,7 @@ const bridges: WorkoutInstructions = [
       negative:
         "push your hips upwards until your legs and torso form a straight line.",
     },
-    images: {
-      positive: "Images.Bridges",
-      negative: "Images.Bridges",
-    },
+
     video: "https://youtu.be/gkTVDJHHIZ0",
   },
   {
@@ -88,10 +82,7 @@ const bridges: WorkoutInstructions = [
       negative:
         "the arms don't need to be fully extended, the elbows will be bent.",
     },
-    images: {
-      positive: "Images.Bridges",
-      negative: "Images.Bridges",
-    },
+
     video: "https://youtu.be/o9yKAjvUQlM",
   },
   {
@@ -117,10 +108,7 @@ const bridges: WorkoutInstructions = [
 
       negative: "Hold the full bridge at the top.",
     },
-    images: {
-      positive: "Images.Bridges",
-      negative: "Images.Bridges",
-    },
+
     video: "https://youtu.be/BIq3sAZAekg",
   },
   {
@@ -147,10 +135,7 @@ const bridges: WorkoutInstructions = [
 
       negative: "Keep going until your back is fully arced.",
     },
-    images: {
-      positive: "Images.Bridges",
-      negative: "Images.Bridges",
-    },
+
     video: "https://youtu.be/JXHnTtE9NSk",
   },
   {
@@ -179,10 +164,7 @@ const bridges: WorkoutInstructions = [
       negative:
         "Allow the head to tilt backwards between the arms, so that you can look at the wall behind you.",
     },
-    images: {
-      positive: "Images.Bridges",
-      negative: "Images.Bridges",
-    },
+
     video: "https://www.youtube.com/watch?v=qnU9LoO5Cyg",
   },
   {
@@ -210,10 +192,7 @@ const bridges: WorkoutInstructions = [
       negative:
         "Keep bending backwards as you walk down the wall with your hands. Until the hands are flat on the floor.",
     },
-    images: {
-      positive: "Images.Bridges",
-      negative: "Images.Bridges",
-    },
+
     video: "https://youtu.be/LD1h45ArqcY",
   },
   {
@@ -242,10 +221,7 @@ const bridges: WorkoutInstructions = [
       negative:
         "Push gently away from the wall until you are standing totally clear from the it.",
     },
-    images: {
-      positive: "Images.Bridges",
-      negative: "Images.Bridges",
-    },
+
     video: "https://youtu.be/sc_hsEM7xnA",
   },
   {
@@ -273,10 +249,7 @@ const bridges: WorkoutInstructions = [
       negative:
         "Extend your arms as you keep the movement going, until your palms are resting on the floor.",
     },
-    images: {
-      positive: "Images.Bridges",
-      negative: "Images.Bridges",
-    },
+
     video: "https://youtu.be/tGv50Whxouk",
   },
   {
@@ -303,10 +276,6 @@ const bridges: WorkoutInstructions = [
 
       negative:
         "Finally, pull the hips in until you are standing straight with hands by your sides.",
-    },
-    images: {
-      positive: "Images.Bridges",
-      negative: "Images.Bridges",
     },
     video: "https://www.youtube.com/watch?v=wZnixqvk-24",
   },

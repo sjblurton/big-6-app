@@ -26,10 +26,7 @@ const pullUps: WorkoutInstructions = [
 
       negative: "slowly lower yourself until elbows are straight.",
     },
-    images: {
-      positive: "Images.PullUps",
-      negative: "Images.PullUps",
-    },
+
     video: "https://youtu.be/F8kIJMeqCMs",
   },
   {
@@ -55,10 +52,7 @@ const pullUps: WorkoutInstructions = [
 
       negative: "Smoothly pull yourself up up to the bar.",
     },
-    images: {
-      positive: "Images.PullUps",
-      negative: "Images.PullUps",
-    },
+
     video: "https://youtu.be/YN0vvoqssfw",
   },
   {
@@ -85,10 +79,7 @@ const pullUps: WorkoutInstructions = [
       negative:
         "Smoothly pull yourself up, using your straightened legs to assist you.",
     },
-    images: {
-      positive: "Images.PullUps",
-      negative: "Images.PullUps",
-    },
+
     video: "https://youtu.be/58ss6OF4fmQ",
   },
   {
@@ -114,10 +105,7 @@ const pullUps: WorkoutInstructions = [
       positive: "Your upper arms should be parallel to the the floor.",
       negative: "Allow your elbows to travel forwards if it right for you.",
     },
-    images: {
-      negative: "Images.PullUps",
-      positive: "Images.PullUps",
-    },
+
     video: "https://youtu.be/vsRRJGHhKnA",
   },
   {
@@ -146,10 +134,7 @@ const pullUps: WorkoutInstructions = [
       negative:
         "Bend at the elbows and shoulders until your chin passes over the bar.",
     },
-    images: {
-      positive: "Images.PullUps",
-      negative: "Images.PullUps",
-    },
+
     video: "https://youtu.be/fCHcb4MB1FM",
   },
   {
@@ -176,10 +161,7 @@ const pullUps: WorkoutInstructions = [
 
       negative: "Try to minimize leg movement during the set",
     },
-    images: {
-      positive: "Images.PullUps",
-      negative: "Images.PullUps",
-    },
+
     video: "https://youtu.be/Om_3c0jozTc",
   },
   {
@@ -207,10 +189,7 @@ const pullUps: WorkoutInstructions = [
       negative:
         "Bend at the elbows and shoulders to smoothly pull your chin up over the bar.",
     },
-    images: {
-      positive: "Images.PullUps",
-      negative: "Images.PullUps",
-    },
+
     video: "https://youtu.be/fCHcb4MB1FM",
   },
   {
@@ -237,10 +216,7 @@ const pullUps: WorkoutInstructions = [
 
       negative: "Smoothly pull your chin over the bar.",
     },
-    images: {
-      positive: "Images.PullUps",
-      negative: "Images.PullUps",
-    },
+
     video: "https://youtu.be/ve0EIQdRLag",
   },
   {
@@ -268,10 +244,7 @@ const pullUps: WorkoutInstructions = [
       negative:
         "Release the towel, and continue pulling yourself up with just one arm until your chin is over the bar.",
     },
-    images: {
-      negative: "Images.PullUps",
-      positive: "Images.PullUps",
-    },
+
     video: "https://youtu.be/W8DBEewoDmY",
   },
   {
@@ -299,10 +272,7 @@ const pullUps: WorkoutInstructions = [
       negative:
         "Bend at the elbow, and shoulder to pull your body up with as little momentum as possible.",
     },
-    images: {
-      positive: "Images.PullUps",
-      negative: "Images.PullUps",
-    },
+
     video: "https://youtu.be/2tHTY6ZKzkc",
   },
 ] as const;

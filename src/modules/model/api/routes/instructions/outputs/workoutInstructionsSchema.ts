@@ -18,7 +18,6 @@ const exerciseSchema = z.object({
     advanced: setsAndRepsSchema,
   }),
   directions: negativePositiveSchema,
-  images: negativePositiveSchema,
   video: z.string().url(),
 });
 

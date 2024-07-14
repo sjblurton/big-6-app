@@ -23,10 +23,7 @@ const pushUps: WorkoutInstructions = [
       positive: "",
       negative: "",
     },
-    images: {
-      positive: "Images.PushUps",
-      negative: "Images.PushUps",
-    },
+
     video: "https://youtu.be/N5C9NUHZ20U",
   },
   {
@@ -52,10 +49,7 @@ const pushUps: WorkoutInstructions = [
 
       negative: "",
     },
-    images: {
-      positive: "Images.PushUps",
-      negative: "Images.PushUps",
-    },
+
     video: "https://youtu.be/Gv8y_prZBZY",
   },
   {
@@ -81,10 +75,7 @@ const pushUps: WorkoutInstructions = [
 
       negative: "",
     },
-    images: {
-      positive: "Images.PushUps",
-      negative: "Images.PushUps",
-    },
+
     video: "https://youtu.be/NyzxeqY6CR8",
   },
   {
@@ -109,10 +100,7 @@ const pushUps: WorkoutInstructions = [
       positive: "",
       negative: "",
     },
-    images: {
-      positive: "Images.PushUps",
-      negative: "Images.PushUps",
-    },
+
     video: "https://youtu.be/bGuUODcwnHA",
   },
   {
@@ -139,10 +127,7 @@ const pushUps: WorkoutInstructions = [
 
       negative: "",
     },
-    images: {
-      positive: "Images.PushUps",
-      negative: "Images.PushUps",
-    },
+
     video: "https://youtu.be/1QJICN6udbs",
   },
   {
@@ -169,10 +154,7 @@ const pushUps: WorkoutInstructions = [
 
       negative: "",
     },
-    images: {
-      positive: "Images.PushUps",
-      negative: "Images.PushUps",
-    },
+
     video: "https://youtu.be/3-1vRVuWgBc",
   },
   {
@@ -199,10 +181,7 @@ const pushUps: WorkoutInstructions = [
 
       negative: "",
     },
-    images: {
-      positive: "Images.PushUps",
-      negative: "Images.PushUps",
-    },
+
     video: "https://youtu.be/o1abTRdwpUs",
   },
   {
@@ -229,10 +208,7 @@ const pushUps: WorkoutInstructions = [
 
       negative: "",
     },
-    images: {
-      positive: "Images.PushUps",
-      negative: "Images.PushUps",
-    },
+
     video: "https://youtu.be/63077t3I4Zc",
   },
   {
@@ -259,10 +235,7 @@ const pushUps: WorkoutInstructions = [
 
       negative: "",
     },
-    images: {
-      positive: "Images.PushUps",
-      negative: "Images.PushUps",
-    },
+
     video: "https://youtu.be/Hwq5zdb-owA",
   },
   {
@@ -288,10 +261,7 @@ const pushUps: WorkoutInstructions = [
 
       negative: "",
     },
-    images: {
-      positive: "Images.PushUps",
-      negative: "Images.PushUps",
-    },
+
     video: "https://youtu.be/ReKZry7JQEQ",
   },
 ] as const;
