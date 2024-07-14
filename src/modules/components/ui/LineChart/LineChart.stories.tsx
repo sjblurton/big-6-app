@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import { WorkoutData } from "@/modules/model/api/routes/workouts-id/outputs/workoutDataSchemas";
 import { disableControlsOnly } from "@/modules/storybook/argTypes/disableArgs";
-import MonthlyLineChart from "./MonthlyLineChart";
+import LineChart from "./LineChart";
 
 const ONE_WEEK = 604800000;
 
@@ -47,7 +47,7 @@ const mockArgs: WorkoutData[] = [
 
 const meta: Meta = {
   title: "Components/MonthlyLineChart",
-  component: MonthlyLineChart,
+  component: LineChart,
   tags: ["autodocs"],
   decorators: [
     (Story) => (
@@ -80,6 +80,6 @@ const meta: Meta = {
 
 export default meta;
 
-type Story = StoryObj<typeof MonthlyLineChart>;
+type Story = StoryObj<typeof LineChart>;
 
 export const Default: Story = {};

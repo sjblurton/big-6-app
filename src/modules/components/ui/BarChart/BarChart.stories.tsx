@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import DayBarChart from "./DayBarChart";
+import BarChart from "./BarChart";
 
 const meta: Meta = {
   title: "Components/DayBarChart",
-  component: DayBarChart,
+  component: BarChart,
   tags: ["autodocs"],
   decorators: [
     (Story) => (
@@ -34,7 +34,7 @@ const meta: Meta = {
 
 export default meta;
 
-type Story = StoryObj<typeof DayBarChart>;
+type Story = StoryObj<typeof BarChart>;
 
 export const Default: Story = {
   args: {

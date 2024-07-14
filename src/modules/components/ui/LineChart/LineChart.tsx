@@ -6,14 +6,14 @@ import * as width from "@/styles/utilityClasses/width.module.scss";
 
 import { secondaryLight } from "@/styles/colors/_exports.module.scss";
 import { WorkoutData } from "@/modules/model/api/routes/workouts-id/outputs/workoutDataSchemas";
-import { wrapper } from "./MonthlyLineChart.module.scss";
+import { wrapper } from "./LineChart.module.scss";
 import { MuiLineChart } from "../library/muix";
 
 type Props = {
   data: WorkoutData[];
 };
 
-export default function MonthlyLineChart({ data }: Props) {
+export default function LineChart({ data }: Props) {
   const totalRepsPerDay = data.map((day) => ({
     date: day.date,
     totalReps: day.reps.reduce((acc, curr) => acc + curr, 0),
