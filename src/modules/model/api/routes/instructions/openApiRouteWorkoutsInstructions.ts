@@ -1,7 +1,8 @@
 import type { PathItemObject } from "openapi3-ts/oas31";
-import { WORKOUT_ID_LIST } from "@/modules/database/config/db";
+
 import { commonOpenApiErrorResponses } from "../shared/openApiErrorResponse";
 import { workoutsInstructionsOpenApiSchema } from "./outputs/responseSchemas";
+import { WORKOUT_ID_LIST } from "../shared/workoutIds";
 
 const workoutsInstructionsPath: PathItemObject = {
   get: {

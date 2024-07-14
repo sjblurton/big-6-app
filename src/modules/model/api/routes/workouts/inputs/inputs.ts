@@ -1,5 +1,5 @@
-import { WORKOUT_ID_LIST } from "@/modules/database/config/db";
 import { z } from "zod";
+import { WORKOUT_ID_LIST } from "../../shared/workoutIds";
 
 export const workoutIdsSchema = z.enum(WORKOUT_ID_LIST);
 
