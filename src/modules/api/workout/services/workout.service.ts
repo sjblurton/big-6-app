@@ -6,10 +6,10 @@ import { WorkoutData } from "@/modules/model/api/routes/workouts-id/outputs/work
 import { limitBySchema } from "@/modules/model/api/routes/workouts-id/inputs/querySchema";
 import { NextRequest } from "next/server";
 import GetWorkoutData from "@/modules/database/workouts/read/getWorkoutData";
-import BaseService from "../../baseClasses/base.service";
+import AuthService from "../../data-layer/auth.service";
 import { ApiBadRequestError } from "../../error-handler/errors/api.error.bad-request";
 
-export class WorkoutService extends BaseService<WorkoutData[]> {
+export class WorkoutService extends AuthService<WorkoutData[]> {
   private workoutId: WorkoutIds;
 
   constructor(request: NextRequest, workoutId: WorkoutIds) {

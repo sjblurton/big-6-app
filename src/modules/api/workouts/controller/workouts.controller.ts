@@ -1,9 +1,9 @@
 import { NextRequest } from "next/server";
 import { WorkoutsData } from "@/modules/model/api/routes/workouts/outputs/workoutsDataSchemas";
 import { WorkoutsService } from "../services/workouts.service";
-import BaseController from "../../baseClasses/base.controller";
+import Controller from "../../data-layer/controller";
 
-class WorkoutsController extends BaseController<WorkoutsData> {
+class WorkoutsController extends Controller<WorkoutsData> {
   private readonly workoutsService: WorkoutsService;
 
   constructor(request: NextRequest) {

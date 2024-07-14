@@ -13,7 +13,7 @@ const workoutPath: PathItemObject = {
     description: "Get all workouts for a specific Id",
     parameters: [
       {
-        name: "workoutId",
+        name: "id",
         in: "path",
         description: `The Id of workouts to get. Available Ids are: ${WORKOUT_ID_LIST.join(", ")}`,
         required: true,

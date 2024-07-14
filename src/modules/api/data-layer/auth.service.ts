@@ -3,7 +3,7 @@ import GetWorkoutData from "@/modules/database/workouts/read/getWorkoutData";
 import { NextRequest } from "next/server";
 import { ApiForbiddenError } from "../error-handler/errors/api.error.forbidden";
 
-abstract class BaseService<Data> {
+abstract class AuthService<Data> {
   protected readonly request: NextRequest;
 
   protected readonly getWorkoutData: GetWorkoutData;
@@ -30,4 +30,4 @@ abstract class BaseService<Data> {
   abstract getServiceData(): Promise<Data>;
 }
 
-export default BaseService;
+export default AuthService;

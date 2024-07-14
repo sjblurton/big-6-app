@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 
-abstract class BaseController<Data> {
+abstract class Controller<Data> {
   protected readonly request: NextRequest;
 
   constructor(request: NextRequest) {
@@ -10,10 +10,10 @@ abstract class BaseController<Data> {
   abstract getServiceData(): Promise<Data>;
 
   async GET(): Promise<Response> {
-    const parsedWorkoutData = await this.getServiceData();
+    const parsedData = await this.getServiceData();
 
-    return NextResponse.json(parsedWorkoutData);
+    return NextResponse.json(parsedData);
   }
 }
 
-export default BaseController;
+export default Controller;
