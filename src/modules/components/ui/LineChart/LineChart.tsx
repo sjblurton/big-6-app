@@ -7,7 +7,7 @@ import * as width from "@/styles/utilityClasses/width.module.scss";
 import { secondaryLight } from "@/styles/colors/_exports.module.scss";
 import { WorkoutData } from "@/modules/model/api/routes/workouts-id/outputs/workoutDataSchemas";
 import { wrapper } from "./LineChart.module.scss";
-import { MuiLineChart } from "../library/muix";
+import { MuiLineChart } from "../../library/muix";
 
 type Props = {
   data: WorkoutData[];
@@ -38,7 +38,6 @@ export default function LineChart({ data }: Props) {
             color: secondaryLight,
           },
         ]}
-        height={250}
       />
     </div>
   );

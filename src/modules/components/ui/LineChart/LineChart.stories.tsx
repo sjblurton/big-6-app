@@ -46,9 +46,8 @@ const mockArgs: WorkoutData[] = [
 ];
 
 const meta: Meta = {
-  title: "Components/MonthlyLineChart",
+  title: "Components/LineChart",
   component: LineChart,
-  tags: ["autodocs"],
   decorators: [
     (Story) => (
       <div
