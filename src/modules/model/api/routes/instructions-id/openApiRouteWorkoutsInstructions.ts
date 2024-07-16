@@ -4,7 +4,7 @@ import { commonOpenApiErrorResponses } from "../shared/openApiErrorResponse";
 import { workoutsInstructionsOpenApiSchema } from "./outputs/responseSchemas";
 import { WORKOUT_ID_LIST } from "../shared/workoutIds";
 
-const workoutsInstructionsPath: PathItemObject = {
+const workoutsInstructionsPathId: PathItemObject = {
   get: {
     tags: ["instructions"],
     summary: "Get workout instructions by id",
@@ -34,4 +34,4 @@ const workoutsInstructionsPath: PathItemObject = {
   },
 };
 
-export default workoutsInstructionsPath;
+export default workoutsInstructionsPathId;

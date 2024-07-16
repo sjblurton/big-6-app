@@ -2,7 +2,9 @@ import { NextRequest, NextResponse } from "next/server";
 import ErrorHandler from "@/modules/api/error-handler/ErrorHandler";
 import WorkoutsController from "@/modules/api/workouts/controller/workouts.controller";
 import WorkoutController from "@/modules/api/workout/controller/workout.controller";
-import InstructionsController from "@/modules/api/instructions/instructions.controller";
+import InstructionsController from "@/modules/api/instructions/controllers/instructions.controller";
+import { ApiNotFoundError } from "@/modules/api/error-handler/errors/api.error.not-found";
+import { ApiZodValidationError } from "@/modules/api/error-handler/errors/api.error.zod-validation";
 import { GET as instructionsGET } from "./docs/instructions/[id]/route";
 import { GET as workoutsGET } from "./workouts/route";
 import { GET as workoutGET } from "./workouts/[id]/route";
@@ -46,9 +48,15 @@ describe.each([
     ControllerSpy: jest.spyOn(WorkoutController.prototype, "GET"),
   },
   {
-    description: "instructions.GET",
+    description: "instructions-id.GET",
     GET: instructionsGET,
     mockArgs: [mockRequest, { params: { id: "bridges" } }],
+    ControllerSpy: jest.spyOn(InstructionsController.prototype, "GET"),
+  },
+  {
+    description: "instructions-id-level.GET",
+    GET: instructionsGET,
+    mockArgs: [mockRequest, { params: { id: "bridges", level: "6" } }],
     ControllerSpy: jest.spyOn(InstructionsController.prototype, "GET"),
   },
 ] as const)(
@@ -63,8 +71,7 @@ describe.each([
 
       ControllerSpy.mockResolvedValue(mockResponse);
 
-      // eslint-disable-next-line
-      // @ts-ignore
+      // @ts-expect-error - I'm not sure why this is throwing an error
       const result = await GET(...mockArgs);
 
       expect(ControllerSpy).toHaveBeenCalledTimes(1);
@@ -84,8 +91,66 @@ describe.each([
 
       mockHandle.mockReturnValue(mockErrorResponse);
 
-      // eslint-disable-next-line
-      // @ts-ignore
+      // @ts-expect-error - I'm not sure why this is throwing an error
+      const result = await GET(...mockArgs);
+
+      expect(ControllerSpy).toHaveBeenCalledTimes(1);
+      expect(ErrorHandler).toHaveBeenCalledTimes(1);
+      expect(ErrorHandler).toHaveBeenCalledWith(mockError);
+      expect(mockHandle).toHaveBeenCalledTimes(1);
+      expect(mockHandle).toHaveBeenCalledWith();
+      expect(result).toEqual(mockErrorResponse);
+    });
+
+    it(`should call ErrorHandler.handle if ${description} throws an ApiError 404`, async () => {
+      const mockError = new ApiNotFoundError({ description: "test error" });
+      const mockErrorResponse = NextResponse.json(
+        {
+          error: { message: "test error" },
+        },
+        { status: 500 },
+      );
+
+      ControllerSpy.mockRejectedValue(mockError);
+
+      mockHandle.mockReturnValue(mockErrorResponse);
+
+      // @ts-expect-error - I'm not sure why this is throwing an error
+      const result = await GET(...mockArgs);
+
+      expect(ControllerSpy).toHaveBeenCalledTimes(1);
+      expect(ErrorHandler).toHaveBeenCalledTimes(1);
+      expect(ErrorHandler).toHaveBeenCalledWith(mockError);
+      expect(mockHandle).toHaveBeenCalledTimes(1);
+      expect(mockHandle).toHaveBeenCalledWith();
+      expect(result).toEqual(mockErrorResponse);
+    });
+
+    it(`should call ErrorHandler.handle if ${description} throws an ApiZodValidationError`, async () => {
+      const mockError = new ApiZodValidationError({
+        cause: [
+          {
+            code: "invalid_type",
+            received: "array",
+            expected: "string",
+            path: ["params", "level"],
+            message: "Invalid input",
+          },
+        ],
+        description: "test error",
+      });
+      const mockErrorResponse = NextResponse.json(
+        {
+          error: { message: "test error" },
+        },
+        { status: 500 },
+      );
+
+      ControllerSpy.mockRejectedValue(mockError);
+
+      mockHandle.mockReturnValue(mockErrorResponse);
+
+      // @ts-expect-error - I'm not sure why this is throwing an error
       const result = await GET(...mockArgs);
 
       expect(ControllerSpy).toHaveBeenCalledTimes(1);

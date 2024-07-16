@@ -23,4 +23,4 @@ const exerciseSchema = z.object({
 
 export const workoutInstructionsSchema = z.array(exerciseSchema);
 
-export type WorkoutInstructions = z.infer<typeof workoutInstructionsSchema>;
+export type WorkoutInstruction = z.infer<typeof exerciseSchema>;

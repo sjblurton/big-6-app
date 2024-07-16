@@ -5,7 +5,7 @@ import { NextRequest } from "next/server";
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: WorkoutIds } },
+  { params }: { params: { id: WorkoutIds; level: string } },
 ) {
   try {
     const controller = new InstructionsController(request, params);
