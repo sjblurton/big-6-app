@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { WorkoutData } from "@/modules/model/api/routes/workouts-id/outputs/workoutDataSchemas";
 import { disableControlsOnly } from "@/modules/storybook/argTypes/disableArgs";
+import { WorkoutData } from "@/modules/model/api/routes/workouts-id/outputs/workoutDataSchemas";
 import LineChart from "./LineChart";
 
 const ONE_WEEK = 604800000;
 
-const mockArgs: WorkoutData[] = [
+export const mockLineChartArgs: WorkoutData[] = [
   {
     key: "key1",
     date: new Date().getTime(),
@@ -73,7 +73,7 @@ const meta: Meta = {
     },
   },
   args: {
-    data: mockArgs,
+    data: mockLineChartArgs,
   },
 };
 

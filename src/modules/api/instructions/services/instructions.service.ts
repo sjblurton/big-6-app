@@ -7,7 +7,7 @@ import { WORKOUT_ID_LIST } from "@/modules/model/api/routes/shared/workoutIds";
 import { ApiNotFoundError } from "../../error-handler/errors/api.error.not-found";
 import { ApiZodValidationError } from "../../error-handler/errors/api.error.zod-validation";
 import Service from "../../data-layer/service";
-import { InstructionParams, InstructionReturnType } from "../types";
+import { InstructionParams } from "../types";
 
 const paramsSchema = z.object({
   level: z
@@ -20,8 +20,8 @@ const paramsSchema = z.object({
 
 type InstructionParamsParsed = z.infer<typeof paramsSchema>;
 
-class InstructionsService<Level extends number | undefined> extends Service<
-  InstructionReturnType<Level>
+class InstructionsService extends Service<
+  WorkoutInstruction[] | WorkoutInstruction
 > {
   params: InstructionParamsParsed;
 
@@ -30,7 +30,7 @@ class InstructionsService<Level extends number | undefined> extends Service<
     this.params = InstructionsService.validateParams(params);
   }
 
-  async getServiceData(): Promise<InstructionReturnType<Level>> {
+  async getData(): Promise<WorkoutInstruction[] | WorkoutInstruction> {
     const data = this.filterById(workoutInstructions);
     return this.getInstructionData(data);
   }
@@ -48,41 +48,43 @@ class InstructionsService<Level extends number | undefined> extends Service<
   }
 
   private filterById(data: WorkoutInstruction[]) {
-    return data.filter(
+    const workoutIdInstructions = data.filter(
       (instruction) => instruction.workoutId === this.params.id,
     );
-  }
 
-  private filterByLevel(data: WorkoutInstruction[]) {
-    return data.filter(
-      (instruction) => instruction.level === this.params.level,
-    );
-  }
-
-  private getInstructionData(
-    data: WorkoutInstruction[],
-  ): InstructionReturnType<Level> {
-    if (!data.length) {
+    if (!workoutIdInstructions.length) {
       throw new ApiNotFoundError({
         description: `Workout instructions for id: ${this.params.id} not found`,
         isOperational: false,
       });
     }
+    return workoutIdInstructions;
+  }
 
-    if (this.params.level === undefined) {
-      return data as InstructionReturnType<Level>;
-    }
+  private filterByLevel(data: WorkoutInstruction[]) {
+    const workoutLevelInstructions = data.find(
+      (instruction) => instruction.level === this.params.level,
+    );
 
-    const levelData = this.filterByLevel(data);
-
-    if (!levelData.length) {
+    if (!workoutLevelInstructions) {
       throw new ApiNotFoundError({
-        description: `Workout instructions for id: ${this.params.id} and level: ${this.params.level} not found`,
+        description: `Workout instructions for level: ${this.params.level} not found`,
         isOperational: false,
       });
     }
+    return workoutLevelInstructions;
+  }
 
-    return levelData[0] as InstructionReturnType<Level>;
+  private getInstructionData(
+    workoutIdInstructions: WorkoutInstruction[],
+  ): WorkoutInstruction[] | WorkoutInstruction {
+    if (this.params.level === undefined) {
+      return workoutIdInstructions;
+    }
+
+    const workoutLevelInstructions = this.filterByLevel(workoutIdInstructions);
+
+    return workoutLevelInstructions;
   }
 }
 

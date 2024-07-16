@@ -11,7 +11,7 @@ type Props = {
   reps: number[];
 };
 
-export default function DayBarChart({ reps }: Props) {
+export default function BarChart({ reps }: Props) {
   return (
     <div
       className={`${background.light} ${box.shadow} ${radius.medium} ${width.w90} ${wrapper}`}

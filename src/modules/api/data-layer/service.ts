@@ -7,7 +7,7 @@ abstract class Service<Data> {
     this.request = request;
   }
 
-  abstract getServiceData(): Promise<Data>;
+  abstract getData(): Promise<Data>;
 }
 
 export default Service;

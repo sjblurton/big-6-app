@@ -1,7 +1,7 @@
 import { NextRequest } from "next/server";
+import { WorkoutInstruction } from "@/modules/model/api/routes/instructions-id/outputs/workoutInstructionsSchema";
 import InstructionsService from "./instructions.service";
 import { ApiBaseError } from "../../error-handler/errors/api.error.base";
-import { MultipleWorkoutInstructions } from "../types";
 
 jest.mock("../../../model/api/routes/instructions-id/data", () => [
   {
@@ -34,8 +34,7 @@ describe("InstructionsService", () => {
 
   it("should filter workout instructions by ID", async () => {
     const service = new InstructionsService(mockRequest, { id: mockParams.id });
-    const filteredData =
-      (await service.getServiceData()) as MultipleWorkoutInstructions;
+    const filteredData = (await service.getData()) as WorkoutInstruction[];
     expect(filteredData).toHaveLength(1);
     expect(filteredData[0].workoutId).toBe("push-ups");
   });

@@ -1,14 +1,15 @@
 import { NextRequest } from "next/server";
+import { WorkoutInstruction } from "@/modules/model/api/routes/instructions-id/outputs/workoutInstructionsSchema";
 import Controller from "../../data-layer/controller";
 import InstructionsService from "../services/instructions.service";
-import { InstructionParams, InstructionReturnType } from "../types";
+import { InstructionParams } from "../types";
 
-class InstructionsController<
-  Level extends number | undefined,
-> extends Controller<InstructionReturnType<Level>> {
+class InstructionsController extends Controller<
+  WorkoutInstruction[] | WorkoutInstruction
+> {
   params: InstructionParams;
 
-  private readonly instructionsService: InstructionsService<Level>;
+  private readonly instructionsService: InstructionsService;
 
   constructor(request: NextRequest, params: InstructionParams) {
     super(request);
@@ -16,8 +17,8 @@ class InstructionsController<
     this.instructionsService = new InstructionsService(request, params);
   }
 
-  async getServiceData(): Promise<InstructionReturnType<Level>> {
-    return this.instructionsService.getServiceData();
+  async getServiceData(): Promise<WorkoutInstruction[] | WorkoutInstruction> {
+    return this.instructionsService.getData();
   }
 }
 
