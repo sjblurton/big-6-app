@@ -19,7 +19,8 @@
     "test:coverage": "jest --collect-coverage",
     "precommit": "npm run generate-scss-types && npm run lint && npm run check-types && npm run test:coverage && npm run format && npm run lint:styles && npm run stylelint-scss-check",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "dev:all": "concurrently -k \"npm run dev\" \"npm run storybook\" \"npm run generate-scss-types:watch\" \"npm run test:watch\""
   },
   "dependencies": {
     "@anatine/zod-mock": "^3.13.4",
@@ -83,6 +84,7 @@
     "@typescript-eslint/eslint-plugin": "^7.14.1",
     "@typescript-eslint/parser": "^7.14.1",
     "@typescript-eslint/utils": "^7.14.1",
+    "concurrently": "^8.2.2",
     "css-loader": "^7.1.2",
     "eslint": "^8.57.0",
     "eslint-config-airbnb": "^19.0.4",
