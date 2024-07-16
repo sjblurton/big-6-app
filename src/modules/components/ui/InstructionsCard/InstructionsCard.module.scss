@@ -1,0 +1,12 @@
+.wrapper {
+  width: clamp(260px, 80%, 400px);
+  height: 100%;
+  border-radius: 16px;
+  margin-block: 8px;
+  margin-inline: auto;
+}
+
+.text {
+  max-width: 300px;
+  margin-inline: auto;
+}

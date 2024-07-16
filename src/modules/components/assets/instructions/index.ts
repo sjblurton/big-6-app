@@ -15,3 +15,5 @@ const instructionImages = {
 } as const;
 
 export default instructionImages;
+
+export type InstructionImagesKeys = keyof typeof instructionImages;
