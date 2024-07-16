@@ -1,6 +1,6 @@
-import { WorkoutInstructions } from "../outputs/workoutInstructionsSchema";
+import { WorkoutInstruction } from "../outputs/workoutInstructionsSchema";
 
-const pushUps: WorkoutInstructions = [
+const pushUps: WorkoutInstruction[] = [
   {
     workoutId: "push-ups",
     level: 1,
@@ -20,8 +20,10 @@ const pushUps: WorkoutInstructions = [
       },
     },
     directions: {
-      positive: "",
-      negative: "",
+      positive:
+        "Stand facing a wall with your feet shoulder-width apart. Lean towards the wall until your nose almost touches it.",
+      negative:
+        "Push back to the starting position, making sure to keep your body in a straight line and your core engaged.",
     },
 
     video: "https://youtu.be/N5C9NUHZ20U",
@@ -45,9 +47,10 @@ const pushUps: WorkoutInstructions = [
       },
     },
     directions: {
-      positive: "",
-
-      negative: "",
+      positive:
+        "Place your hands on an elevated surface, such as a bench or step, with your body in a straight line from head to heels.",
+      negative:
+        "Lower your chest towards the elevated surface, then push back up to the starting position.",
     },
 
     video: "https://youtu.be/Gv8y_prZBZY",
@@ -71,9 +74,10 @@ const pushUps: WorkoutInstructions = [
       },
     },
     directions: {
-      positive: "",
-
-      negative: "",
+      positive:
+        "Start on your hands and knees, with your hands slightly wider than shoulder-width apart.",
+      negative:
+        "Lower your chest to the ground, then push back up to the starting position, keeping your core engaged and your body straight.",
     },
 
     video: "https://youtu.be/NyzxeqY6CR8",
@@ -97,8 +101,10 @@ const pushUps: WorkoutInstructions = [
       },
     },
     directions: {
-      positive: "",
-      negative: "",
+      positive:
+        "Assume a push-up position with your hands slightly wider than shoulder-width apart and your body in a straight line.",
+      negative:
+        "Lower your body halfway down, then push back up to the starting position.",
     },
 
     video: "https://youtu.be/bGuUODcwnHA",
@@ -123,9 +129,10 @@ const pushUps: WorkoutInstructions = [
     },
 
     directions: {
-      positive: "",
-
-      negative: "",
+      positive:
+        "Start in a plank position with your hands under your shoulders and your body in a straight line.",
+      negative:
+        "Lower your body until your chest nearly touches the ground, then push back up to the starting position. Keep your elbows at a 45-degree angle to your body.",
     },
 
     video: "https://youtu.be/1QJICN6udbs",
@@ -150,9 +157,10 @@ const pushUps: WorkoutInstructions = [
     },
 
     directions: {
-      positive: "",
-
-      negative: "",
+      positive:
+        "Begin in a push-up position with your hands closer together, directly under your chest.",
+      negative:
+        "Lower your body, keeping your elbows close to your sides, then push back up to the starting position.",
     },
 
     video: "https://youtu.be/3-1vRVuWgBc",
@@ -177,11 +185,11 @@ const pushUps: WorkoutInstructions = [
     },
 
     directions: {
-      positive: "",
-
-      negative: "",
+      positive:
+        "Place one hand on an elevated surface and the other hand on the floor. Assume a push-up position with your body in a straight line.",
+      negative:
+        "Lower your body until your chest nearly touches the ground, then push back up to the starting position. Switch hands after completing the set.",
     },
-
     video: "https://youtu.be/o1abTRdwpUs",
   },
   {
@@ -204,9 +212,10 @@ const pushUps: WorkoutInstructions = [
     },
 
     directions: {
-      positive: "",
-
-      negative: "",
+      positive:
+        "Assume a push-up position with one arm behind your back and your other arm in a regular push-up position.",
+      negative:
+        "Lower your body halfway down, then push back up to the starting position. Keep your core engaged and your body straight.",
     },
 
     video: "https://youtu.be/63077t3I4Zc",
@@ -231,9 +240,10 @@ const pushUps: WorkoutInstructions = [
     },
 
     directions: {
-      positive: "",
-
-      negative: "",
+      positive:
+        "Start in a push-up position with one hand placed further forward than the other. Keep your body in a straight line.",
+      negative:
+        "Lower your body until your chest nearly touches the ground, then push back up to the starting position. Switch hand positions after completing the set.",
     },
 
     video: "https://youtu.be/Hwq5zdb-owA",
@@ -257,9 +267,10 @@ const pushUps: WorkoutInstructions = [
       },
     },
     directions: {
-      positive: "",
-
-      negative: "",
+      positive:
+        "Begin in a push-up position with one arm behind your back and the other arm in a regular push-up position.",
+      negative:
+        "Lower your body until your chest nearly touches the ground, then push back up to the starting position.",
     },
 
     video: "https://youtu.be/ReKZry7JQEQ",

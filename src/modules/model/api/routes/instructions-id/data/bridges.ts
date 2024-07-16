@@ -1,6 +1,6 @@
-import { WorkoutInstructions } from "@/modules/model/api/routes/instructions/outputs/workoutInstructionsSchema";
+import { WorkoutInstruction } from "@/modules/model/api/routes/instructions-id/outputs/workoutInstructionsSchema";
 
-const bridges: WorkoutInstructions = [
+const bridges: WorkoutInstruction[] = [
   {
     workoutId: "bridges",
     level: 1,

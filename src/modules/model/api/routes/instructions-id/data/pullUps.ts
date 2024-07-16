@@ -1,6 +1,6 @@
-import { WorkoutInstructions } from "../outputs/workoutInstructionsSchema";
+import { WorkoutInstruction } from "../outputs/workoutInstructionsSchema";
 
-const pullUps: WorkoutInstructions = [
+const pullUps: WorkoutInstruction[] = [
   {
     workoutId: "pull-ups",
     level: 1,

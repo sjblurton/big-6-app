@@ -12,4 +12,4 @@ export default [
   ...pushUps,
   ...legRaises,
   ...squats,
-] as const;
+];

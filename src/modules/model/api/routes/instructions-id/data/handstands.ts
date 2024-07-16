@@ -1,6 +1,6 @@
-import { WorkoutInstructions } from "../outputs/workoutInstructionsSchema";
+import { WorkoutInstruction } from "../outputs/workoutInstructionsSchema";
 
-const handstands: WorkoutInstructions = [
+const handstands: WorkoutInstruction[] = [
   {
     workoutId: "handstands",
     level: 1,
@@ -20,9 +20,10 @@ const handstands: WorkoutInstructions = [
       },
     },
     directions: {
-      positive: "",
-
-      negative: "",
+      positive:
+        "Place your head and hands on the floor near a wall, forming a triangle.",
+      negative:
+        "Kick up into a headstand, using the wall for balance. Hold the position, keeping your body straight.",
     },
 
     video: "https://youtu.be/tYX-9RQyiJA",
@@ -46,9 +47,9 @@ const handstands: WorkoutInstructions = [
       },
     },
     directions: {
-      positive: "",
-
-      negative: "",
+      positive: "Squat down, placing your hands on the floor in front of you.",
+      negative:
+        "Lean forward, balancing your knees on your elbows. Lift your feet off the ground, holding the position.",
     },
 
     video: "https://youtu.be/oLGMF0yilWQ",
@@ -72,9 +73,10 @@ const handstands: WorkoutInstructions = [
       },
     },
     directions: {
-      positive: "",
-
-      negative: "",
+      positive:
+        "Place your hands on the floor near a wall, shoulder-width apart.",
+      negative:
+        "Kick up into a handstand, using the wall for support. Keep your body straight and engage your core.",
     },
 
     video: "https://youtu.be/gI4vnrDAxEQ",
@@ -98,8 +100,8 @@ const handstands: WorkoutInstructions = [
       },
     },
     directions: {
-      positive: "",
-      negative: "",
+      positive: "Perform a wall handstand.",
+      negative: "Lower your head halfway to the ground, then push back up.",
     },
 
     video: "https://youtu.be/a9WJRuue0YA",
@@ -123,9 +125,8 @@ const handstands: WorkoutInstructions = [
       },
     },
     directions: {
-      positive: "",
-
-      negative: "",
+      positive: "Perform a wall handstand.",
+      negative: "Lower your head to the ground, then push back up.",
     },
 
     video: "https://youtu.be/S27I9QGHtzo",
@@ -149,9 +150,8 @@ const handstands: WorkoutInstructions = [
       },
     },
     directions: {
-      positive: "",
-
-      negative: "",
+      positive: "Perform a wall handstand with hands closer together.",
+      negative: "Lower your head to the ground, then push back up.",
     },
 
     video: "https://youtu.be/vWv3P2-zvRQ",
@@ -175,9 +175,8 @@ const handstands: WorkoutInstructions = [
       },
     },
     directions: {
-      positive: "",
-
-      negative: "",
+      positive: "Perform a wall handstand with one hand elevated.",
+      negative: "Lower your head to the ground, then push back up.",
     },
 
     video: "https://youtu.be/bzuf-4law2k",
@@ -202,9 +201,8 @@ const handstands: WorkoutInstructions = [
     },
 
     directions: {
-      positive: "",
-
-      negative: "",
+      positive: "Perform a wall handstand with one arm behind your back.",
+      negative: "Lower halfway to the ground, then push back up.",
     },
 
     video: "",
@@ -229,9 +227,8 @@ const handstands: WorkoutInstructions = [
     },
 
     directions: {
-      positive: "",
-
-      negative: "",
+      positive: "Perform a wall handstand with one hand further forward.",
+      negative: "Lower your head to the ground, then push back up.",
     },
 
     video: "https://youtu.be/3IJMlCWovF8",
@@ -255,9 +252,8 @@ const handstands: WorkoutInstructions = [
       },
     },
     directions: {
-      positive: "",
-
-      negative: "",
+      positive: "Perform a wall handstand with one arm behind your back.",
+      negative: "Lower your head to the ground, then push back up.",
     },
 
     video: "https://youtu.be/hYnmRO37SRQ",
