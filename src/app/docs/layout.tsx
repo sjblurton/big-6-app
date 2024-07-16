@@ -1,6 +1,6 @@
 "use client";
 
-import MuiThemeProvider from "@/modules/components/ui/library/MuiThemeProvider";
+import MuiThemeProvider from "@/modules/components/library/MuiThemeProvider";
 import Navbar from "@/modules/components/ui/Navbar/Navbar";
 
 const docsRoutes = [

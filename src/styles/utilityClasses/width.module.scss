@@ -1,20 +1,20 @@
 @for $iteration from 1 through 100 {
-  .w-#{$iteration} {
+  .w#{$iteration} {
     width: #{$iteration}+ "%";
   }
 }
 
 /*
   * Sample output:
-  * .w-1 {
+  * .w1 {
   *   width: 1%;
   * }
   * 
-  * .w-2 {
+  * .w2 {
   *   width: 2%;
   * }
   * 
-  * .w-3 {
+  * .w3 {
   *   width: 3%;
   * }
   */

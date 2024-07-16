@@ -1,6 +1,6 @@
 export { default as MuiHomeOutlinedIcon } from "@mui/icons-material/HomeOutlined";
 export { default as MuiHomeIcon } from "@mui/icons-material/Home";
-export { default as MuiAddCircleIcon } from "@mui/icons-material/AddCircle";
+export { default as MuiAddIcon } from "@mui/icons-material/Add";
 export { default as MuiAddCircleOutlineIcon } from "@mui/icons-material/AddCircleOutline";
 export { default as MuiArrowCircleRightIcon } from "@mui/icons-material/ArrowCircleRight";
 export { default as MuiArrowCircleRightOutlinedIcon } from "@mui/icons-material/ArrowCircleRightOutlined";
@@ -19,3 +19,4 @@ export { default as MuiLogoutIcon } from "@mui/icons-material/Logout";
 export { default as MuiDirectionsRunIcon } from "@mui/icons-material/DirectionsRun";
 export { default as MuiArrowUpwardIcon } from "@mui/icons-material/ArrowUpward";
 export { default as MuiCloudUploadIcon } from "@mui/icons-material/CloudUpload";
+export { default as MuiDeleteOutline } from "@mui/icons-material/DeleteOutline";

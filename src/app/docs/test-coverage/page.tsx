@@ -10,7 +10,7 @@ import {
   MuiTableHead,
   MuiTableRow,
   MuiTypography,
-} from "@/modules/components/ui/library/mui";
+} from "@/modules/components/library/mui";
 import {
   primary as backgroundColorPrimary,
   error as backgroundError,

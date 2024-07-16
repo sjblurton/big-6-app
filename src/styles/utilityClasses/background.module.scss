@@ -13,9 +13,9 @@
 }
 
 .primary {
-  background-color: color.get-color("primary", "main");
+  background-color: color.get-color("primary", "main") !important;
 }
 
 .light {
-  background-color: color.get-color("primary", "light");
+  background-color: color.get-color("primary", "light") !important;
 }

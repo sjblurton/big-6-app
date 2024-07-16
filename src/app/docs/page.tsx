@@ -2,7 +2,7 @@ import {
   MuiBox,
   MuiContainer,
   MuiTypography,
-} from "@/modules/components/ui/library/mui";
+} from "@/modules/components/library/mui";
 
 function Docs() {
   return (

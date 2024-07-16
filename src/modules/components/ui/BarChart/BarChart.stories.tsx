@@ -3,9 +3,8 @@ import type { Meta, StoryObj } from "@storybook/react";
 import BarChart from "./BarChart";
 
 const meta: Meta = {
-  title: "Components/DayBarChart",
+  title: "Components/BarChart",
   component: BarChart,
-  tags: ["autodocs"],
   decorators: [
     (Story) => (
       <div
