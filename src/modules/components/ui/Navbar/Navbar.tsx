@@ -15,7 +15,7 @@ import {
   MuiMenuItem,
   MuiToolbar,
   MuiTypography,
-} from "../library/mui";
+} from "../../library/mui";
 import LogoSvg from "../Logo/Logo";
 
 export type NavbarProps = {

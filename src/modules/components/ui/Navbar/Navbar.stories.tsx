@@ -3,9 +3,8 @@ import type { Meta, StoryObj } from "@storybook/react";
 import Navbar, { NavbarProps } from "./Navbar";
 
 const meta: Meta<NavbarProps> = {
-  title: "Navigation/DocsNavbar",
+  title: "Components/NavigationBar",
   component: Navbar,
-  tags: ["autodocs"],
   parameters: {
     layout: "fullscreen",
   },

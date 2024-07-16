@@ -1,8 +1,6 @@
-import React from "react";
-
 import { DateTime } from "luxon";
 import Link from "next/link";
-import { MuiTypography } from "@/modules/components/ui/library/mui";
+import { MuiTypography } from "@/modules/components/library/mui";
 import { light } from "@/styles/utilityClasses/background.module.scss";
 import { shadow } from "@/styles/utilityClasses/boxShadow.module.scss";
 import { WorkoutData } from "@/modules/model/api/routes/workouts-id/outputs/workoutDataSchemas";
