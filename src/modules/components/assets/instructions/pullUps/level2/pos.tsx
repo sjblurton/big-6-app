@@ -8,6 +8,7 @@ function L2Pos() {
       height="151"
       fill="none"
       viewBox="0 0 150 151"
+      data-testid="svg-positive"
     >
       <path fill="#ECF1F4" d="M47.875 66.906h46.3v2.76h-46.3v-2.76z" />
       <path

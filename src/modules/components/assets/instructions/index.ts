@@ -8,9 +8,9 @@ import { squatsInstructionImages } from "./squats";
 const instructionImages = {
   bridges: bridgesInstructionImages,
   handstands: handstandsInstructionImages,
-  legRaises: legRaisesInstructionImages,
-  pushUps: pushUpsInstructionImages,
-  pullUps: pullUpsInstructionImages,
+  "leg-raises": legRaisesInstructionImages,
+  "push-ups": pushUpsInstructionImages,
+  "pull-ups": pullUpsInstructionImages,
   squats: squatsInstructionImages,
 } as const;
 

@@ -7,17 +7,33 @@ import * as styles from "./InstructionsCard.module.scss";
 import instructionImages, {
   InstructionImagesKeys,
 } from "../../assets/instructions";
-import { LevelKeys } from "../../assets/instructions/types";
+import { LevelKeys, levelKeysSchema } from "../../assets/instructions/types";
 import { MuiTypography } from "../../library/mui";
 
-const svgSelector = (
-  workoutKey: InstructionImagesKeys,
-  levelKey: LevelKeys,
-  positive: boolean,
-) =>
-  instructionImages[workoutKey][levelKey][positive ? "positive" : "negative"];
+const svgSelector = ({
+  levelKey,
+  isPositive,
+  workoutKey,
+}: {
+  workoutKey: InstructionImagesKeys;
+  levelKey: LevelKeys;
+  isPositive: boolean;
+}) =>
+  instructionImages[workoutKey][levelKey][isPositive ? "positive" : "negative"];
 
-function InstructionsCard() {
+function InstructionsCard({
+  directions,
+  isPositive,
+  level,
+  name,
+  workoutKey,
+}: {
+  name: string;
+  directions: string;
+  workoutKey: InstructionImagesKeys;
+  level: number;
+  isPositive: boolean;
+}) {
   const wrapper = [
     flex.center,
     flex.column,
@@ -28,16 +44,20 @@ function InstructionsCard() {
     borderRadius.large,
   ].join(" ");
 
-  const Svg = svgSelector("bridges", "level1", true);
+  const Svg = svgSelector({
+    workoutKey,
+    levelKey: levelKeysSchema.parse(`level${level}`),
+    isPositive,
+  });
 
   return (
     <div className={wrapper}>
-      <MuiTypography variant="h3">Title</MuiTypography>
+      <MuiTypography variant="h3">{name}</MuiTypography>
       <div className={`${flex.center} ${padding.p1}`}>
         <Svg />
       </div>
       <MuiTypography p={1} variant="body1">
-        Description
+        {directions}
       </MuiTypography>
     </div>
   );

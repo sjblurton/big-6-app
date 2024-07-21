@@ -8,6 +8,7 @@ function L5Neg() {
       height="150"
       fill="none"
       viewBox="0 0 150 150"
+      data-testid="svg-negative"
     >
       <path fill="#0E0E2C" d="M91.5 12H124v3H91.5v-3zM26 13.5h22v3H26v-3z" />
       <path

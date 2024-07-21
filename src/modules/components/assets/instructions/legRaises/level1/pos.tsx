@@ -8,6 +8,7 @@ function L1Pos() {
       height="150"
       fill="none"
       viewBox="0 0 150 150"
+      data-testid="svg-positive"
     >
       <path fill="#212226" d="M55.784 97.764H2.01v5.818h56.885l-3.11-5.818z" />
       <path

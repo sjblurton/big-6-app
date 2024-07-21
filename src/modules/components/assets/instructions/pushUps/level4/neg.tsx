@@ -8,6 +8,7 @@ function L4Neg() {
       height="150"
       fill="none"
       viewBox="0 0 150 150"
+      data-testid="svg-negative"
     >
       <g clipPath="url(#L4Neg_clip0)">
         <circle cx="83.776" cy="128.808" r="10.924" fill="#F18701" />

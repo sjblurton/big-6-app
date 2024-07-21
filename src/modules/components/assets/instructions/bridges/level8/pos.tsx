@@ -8,6 +8,7 @@ function L8Pos() {
       height="151"
       fill="none"
       viewBox="0 0 150 151"
+      data-testid="svg-positive"
     >
       <path
         fill="#31374B"

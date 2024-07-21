@@ -8,6 +8,7 @@ function L1Neg() {
       height="150"
       fill="none"
       viewBox="0 0 150 150"
+      data-testid="svg-negative"
     >
       <g clipPath="url(#L1Neg_clip0)">
         <path

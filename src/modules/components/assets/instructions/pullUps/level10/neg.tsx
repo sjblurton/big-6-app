@@ -8,6 +8,7 @@ function L10Neg() {
       height="150"
       fill="none"
       viewBox="0 0 150 150"
+      data-testid="svg-negative"
     >
       <path
         fill="#212226"

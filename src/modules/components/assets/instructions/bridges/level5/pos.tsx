@@ -8,6 +8,7 @@ function L5pos() {
       height="151"
       fill="none"
       viewBox="0 0 150 151"
+      data-testid="svg-positive"
     >
       <circle cx="69.92" cy="131.103" r="13.745" fill="#F18701" />
       <circle
