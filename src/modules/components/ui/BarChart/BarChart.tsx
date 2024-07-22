@@ -5,7 +5,7 @@ import * as radius from "@/styles/utilityClasses/borderRadius.module.scss";
 import * as width from "@/styles/utilityClasses/width.module.scss";
 import { wrapper } from "./BarChart.module.scss";
 
-import { MuiBarChart } from "../../library/muix";
+import { MuiBarChart } from "../../library/mui/muix";
 
 type Props = {
   reps: number[];

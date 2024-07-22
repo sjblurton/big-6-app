@@ -2,9 +2,9 @@ import React from "react";
 import { render, screen } from "@testing-library/react";
 import { secondaryLight } from "@/styles/colors/_exports.module.scss";
 import BarChart from "./BarChart";
-import { MuiBarChart } from "../../library/muix";
+import { MuiBarChart } from "../../library/mui/muix";
 
-jest.mock("../../library/muix", () => ({
+jest.mock("../../library/mui/muix", () => ({
   MuiBarChart: jest.fn(() => <div data-testid="muibarchart" />),
 }));
 

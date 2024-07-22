@@ -6,7 +6,7 @@ import LineChart from "./LineChart";
 
 const ONE_WEEK = 604800000;
 
-export const mockLineChartArgs: WorkoutData[] = [
+const mockLineChartArgs: WorkoutData[] = [
   {
     key: "key1",
     date: new Date().getTime(),

@@ -14,7 +14,7 @@ import {
   MuiClipboardIcon,
   MuiHomeIcon,
   MuiTimerIcon,
-} from "../../library/muiIcons";
+} from "../../library/mui/muiIcons";
 import * as styles from "./BottomNavigation.module.scss";
 
 const navigation = [
