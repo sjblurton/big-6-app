@@ -1,5 +1,5 @@
 import * as background from "@/styles/utilityClasses/background.module.scss";
-import * as shadow from "@/styles/utilityClasses/boxShadow.module.scss";
+import * as boxShadow from "@/styles/utilityClasses/boxShadow.module.scss";
 import * as padding from "@/styles/utilityClasses/padding.module.scss";
 import * as borderRadius from "@/styles/utilityClasses/borderRadius.module.scss";
 import * as flex from "@/styles/utilityClasses/flex.module.scss";
@@ -39,7 +39,7 @@ function InstructionsCard({
     flex.column,
     styles.wrapper,
     background.light,
-    shadow.shadow,
+    boxShadow.subtle,
     padding.p2,
     borderRadius.large,
   ].join(" ");
