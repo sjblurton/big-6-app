@@ -1,6 +1,6 @@
 import { DateTime } from "luxon";
 import * as background from "@/styles/utilityClasses/background.module.scss";
-import * as box from "@/styles/utilityClasses/boxShadow.module.scss";
+import * as boxShadow from "@/styles/utilityClasses/boxShadow.module.scss";
 import * as radius from "@/styles/utilityClasses/borderRadius.module.scss";
 import * as width from "@/styles/utilityClasses/width.module.scss";
 
@@ -21,7 +21,7 @@ export default function LineChart({ data }: Props) {
 
   return (
     <div
-      className={`${background.light} ${box.shadow} ${radius.medium} ${width.w90} ${wrapper}`}
+      className={`${background.light} ${boxShadow.subtle} ${radius.medium} ${width.w90} ${wrapper}`}
     >
       <MuiLineChart
         xAxis={[
