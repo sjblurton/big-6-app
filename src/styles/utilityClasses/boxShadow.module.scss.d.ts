@@ -1,1 +1,1 @@
-export declare const shadow: string;
+export declare const subtle: string;

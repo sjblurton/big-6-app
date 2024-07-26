@@ -1,0 +1,20 @@
+@for $iteration from 1 through 100 {
+  .h#{$iteration} {
+    height: #{$iteration}+ "%";
+  }
+}
+
+/*
+  * Sample output:
+  * .h1 {
+  *   height: 1%;
+  * }
+  * 
+  * .h2 {
+  *   height: 2%;
+  * }
+  * 
+  * .h3 {
+  *   height: 3%;
+  * }
+  */

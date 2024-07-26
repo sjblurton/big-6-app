@@ -1,0 +1,48 @@
+@for $iteration from 0 through 4 {
+  .m#{$iteration} {
+    margin: #{$iteration * 8}+ "px";
+  }
+}
+
+/*
+  * Sample output:
+  * .m0 {
+  *   margin: 0px;
+  * }
+  * 
+  * .m1 {
+  *   margin: 8px;
+  * }
+  * 
+  * .m2 {
+  *   margin: 16px;
+  * }
+  */
+
+@for $iteration from 0 through 4 {
+  .mt#{$iteration} {
+    margin-top: #{$iteration * 8}+ "px";
+  }
+}
+
+@for $iteration from 0 through 4 {
+  .mr#{$iteration} {
+    margin-right: #{$iteration * 8}+ "px";
+  }
+}
+
+@for $iteration from 0 through 4 {
+  .mb#{$iteration} {
+    margin-bottom: #{$iteration * 8}+ "px";
+  }
+}
+
+@for $iteration from 0 through 4 {
+  .ml#{$iteration} {
+    margin-left: #{$iteration * 8}+ "px";
+  }
+}
+
+.auto {
+  margin: auto;
+}
