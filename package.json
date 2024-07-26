@@ -17,7 +17,6 @@
     "test": "jest",
     "test:watch": "jest --watchAll",
     "test:coverage": "jest --collect-coverage",
-    "precommit": "npm run generate-scss-types && npm run lint && npm run check-types && npm run test:coverage && npm run format && npm run lint:styles && npm run stylelint-scss-check",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "dev:all": "concurrently -k \"npm run dev\" \"npm run storybook\" \"npm run generate-scss-types:watch\" \"npm run test:watch\""
@@ -31,7 +30,8 @@
     "@fontsource/roboto": "^5.0.13",
     "@hookform/resolvers": "^3.9.0",
     "@mui/icons-material": "^5.16.1",
-    "@mui/material": "^5.16.1",
+    "@mui/lab": "^5.0.0-alpha.172",
+    "@mui/material": "^5.16.4",
     "@mui/x-charts": "^7.10.0",
     "@ts-rest/core": "^3.45.2",
     "@ts-rest/next": "^3.45.2",
@@ -40,6 +40,7 @@
     "eslint-plugin-jest": "^28.6.0",
     "lodash.get": "^4.4.2",
     "luxon": "^3.4.4",
+    "mrm": "^2.6.2",
     "next": "14.2.3",
     "next-auth": "^4.24.7",
     "openapi3-ts": "^4.3.3",
@@ -102,6 +103,7 @@
     "jest": "^29.7.0",
     "jest-axe": "^9.0.0",
     "jest-environment-jsdom": "^29.7.0",
+    "lint-staged": "^15.2.7",
     "prettier": "3.3.2",
     "sass-loader": "^14.2.1",
     "storybook": "^8.1.11",
@@ -118,5 +120,14 @@
     "tsconfig-paths-jest": "^0.0.1",
     "typed-scss-modules": "^8.0.1",
     "typescript": "^5.5.2"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "eslint --cache --fix",
+      "prettier --write"
+    ],
+    "*.{css,scss}": [
+      "stylelint --fix"
+    ]
   }
 }
