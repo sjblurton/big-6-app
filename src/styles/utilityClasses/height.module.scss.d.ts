@@ -1,3 +1,4 @@
+export declare const auto: string;
 export declare const h1: string;
 export declare const h10: string;
 export declare const h100: string;

@@ -1,3 +1,4 @@
+export declare const auto: string;
 export declare const w1: string;
 export declare const w10: string;
 export declare const w100: string;

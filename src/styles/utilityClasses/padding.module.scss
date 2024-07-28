@@ -1,20 +1,20 @@
 @for $iteration from 0 through 4 {
   .p#{$iteration} {
-    padding: #{$iteration * 8}+ "px";
+    padding: #{calc(($iteration * 8) / 16)}+ "em";
   }
 }
 
 /*
   * Sample output:
   * .p0 {
-  *   padding: 0px;
+  *   padding: 0em;
   * }
   * 
   * .p1 {
-  *   padding: 8px;
+  *   padding: 8em;
   * }
   * 
   * .p2 {
-  *   padding: 16px;
+  *   padding: 16em;
   * }
   */
