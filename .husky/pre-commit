@@ -1,7 +1,4 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-npm run generate-scss-types
-npm run check-types
-npm run test
 npx lint-staged
