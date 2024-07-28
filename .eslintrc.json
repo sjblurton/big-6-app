@@ -37,8 +37,6 @@
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "@typescript-eslint/no-explicit-any": "error",
     "@tanstack/query/exhaustive-deps": "error",
-    "@tanstack/query/no-deprecated-options": "error",
-    "@tanstack/query/prefer-query-object-syntax": "error",
     "@tanstack/query/stable-query-client": "error",
     "@typescript-eslint/no-unused-vars": [
       "error",

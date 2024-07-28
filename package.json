@@ -123,11 +123,12 @@
   },
   "lint-staged": {
     "*.{ts,tsx,js}": [
-      "eslint --cache --fix",
-      "prettier --write"
+      "npm run lint",
+      "npm run check-types",
+      "npm run format"
     ],
     "*.{css,scss}": [
-      "stylelint --fix"
+      "npm run lint:styles"
     ]
   }
 }
