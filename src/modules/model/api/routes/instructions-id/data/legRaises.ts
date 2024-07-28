@@ -281,3 +281,6 @@ const legRaises: WorkoutInstruction[] = [
 ] as const;
 
 export default legRaises;
+
+export const legRaisesOverview =
+  "The hanging leg raise done slowly and with perfectly straight legs is beyond most people, even very agile athletes. But not to worry we will build the on it slowly over many, weeks, months, and years with progressive callisthenics.";

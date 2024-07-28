@@ -291,3 +291,6 @@ const squats: WorkoutInstruction[] = [
 ] as const;
 
 export default squats;
+
+export const squatOverview =
+  "The real strength of an athlete lies in his hips, and legs. Not his upper body and arms. Unless we are mid-air, or seated with the legs raied off the ground, all movements of the upper limbs relay on forces transmitted through the leg. Upper body strength is important, but without a strong lower body it's is useless.";

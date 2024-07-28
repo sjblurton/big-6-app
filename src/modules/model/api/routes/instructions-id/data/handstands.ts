@@ -261,3 +261,6 @@ const handstands: WorkoutInstruction[] = [
 ] as const;
 
 export default handstands;
+
+export const handstandOverview =
+  "Starting from a head stand all the way to the one arm handstand push up, there’s 10 levels of progression, the ultimate so of strength. I’m not sure how many of you will make it to the one arm handstand push up, but it will take years of work. Enjoy the journey.";

@@ -278,3 +278,6 @@ const pullUps: WorkoutInstruction[] = [
 ] as const;
 
 export default pullUps;
+
+export const pullUpsOverview =
+  "Perhaps the best and safest exercise to build a powerful upper back is the humble pull up, using these techniques getting to level 8 or 9 is within most peoples grasps. The one arm pull up is going to take dedication, commitment, and consistency turning up week in and week out.";

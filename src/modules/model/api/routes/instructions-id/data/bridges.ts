@@ -282,3 +282,6 @@ const bridges: WorkoutInstruction[] = [
 ] as const;
 
 export default bridges;
+
+export const bridgesOverview =
+  "To pick the one most important strength building exercise in the world, the Bridge would be it. It will stop you having back problems as you get older, and improve your performance in any strength training you choice to do.";

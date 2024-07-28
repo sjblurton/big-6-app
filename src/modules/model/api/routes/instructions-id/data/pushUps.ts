@@ -278,3 +278,6 @@ const pushUps: WorkoutInstruction[] = [
 ] as const;
 
 export default pushUps;
+
+export const pushUpOverview =
+  "The push up is the ultimate upper body exercise. It generates strength, builds muscle, develops powerful tendons and trains the upper body pressing the muscles to work in coordination with the midsection, and lower body";
