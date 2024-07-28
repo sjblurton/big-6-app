@@ -7,7 +7,8 @@
     "plugin:react/recommended",
     "plugin:jsx-a11y/recommended",
     "prettier",
-    "plugin:storybook/recommended"
+    "plugin:storybook/recommended",
+    "plugin:@tanstack/eslint-plugin-query/recommended"
   ],
   "env": {
     "jest/globals": true
@@ -24,6 +25,7 @@
   ],
   "parser": "@typescript-eslint/parser",
   "plugins": [
+    "@tanstack/query",
     "import",
     "jsx-a11y",
     "react",
@@ -34,6 +36,10 @@
   "rules": {
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "@typescript-eslint/no-explicit-any": "error",
+    "@tanstack/query/exhaustive-deps": "error",
+    "@tanstack/query/no-deprecated-options": "error",
+    "@tanstack/query/prefer-query-object-syntax": "error",
+    "@tanstack/query/stable-query-client": "error",
     "@typescript-eslint/no-unused-vars": [
       "error",
       {
