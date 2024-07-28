@@ -21,12 +21,16 @@ const exerciseSchema = z.object({
   video: z.string().url(),
 });
 
-export const workoutInstructionsSchema = z.array(exerciseSchema);
+export const workoutInstructionsSchema = z.object({
+  title: z.string(),
+  description: z.string(),
+  data: z.array(z.string()).min(10).max(10),
+});
 
 export type WorkoutInstruction = z.infer<typeof exerciseSchema>;
 
 export type WorkoutOverview = {
   title: string;
   description: string;
-  data: WorkoutInstruction[];
+  levelNames: string[];
 };

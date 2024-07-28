@@ -129,7 +129,9 @@ class InstructionsService extends Service<
 
       return {
         ...workoutTitle,
-        data: workoutIdInstructions,
+        levelNames: workoutIdInstructions.map(
+          (instruction) => instruction.name,
+        ),
       };
     }
 

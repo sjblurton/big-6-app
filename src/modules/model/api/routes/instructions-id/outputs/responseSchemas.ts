@@ -7,7 +7,11 @@ export const workoutsInstructionsBody200ResponseSchema = extendApi(
   workoutInstructionsSchema,
   {
     description: "Instructions for a workout",
-    example: bridges,
+    example: {
+      title: "Bridges",
+      description: "Bridges are a great workout for your back.",
+      levelNames: [bridges.map((bridge) => bridge.name)],
+    },
   },
 );
 
