@@ -10,6 +10,7 @@ const config: StorybookConfig = {
     "@storybook/addon-interactions",
     "@storybook/addon-styling-webpack",
     "storybook-addon-theme-provider",
+    "storybook-addon-mock",
     {
       name: "@storybook/addon-styling-webpack",
       options: {

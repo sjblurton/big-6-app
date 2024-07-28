@@ -107,6 +107,7 @@
     "prettier": "3.3.2",
     "sass-loader": "^14.2.1",
     "storybook": "^8.1.11",
+    "storybook-addon-mock": "^5.0.0",
     "storybook-addon-sass-postcss": "^0.2.0",
     "storybook-addon-theme-provider": "^0.2.2",
     "style-loader": "^4.0.0",
