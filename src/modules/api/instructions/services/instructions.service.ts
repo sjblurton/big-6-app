@@ -1,13 +1,59 @@
 import { NextRequest } from "next/server";
-import { WorkoutInstruction } from "@/modules/model/api/routes/instructions-id/outputs/workoutInstructionsSchema";
+import {
+  WorkoutInstruction,
+  WorkoutOverview,
+} from "@/modules/model/api/routes/instructions-id/outputs/workoutInstructionsSchema";
 import workoutInstructions from "@/modules/model/api/routes/instructions-id/data";
 import { z } from "zod";
-import { WORKOUT_ID_LIST } from "@/modules/model/api/routes/shared/workoutIds";
+import {
+  WORKOUT_ID_LIST,
+  WORKOUT_IDS,
+} from "@/modules/model/api/routes/shared/workoutIds";
 
-import { ApiNotFoundError } from "../../error-handler/errors/api.error.not-found";
-import { ApiZodValidationError } from "../../error-handler/errors/api.error.zod-validation";
-import Service from "../../data-layer/service";
+import { bridgesOverview } from "@/modules/model/api/routes/instructions-id/data/bridges";
+import { handstandOverview } from "@/modules/model/api/routes/instructions-id/data/handstands";
+import { legRaisesOverview } from "@/modules/model/api/routes/instructions-id/data/legRaises";
+import { pullUpsOverview } from "@/modules/model/api/routes/instructions-id/data/pullUps";
+import { pushUpOverview } from "@/modules/model/api/routes/instructions-id/data/pushUps";
+import { squatOverview } from "@/modules/model/api/routes/instructions-id/data/squats";
 import { InstructionParams } from "../types";
+import Service from "../../data-layer/service";
+import { ApiZodValidationError } from "../../error-handler/errors/api.error.zod-validation";
+import { ApiNotFoundError } from "../../error-handler/errors/api.error.not-found";
+
+type WorkoutIds = (typeof WORKOUT_ID_LIST)[number];
+
+export const workoutOverviewDescriptions: {
+  [key in WorkoutIds]: {
+    title: string;
+    description: string;
+  };
+} = {
+  [WORKOUT_IDS.BRIDGES.key]: {
+    title: WORKOUT_IDS.BRIDGES.label,
+    description: bridgesOverview,
+  },
+  [WORKOUT_IDS.HANDSTANDS.key]: {
+    title: WORKOUT_IDS.HANDSTANDS.label,
+    description: handstandOverview,
+  },
+  [WORKOUT_IDS.LEG_RAISES.key]: {
+    title: WORKOUT_IDS.LEG_RAISES.label,
+    description: legRaisesOverview,
+  },
+  [WORKOUT_IDS.PULL_UPS.key]: {
+    title: WORKOUT_IDS.PULL_UPS.label,
+    description: pullUpsOverview,
+  },
+  [WORKOUT_IDS.PUSH_UPS.key]: {
+    title: WORKOUT_IDS.PUSH_UPS.label,
+    description: pushUpOverview,
+  },
+  [WORKOUT_IDS.SQUATS.key]: {
+    title: WORKOUT_IDS.SQUATS.label,
+    description: squatOverview,
+  },
+};
 
 const paramsSchema = z.object({
   level: z
@@ -21,7 +67,7 @@ const paramsSchema = z.object({
 type InstructionParamsParsed = z.infer<typeof paramsSchema>;
 
 class InstructionsService extends Service<
-  WorkoutInstruction[] | WorkoutInstruction
+  WorkoutOverview | WorkoutInstruction
 > {
   params: InstructionParamsParsed;
 
@@ -30,7 +76,7 @@ class InstructionsService extends Service<
     this.params = InstructionsService.validateParams(params);
   }
 
-  async getData(): Promise<WorkoutInstruction[] | WorkoutInstruction> {
+  async getData(): Promise<WorkoutOverview | WorkoutInstruction> {
     const data = this.filterById(workoutInstructions);
     return this.getInstructionData(data);
   }
@@ -77,9 +123,14 @@ class InstructionsService extends Service<
 
   private getInstructionData(
     workoutIdInstructions: WorkoutInstruction[],
-  ): WorkoutInstruction[] | WorkoutInstruction {
+  ): WorkoutOverview | WorkoutInstruction {
     if (this.params.level === undefined) {
-      return workoutIdInstructions;
+      const workoutTitle = workoutOverviewDescriptions[this.params.id];
+
+      return {
+        ...workoutTitle,
+        data: workoutIdInstructions,
+      };
     }
 
     const workoutLevelInstructions = this.filterByLevel(workoutIdInstructions);

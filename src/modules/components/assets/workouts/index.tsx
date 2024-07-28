@@ -7,10 +7,14 @@ import PullUp from "./PullUp";
 import PushUp from "./PushUp";
 import Squat from "./Squat";
 import Rest from "./Rest";
+import { WorkoutSvgProps } from "./@types";
 
 export const workoutSvgs: Record<
   WorkoutIds | "rest",
-  { component: () => ReactNode; title: string }
+  {
+    component: (props: WorkoutSvgProps) => ReactNode;
+    title: string;
+  }
 > = {
   bridges: { component: Bridge, title: "Bridges" },
   handstands: { component: Handstand, title: "Handstands" },

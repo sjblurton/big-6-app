@@ -1,11 +1,14 @@
 import { NextRequest } from "next/server";
-import { WorkoutInstruction } from "@/modules/model/api/routes/instructions-id/outputs/workoutInstructionsSchema";
+import {
+  WorkoutInstruction,
+  WorkoutOverview,
+} from "@/modules/model/api/routes/instructions-id/outputs/workoutInstructionsSchema";
 import Controller from "../../data-layer/controller";
 import InstructionsService from "../services/instructions.service";
 import { InstructionParams } from "../types";
 
 class InstructionsController extends Controller<
-  WorkoutInstruction[] | WorkoutInstruction
+  WorkoutOverview | WorkoutInstruction
 > {
   params: InstructionParams;
 
@@ -17,7 +20,7 @@ class InstructionsController extends Controller<
     this.instructionsService = new InstructionsService(request, params);
   }
 
-  async getServiceData(): Promise<WorkoutInstruction[] | WorkoutInstruction> {
+  async getServiceData(): Promise<WorkoutOverview | WorkoutInstruction> {
     return this.instructionsService.getData();
   }
 }
