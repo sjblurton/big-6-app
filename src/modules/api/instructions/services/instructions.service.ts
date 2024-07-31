@@ -2,6 +2,7 @@ import { NextRequest } from "next/server";
 import {
   WorkoutInstruction,
   WorkoutOverview,
+  workoutOverviewSchema,
 } from "@/modules/model/api/routes/instructions-id/outputs/workoutInstructionsSchema";
 import workoutInstructions from "@/modules/model/api/routes/instructions-id/data";
 import { z } from "zod";
@@ -17,7 +18,6 @@ import { pullUpsOverview } from "@/modules/model/api/routes/instructions-id/data
 import { pushUpOverview } from "@/modules/model/api/routes/instructions-id/data/pushUps";
 import { squatOverview } from "@/modules/model/api/routes/instructions-id/data/squats";
 import { InstructionParams } from "../types";
-import Service from "../../data-layer/service";
 import { ApiZodValidationError } from "../../error-handler/errors/api.error.zod-validation";
 import { ApiNotFoundError } from "../../error-handler/errors/api.error.not-found";
 
@@ -66,19 +66,16 @@ const paramsSchema = z.object({
 
 type InstructionParamsParsed = z.infer<typeof paramsSchema>;
 
-class InstructionsService extends Service<
-  WorkoutOverview | WorkoutInstruction
-> {
+class InstructionsService {
   params: InstructionParamsParsed;
 
-  constructor(request: NextRequest, params: InstructionParams) {
-    super(request);
+  constructor(_request: NextRequest, params: InstructionParams) {
     this.params = InstructionsService.validateParams(params);
   }
 
-  async getData(): Promise<WorkoutOverview | WorkoutInstruction> {
+  async parseWorkoutData() {
     const data = this.filterById(workoutInstructions);
-    return this.getInstructionData(data);
+    return this.parseInstructionData(data);
   }
 
   static validateParams(params: InstructionParams) {
@@ -101,7 +98,6 @@ class InstructionsService extends Service<
     if (!workoutIdInstructions.length) {
       throw new ApiNotFoundError({
         description: `Workout instructions for id: ${this.params.id} not found`,
-        isOperational: false,
       });
     }
     return workoutIdInstructions;
@@ -115,24 +111,23 @@ class InstructionsService extends Service<
     if (!workoutLevelInstructions) {
       throw new ApiNotFoundError({
         description: `Workout instructions for level: ${this.params.level} not found`,
-        isOperational: false,
       });
     }
     return workoutLevelInstructions;
   }
 
-  private getInstructionData(
+  private parseInstructionData(
     workoutIdInstructions: WorkoutInstruction[],
   ): WorkoutOverview | WorkoutInstruction {
     if (this.params.level === undefined) {
       const workoutTitle = workoutOverviewDescriptions[this.params.id];
 
-      return {
+      return workoutOverviewSchema.parse({
         ...workoutTitle,
         levelNames: workoutIdInstructions.map(
           (instruction) => instruction.name,
         ),
-      };
+      });
     }
 
     const workoutLevelInstructions = this.filterByLevel(workoutIdInstructions);

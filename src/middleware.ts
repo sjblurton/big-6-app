@@ -12,7 +12,6 @@ export async function middleware(req: NextRequest) {
     if (!token) {
       throw new ApiUnauthorizedError({
         description: "no token provided",
-        isOperational: true,
       });
     }
 
@@ -21,7 +20,6 @@ export async function middleware(req: NextRequest) {
     if (!email) {
       throw new ApiForbiddenError({
         description: "Forbidden",
-        isOperational: true,
       });
     }
 

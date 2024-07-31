@@ -8,7 +8,6 @@ import {
 export class ApiUnauthorizedError extends ApiBaseError {
   constructor({
     description,
-    isOperational,
     response,
     cause,
   }: Omit<ErrorInputs, "codeName" | "httpCode">) {
@@ -16,7 +15,6 @@ export class ApiUnauthorizedError extends ApiBaseError {
       codeName: API_ERROR_NAMES.UNAUTHORIZED,
       httpCode: HTTP_ERROR_CODES.UNAUTHORIZED,
       description,
-      isOperational,
       response,
       cause,
     });

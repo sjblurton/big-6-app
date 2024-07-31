@@ -3,7 +3,7 @@ import GetWorkoutData from "@/modules/database/workouts/read/getWorkoutData";
 import { NextRequest } from "next/server";
 import { ApiForbiddenError } from "../error-handler/errors/api.error.forbidden";
 
-abstract class AuthService<Data> {
+abstract class AuthService {
   protected readonly request: NextRequest;
 
   protected readonly getWorkoutData: GetWorkoutData;
@@ -21,13 +21,10 @@ abstract class AuthService<Data> {
     if (!safe.success) {
       throw new ApiForbiddenError({
         description: "Forbidden",
-        isOperational: true,
       });
     }
     return safe.data;
   }
-
-  abstract getServiceData(): Promise<Data>;
 }
 
 export default AuthService;

@@ -8,7 +8,6 @@ import {
 export class ApiNotFoundError extends ApiBaseError {
   constructor({
     description,
-    isOperational,
     response,
     cause,
   }: Omit<ErrorInputs, "codeName" | "httpCode">) {
@@ -16,7 +15,6 @@ export class ApiNotFoundError extends ApiBaseError {
       codeName: API_ERROR_NAMES.NOT_FOUND,
       httpCode: HTTP_ERROR_CODES.NOT_FOUND,
       description,
-      isOperational,
       response,
       cause,
     });

@@ -2,6 +2,7 @@ import { ZodError, ZodIssue } from "zod";
 import ErrorHandler from "./ErrorHandler";
 import { HTTP_ERROR_CODES } from "./errors/api.error.base";
 import { ApiBadRequestError } from "./errors/api.error.bad-request";
+import { ApiInternalServerError } from "./errors/api.error.internal-server";
 
 jest.mock("next/server", () => ({
   NextResponse: {
@@ -21,7 +22,6 @@ describe("ErrorHandler", () => {
   it("should handle an operational error", () => {
     const error = new ApiBadRequestError({
       description: "Bad request",
-      isOperational: true,
     });
     const errorHandler = new ErrorHandler(error);
     const errorResponse = errorHandler.handle() as {
@@ -49,9 +49,8 @@ describe("ErrorHandler", () => {
   });
 
   it("should handle a non-operational error", () => {
-    const error = new ApiBadRequestError({
+    const error = new ApiInternalServerError({
       description: "Bad request",
-      isOperational: false,
     });
     const errorHandler = new ErrorHandler(error);
     const errorResponse = errorHandler.handle() as {

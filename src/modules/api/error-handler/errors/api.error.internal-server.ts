@@ -8,7 +8,6 @@ import {
 export class ApiInternalServerError extends ApiBaseError {
   constructor({
     description,
-    isOperational,
     response,
     cause,
   }: Omit<ErrorInputs, "codeName" | "httpCode">) {
@@ -16,7 +15,6 @@ export class ApiInternalServerError extends ApiBaseError {
       codeName: API_ERROR_NAMES.INTERNAL_SERVER_ERROR,
       httpCode: HTTP_ERROR_CODES.INTERNAL_SERVER_ERROR,
       description,
-      isOperational,
       response,
       cause,
     });

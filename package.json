@@ -119,17 +119,6 @@
     "ts-loader": "^9.5.1",
     "tsconfig-paths-jest": "^0.0.1",
     "typed-scss-modules": "^8.0.1",
-    "typescript": "^5.5.2"
-  },
-  "lint-staged": {
-    "*.{ts,tsx,js}": [
-      "npm run lint",
-      "npm run check-types",
-      "npm run format"
-    ],
-    "*.{css,scss}": [
-      "npm run generate-scss-types",
-      "npm run lint:styles"
-    ]
+    "typescript": "5.5.2"
   }
 }

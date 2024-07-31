@@ -38,7 +38,7 @@ describe.each([
   {
     description: "workouts.GET",
     GET: workoutsGET,
-    mockArgs: [mockRequest] as const,
+    mockArgs: [mockRequest],
     ControllerSpy: jest.spyOn(WorkoutsController.prototype, "GET"),
   },
   {
@@ -69,9 +69,10 @@ describe.each([
     it(`should call ${description} and return response`, async () => {
       const mockResponse = NextResponse.json({ example: "data" });
 
+      // @ts-expect-error - The response types are not matching as I'm testing multiple functions
       ControllerSpy.mockResolvedValue(mockResponse);
 
-      // @ts-expect-error - I'm not sure why this is throwing an error
+      // @ts-expect-error - The Args can be different tuples as I'm testing multiple functions
       const result = await GET(...mockArgs);
 
       expect(ControllerSpy).toHaveBeenCalledTimes(1);

@@ -8,7 +8,6 @@ import {
 export class ApiBadRequestError extends ApiBaseError {
   constructor({
     description,
-    isOperational,
     response,
     cause,
   }: Omit<ErrorInputs, "codeName" | "httpCode">) {
@@ -16,7 +15,6 @@ export class ApiBadRequestError extends ApiBaseError {
       codeName: API_ERROR_NAMES.BAD_REQUEST,
       httpCode: HTTP_ERROR_CODES.BAD_REQUEST,
       description,
-      isOperational,
       response,
       cause,
     });

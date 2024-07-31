@@ -11,14 +11,13 @@ export class ApiZodValidationError extends ApiBaseError {
     description,
     response,
     cause,
-  }: Omit<ErrorInputs, "codeName" | "httpCode" | "isOperational"> & {
+  }: Omit<ErrorInputs, "codeName" | "httpCode"> & {
     cause: ZodIssue[];
   }) {
     super({
       codeName: API_ERROR_NAMES.BAD_REQUEST,
       httpCode: HTTP_ERROR_CODES.BAD_REQUEST,
       description,
-      isOperational: true,
       response,
       cause,
     });

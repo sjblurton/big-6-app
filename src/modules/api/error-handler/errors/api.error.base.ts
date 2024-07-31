@@ -22,7 +22,6 @@ export type ErrorInputs = {
   codeName: ApiErrorNames;
   httpCode: HttpCode;
   description: string;
-  isOperational?: boolean;
   response?: Response;
   cause?: unknown;
 };
@@ -32,8 +31,6 @@ export abstract class ApiBaseError extends Error {
 
   public readonly httpCode: HttpCode;
 
-  public readonly isOperational: boolean;
-
   public readonly response?: Response;
 
   public readonly cause: unknown | undefined;
@@ -41,7 +38,6 @@ export abstract class ApiBaseError extends Error {
   constructor({
     description,
     httpCode,
-    isOperational = false,
     codeName,
     response,
     cause,
@@ -52,7 +48,6 @@ export abstract class ApiBaseError extends Error {
 
     this.codeName = codeName;
     this.httpCode = httpCode;
-    this.isOperational = isOperational;
     this.response = response;
     this.cause = cause;
 
@@ -70,7 +65,7 @@ export abstract class ApiBaseError extends Error {
   This is still a common pattern for extending built-in objects like Error.
   
   Setting Properties Directly:
-  We set the properties (name, httpCode, isOperational) directly on this.
+  We set the properties (name and httpCode) directly on this.
   Calling Error.captureStackTrace:
 
   Ensures that the stack trace correctly references the ApiError class.

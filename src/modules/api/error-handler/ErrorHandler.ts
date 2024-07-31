@@ -15,11 +15,13 @@ class ErrorHandler {
   }
 
   handle(): NextResponse<ErrorResponse> {
-    if (
-      !(this.error instanceof ApiBaseError) ||
-      this.error instanceof ZodError ||
-      (this.error instanceof ApiBaseError && !this.error.isOperational)
-    ) {
+    if (!(this.error instanceof ApiBaseError)) {
+      return this.handelNoneOperationalError();
+    }
+
+    const isOperationalError = this.error.httpCode < 500;
+
+    if (!isOperationalError) {
       this.logToDatabase();
       return this.handelNoneOperationalError();
     }

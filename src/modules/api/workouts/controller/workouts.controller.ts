@@ -1,18 +1,15 @@
-import { NextRequest } from "next/server";
-import { WorkoutsData } from "@/modules/model/api/routes/workouts/outputs/workoutsDataSchemas";
+import { NextRequest, NextResponse } from "next/server";
 import { WorkoutsService } from "../services/workouts.service";
-import Controller from "../../data-layer/controller";
 
-class WorkoutsController extends Controller<WorkoutsData> {
+class WorkoutsController {
   private readonly workoutsService: WorkoutsService;
 
   constructor(request: NextRequest) {
-    super(request);
     this.workoutsService = new WorkoutsService(request);
   }
 
-  async getServiceData() {
-    return this.workoutsService.getServiceData();
+  async GET() {
+    return NextResponse.json(await this.workoutsService.getServiceData());
   }
 }
 

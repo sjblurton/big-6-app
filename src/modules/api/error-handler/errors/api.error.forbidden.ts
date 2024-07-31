@@ -8,7 +8,6 @@ import {
 export class ApiForbiddenError extends ApiBaseError {
   constructor({
     description,
-    isOperational,
     response,
     cause,
   }: Omit<ErrorInputs, "codeName" | "httpCode">) {
@@ -16,7 +15,6 @@ export class ApiForbiddenError extends ApiBaseError {
       codeName: API_ERROR_NAMES.FORBIDDEN,
       httpCode: HTTP_ERROR_CODES.FORBIDDEN,
       description,
-      isOperational,
       response,
       cause,
     });

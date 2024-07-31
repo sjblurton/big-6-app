@@ -29,8 +29,10 @@ export const workoutInstructionsSchema = z.object({
 
 export type WorkoutInstruction = z.infer<typeof exerciseSchema>;
 
-export type WorkoutOverview = {
-  title: string;
-  description: string;
-  levelNames: string[];
-};
+export const workoutOverviewSchema = z.object({
+  title: z.string(),
+  description: z.string(),
+  levelNames: z.array(z.string()),
+});
+
+export type WorkoutOverview = z.infer<typeof workoutOverviewSchema>;

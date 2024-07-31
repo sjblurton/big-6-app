@@ -2,14 +2,13 @@ import {
   WorkoutIds,
   workoutIdsSchema,
 } from "@/modules/model/api/routes/workouts/inputs/inputs";
-import { WorkoutData } from "@/modules/model/api/routes/workouts-id/outputs/workoutDataSchemas";
 import { limitBySchema } from "@/modules/model/api/routes/workouts-id/inputs/querySchema";
 import { NextRequest } from "next/server";
 import GetWorkoutData from "@/modules/database/workouts/read/getWorkoutData";
 import AuthService from "../../data-layer/auth.service";
 import { ApiBadRequestError } from "../../error-handler/errors/api.error.bad-request";
 
-export class WorkoutService extends AuthService<WorkoutData[]> {
+export class WorkoutService extends AuthService {
   private workoutId: WorkoutIds;
 
   constructor(request: NextRequest, workoutId: WorkoutIds) {
@@ -17,7 +16,7 @@ export class WorkoutService extends AuthService<WorkoutData[]> {
     this.workoutId = workoutId;
   }
 
-  async getServiceData() {
+  getServiceData() {
     return GetWorkoutData.getWorkoutData(
       this.validateUrlParams(),
       this.validateSearchParams(),
@@ -29,7 +28,6 @@ export class WorkoutService extends AuthService<WorkoutData[]> {
     if (!safeWorkout.success) {
       throw new ApiBadRequestError({
         description: "Invalid workout",
-        isOperational: true,
       });
     }
     return safeWorkout.data;
@@ -44,7 +42,6 @@ export class WorkoutService extends AuthService<WorkoutData[]> {
     if (!safeLimitBy.success) {
       throw new ApiBadRequestError({
         description: "Invalid limitBy parameter: must be a positive integer",
-        isOperational: true,
       });
     }
     return safeLimitBy.data;

@@ -1,8 +1,7 @@
-import { WorkoutsData } from "@/modules/model/api/routes/workouts/outputs/workoutsDataSchemas";
 import AuthService from "../../data-layer/auth.service";
 
-export class WorkoutsService extends AuthService<WorkoutsData> {
-  async getServiceData() {
+export class WorkoutsService extends AuthService {
+  getServiceData() {
     return this.getWorkoutData.getWorkoutsData();
   }
 }

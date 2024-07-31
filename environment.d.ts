@@ -10,6 +10,7 @@ declare global {
       NEXT_PUBLIC_DB_MEASUREMENT_ID: string;
       GOOGLE_CLIENT_ID: string;
       GOOGLE_CLIENT_SECRET: string;
+      NEXT_PUBLIC_BASE_URL: string;
     }
   }
 }
