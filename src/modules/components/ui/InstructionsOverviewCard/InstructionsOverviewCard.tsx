@@ -9,6 +9,7 @@ import * as borderRadius from "@/styles/utilityClasses/borderRadius.module.scss"
 import * as background from "@/styles/utilityClasses/background.module.scss";
 import { WorkoutIds } from "@/modules/model/api/routes/workouts/inputs/inputs";
 
+import { workoutOverviewSchema } from "@/modules/model/api/routes/instructions-id/outputs/workoutInstructionsSchema";
 import { MuiTypography } from "../../library/mui";
 import { workoutSvgs } from "../../assets/workouts";
 
@@ -16,19 +17,20 @@ type InstructionsOverviewCardProps = {
   workoutId: WorkoutIds;
 };
 
-// const getData = async () => {
-//   const res = await fetch(
-//     "http://localhost:3000/api/v1/docs/instructions/pull-ups"
-//   );
-//   const data = await res.json();
-//   return data;
-// };
+const getData = async (id: WorkoutIds) => {
+  const res = await fetch(
+    `http://localhost:3000/api/v1/docs/instructions/${id}`,
+  );
+  const data = await workoutOverviewSchema.parseAsync(await res.json());
+
+  return data;
+};
 
 async function InstructionsOverviewCard({
   workoutId,
 }: InstructionsOverviewCardProps) {
   const { component: TitleSvg, title } = workoutSvgs[workoutId];
-  // const data = await getData();
+  const { description, levelNames } = await getData(workoutId);
 
   return (
     <article
@@ -53,23 +55,18 @@ async function InstructionsOverviewCard({
         {title}
       </MuiTypography>
 
-      <MuiTypography style={{ flex: 2 }}>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam quo nemo
-        quidem reprehenderit. Nesciunt obcaecati facilis, magnam placeat
-        perspiciatis ea vitae! Earum voluptatibus placeat fuga nobis quis
-        dolore. At, reiciendis!
-      </MuiTypography>
+      <MuiTypography style={{ flex: 2 }}>{description}</MuiTypography>
 
       <ul style={{ width: "100%" }}>
-        {new Array(10).fill(1).map((content, i) => (
-          <li key={(content + i).toString()}>
+        {levelNames.map((content) => (
+          <li key={content}>
             <MuiTypography
               style={{ flex: 1 }}
               variant="h5"
               component="h3"
               width="100%"
             >
-              Item number {i + 1}
+              {content}
             </MuiTypography>
           </li>
         ))}

@@ -7,8 +7,9 @@ import {
 import workoutInstructions from "@/modules/model/api/routes/instructions-id/data";
 import { z } from "zod";
 import {
-  WORKOUT_ID_LIST,
+  WorkoutIds,
   WORKOUT_IDS,
+  WORKOUT_ID_LIST,
 } from "@/modules/model/api/routes/shared/workoutIds";
 
 import { bridgesOverview } from "@/modules/model/api/routes/instructions-id/data/bridges";
@@ -20,8 +21,6 @@ import { squatOverview } from "@/modules/model/api/routes/instructions-id/data/s
 import { InstructionParams } from "../types";
 import { ApiZodValidationError } from "../../error-handler/errors/api.error.zod-validation";
 import { ApiNotFoundError } from "../../error-handler/errors/api.error.not-found";
-
-type WorkoutIds = (typeof WORKOUT_ID_LIST)[number];
 
 export const workoutOverviewDescriptions: {
   [key in WorkoutIds]: {

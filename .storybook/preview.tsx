@@ -6,6 +6,7 @@ import "../src/styles/base/reset.scss";
 import "../src/styles/base/global.scss";
 import { themes } from "@storybook/theming";
 import { mswLoader, initialize, mswDecorator } from "msw-storybook-addon";
+import { handlers } from "../src/modules/mockServiceWorker/handlers";
 
 initialize();
 
@@ -20,6 +21,9 @@ const preview: Preview = {
     layout: "centered",
     docs: {
       theme: themes.dark,
+    },
+    msw: {
+      handlers,
     },
   },
   loaders: [mswLoader],

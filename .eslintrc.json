@@ -37,6 +37,12 @@
     "@typescript-eslint/explicit-module-boundary-types": "off",
     "@typescript-eslint/no-explicit-any": "error",
     "@tanstack/query/exhaustive-deps": "error",
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": true
+      }
+    ],
     "@tanstack/query/stable-query-client": "error",
     "@typescript-eslint/no-unused-vars": [
       "error",

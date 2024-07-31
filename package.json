@@ -134,8 +134,7 @@
   },
   "msw": {
     "workerDirectory": [
-      ".storybook/public",
-      "public"
+      "src/modules/mockServiceWorker"
     ]
   }
 }
