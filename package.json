@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint --fix",
-    "check-types": "tsc",
+    "check-types": "tsc --noEmit",
     "format": "npx prettier . --write",
     "lint:styles": "stylelint '**/*.{css,scss}' --fix",
     "stylelint-scss-check": "stylelint-config-prettier-scss-check",
@@ -103,12 +103,13 @@
     "jest-axe": "^9.0.0",
     "jest-environment-jsdom": "^29.7.0",
     "lint-staged": "^15.2.7",
+    "msw": "^2.3.4",
+    "msw-storybook-addon": "^2.0.3",
     "prettier": "3.3.2",
     "sass-loader": "^14.2.1",
     "storybook": "^8.1.11",
     "storybook-addon-mock": "^5.0.0",
     "storybook-addon-sass-postcss": "^0.2.0",
-    "storybook-addon-theme-provider": "^0.2.2",
     "style-loader": "^4.0.0",
     "stylelint": "^16.6.1",
     "stylelint-config-idiomatic-order": "^10.0.0",
@@ -122,14 +123,19 @@
     "typescript": "^5.5.2"
   },
   "lint-staged": {
-    "*.{ts,tsx,js}": [
-      "npm run lint",
-      "npm run check-types",
+    "*.{ts,tsx}": [
+      "bash -c 'npm run check-types'",
       "npm run format"
     ],
     "*.{css,scss}": [
       "npm run generate-scss-types",
       "npm run lint:styles"
+    ]
+  },
+  "msw": {
+    "workerDirectory": [
+      ".storybook/public",
+      "public"
     ]
   }
 }

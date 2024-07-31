@@ -31,10 +31,11 @@ const config: StorybookConfig = {
       },
     },
   ],
+  features: { experimentalRSC: true },
   framework: {
     name: "@storybook/nextjs",
     options: {},
   },
-  staticDirs: ["../public"],
+  staticDirs: ["../public", "../src/modules/mockServiceWorker"],
 };
 export default config;

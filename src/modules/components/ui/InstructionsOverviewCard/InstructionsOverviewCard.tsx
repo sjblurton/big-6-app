@@ -16,10 +16,19 @@ type InstructionsOverviewCardProps = {
   workoutId: WorkoutIds;
 };
 
-function InstructionsOverviewCard({
+// const getData = async () => {
+//   const res = await fetch(
+//     "http://localhost:3000/api/v1/docs/instructions/pull-ups"
+//   );
+//   const data = await res.json();
+//   return data;
+// };
+
+async function InstructionsOverviewCard({
   workoutId,
 }: InstructionsOverviewCardProps) {
   const { component: TitleSvg, title } = workoutSvgs[workoutId];
+  // const data = await getData();
 
   return (
     <article
