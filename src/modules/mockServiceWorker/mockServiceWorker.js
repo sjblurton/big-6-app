@@ -90,7 +90,7 @@ self.addEventListener("message", async function (event) {
 });
 
 self.addEventListener("fetch", function (event) {
-  const {request} = event;
+  const { request } = event;
 
   // Bypass navigation requests.
   if (request.mode === "navigate") {
@@ -140,7 +140,7 @@ async function handleRequest(event, requestId) {
             headers: Object.fromEntries(responseClone.headers.entries()),
           },
         },
-        [responseClone.body]
+        [responseClone.body],
       );
     })();
   }
@@ -176,7 +176,7 @@ async function resolveMainClient(event) {
 }
 
 async function getResponse(event, client, requestId) {
-  const {request} = event;
+  const { request } = event;
 
   // Clone the request because it might've been already used
   // (i.e. its body has been read and sent to the client).
@@ -190,7 +190,7 @@ async function getResponse(event, client, requestId) {
     // Some servers forbid unknown request headers.
     delete headers["x-msw-intention"];
 
-    return fetch(requestClone, {headers});
+    return fetch(requestClone, { headers });
   }
 
   // Bypass mocking when the client is not active.
@@ -229,7 +229,7 @@ async function getResponse(event, client, requestId) {
         keepalive: request.keepalive,
       },
     },
-    [requestBuffer]
+    [requestBuffer],
   );
 
   switch (clientMessage.type) {
@@ -259,7 +259,7 @@ function sendToClient(client, message, transferrables = []) {
 
     client.postMessage(
       message,
-      [channel.port2].concat(transferrables.filter(Boolean))
+      [channel.port2].concat(transferrables.filter(Boolean)),
     );
   });
 }
