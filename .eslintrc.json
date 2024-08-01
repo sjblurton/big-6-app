@@ -8,7 +8,8 @@
     "plugin:jsx-a11y/recommended",
     "prettier",
     "plugin:storybook/recommended",
-    "plugin:@tanstack/eslint-plugin-query/recommended"
+    "plugin:@tanstack/eslint-plugin-query/recommended",
+    "plugin:mdx/recommended"
   ],
   "env": {
     "jest/globals": true
@@ -16,10 +17,20 @@
   "overrides": [
     {
       "files": ["**.test.*"],
-      "plugins": ["jest"],
-      "extends": ["plugin:jest/recommended"],
+      "extends": ["eslint:recommended", "plugin:react/recommended"]
+    },
+    {
+      "files": ["*.js,*.jsx"],
+      "extends": ["plugin:storybook/recommended"],
       "rules": {
         "import/no-extraneous-dependencies": "off"
+      }
+    },
+    {
+      "files": ["*.mdx"],
+      "extends": "plugin:mdx/recommended",
+      "rules": {
+        "react/jsx-filename-extension": "off"
       }
     }
   ],
@@ -81,7 +92,7 @@
     "react/jsx-filename-extension": [
       1,
       {
-        "extensions": [".tsx"]
+        "extensions": [".js", ".jsx", ".tsx"]
       }
     ],
     "react/jsx-props-no-spreading": "off",

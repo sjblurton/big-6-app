@@ -1,3 +1,4 @@
+export declare const accent: string;
 export declare const black: string;
 export declare const grey500: string;
 export declare const grey600: string;
