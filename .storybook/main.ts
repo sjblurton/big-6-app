@@ -30,6 +30,9 @@ const config: StorybookConfig = {
       },
     },
   ],
+  docs: {
+    defaultName: "Documentation",
+  },
   features: { experimentalRSC: true },
   framework: {
     name: "@storybook/nextjs",
