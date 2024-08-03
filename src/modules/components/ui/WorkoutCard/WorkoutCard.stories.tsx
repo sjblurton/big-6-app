@@ -4,7 +4,19 @@ import { mockExampleWorkout } from "@/modules/model/api/routes/workouts/mockData
 import { disableArg } from "@/modules/storybook/argTypes/disableArgs";
 import { WorkoutData } from "@/modules/model/api/routes/workouts-id/outputs/workoutDataSchemas";
 import { workoutIdsSchema } from "@/modules/model/api/routes/workouts/inputs/inputs";
-import Card from "./WorkoutCard";
+import { PropsWithChildren } from "react";
+import {
+  Title,
+  Subtitle,
+  Description,
+  Source,
+  Stories,
+  Primary,
+  Controls,
+  DocsContainer,
+  DocsContainerProps,
+} from "@storybook/blocks";
+import WorkoutCard from "./WorkoutCard";
 
 type Args = {
   mockProps: WorkoutData;
@@ -23,16 +35,49 @@ function mergeUserOverrides(args: Args) {
   return { workout: mergedArgs.mockProps };
 }
 
+/**
+ * The WorkoutCard component is used to display the latest workout
+ * with an image and progress bar to show the last time and how well you are doing.
+ */
+
 const meta: Meta = {
-  title: "Components/WorkoutCard",
-  component: Card,
-  tags: ["autodocs"],
+  title: "Components/Feedback/WorkoutCard",
+  component: WorkoutCard,
+  parameters: {
+    docs: {
+      container: (props: PropsWithChildren<DocsContainerProps>) => (
+        <DocsContainer {...props}>
+          <Title />
+          <Subtitle />
+          <Description />
+          <Source
+            code={`<WorkoutCard
+  workout={{
+    comments: "This is a comment",
+    date: 1720892933102,
+    key: "0ec2272c-51c9-4972-9438-3d2cb49834cc-0",
+    level: 8,
+    reps: [10, 15, 20],
+    user: "Dion_Dibbert@example.net",
+    workoutId: "handstands",
+  }}
+/>`}
+          />
+          <Primary />
+          <Controls />
+          <Stories />
+        </DocsContainer>
+      ),
+    },
+  },
   argTypes: {
     workout: disableArg,
     mockProps: disableArg,
     workoutName: {
       description: "The name of the workout",
-      control: "select",
+      control: {
+        type: "select",
+      },
       options: [
         "bridges",
         "handstands",
@@ -55,7 +100,7 @@ const meta: Meta = {
     ),
   ],
 
-  render: (args) => <Card {...mergeUserOverrides(args as Args)} />,
+  render: (args) => <WorkoutCard {...mergeUserOverrides(args as Args)} />,
 };
 
 export default meta;

@@ -6,6 +6,7 @@ import * as width from "@/styles/utilityClasses/width.module.scss";
 
 import { secondaryLight } from "@/styles/colors/_exports.module.scss";
 import { WorkoutData } from "@/modules/model/api/routes/workouts-id/outputs/workoutDataSchemas";
+import { toCapitalizedWords } from "@/modules/strings/transform";
 import { wrapper } from "./LineChart.module.scss";
 import { MuiLineChart } from "../../library/mui/muix";
 
@@ -18,6 +19,12 @@ export default function LineChart({ data }: Props) {
     date: day.date,
     totalReps: day.reps.reduce((acc, curr) => acc + curr, 0),
   }));
+
+  const areAllTheSameLevel = data.every((day) => day.level === data[0].level);
+
+  if (!areAllTheSameLevel) {
+    throw new Error("All the data must be of the same level.");
+  }
 
   return (
     <div
@@ -36,6 +43,7 @@ export default function LineChart({ data }: Props) {
           {
             data: totalRepsPerDay.map((day) => day.totalReps),
             color: secondaryLight,
+            label: `level ${data[0].level} ${toCapitalizedWords(data[0].workoutId)}`,
           },
         ]}
       />

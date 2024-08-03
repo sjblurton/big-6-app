@@ -14,10 +14,14 @@ const pullUp10 = pullUps.filter(
   ({ level: levelNumber }) => levelNumber === 10,
 )[0];
 
+/**
+ * The InstructionsCard component is used to display the
+ * with an image on how to do the exercise correctly.
+ */
+
 const meta: Meta = {
-  title: "Components/InstructionsCard",
+  title: "Components/Instructions/Each Exercise",
   component: InstructionsCard,
-  tags: ["autodocs"],
 };
 
 export default meta;

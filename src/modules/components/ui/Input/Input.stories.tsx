@@ -25,18 +25,23 @@ const onSubmit = async (data: FormData) => {
   return new Response(JSON.stringify(data));
 };
 
+/**
+ * The Input component is a Mui component styled and adapted to meet
+ * the needs of this project. The button has been added to the story to
+ * demonstrate how the form can be submitted.
+ */
+
 const meta: Meta = {
-  title: "Components/Input",
+  title: "Components/Form/Input",
   component: Input,
   args: {
-    name: "test",
+    name: "input-name",
     isFullWidth: false,
     isMultiline: false,
   },
   argTypes: {
     name: disableArg,
   },
-  tags: ["autodocs"],
   decorators: [
     (Story) => (
       <FormProvider<FormData> onSubmit={onSubmit} schema={schema}>

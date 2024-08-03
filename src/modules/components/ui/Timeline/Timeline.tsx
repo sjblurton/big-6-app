@@ -17,7 +17,7 @@ type TimelineProps = {
     time: number;
     title: string;
     level: number;
-    reps: string;
+    description: string;
   }[];
 };
 
@@ -25,7 +25,7 @@ function Timeline({ data }: TimelineProps) {
   return (
     <>
       <MuiTimeline>
-        {data.map(({ level, reps, time, title }) => (
+        {data.map(({ level, description, time, title }) => (
           <MuiTimelineItem key={time}>
             <MuiTimelineOppositeContent>
               {DateTime.fromMillis(time).toRelativeCalendar()}
@@ -39,7 +39,7 @@ function Timeline({ data }: TimelineProps) {
                 {title}
               </MuiTypography>
               <MuiTypography>Level {level}</MuiTypography>
-              <MuiTypography>{reps}</MuiTypography>
+              <MuiTypography>{description}</MuiTypography>
             </MuiTimelineContent>
           </MuiTimelineItem>
         ))}

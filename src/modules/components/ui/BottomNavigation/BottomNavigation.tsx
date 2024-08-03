@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
-import { useRouter } from "next/router";
+import { usePathname } from "next/navigation";
+
+import Link from "next/link";
 import {
   MuiBottomNavigation,
   MuiBottomNavigationAction,
@@ -18,20 +19,14 @@ import {
 import * as styles from "./BottomNavigation.module.scss";
 
 const navigation = [
-  { value: "home", label: "Home", icon: <MuiHomeIcon /> },
-  { value: "log", label: "Log", icon: <MuiClipboardIcon /> },
-  { value: "calender", label: "Calender", icon: <MuiCalendarMonthIcon /> },
-  { value: "timer", label: "Timer", icon: <MuiTimerIcon /> },
+  { value: "/dashboard", label: "Home", icon: <MuiHomeIcon /> },
+  { value: "/log", label: "Log", icon: <MuiClipboardIcon /> },
+  { value: "/calender", label: "Calender", icon: <MuiCalendarMonthIcon /> },
+  { value: "/timer", label: "Timer", icon: <MuiTimerIcon /> },
 ];
 
-export default function LabelBottomNavigation() {
-  const [value, setValue] = useState("home");
-  const router = useRouter();
-
-  const handleChange = (event: React.SyntheticEvent, newValue: string) => {
-    setValue(newValue);
-    router.push(`/${newValue}`);
-  };
+function BottomNavigation() {
+  const pathname = usePathname();
 
   return (
     <MuiPaper
@@ -46,17 +41,17 @@ export default function LabelBottomNavigation() {
       elevation={3}
     >
       <MuiBottomNavigation
+        value={pathname}
         sx={{
           width: "100%",
         }}
-        value={value}
-        onChange={handleChange}
       >
         <div className={styles.add}>
           <MuiFloatingActionButton
             color="warning"
             aria-label="add"
-            onClick={() => router.push("/add")}
+            LinkComponent={Link}
+            href="/add"
           >
             <MuiAddIcon fontSize="large" />
           </MuiFloatingActionButton>
@@ -66,11 +61,15 @@ export default function LabelBottomNavigation() {
           <MuiBottomNavigationAction
             key={nav.value}
             label={nav.label}
-            value={nav.value}
             icon={nav.icon}
+            value={nav.value}
+            href={nav.value}
+            component={Link}
           />
         ))}
       </MuiBottomNavigation>
     </MuiPaper>
   );
 }
+
+export default BottomNavigation;

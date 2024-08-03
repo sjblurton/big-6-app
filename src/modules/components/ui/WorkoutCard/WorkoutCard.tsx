@@ -12,7 +12,9 @@ type Props = {
   workout: WorkoutData;
 };
 
-function Card({ workout: { date, level, reps, workoutId: workout } }: Props) {
+function WorkoutCard({
+  workout: { date, level, reps, workoutId: workout },
+}: Props) {
   const totalReps = reps.reduce((acc, curr) => acc + curr, 0);
   const { title, component: Workout } = workoutSvgs[workout];
   const time = DateTime.fromMillis(date).toRelativeCalendar();
@@ -39,4 +41,4 @@ function Card({ workout: { date, level, reps, workoutId: workout } }: Props) {
   );
 }
 
-export default Card;
+export default WorkoutCard;

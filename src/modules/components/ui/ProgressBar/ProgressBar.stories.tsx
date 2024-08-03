@@ -2,10 +2,15 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import ProgressBar from "./ProgressBar";
 
+/**
+ * The ProgressBar component is used to show the progress of a user
+ * towards a goal. This can be used to show the progress of a user
+ * towards the goal like moving to the next workout level.
+ */
+
 const meta: Meta = {
-  title: "Components/ProgressBar",
+  title: "Components/Indicators/ProgressBar",
   component: ProgressBar,
-  tags: ["autodocs"],
   argTypes: {
     goal: {
       control: "number",

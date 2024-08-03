@@ -10,32 +10,37 @@ const timeline = [
     time: today,
     title: "Diamond Push Ups",
     level: 6,
-    reps: "24 Reps",
+    description: "24 Reps",
   },
   {
     time: today - ONE_DAY_MS,
     title: "Full Bridge",
     level: 5,
-    reps: "20 Reps",
+    description: "20 Reps",
   },
   {
     time: today - ONE_DAY_MS * 2,
     title: "Half Squats",
     level: 3,
-    reps: "40 Reps",
+    description: "40 Reps",
   },
   {
     time: today - ONE_DAY_MS * 3,
     title: "Headstand",
     level: 1,
-    reps: "45 Seconds",
+    description: "45 Seconds",
   },
 ];
 
+/**
+ * The Timeline component is used to show the user their progress
+ * over time. This can be used to show the user their progress
+ * over time for all the exercises they have done or for a specific one.
+ */
+
 const meta: Meta = {
-  title: "Components/Timeline",
+  title: "Components/Feedback/Timeline",
   component: Timeline,
-  tags: ["autodocs"],
 };
 
 export default meta;

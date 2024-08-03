@@ -2,8 +2,14 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import Navbar, { NavbarProps } from "./Navbar";
 
+/**
+ * The Navbar component is used to navigate
+ * between different less used locations throughout the app.
+ * Like the Workout Instructions or Weekly Routines.
+ */
+
 const meta: Meta<NavbarProps> = {
-  title: "Components/NavigationBar",
+  title: "Components/Navigation/Top Navbar",
   component: Navbar,
   parameters: {
     layout: "fullscreen",
@@ -11,20 +17,16 @@ const meta: Meta<NavbarProps> = {
   args: {
     routes: [
       {
-        name: "Getting Started",
-        path: "/docs",
+        name: "Workout Instructions",
+        path: "/workout-instructions",
       },
       {
-        name: "Components",
-        path: "/docs",
+        name: "Weekly Routines",
+        path: "/weekly-routines",
       },
       {
-        name: "API",
-        path: "/docs",
-      },
-      {
-        name: "GitHub",
-        path: "/github",
+        name: "Logout",
+        path: "/logout",
       },
     ],
   },

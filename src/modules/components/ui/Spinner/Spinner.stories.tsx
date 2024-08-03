@@ -2,10 +2,15 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import Spinner from "./Spinner";
 
+/**
+ * The Spinner component is used to show the user that something is loading.
+ * We are keeping consistency with the design of the app by using the same
+ * design as the progress bar.
+ */
+
 const meta: Meta = {
-  title: "Components/Spinner",
+  title: "Components/Indicators/Spinner",
   component: Spinner,
-  tags: ["autodocs"],
   argTypes: {
     speed: {
       control: "select",
