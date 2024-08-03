@@ -10,7 +10,7 @@ const customJestConfig = {
   setupFilesAfterEnv: ["<rootDir>/jest.setup.js"],
   collectCoverage: true,
   coverageReporters: ["json-summary", "text"],
-  coverageDirectory: "./src/app/docs/test-coverage",
+  coverageDirectory: "./src/modules/documentation/test-coverage",
   coverageThreshold: {
     global: {
       branches: 70,

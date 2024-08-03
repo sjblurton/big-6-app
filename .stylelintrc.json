@@ -5,5 +5,5 @@
     "stylelint-config-idiomatic-order",
     "stylelint-config-prettier-scss"
   ],
-  "ignoreFiles": ["coverage/**"]
+  "ignoreFiles": ["src/modules/documentation/Swagger/swagger-ui.scss"]
 }
