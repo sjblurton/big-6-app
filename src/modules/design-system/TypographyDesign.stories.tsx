@@ -3,7 +3,7 @@ import { Meta, StoryObj } from "@storybook/react";
 import TypographyDesign from "./TypographyDesign";
 
 const meta: Meta = {
-  title: "DesignSystem/TypographyDesign",
+  title: "Design System/Typography Design",
   component: TypographyDesign,
   parameters: {
     controls: { expanded: true },
