@@ -1,14 +1,14 @@
 import * as React from "react";
-import * as colors from "../../styles/colors/_exports.module.scss";
+import * as colors from "../../../../styles/colors/_exports.module.scss";
 
 import {
   MuiBox,
   MuiGrid,
   MuiPaper,
   MuiTypography,
-} from "../components/library/mui";
-import { toCapitalizedWords } from "../strings/transform";
-import { getTextContrast } from "../color/getTextContrast";
+} from "../../../components/library/mui";
+import { toCapitalizedWords } from "../../../strings/transform";
+import { getTextContrast } from "../../../color/getTextContrast";
 
 function ColorCard({
   color,
@@ -33,10 +33,10 @@ function ColorCard({
         }}
         elevation={3}
       >
-        <MuiTypography variant="body2" color={textColor}>
+        <MuiTypography variant="h3" color={textColor}>
           Name: {name}
         </MuiTypography>
-        <MuiTypography variant="body2" color={textColor}>
+        <MuiTypography variant="h3" color={textColor}>
           variable: {variable}
         </MuiTypography>
       </MuiPaper>

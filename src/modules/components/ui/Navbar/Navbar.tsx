@@ -55,7 +55,9 @@ function Navbar({ routes }: NavbarProps) {
               <LogoSvg />
             </Link>
             <MuiTypography
-              variant="h6"
+              variant="h2"
+              component="h1"
+              lineHeight={1.1}
               textAlign="center"
               data-testid="nav-active-page"
             >

@@ -4,6 +4,7 @@ import TypographyDesign from "./TypographyDesign";
 
 const meta: Meta = {
   title: "Design System/Typography Design",
+  tags: ["!autodocs"],
   component: TypographyDesign,
   parameters: {
     controls: { expanded: true },
