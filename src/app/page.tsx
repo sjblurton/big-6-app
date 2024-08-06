@@ -1,7 +1,14 @@
 import { getServerSession } from "next-auth";
 import SignOutButton from "@/modules/components/ui/Button/SignOutButton/SignOutButton";
 import SignInButton from "@/modules/components/ui/Button/SignInButton/SignInButton";
+import type { Metadata } from "next";
 import authOptions from "./api/auth/authOptions";
+
+export const metadata: Metadata = {
+  title: "Big 6 Callisthenics | Home",
+  description:
+    "Progressive callisthenics app based on the book; Convict Conditioning. Track your progress, and keep your focus as you master the Big 6 callisthenics movements!",
+};
 
 const getData = async () => {
   const res = await fetch(
