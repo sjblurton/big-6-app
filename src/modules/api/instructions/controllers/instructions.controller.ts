@@ -3,11 +3,11 @@ import InstructionsService from "../services/instructions.service";
 import { InstructionParams } from "../types";
 
 class InstructionsController {
-  params: InstructionParams;
+  params?: InstructionParams;
 
   private readonly instructionsService: InstructionsService;
 
-  constructor(request: NextRequest, params: InstructionParams) {
+  constructor(request: NextRequest, params?: InstructionParams) {
     this.params = params;
     this.instructionsService = new InstructionsService(request, params);
   }

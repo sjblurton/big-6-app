@@ -21,8 +21,6 @@ import { squatOverview } from "@/modules/model/api/routes/instructions-id/data/s
 import { InstructionParams } from "../types";
 import { ApiZodValidationError } from "../../error-handler/errors/api.error.zod-validation";
 import { ApiNotFoundError } from "../../error-handler/errors/api.error.not-found";
-import { ApiInternalServerError } from "../../error-handler/errors/api.error.internal-server";
-import { ApiBadRequestError } from "../../error-handler/errors/api.error.bad-request";
 
 export const workoutOverviewDescriptions: {
   [key in WorkoutIds]: {
@@ -56,40 +54,47 @@ export const workoutOverviewDescriptions: {
   },
 };
 
-const paramsSchema = z.object({
-  level: z
-    .string()
-    .regex(/^([1-9]|10)$/)
-    .optional()
-    .transform((value) => (value ? Number(value) : undefined)),
-  id: z.enum(WORKOUT_ID_LIST).optional(),
-});
+const paramsSchema = z
+  .object({
+    level: z
+      .string()
+      .regex(/^([1-9]|10)$/)
+      .optional()
+      .transform((value) => (value ? Number(value) : undefined)),
+    id: z.enum(WORKOUT_ID_LIST),
+  })
+  .optional();
 
 type InstructionParamsParsed = z.infer<typeof paramsSchema>;
 
 class InstructionsService {
   params: InstructionParamsParsed;
 
-  constructor(_request: NextRequest, params: InstructionParams) {
+  constructor(_request: NextRequest, params?: InstructionParams) {
     this.params = InstructionsService.validateParams(params);
   }
 
   async parseWorkoutData() {
-    if (this.params.id === undefined) {
-      return this.parseWorkoutsOverviews(workoutInstructions);
+    if (!this.params) {
+      return InstructionsService.parseWorkoutsOverviews(workoutInstructions);
     }
-    if (this.params.level === undefined && this.params.id !== undefined) {
-      return this.parseWorkoutOverview(workoutInstructions);
+    if (this.params.level === undefined) {
+      return InstructionsService.parseWorkoutOverview(
+        workoutInstructions,
+        this.params.id,
+      );
     }
-    if (this.params.level !== undefined && this.params.id !== undefined) {
-      const workoutIdInstructions = this.filterById(workoutInstructions);
-      return this.parseWorkoutLevelInstructions(workoutIdInstructions);
-    }
-
-    throw new ApiBadRequestError({ description: "Invalid request parameters" });
+    const workoutIdInstructions = InstructionsService.filterById(
+      workoutInstructions,
+      this.params.id,
+    );
+    return InstructionsService.parseWorkoutLevelInstructions(
+      workoutIdInstructions,
+      this.params.level,
+    );
   }
 
-  static validateParams(params: InstructionParams) {
+  static validateParams(params?: InstructionParams) {
     const safe = paramsSchema.safeParse(params);
 
     if (!safe.success) {
@@ -101,47 +106,44 @@ class InstructionsService {
     return safe.data;
   }
 
-  private filterById(data: WorkoutInstruction[]) {
+  private static filterById(data: WorkoutInstruction[], id: WorkoutIds) {
     const workoutIdInstructions = data.filter(
-      (instruction) => instruction.workoutId === this.params.id,
+      (instruction) => instruction.workoutId === id,
     );
 
     if (!workoutIdInstructions.length) {
       throw new ApiNotFoundError({
-        description: `Workout instructions for id: ${this.params.id} not found`,
+        description: `Workout instructions for id: ${id} not found`,
       });
     }
     return workoutIdInstructions;
   }
 
-  private filterByLevel(data: WorkoutInstruction[]) {
+  private static filterByLevel(data: WorkoutInstruction[], level: number) {
     const workoutLevelInstructions = data.find(
-      (instruction) => instruction.level === this.params.level,
+      (instruction) => instruction.level === level,
     );
 
     if (!workoutLevelInstructions) {
       throw new ApiNotFoundError({
-        description: `Workout instructions for level: ${this.params.level} not found`,
+        description: `Workout instructions for level: ${level} not found`,
       });
     }
     return workoutLevelInstructions;
   }
 
-  private parseWorkoutLevelInstructions(
+  private static parseWorkoutLevelInstructions(
     workoutIdInstructions: WorkoutInstruction[],
+    level: number,
   ): WorkoutInstruction {
-    return this.filterByLevel(workoutIdInstructions);
+    return InstructionsService.filterByLevel(workoutIdInstructions, level);
   }
 
-  private parseWorkoutOverview(
+  private static parseWorkoutOverview(
     workoutIdInstructions: WorkoutInstruction[],
+    id: WorkoutIds,
   ): WorkoutOverview {
-    if (this.params.id === undefined) {
-      throw new ApiInternalServerError({
-        description: "Workout id is undefined",
-      });
-    }
-    const workoutTitle = workoutOverviewDescriptions[this.params.id];
+    const workoutTitle = workoutOverviewDescriptions[id];
 
     return workoutOverviewSchema.parse({
       ...workoutTitle,
@@ -149,14 +151,9 @@ class InstructionsService {
     });
   }
 
-  private parseWorkoutsOverviews(
+  private static parseWorkoutsOverviews(
     workoutIdInstructions: WorkoutInstruction[],
   ): WorkoutOverview[] {
-    if (this.params.id !== undefined) {
-      throw new ApiInternalServerError({
-        description: "Workout id is defined",
-      });
-    }
     return WORKOUT_ID_LIST.map((id) => {
       const workoutTitle = workoutOverviewDescriptions[id];
       return workoutOverviewSchema.parse({
