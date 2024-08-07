@@ -19,7 +19,7 @@ import {
 import * as styles from "./BottomNavigation.module.scss";
 
 const navigation = [
-  { value: "/dashboard", label: "Home", icon: <MuiHomeIcon /> },
+  { value: "/dashboard", label: "Dashboard", icon: <MuiHomeIcon /> },
   { value: "/log", label: "Log", icon: <MuiClipboardIcon /> },
   { value: "/calender", label: "Calender", icon: <MuiCalendarMonthIcon /> },
   { value: "/timer", label: "Timer", icon: <MuiTimerIcon /> },

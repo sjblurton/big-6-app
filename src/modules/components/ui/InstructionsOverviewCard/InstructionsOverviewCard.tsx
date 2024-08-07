@@ -21,6 +21,7 @@ const getData = async (id: WorkoutIds) => {
   const res = await fetch(
     `http://localhost:3000/api/v1/docs/instructions/${id}`,
   );
+
   const data = await workoutOverviewSchema.parseAsync(await res.json());
 
   return data;

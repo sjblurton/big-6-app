@@ -1,9 +1,5 @@
 import { NextRequest } from "next/server";
-import {
-  WorkoutInstruction,
-  WorkoutOverview,
-  workoutOverviewSchema,
-} from "@/modules/model/api/routes/instructions-id/outputs/workoutInstructionsSchema";
+import { WorkoutOverview } from "@/modules/model/api/routes/instructions-id/outputs/workoutInstructionsSchema";
 import workoutInstructions from "@/modules/model/api/routes/instructions-id/data";
 import { z } from "zod";
 import {
@@ -18,7 +14,6 @@ import { legRaisesOverview } from "@/modules/model/api/routes/instructions-id/da
 import { pullUpsOverview } from "@/modules/model/api/routes/instructions-id/data/pullUps";
 import { pushUpOverview } from "@/modules/model/api/routes/instructions-id/data/pushUps";
 import { squatOverview } from "@/modules/model/api/routes/instructions-id/data/squats";
-import { InstructionParams } from "../types";
 import { ApiZodValidationError } from "../../error-handler/errors/api.error.zod-validation";
 import { ApiNotFoundError } from "../../error-handler/errors/api.error.not-found";
 
@@ -54,47 +49,33 @@ export const workoutOverviewDescriptions: {
   },
 };
 
-const paramsSchema = z
-  .object({
-    level: z
-      .string()
-      .regex(/^([1-9]|10)$/)
-      .optional()
-      .transform((value) => (value ? Number(value) : undefined)),
-    id: z.enum(WORKOUT_ID_LIST),
-  })
-  .optional();
+const paramsSchema = z.object({
+  level: z
+    .string()
+    .regex(/^([1-9]|10)$/)
+    .optional()
+    .transform((value) => (value ? Number(value) : undefined)),
+  id: z.enum(WORKOUT_ID_LIST),
+});
 
 type InstructionParamsParsed = z.infer<typeof paramsSchema>;
+export type InstructionParams = z.input<typeof paramsSchema>;
 
 class InstructionsService {
   params: InstructionParamsParsed;
 
-  constructor(_request: NextRequest, params?: InstructionParams) {
+  constructor(_request: NextRequest, params: InstructionParams) {
     this.params = InstructionsService.validateParams(params);
   }
 
   async parseWorkoutData() {
-    if (!this.params) {
-      return InstructionsService.parseWorkoutsOverviews(workoutInstructions);
-    }
     if (this.params.level === undefined) {
-      return InstructionsService.parseWorkoutOverview(
-        workoutInstructions,
-        this.params.id,
-      );
+      return InstructionsService.parseWorkoutOverview(this.params.id);
     }
-    const workoutIdInstructions = InstructionsService.filterById(
-      workoutInstructions,
-      this.params.id,
-    );
-    return InstructionsService.parseWorkoutLevelInstructions(
-      workoutIdInstructions,
-      this.params.level,
-    );
+    return InstructionsService.filterByLevel(this.params.id, this.params.level);
   }
 
-  static validateParams(params?: InstructionParams) {
+  static validateParams(params: InstructionParams) {
     const safe = paramsSchema.safeParse(params);
 
     if (!safe.success) {
@@ -106,9 +87,9 @@ class InstructionsService {
     return safe.data;
   }
 
-  private static filterById(data: WorkoutInstruction[], id: WorkoutIds) {
-    const workoutIdInstructions = data.filter(
-      (instruction) => instruction.workoutId === id,
+  private static filterById(id: WorkoutIds) {
+    const workoutIdInstructions = workoutInstructions.filter(
+      ({ workoutId }) => workoutId === id,
     );
 
     if (!workoutIdInstructions.length) {
@@ -119,8 +100,8 @@ class InstructionsService {
     return workoutIdInstructions;
   }
 
-  private static filterByLevel(data: WorkoutInstruction[], level: number) {
-    const workoutLevelInstructions = data.find(
+  private static filterByLevel(id: WorkoutIds, level: number) {
+    const workoutLevelInstructions = InstructionsService.filterById(id).find(
       (instruction) => instruction.level === level,
     );
 
@@ -132,37 +113,21 @@ class InstructionsService {
     return workoutLevelInstructions;
   }
 
-  private static parseWorkoutLevelInstructions(
-    workoutIdInstructions: WorkoutInstruction[],
-    level: number,
-  ): WorkoutInstruction {
-    return InstructionsService.filterByLevel(workoutIdInstructions, level);
+  private static mapWorkoutLevelNames(id: WorkoutIds): string[] {
+    return InstructionsService.filterById(id).map(
+      (instruction) => instruction.name,
+    );
   }
 
-  private static parseWorkoutOverview(
-    workoutIdInstructions: WorkoutInstruction[],
-    id: WorkoutIds,
-  ): WorkoutOverview {
+  private static parseWorkoutOverview(id: WorkoutIds): WorkoutOverview {
     const workoutTitle = workoutOverviewDescriptions[id];
 
-    return workoutOverviewSchema.parse({
-      ...workoutTitle,
-      levelNames: workoutIdInstructions.map((instruction) => instruction.name),
-    });
-  }
+    const levelNames = InstructionsService.mapWorkoutLevelNames(id);
 
-  private static parseWorkoutsOverviews(
-    workoutIdInstructions: WorkoutInstruction[],
-  ): WorkoutOverview[] {
-    return WORKOUT_ID_LIST.map((id) => {
-      const workoutTitle = workoutOverviewDescriptions[id];
-      return workoutOverviewSchema.parse({
-        ...workoutTitle,
-        levelNames: workoutIdInstructions.map(
-          (instruction) => instruction.name,
-        ),
-      });
-    });
+    return {
+      ...workoutTitle,
+      levelNames,
+    };
   }
 }
 

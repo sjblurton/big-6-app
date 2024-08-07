@@ -43,7 +43,7 @@ export default meta;
 
 type Story = StoryObj<typeof BottomNavigation>;
 
-export const Home: Story = {
+export const Dashboard: Story = {
   name: "on /dashboard",
 };
 

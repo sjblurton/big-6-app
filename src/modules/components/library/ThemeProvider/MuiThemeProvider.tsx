@@ -4,6 +4,8 @@ import {
   primary,
   white,
   primaryLight,
+  secondaryDark,
+  secondaryLight,
 } from "@/styles/colors/_exports.module.scss";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 
@@ -13,6 +15,10 @@ const muiTheme = createTheme({
       main: primary,
       dark: primary,
       light: primaryLight,
+    },
+    secondary: {
+      main: secondaryLight,
+      light: secondaryDark,
     },
     text: {
       primary: white,
