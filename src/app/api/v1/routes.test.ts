@@ -5,7 +5,7 @@ import WorkoutController from "@/modules/api/workout/controller/workout.controll
 import InstructionsController from "@/modules/api/instructions/controllers/instructions.controller";
 import { ApiNotFoundError } from "@/modules/api/error-handler/errors/api.error.not-found";
 import { ApiZodValidationError } from "@/modules/api/error-handler/errors/api.error.zod-validation";
-import { GET as instructionsGET } from "./docs/instructions/[id]/route";
+import { GET as instructionsGET } from "./docs/instructions/[name]/route";
 import { GET as workoutsGET } from "./workouts/route";
 import { GET as workoutGET } from "./workouts/[id]/route";
 
@@ -44,19 +44,19 @@ describe.each([
   {
     description: "workout.GET",
     GET: workoutGET,
-    mockArgs: [mockRequest, { params: { id: "pull-ups" } }],
+    mockArgs: [mockRequest, { params: { name: "pull-ups" } }],
     ControllerSpy: jest.spyOn(WorkoutController.prototype, "GET"),
   },
   {
     description: "instructions-id.GET",
     GET: instructionsGET,
-    mockArgs: [mockRequest, { params: { id: "bridges" } }],
+    mockArgs: [mockRequest, { params: { name: "bridges" } }],
     ControllerSpy: jest.spyOn(InstructionsController.prototype, "GET"),
   },
   {
     description: "instructions-id-level.GET",
     GET: instructionsGET,
-    mockArgs: [mockRequest, { params: { id: "bridges", level: "6" } }],
+    mockArgs: [mockRequest, { params: { name: "bridges", level: "level-6" } }],
     ControllerSpy: jest.spyOn(InstructionsController.prototype, "GET"),
   },
 ] as const)(

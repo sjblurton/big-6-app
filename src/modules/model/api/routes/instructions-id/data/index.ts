@@ -5,7 +5,7 @@ import pushUps from "./pushUps";
 import legRaises from "./legRaises";
 import squats from "./squats";
 
-export default [
+const allInstructions = [
   ...bridges,
   ...handstands,
   ...pullUps,
@@ -13,3 +13,7 @@ export default [
   ...legRaises,
   ...squats,
 ];
+
+export default allInstructions;
+
+export type Instruction = (typeof allInstructions)[number];

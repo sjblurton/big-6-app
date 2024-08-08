@@ -1,11 +1,11 @@
 import ErrorHandler from "@/modules/api/error-handler/ErrorHandler";
 import InstructionsController from "@/modules/api/instructions/controllers/instructions.controller";
-import { WorkoutIds } from "@/modules/model/api/routes/workouts/inputs/inputs";
+import { InstructionParams } from "@/modules/api/instructions/services/instructions.service";
 import { NextRequest } from "next/server";
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { id: WorkoutIds; level: string } },
+  { params }: { params: Pick<InstructionParams, "name"> },
 ) {
   try {
     const controller = new InstructionsController(request, params);
