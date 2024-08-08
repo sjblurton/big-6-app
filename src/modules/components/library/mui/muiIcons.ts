@@ -20,3 +20,4 @@ export { default as MuiDirectionsRunIcon } from "@mui/icons-material/DirectionsR
 export { default as MuiArrowUpwardIcon } from "@mui/icons-material/ArrowUpward";
 export { default as MuiCloudUploadIcon } from "@mui/icons-material/CloudUpload";
 export { default as MuiDeleteOutline } from "@mui/icons-material/DeleteOutline";
+export { default as MuiArrowDropDownIcon } from "@mui/icons-material/ArrowDropDown";
