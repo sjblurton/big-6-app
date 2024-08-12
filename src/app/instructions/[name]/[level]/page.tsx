@@ -1,14 +1,14 @@
 import { InstructionParams } from "@/modules/api/instructions/services/instructions.service";
-import { MuiContainer, MuiTypography } from "@/modules/components/library/mui";
+import {
+  MuiContainer,
+  MuiGrid,
+  MuiTypography,
+} from "@/modules/components/library/mui";
 import InstructionsCard from "@/modules/components/ui/InstructionsCard/InstructionsCard";
+import InstructionsTitle from "@/modules/components/ui/InstructionsTitle/InstructionsTitle";
 import { levelArray } from "@/modules/model/api/routes/instructions-id-level/constants/levels";
 import { Instruction } from "@/modules/model/api/routes/instructions-id/data";
 import { WORKOUT_ID_LIST } from "@/modules/model/api/routes/shared/workoutIds";
-import {
-  pathLevelToTitleString,
-  workoutIdToTitleString,
-} from "@/modules/strings/transform";
-import { Grid } from "@mui/material";
 import { GetStaticPaths } from "next";
 
 const paths = WORKOUT_ID_LIST.flatMap((name) =>
@@ -40,21 +40,19 @@ async function WorkoutInstructionsPage({
 }) {
   const { directions, level, name, progressions, workoutId } =
     await getWorkoutInstructionsPageData(params);
+
   return (
     <MuiContainer maxWidth="sm" disableGutters>
-      <Grid container mt={4}>
-        <Grid item xs={12}>
-          <MuiTypography variant="h1" textAlign="center">
-            {workoutIdToTitleString(params.name)} |{" "}
-            {pathLevelToTitleString(params.level)}
-          </MuiTypography>
-        </Grid>
-        <Grid item xs={12} p={1}>
+      <MuiGrid container mt={4}>
+        <MuiGrid item xs={12}>
+          <InstructionsTitle params={params} />
+        </MuiGrid>
+        <MuiGrid item xs={12} p={1}>
           <MuiTypography variant="h6" component="h2">
             Progressions
           </MuiTypography>
-        </Grid>
-        <Grid item xs={12} p={1}>
+        </MuiGrid>
+        <MuiGrid item xs={12} p={1}>
           <MuiTypography variant="h6" component="h3">
             Beginner: {progressions.beginner.sets} sets of{" "}
             {progressions.beginner.reps} reps
@@ -67,8 +65,8 @@ async function WorkoutInstructionsPage({
             Advanced: {progressions.advanced.sets} sets of{" "}
             {progressions.advanced.reps} reps
           </MuiTypography>
-        </Grid>
-        <Grid item xs={12} pb={1} pt={1}>
+        </MuiGrid>
+        <MuiGrid item xs={12} pb={1} pt={1}>
           <InstructionsCard
             directions={directions.positive}
             workoutKey={workoutId}
@@ -76,8 +74,8 @@ async function WorkoutInstructionsPage({
             isPositive
             name={name}
           />
-        </Grid>
-        <Grid item xs={12} pb={1}>
+        </MuiGrid>
+        <MuiGrid item xs={12} pb={1}>
           <InstructionsCard
             directions={directions.negative}
             workoutKey={workoutId}
@@ -85,8 +83,8 @@ async function WorkoutInstructionsPage({
             isPositive={false}
             name={name}
           />
-        </Grid>
-      </Grid>
+        </MuiGrid>
+      </MuiGrid>
     </MuiContainer>
   );
 }

@@ -1,5 +1,8 @@
-import * as React from "react";
+"use client";
 
+import { useRef, useState } from "react";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 import {
   MuiButton,
   MuiButtonGroup,
@@ -9,20 +12,26 @@ import {
   MuiMenuList,
   MuiPaper,
   MuiPopper,
-} from "../../library/mui";
-import { MuiArrowDropDownIcon } from "../../library/mui/muiIcons";
+  MuiTypography,
+} from "../../../library/mui";
+import { MuiArrowDropDownIcon } from "../../../library/mui/muiIcons";
 
-type Props = { options: { label: string; handleClick: () => void }[] };
+type Props = {
+  options: { label: string; href: string }[];
+  defaultIndex: number;
+};
 
-export default function SplitButton({ options }: Props) {
-  const [open, setOpen] = React.useState(false);
-  const anchorRef = React.useRef<HTMLDivElement>(null);
-  const [selectedIndex, setSelectedIndex] = React.useState(1);
+function ButtonGroup({ options, defaultIndex, ...rest }: Props) {
+  const [open, setOpen] = useState(false);
+  const anchorRef = useRef<HTMLDivElement>(null);
+  const [selectedIndex, setSelectedIndex] = useState(defaultIndex);
+  const { push } = useRouter();
 
   const handleMenuItemClick = (
     _event: React.MouseEvent<HTMLLIElement, MouseEvent>,
     index: number,
   ) => {
+    push(options[index].href);
     setSelectedIndex(index);
     setOpen(false);
   };
@@ -48,9 +57,12 @@ export default function SplitButton({ options }: Props) {
         variant="contained"
         ref={anchorRef}
         aria-label="Button group with a nested menu"
+        {...rest}
       >
-        <MuiButton onClick={options[selectedIndex].handleClick}>
-          {options[selectedIndex].label}
+        <MuiButton LinkComponent={Link} href={options[selectedIndex].href}>
+          <MuiTypography variant="h1" component="h3">
+            {options[selectedIndex].label}
+          </MuiTypography>
         </MuiButton>
         <MuiButton
           size="small"
@@ -104,3 +116,5 @@ export default function SplitButton({ options }: Props) {
     </>
   );
 }
+
+export default ButtonGroup;
