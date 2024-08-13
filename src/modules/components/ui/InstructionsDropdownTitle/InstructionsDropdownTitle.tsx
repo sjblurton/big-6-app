@@ -1,10 +1,10 @@
 import { InstructionParams } from "@/modules/api/instructions/services/instructions.service";
 import { WORKOUT_IDS } from "@/modules/model/api/routes/shared/workoutIds";
 import { levelArray } from "@/modules/model/api/routes/instructions-id-level/constants/levels";
-import ButtonGroup from "./ButtonGroup/ButtonGroup";
+import DropdownLinks from "./DropdownLinks/DropdownLinks";
 import { MuiGrid } from "../../library/mui";
 
-function InstructionsTitle({
+function InstructionsDropdownTitle({
   params: { level, name },
 }: {
   params: Required<InstructionParams>;
@@ -22,7 +22,7 @@ function InstructionsTitle({
   return (
     <MuiGrid container justifyContent="center" gap={2}>
       <MuiGrid item>
-        <ButtonGroup
+        <DropdownLinks
           options={workoutArray.map(({ key, label }) => ({
             label,
             href: `/instructions/${key}/${level}`,
@@ -31,7 +31,7 @@ function InstructionsTitle({
         />
       </MuiGrid>
       <MuiGrid item>
-        <ButtonGroup
+        <DropdownLinks
           options={levelArray.map((levelLink) => ({
             label: levelLink,
             href: `/instructions/${name}/${levelLink}`,
@@ -43,4 +43,4 @@ function InstructionsTitle({
   );
 }
 
-export default InstructionsTitle;
+export default InstructionsDropdownTitle;

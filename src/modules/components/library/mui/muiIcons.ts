@@ -21,3 +21,5 @@ export { default as MuiArrowUpwardIcon } from "@mui/icons-material/ArrowUpward";
 export { default as MuiCloudUploadIcon } from "@mui/icons-material/CloudUpload";
 export { default as MuiDeleteOutline } from "@mui/icons-material/DeleteOutline";
 export { default as MuiArrowDropDownIcon } from "@mui/icons-material/ArrowDropDown";
+export { default as MuiChevronLeftIcon } from "@mui/icons-material/ChevronLeft";
+export { default as MuiChevronRightIcon } from "@mui/icons-material/ChevronRight";

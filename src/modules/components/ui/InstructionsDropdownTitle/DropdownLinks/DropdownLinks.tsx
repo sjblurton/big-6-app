@@ -21,7 +21,7 @@ type Props = {
   defaultIndex: number;
 };
 
-function ButtonGroup({ options, defaultIndex, ...rest }: Props) {
+function DropdownLinks({ options, defaultIndex, ...rest }: Props) {
   const [open, setOpen] = useState(false);
   const anchorRef = useRef<HTMLDivElement>(null);
   const [selectedIndex, setSelectedIndex] = useState(defaultIndex);
@@ -117,4 +117,4 @@ function ButtonGroup({ options, defaultIndex, ...rest }: Props) {
   );
 }
 
-export default ButtonGroup;
+export default DropdownLinks;

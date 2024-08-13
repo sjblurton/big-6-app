@@ -1,15 +1,22 @@
 import { InstructionParams } from "@/modules/api/instructions/services/instructions.service";
 import {
+  MuiButton,
   MuiContainer,
   MuiGrid,
   MuiTypography,
 } from "@/modules/components/library/mui";
+import * as colors from "@/styles/colors/_exports.module.scss";
 import InstructionsCard from "@/modules/components/ui/InstructionsCard/InstructionsCard";
-import InstructionsTitle from "@/modules/components/ui/InstructionsTitle/InstructionsTitle";
+import InstructionsDropdownTitle from "@/modules/components/ui/InstructionsDropdownTitle/InstructionsDropdownTitle";
 import { levelArray } from "@/modules/model/api/routes/instructions-id-level/constants/levels";
 import { Instruction } from "@/modules/model/api/routes/instructions-id/data";
 import { WORKOUT_ID_LIST } from "@/modules/model/api/routes/shared/workoutIds";
 import { GetStaticPaths } from "next";
+import {
+  MuiChevronLeftIcon,
+  MuiChevronRightIcon,
+} from "@/modules/components/library/mui/muiIcons";
+import Link from "next/link";
 
 const paths = WORKOUT_ID_LIST.flatMap((name) =>
   levelArray.map((level) => ({ params: { name, level } })),
@@ -43,9 +50,9 @@ async function WorkoutInstructionsPage({
 
   return (
     <MuiContainer maxWidth="sm" disableGutters>
-      <MuiGrid container mt={4}>
+      <MuiGrid container mt={4} mb={4}>
         <MuiGrid item xs={12}>
-          <InstructionsTitle params={params} />
+          <InstructionsDropdownTitle params={params} />
         </MuiGrid>
         <MuiGrid item xs={12} p={1}>
           <MuiTypography variant="h6" component="h2">
@@ -83,6 +90,37 @@ async function WorkoutInstructionsPage({
             isPositive={false}
             name={name}
           />
+        </MuiGrid>
+        <MuiGrid
+          item
+          xs={12}
+          justifyContent="space-between"
+          display="flex"
+          mt={2}
+          mb={2}
+        >
+          <MuiButton
+            size="large"
+            sx={{
+              color: colors.white,
+            }}
+            startIcon={<MuiChevronLeftIcon />}
+            LinkComponent={Link}
+            href={`/instructions/${workoutId}/level-${Math.max(level - 1, 1)}`}
+          >
+            Previous
+          </MuiButton>
+          <MuiButton
+            size="large"
+            sx={{
+              color: colors.white,
+            }}
+            endIcon={<MuiChevronRightIcon />}
+            LinkComponent={Link}
+            href={`/instructions/${workoutId}/level-${Math.min(level + 1, 10)}`}
+          >
+            Next
+          </MuiButton>
         </MuiGrid>
       </MuiGrid>
     </MuiContainer>

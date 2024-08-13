@@ -7,9 +7,11 @@ import * as width from "@/styles/utilityClasses/width.module.scss";
 import * as maxWidth from "@/styles/utilityClasses/maxWidth.module.scss";
 import * as borderRadius from "@/styles/utilityClasses/borderRadius.module.scss";
 import * as background from "@/styles/utilityClasses/background.module.scss";
+import * as colors from "@/styles/colors/_exports.module.scss";
 import { WorkoutIds } from "@/modules/model/api/routes/workouts/inputs/inputs";
 
 import { workoutOverviewSchema } from "@/modules/model/api/routes/instructions-id/outputs/workoutInstructionsSchema";
+import Link from "next/link";
 import { MuiTypography } from "../../library/mui";
 import { workoutSvgs } from "../../assets/workouts";
 
@@ -52,22 +54,30 @@ async function InstructionsOverviewCard({
         <TitleSvg height={150} />
       </div>
 
-      <MuiTypography variant="h3" component="h2" width="100%">
-        {title}
+      <MuiTypography
+        color={colors.secondaryLight}
+        variant="h2"
+        component="h2"
+        width="100%"
+      >
+        <Link href={`instructions/${workoutId}/level-1`}>{title}</Link>
       </MuiTypography>
 
       <MuiTypography style={{ flex: 2 }}>{description}</MuiTypography>
 
       <ul style={{ width: "100%" }}>
-        {levelNames.map((content) => (
+        {levelNames.map((content, i) => (
           <li key={content}>
             <MuiTypography
               style={{ flex: 1 }}
               variant="h5"
               component="h3"
               width="100%"
+              color={colors.secondaryLight}
             >
-              {content}
+              <Link href={`instructions/${workoutId}/level-${i + 1}`}>
+                {content}
+              </Link>
             </MuiTypography>
           </li>
         ))}
