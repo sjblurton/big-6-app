@@ -1,4 +1,6 @@
-import { InstructionParams } from "@/modules/api/instructions/services/instructions.service";
+import ParseInstructions, {
+  InstructionParams,
+} from "@/modules/ParseInstructions/ParseInstructions";
 import {
   MuiButton,
   MuiContainer,
@@ -9,7 +11,6 @@ import * as colors from "@/styles/colors/_exports.module.scss";
 import InstructionsCard from "@/modules/components/ui/InstructionsCard/InstructionsCard";
 import InstructionsDropdownTitle from "@/modules/components/ui/InstructionsDropdownTitle/InstructionsDropdownTitle";
 import { levelArray } from "@/modules/model/api/routes/instructions-id-level/constants/levels";
-import { Instruction } from "@/modules/model/api/routes/instructions-id/data";
 import { WORKOUT_ID_LIST } from "@/modules/model/api/routes/shared/workoutIds";
 import { GetStaticPaths } from "next";
 import {
@@ -27,15 +28,8 @@ export const getStaticPaths = (async () => ({
   fallback: false,
 })) satisfies GetStaticPaths;
 
-async function getWorkoutInstructionsPageData({
-  level,
-  name,
-}: InstructionParams) {
-  const res = await fetch(
-    `http://localhost:3000/api/v1/docs/instructions/${name}/${level}`,
-  );
-
-  const data: Instruction = await res.json();
+function getWorkoutInstructionsPageData({ level, name }: InstructionParams) {
+  const data = new ParseInstructions({ level, name }).filterByLevel();
 
   return data;
 }

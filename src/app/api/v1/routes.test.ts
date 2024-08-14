@@ -2,10 +2,8 @@ import { NextRequest, NextResponse } from "next/server";
 import ErrorHandler from "@/modules/api/error-handler/ErrorHandler";
 import WorkoutsController from "@/modules/api/workouts/controller/workouts.controller";
 import WorkoutController from "@/modules/api/workout/controller/workout.controller";
-import InstructionsController from "@/modules/api/instructions/controllers/instructions.controller";
 import { ApiNotFoundError } from "@/modules/api/error-handler/errors/api.error.not-found";
 import { ApiZodValidationError } from "@/modules/api/error-handler/errors/api.error.zod-validation";
-import { GET as instructionsGET } from "./docs/instructions/[name]/route";
 import { GET as workoutsGET } from "./workouts/route";
 import { GET as workoutGET } from "./workouts/[id]/route";
 
@@ -46,18 +44,6 @@ describe.each([
     GET: workoutGET,
     mockArgs: [mockRequest, { params: { name: "pull-ups" } }],
     ControllerSpy: jest.spyOn(WorkoutController.prototype, "GET"),
-  },
-  {
-    description: "instructions-id.GET",
-    GET: instructionsGET,
-    mockArgs: [mockRequest, { params: { name: "bridges" } }],
-    ControllerSpy: jest.spyOn(InstructionsController.prototype, "GET"),
-  },
-  {
-    description: "instructions-id-level.GET",
-    GET: instructionsGET,
-    mockArgs: [mockRequest, { params: { name: "bridges", level: "level-6" } }],
-    ControllerSpy: jest.spyOn(InstructionsController.prototype, "GET"),
   },
 ] as const)(
   "$description GET function",

@@ -10,7 +10,7 @@ import * as background from "@/styles/utilityClasses/background.module.scss";
 import * as colors from "@/styles/colors/_exports.module.scss";
 import { WorkoutIds } from "@/modules/model/api/routes/workouts/inputs/inputs";
 
-import { workoutOverviewSchema } from "@/modules/model/api/routes/instructions-id/outputs/workoutInstructionsSchema";
+import ParseInstructions from "@/modules/ParseInstructions/ParseInstructions";
 import Link from "next/link";
 import { MuiTypography } from "../../library/mui";
 import { workoutSvgs } from "../../assets/workouts";
@@ -19,21 +19,13 @@ type InstructionsOverviewCardProps = {
   workoutId: WorkoutIds;
 };
 
-const getData = async (id: WorkoutIds) => {
-  const res = await fetch(
-    `http://localhost:3000/api/v1/docs/instructions/${id}`,
-  );
-
-  const data = await workoutOverviewSchema.parseAsync(await res.json());
-
-  return data;
-};
-
 async function InstructionsOverviewCard({
   workoutId,
 }: InstructionsOverviewCardProps) {
   const { component: TitleSvg, title } = workoutSvgs[workoutId];
-  const { description, levelNames } = await getData(workoutId);
+  const { description, levelNames } = new ParseInstructions({
+    name: workoutId,
+  }).parseWorkoutOverview();
 
   return (
     <article

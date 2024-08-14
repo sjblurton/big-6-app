@@ -1,6 +1,6 @@
-import { InstructionParams } from "@/modules/api/instructions/services/instructions.service";
 import { WORKOUT_IDS } from "@/modules/model/api/routes/shared/workoutIds";
 import { levelArray } from "@/modules/model/api/routes/instructions-id-level/constants/levels";
+import { InstructionParams } from "@/modules/ParseInstructions/ParseInstructions";
 import DropdownLinks from "./DropdownLinks/DropdownLinks";
 import { MuiGrid } from "../../library/mui";
 
