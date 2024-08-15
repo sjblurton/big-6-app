@@ -7,16 +7,18 @@ jest.mock("next-auth/react", () => ({
   signOut: jest.fn(),
 }));
 
+const buttonName = "Sign Out";
+
 describe("SignOutButton", () => {
   it("should render", async () => {
     render(<SignOutButton />);
-    expect(await screen.findByText("Sign out")).toBeInTheDocument();
+    expect(await screen.findByText(buttonName)).toBeInTheDocument();
   });
 
   it("should call the signOut when button is clicked", () => {
     render(<SignOutButton />);
 
-    const button = screen.getByRole("button", { name: /sign out/i });
+    const button = screen.getByRole("button", { name: buttonName });
 
     fireEvent.click(button);
 

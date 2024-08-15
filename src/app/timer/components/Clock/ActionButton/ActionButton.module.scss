@@ -1,0 +1,14 @@
+@use "../../../../../styles/colors/functions" as *;
+
+.button {
+  display: flex;
+  width: 180px;
+  height: 180px;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  box-shadow: none;
+  color: get-color("common", "white");
+  cursor: pointer;
+  transition: background-color 250ms ease-in-out;
+}

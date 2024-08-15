@@ -7,16 +7,18 @@ jest.mock("next-auth/react", () => ({
   signIn: jest.fn(),
 }));
 
+const buttonName = "Google Login";
+
 describe("SignInButton", () => {
   it("should render", async () => {
     render(<SignInButton />);
-    expect(await screen.findByText("Sign in with google")).toBeInTheDocument();
+    expect(await screen.findByText(buttonName)).toBeInTheDocument();
   });
 
   it('should call the signIn with "google" when button is clicked', () => {
     render(<SignInButton />);
 
-    const button = screen.getByRole("button", { name: /sign in with google/i });
+    const button = screen.getByRole("button", { name: buttonName });
 
     fireEvent.click(button);
 

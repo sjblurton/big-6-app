@@ -1,15 +1,20 @@
-"use client";
+import SignOutButton from "@/modules/components/ui/Button/SignOutButton/SignOutButton";
+import { getServerSession } from "next-auth";
+import { redirect } from "next/navigation";
+import authOptions from "../api/auth/authOptions";
 
-import { signOut } from "next-auth/react";
+async function Dashboard() {
+  const session = await getServerSession(authOptions);
 
-function Dashboard() {
+  if (!session) {
+    redirect("/");
+  }
+
   return (
     <div>
       <h1>Dashboard</h1>
       <p>Welcome user</p>
-      <button onClick={() => signOut({ callbackUrl: "/" })} type="button">
-        Logout
-      </button>
+      <SignOutButton />
     </div>
   );
 }

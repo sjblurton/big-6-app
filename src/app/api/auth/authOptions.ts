@@ -9,6 +9,7 @@ const authOptions: NextAuthOptions = {
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     }),
   ],
+  secret: process.env.JWT_SECRET,
   callbacks: {
     async signIn({ account, profile }) {
       if (account?.provider === "google") {

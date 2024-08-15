@@ -11,7 +11,10 @@ import Navbar from "@/modules/components/ui/Navbar/Navbar";
 
 const inter = Inter({ subsets: ["latin"] });
 
-const routes = [{ name: "Home", path: "/" }];
+const routes = [
+  { name: "Home", path: "/" },
+  { name: "instructions", path: "/instructions/pull-ups/level-1" },
+];
 
 function RootLayout({
   children,
