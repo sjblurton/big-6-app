@@ -1,1 +1,1 @@
-export declare const add: string;
+export declare const add: string

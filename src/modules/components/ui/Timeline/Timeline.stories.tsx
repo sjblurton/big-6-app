@@ -1,36 +1,36 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react"
 
-import Timeline from "./Timeline";
+import Timeline from "./Timeline"
 
-const today = new Date().getTime();
-const ONE_DAY_MS = 24 * 60 * 60 * 1000;
+const today = new Date().getTime()
+const ONE_DAY_MS = 24 * 60 * 60 * 1000
 
 const timeline = [
-  {
-    time: today,
-    title: "Diamond Push Ups",
-    level: 6,
-    description: "24 Reps",
-  },
-  {
-    time: today - ONE_DAY_MS,
-    title: "Full Bridge",
-    level: 5,
-    description: "20 Reps",
-  },
-  {
-    time: today - ONE_DAY_MS * 2,
-    title: "Half Squats",
-    level: 3,
-    description: "40 Reps",
-  },
-  {
-    time: today - ONE_DAY_MS * 3,
-    title: "Headstand",
-    level: 1,
-    description: "45 Seconds",
-  },
-];
+    {
+        time: today,
+        title: "Diamond Push Ups",
+        level: 6,
+        description: "24 Reps",
+    },
+    {
+        time: today - ONE_DAY_MS,
+        title: "Full Bridge",
+        level: 5,
+        description: "20 Reps",
+    },
+    {
+        time: today - ONE_DAY_MS * 2,
+        title: "Half Squats",
+        level: 3,
+        description: "40 Reps",
+    },
+    {
+        time: today - ONE_DAY_MS * 3,
+        title: "Headstand",
+        level: 1,
+        description: "45 Seconds",
+    },
+]
 
 /**
  * The Timeline component is used to show the user their progress
@@ -39,16 +39,16 @@ const timeline = [
  */
 
 const meta: Meta = {
-  title: "Components/Feedback/Timeline",
-  component: Timeline,
-};
+    title: "Components/Feedback/Timeline",
+    component: Timeline,
+}
 
-export default meta;
+export default meta
 
-type Story = StoryObj<typeof Timeline>;
+type Story = StoryObj<typeof Timeline>
 
 export const Default: Story = {
-  args: {
-    data: timeline,
-  },
-};
+    args: {
+        data: timeline,
+    },
+}

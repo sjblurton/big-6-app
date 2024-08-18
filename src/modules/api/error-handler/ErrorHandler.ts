@@ -1,60 +1,60 @@
-import { ZodError } from "zod";
-import { NextResponse } from "next/server";
-import { fromError } from "zod-validation-error";
-import { ErrorResponse } from "@/modules/model/api/routes/shared/outputs/responseSchema";
-import logger from "../../logger/logger";
-import { ErrorResponses } from "./responses/responses";
-import { ApiBaseError } from "./errors/api.error.base";
+import { ZodError } from "zod"
+import { NextResponse } from "next/server"
+import { fromError } from "zod-validation-error"
+import { ErrorResponse } from "@/modules/model/api/routes/shared/outputs/responseSchema"
+import logger from "../../logger/logger"
+import { ErrorResponses } from "./responses/responses"
+import { ApiBaseError } from "./errors/api.error.base"
 
 // TODO: Add request and response objects to the constructor for logging to the database when ready
 class ErrorHandler {
-  error: unknown;
+    error: unknown
 
-  constructor(error: unknown) {
-    this.error = error;
-  }
-
-  handle(): NextResponse<ErrorResponse> {
-    if (!(this.error instanceof ApiBaseError)) {
-      return this.handelNoneOperationalError();
+    constructor(error: unknown) {
+        this.error = error
     }
 
-    const isOperationalError = this.error.httpCode < 500;
+    handle(): NextResponse<ErrorResponse> {
+        if (!(this.error instanceof ApiBaseError)) {
+            return this.handelNoneOperationalError()
+        }
 
-    if (!isOperationalError) {
-      this.logToDatabase();
-      return this.handelNoneOperationalError();
+        const isOperationalError = this.error.httpCode < 500
+
+        if (!isOperationalError) {
+            this.logToDatabase()
+            return this.handelNoneOperationalError()
+        }
+
+        return this.handelOperationalError(this.error)
     }
 
-    return this.handelOperationalError(this.error);
-  }
-
-  private logError(prefix: string) {
-    logger.error(prefix, this.error);
-  }
-
-  private logToDatabase() {
-    if (this.error instanceof ZodError) {
-      logger.info(
-        "Request, response, and error objects will be logged here",
-        "Zod error:",
-        fromError(this.error).toString(),
-        this.error.issues,
-      );
+    private logError(prefix: string) {
+        logger.error(prefix, this.error)
     }
-    logger.info("Request, response, and error objects will be logged here");
-  }
 
-  private handelNoneOperationalError() {
-    this.logToDatabase();
-    this.logError("Non-operational error:");
-    return ErrorResponses.respondToClientWithInternalServerError();
-  }
+    private logToDatabase() {
+        if (this.error instanceof ZodError) {
+            logger.info(
+                "Request, response, and error objects will be logged here",
+                "Zod error:",
+                fromError(this.error).toString(),
+                this.error.issues
+            )
+        }
+        logger.info("Request, response, and error objects will be logged here")
+    }
 
-  private handelOperationalError(error: ApiBaseError) {
-    this.logError("Operational error:");
-    return ErrorResponses.respondToClient(error.message, error.httpCode);
-  }
+    private handelNoneOperationalError() {
+        this.logToDatabase()
+        this.logError("Non-operational error:")
+        return ErrorResponses.respondToClientWithInternalServerError()
+    }
+
+    private handelOperationalError(error: ApiBaseError) {
+        this.logError("Operational error:")
+        return ErrorResponses.respondToClient(error.message, error.httpCode)
+    }
 }
 
-export default ErrorHandler;
+export default ErrorHandler

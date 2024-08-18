@@ -1,21 +1,21 @@
 @use "../../../../styles/colors/functions" as *;
 
 .white {
-  fill: get-color("common", "white");
+    fill: get-color("common", "white");
 }
 
 .light {
-  fill: get-color("primary", "light");
+    fill: get-color("primary", "light");
 }
 
 .start {
-  stop-color: get-color("secondary", "light");
+    stop-color: get-color("secondary", "light");
 }
 
 .end {
-  stop-color: get-color("secondary", "dark");
+    stop-color: get-color("secondary", "dark");
 }
 
 .round {
-  border-radius: 5%;
+    border-radius: 5%;
 }

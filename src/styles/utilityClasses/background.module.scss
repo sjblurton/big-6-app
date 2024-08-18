@@ -1,21 +1,21 @@
 @use "../colors/functions" as color;
 
 .success {
-  background-color: color.get-color("success", "dark") !important;
+    background-color: color.get-color("success", "dark") !important;
 }
 
 .error {
-  background-color: color.get-color("error", "dark") !important;
+    background-color: color.get-color("error", "dark") !important;
 }
 
 .warning {
-  background-color: color.get-color("warning", "dark") !important;
+    background-color: color.get-color("warning", "dark") !important;
 }
 
 .primary {
-  background-color: color.get-color("primary", "main") !important;
+    background-color: color.get-color("primary", "main") !important;
 }
 
 .light {
-  background-color: color.get-color("primary", "light") !important;
+    background-color: color.get-color("primary", "light") !important;
 }

@@ -1,11 +1,11 @@
 @for $iteration from 1 through 100 {
-  .w#{$iteration} {
-    width: #{$iteration}+ "%";
-  }
+    .w#{$iteration} {
+        width: #{$iteration}+ "%";
+    }
 }
 
 .auto {
-  width: auto;
+    width: auto;
 }
 
 /*

@@ -1,34 +1,34 @@
-import { extendApi, generateSchema } from "@anatine/zod-openapi";
-import { ResponsesObject } from "openapi3-ts/oas31";
-import { errorResponseBodySchema } from "./outputs/responseSchema";
+import { extendApi, generateSchema } from "@anatine/zod-openapi"
+import { ResponsesObject } from "openapi3-ts/oas31"
+import { errorResponseBodySchema } from "./outputs/responseSchema"
 
 export const errorResponseOpenApiSchema = generateSchema(
-  extendApi(errorResponseBodySchema),
-);
+    extendApi(errorResponseBodySchema)
+)
 
 export const commonOpenApiErrorResponses: ResponsesObject = {
-  403: {
-    description: "Forbidden",
-    content: {
-      "application/json": {
-        schema: errorResponseOpenApiSchema,
-      },
+    403: {
+        description: "Forbidden",
+        content: {
+            "application/json": {
+                schema: errorResponseOpenApiSchema,
+            },
+        },
     },
-  },
-  404: {
-    description: "Not Found",
-    content: {
-      "application/json": {
-        schema: errorResponseOpenApiSchema,
-      },
+    404: {
+        description: "Not Found",
+        content: {
+            "application/json": {
+                schema: errorResponseOpenApiSchema,
+            },
+        },
     },
-  },
-  500: {
-    description: "Internal Server Error",
-    content: {
-      "application/json": {
-        schema: errorResponseOpenApiSchema,
-      },
+    500: {
+        description: "Internal Server Error",
+        content: {
+            "application/json": {
+                schema: errorResponseOpenApiSchema,
+            },
+        },
     },
-  },
-};
+}

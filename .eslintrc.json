@@ -1,106 +1,106 @@
 {
-  "extends": [
-    "next/core-web-vitals",
-    "airbnb",
-    "airbnb/hooks",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:react/recommended",
-    "plugin:jsx-a11y/recommended",
-    "prettier",
-    "plugin:storybook/recommended",
-    "plugin:@tanstack/eslint-plugin-query/recommended",
-    "plugin:mdx/recommended"
-  ],
-  "env": {
-    "jest/globals": true
-  },
-  "overrides": [
-    {
-      "files": ["**.test.*"],
-      "extends": ["eslint:recommended", "plugin:react/recommended"],
-      "rules": {
-        "react/react-in-jsx-scope": "off"
-      }
+    "extends": [
+        "next/core-web-vitals",
+        "airbnb",
+        "airbnb/hooks",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:react/recommended",
+        "plugin:jsx-a11y/recommended",
+        "prettier",
+        "plugin:storybook/recommended",
+        "plugin:@tanstack/eslint-plugin-query/recommended",
+        "plugin:mdx/recommended"
+    ],
+    "env": {
+        "jest/globals": true
     },
-    {
-      "files": ["*.js,*.jsx"],
-      "extends": ["plugin:storybook/recommended"],
-      "rules": {
-        "import/no-extraneous-dependencies": "off"
-      }
-    },
-    {
-      "files": ["*.mdx"],
-      "extends": "plugin:mdx/recommended",
-      "rules": {
-        "react/jsx-filename-extension": "off"
-      }
+    "overrides": [
+        {
+            "files": ["**.test.*"],
+            "extends": ["eslint:recommended", "plugin:react/recommended"],
+            "rules": {
+                "react/react-in-jsx-scope": "off"
+            }
+        },
+        {
+            "files": ["*.js,*.jsx"],
+            "extends": ["plugin:storybook/recommended"],
+            "rules": {
+                "import/no-extraneous-dependencies": "off"
+            }
+        },
+        {
+            "files": ["*.mdx"],
+            "extends": "plugin:mdx/recommended",
+            "rules": {
+                "react/jsx-filename-extension": "off"
+            }
+        }
+    ],
+    "parser": "@typescript-eslint/parser",
+    "plugins": [
+        "@tanstack/query",
+        "import",
+        "jsx-a11y",
+        "react",
+        "react-hooks",
+        "@typescript-eslint",
+        "jest"
+    ],
+    "rules": {
+        "@typescript-eslint/explicit-module-boundary-types": "off",
+        "@typescript-eslint/no-explicit-any": "error",
+        "@tanstack/query/exhaustive-deps": "error",
+        "import/no-extraneous-dependencies": [
+            "error",
+            {
+                "devDependencies": true
+            }
+        ],
+        "@tanstack/query/stable-query-client": "error",
+        "@typescript-eslint/no-unused-vars": [
+            "error",
+            {
+                "argsIgnorePattern": "^_"
+            }
+        ],
+        "import/no-unresolved": "off",
+        "import/prefer-default-export": "off",
+        "import/extensions": [
+            "error",
+            "ignorePackages",
+            {
+                "js": "never",
+                "jsx": "never",
+                "ts": "never",
+                "tsx": "never"
+            }
+        ],
+        "jest/no-disabled-tests": "error",
+        "jest/no-focused-tests": "error",
+        "jest/no-identical-title": "error",
+        "jest/prefer-to-have-length": "error",
+        "jest/valid-expect": "error",
+        "no-console": "error",
+        "no-throw-literal": "error",
+        "quotes": [
+            "error",
+            "double",
+            {
+                "avoidEscape": true
+            }
+        ],
+        "react-hooks/exhaustive-deps": "warn",
+        "react-hooks/rules-of-hooks": "error",
+        "react/jsx-filename-extension": [
+            1,
+            {
+                "extensions": [".js", ".jsx", ".tsx"]
+            }
+        ],
+        "react/jsx-props-no-spreading": "off",
+        "react/prop-types": "off",
+        "react/react-in-jsx-scope": "off",
+        "react/require-default-props": "off"
     }
-  ],
-  "parser": "@typescript-eslint/parser",
-  "plugins": [
-    "@tanstack/query",
-    "import",
-    "jsx-a11y",
-    "react",
-    "react-hooks",
-    "@typescript-eslint",
-    "jest"
-  ],
-  "rules": {
-    "@typescript-eslint/explicit-module-boundary-types": "off",
-    "@typescript-eslint/no-explicit-any": "error",
-    "@tanstack/query/exhaustive-deps": "error",
-    "import/no-extraneous-dependencies": [
-      "error",
-      {
-        "devDependencies": true
-      }
-    ],
-    "@tanstack/query/stable-query-client": "error",
-    "@typescript-eslint/no-unused-vars": [
-      "error",
-      {
-        "argsIgnorePattern": "^_"
-      }
-    ],
-    "import/no-unresolved": "off",
-    "import/prefer-default-export": "off",
-    "import/extensions": [
-      "error",
-      "ignorePackages",
-      {
-        "js": "never",
-        "jsx": "never",
-        "ts": "never",
-        "tsx": "never"
-      }
-    ],
-    "jest/no-disabled-tests": "error",
-    "jest/no-focused-tests": "error",
-    "jest/no-identical-title": "error",
-    "jest/prefer-to-have-length": "error",
-    "jest/valid-expect": "error",
-    "no-console": "error",
-    "no-throw-literal": "error",
-    "quotes": [
-      "error",
-      "double",
-      {
-        "avoidEscape": true
-      }
-    ],
-    "react-hooks/exhaustive-deps": "warn",
-    "react-hooks/rules-of-hooks": "error",
-    "react/jsx-filename-extension": [
-      1,
-      {
-        "extensions": [".js", ".jsx", ".tsx"]
-      }
-    ],
-    "react/jsx-props-no-spreading": "off",
-    "react/prop-types": "off",
-    "react/react-in-jsx-scope": "off",
-    "react/require-default-props": "off"
-  }
 }

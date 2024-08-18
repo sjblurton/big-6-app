@@ -1,6 +1,6 @@
 export const tableColumnNames = [
-  "lines",
-  "statements",
-  "functions",
-  "branches",
-] as const;
+    "lines",
+    "statements",
+    "functions",
+    "branches",
+] as const

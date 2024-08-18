@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react"
 
-import Spinner from "./Spinner";
+import Spinner from "./Spinner"
 
 /**
  * The Spinner component is used to show the user that something is loading.
@@ -9,35 +9,35 @@ import Spinner from "./Spinner";
  */
 
 const meta: Meta = {
-  title: "Components/Indicators/Spinner",
-  component: Spinner,
-  argTypes: {
-    speed: {
-      control: "select",
-      options: ["slow", "medium", "fast"],
-      description: "The speed of the spinner",
+    title: "Components/Indicators/Spinner",
+    component: Spinner,
+    argTypes: {
+        speed: {
+            control: "select",
+            options: ["slow", "medium", "fast"],
+            description: "The speed of the spinner",
+        },
     },
-  },
-};
+}
 
-export default meta;
+export default meta
 
-type Story = StoryObj<typeof Spinner>;
+type Story = StoryObj<typeof Spinner>
 
 export const Slow: Story = {
-  args: {
-    speed: "slow",
-  },
-};
+    args: {
+        speed: "slow",
+    },
+}
 
 export const Medium: Story = {
-  args: {
-    speed: "medium",
-  },
-};
+    args: {
+        speed: "medium",
+    },
+}
 
 export const Fast: Story = {
-  args: {
-    speed: "fast",
-  },
-};
+    args: {
+        speed: "fast",
+    },
+}

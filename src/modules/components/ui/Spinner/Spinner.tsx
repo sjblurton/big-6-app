@@ -1,18 +1,18 @@
-"use client";
+"use client"
 
-import Circle from "../../assets/Circle/Circle";
+import Circle from "../../assets/Circle/Circle"
 import useIncrementalValue, {
-  UseIncrementalValueSpeed,
-} from "./hooks/useIncrementalValue";
+    UseIncrementalValueSpeed,
+} from "./hooks/useIncrementalValue"
 
 type Props = {
-  speed: UseIncrementalValueSpeed;
-};
-
-function Spinner({ speed }: Props) {
-  const dashOffsetValue = useIncrementalValue(speed);
-
-  return <Circle dashOffsetValue={dashOffsetValue} />;
+    speed: UseIncrementalValueSpeed
 }
 
-export default Spinner;
+function Spinner({ speed }: Props) {
+    const dashOffsetValue = useIncrementalValue(speed)
+
+    return <Circle dashOffsetValue={dashOffsetValue} />
+}
+
+export default Spinner

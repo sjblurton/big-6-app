@@ -1,7 +1,7 @@
-import AuthService from "../../data-layer/auth.service";
+import AuthService from "../../data-layer/auth.service"
 
 export class WorkoutsService extends AuthService {
-  getServiceData() {
-    return this.getWorkoutData.getWorkoutsData();
-  }
+    getServiceData() {
+        return this.getWorkoutData.getWorkoutsData()
+    }
 }

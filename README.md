@@ -6,50 +6,50 @@ The Big 6 Progressive Callisthenics Fitness App is inspired by Paul Wade's "Conv
 
 ### Key Features
 
-- User Registration and Authentication:
-  - Sign-up/Login functionality
-  - Profile management
-- Exercise Database:
-  - Comprehensive database of exercises and progressions from the book
-  - Detailed descriptions and instructional videos
-- Progress Tracking:
-  - Track sets, reps, and progression levels for each exercise
-  - Visual progress graphs
-- Workout Planner:
-  - Customizable workout plans based on user goals
-  - Pre-designed workout routines based on the Convict Conditioning program
-- Timer:
-  - timer for handstands
-- Reports:
-  - Weekly and monthly progress reports
+-   User Registration and Authentication:
+    -   Sign-up/Login functionality
+    -   Profile management
+-   Exercise Database:
+    -   Comprehensive database of exercises and progressions from the book
+    -   Detailed descriptions and instructional videos
+-   Progress Tracking:
+    -   Track sets, reps, and progression levels for each exercise
+    -   Visual progress graphs
+-   Workout Planner:
+    -   Customizable workout plans based on user goals
+    -   Pre-designed workout routines based on the Convict Conditioning program
+-   Timer:
+    -   timer for handstands
+-   Reports:
+    -   Weekly and monthly progress reports
 
 ## Table of Contents
 
-- [Big 6 Fitness App](#big-6-fitness-app)
-  - [Introduction](#introduction)
-    - [Key Features](#key-features)
-  - [Table of Contents](#table-of-contents)
-  - [Testing Strategy](#testing-strategy)
-  - [Design Patterns](#design-patterns)
-  - [Folder Structure](#folder-structure)
-    - [app/](#app)
-    - [modules/](#modules)
-    - [api/](#api)
-    - [components/](#components)
-    - [model/](#model)
-    - [database/](#database)
-    - [styles/](#styles)
-    - [Rationale](#rationale)
-  - [Database Structure](#database-structure)
-    - [Importance of Robust Error Handling](#importance-of-robust-error-handling)
-    - [API Error Handling](#api-error-handling)
-      - [Example Usage in API Logic](#example-usage-in-api-logic)
-      - [Error Handling in API Route](#error-handling-in-api-route)
-      - [Error Handler Class](#error-handler-class)
-    - [Frontend Error Handling](#frontend-error-handling)
-  - [A11y](#a11y)
-  - [Installation](#installation)
-  - [Usage](#usage)
+-   [Big 6 Fitness App](#big-6-fitness-app)
+    -   [Introduction](#introduction)
+        -   [Key Features](#key-features)
+    -   [Table of Contents](#table-of-contents)
+    -   [Testing Strategy](#testing-strategy)
+    -   [Design Patterns](#design-patterns)
+    -   [Folder Structure](#folder-structure)
+        -   [app/](#app)
+        -   [modules/](#modules)
+        -   [api/](#api)
+        -   [components/](#components)
+        -   [model/](#model)
+        -   [database/](#database)
+        -   [styles/](#styles)
+        -   [Rationale](#rationale)
+    -   [Database Structure](#database-structure)
+        -   [Importance of Robust Error Handling](#importance-of-robust-error-handling)
+        -   [API Error Handling](#api-error-handling)
+            -   [Example Usage in API Logic](#example-usage-in-api-logic)
+            -   [Error Handling in API Route](#error-handling-in-api-route)
+            -   [Error Handler Class](#error-handler-class)
+        -   [Frontend Error Handling](#frontend-error-handling)
+    -   [A11y](#a11y)
+    -   [Installation](#installation)
+    -   [Usage](#usage)
 
 ## Testing Strategy
 
@@ -113,51 +113,51 @@ The modules directory contains various sub-modules, each responsible for a disti
 
 The api folder is dedicated to backend-related functionality. Each [endpoint] subfolder represents a different API endpoint and contains:
 
-- controller/: This layer handles incoming requests, processes them, and sends responses.
-- service/: This layer contains the business logic and communicates with the database or other services.
+-   controller/: This layer handles incoming requests, processes them, and sends responses.
+-   service/: This layer contains the business logic and communicates with the database or other services.
 
 ### components/
 
 The components directory contains reusable UI components. It is further divided into:
 
-- ui/: Contains individual UI components. Each [UiComponent] folder includes:
-  - hooks/: Custom hooks specific to the component. We could have over subfolders for more complex components.
-  - [UiComponent].stories.tsx: Storybook stories for the component.
-  - [UiComponent].module.scss: Component-specific styles.
-  - [UiComponent].test.tsx: Component Automated Tests.
-  - [UiComponent].tsx: The component implementation.
+-   ui/: Contains individual UI components. Each [UiComponent] folder includes:
+    -   hooks/: Custom hooks specific to the component. We could have over subfolders for more complex components.
+    -   [UiComponent].stories.tsx: Storybook stories for the component.
+    -   [UiComponent].module.scss: Component-specific styles.
+    -   [UiComponent].test.tsx: Component Automated Tests.
+    -   [UiComponent].tsx: The component implementation.
 
 ### model/
 
 The model directory handles the data model definitions and API routes.
 
-- api/: Contains API route definitions, organized by:
-  - routes/: Each [route] folder includes:
-    - input/: Request input validation schemas.
-    - output/: Response output schemas.
-- openApiBuilder.ts: A file to build OpenAPI specifications.
-- [data]/: Contains data schemas used throughout the application.
+-   api/: Contains API route definitions, organized by:
+    -   routes/: Each [route] folder includes:
+        -   input/: Request input validation schemas.
+        -   output/: Response output schemas.
+-   openApiBuilder.ts: A file to build OpenAPI specifications.
+-   [data]/: Contains data schemas used throughout the application.
 
 ### database/
 
 The database folder contains all database-related code only for inputs and outputs. No business logic organized by:
 
-- config/: Database configuration files.
-- [collection]/: Each collection represents a database table or document collection and contains:
-- create/
-- read/
-- update/
-- delete/
+-   config/: Database configuration files.
+-   [collection]/: Each collection represents a database table or document collection and contains:
+-   create/
+-   read/
+-   update/
+-   delete/
 
 ### styles/
 
 The styles directory contains global styles and design tokens. Not a complete list but as follows.
 
-- base/: Base styles such as resets, typography, etc.
-- breakpoints/: Media queries for responsive design.
-- colors/: Color variables and themes.
-- utilityClasses/: Utility classes for common styles.
-- main.scss: The main stylesheet that imports all other style files.
+-   base/: Base styles such as resets, typography, etc.
+-   breakpoints/: Media queries for responsive design.
+-   colors/: Color variables and themes.
+-   utilityClasses/: Utility classes for common styles.
+-   main.scss: The main stylesheet that imports all other style files.
 
 ### Rationale
 
@@ -171,11 +171,11 @@ Robust error handling is critical for the development and maintenance of any app
 
 ### API Error Handling
 
-- Custom Error Class: A custom ApiBaseError class is defined to standardize error handling with various properties such as codeName, httpCode, description, isOperational, response, and cause.
-- Error Constants: Defined constants for common API error names and corresponding HTTP status codes.
-- Error Throwing: Use the ApiError class to throw errors within your API logic.
-- Centralized Error Handling: A centralized ErrorHandler class is used to catch and handle errors in the API route, distinguishing between different error types and responding accordingly.
-- Logging: Errors are logged further analysis.
+-   Custom Error Class: A custom ApiBaseError class is defined to standardize error handling with various properties such as codeName, httpCode, description, isOperational, response, and cause.
+-   Error Constants: Defined constants for common API error names and corresponding HTTP status codes.
+-   Error Throwing: Use the ApiError class to throw errors within your API logic.
+-   Centralized Error Handling: A centralized ErrorHandler class is used to catch and handle errors in the API route, distinguishing between different error types and responding accordingly.
+-   Logging: Errors are logged further analysis.
 
 #### Example Usage in API Logic
 
@@ -195,19 +195,19 @@ private getEmailFromHeaders(): string {
 #### Error Handling in API Route
 
 ```typescript
-import { NextRequest } from "next/server";
-import ErrorHandler from "@/modules/api/error-handler/ErrorHandler";
-import WorkoutsController from "../../../modules/api/workouts/controller/workouts.controller";
+import { NextRequest } from "next/server"
+import ErrorHandler from "@/modules/api/error-handler/ErrorHandler"
+import WorkoutsController from "../../../modules/api/workouts/controller/workouts.controller"
 
 export async function GET(request: NextRequest) {
-  try {
-    const controller = new WorkoutsController(request);
-    return await controller.GET();
-  } catch (error) {
-    const errorHandler = new ErrorHandler(error);
-    const errorResponse = errorHandler.handle();
-    return errorResponse;
-  }
+    try {
+        const controller = new WorkoutsController(request)
+        return await controller.GET()
+    } catch (error) {
+        const errorHandler = new ErrorHandler(error)
+        const errorResponse = errorHandler.handle()
+        return errorResponse
+    }
 }
 ```
 
@@ -215,28 +215,28 @@ export async function GET(request: NextRequest) {
 
 ```typescript
 class ErrorHandler {
-  error: unknown;
+    error: unknown
 
-  constructor(error: unknown) {
-    this.error = error;
-  }
-
-  handle(): NextResponse<ErrorResponse> {
-    if (
-      !(this.error instanceof ApiBaseError) ||
-      this.error instanceof ZodError ||
-      (this.error instanceof ApiBaseError && !this.error.isOperational)
-    ) {
-      this.logToDatabase();
-      return this.handleNonOperationalError();
+    constructor(error: unknown) {
+        this.error = error
     }
 
-    return this.handleOperationalError(this.error);
-  }
-  // rest of error handler
+    handle(): NextResponse<ErrorResponse> {
+        if (
+            !(this.error instanceof ApiBaseError) ||
+            this.error instanceof ZodError ||
+            (this.error instanceof ApiBaseError && !this.error.isOperational)
+        ) {
+            this.logToDatabase()
+            return this.handleNonOperationalError()
+        }
+
+        return this.handleOperationalError(this.error)
+    }
+    // rest of error handler
 }
 
-export default ErrorHandler;
+export default ErrorHandler
 ```
 
 ### Frontend Error Handling
@@ -284,9 +284,9 @@ There's a number of other scripts to help with the development process. There's 
 
 ```json
 {
-  "dev": "next dev",
-  "generate-scss-types:watch": "npx typed-scss-modules src -w", // good to run when editing scss files as you'll get the types
-  "test:watch": "jest --watchAll", // I often have this running
-  "precommit": "npm run generate-scss-types && npm run lint && npm run check-types && npm run test:coverage && npm run format && npm run lint:styles && npm run stylelint-scss-check" // I run this before committing it will format everything for you
+    "dev": "next dev",
+    "generate-scss-types:watch": "npx typed-scss-modules src -w", // good to run when editing scss files as you'll get the types
+    "test:watch": "jest --watchAll", // I often have this running
+    "precommit": "npm run generate-scss-types && npm run lint && npm run check-types && npm run test:coverage && npm run format && npm run lint:styles && npm run stylelint-scss-check" // I run this before committing it will format everything for you
 }
 ```

@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react"
 
-import Navbar, { NavbarProps } from "./Navbar";
+import Navbar, { NavbarProps } from "./Navbar"
 
 /**
  * The Navbar component is used to navigate
@@ -9,89 +9,89 @@ import Navbar, { NavbarProps } from "./Navbar";
  */
 
 const meta: Meta<NavbarProps> = {
-  title: "Components/Navigation/Top Navbar",
-  component: Navbar,
-  parameters: {
-    layout: "fullscreen",
-  },
-  args: {
-    routes: [
-      {
-        name: "Workout Manual",
-        path: "/workout-manual",
-      },
-      {
-        name: "Weekly Routines",
-        path: "/weekly-routines",
-      },
-      {
-        name: "Logout",
-        path: "/logout",
-      },
-      {
-        name: "Dashboard",
-        path: "/dashboard",
-      },
-      {
-        name: "Home",
-        path: "/",
-      },
-    ],
-  },
-};
+    title: "Components/Navigation/Top Navbar",
+    component: Navbar,
+    parameters: {
+        layout: "fullscreen",
+    },
+    args: {
+        routes: [
+            {
+                name: "Workout Manual",
+                path: "/workout-manual",
+            },
+            {
+                name: "Weekly Routines",
+                path: "/weekly-routines",
+            },
+            {
+                name: "Logout",
+                path: "/logout",
+            },
+            {
+                name: "Dashboard",
+                path: "/dashboard",
+            },
+            {
+                name: "Home",
+                path: "/",
+            },
+        ],
+    },
+}
 
-export default meta;
+export default meta
 
-type Story = StoryObj<typeof Navbar>;
+type Story = StoryObj<typeof Navbar>
 
 export const Dashboard: Story = {
-  name: "on /dashboard",
-};
+    name: "on /dashboard",
+}
 
 export const WorkoutManual: Story = {
-  name: "on /workout-manual",
-  parameters: {
-    nextjs: {
-      appDirectory: true,
-      navigation: {
-        pathname: "/workout-manual",
-      },
+    name: "on /workout-manual",
+    parameters: {
+        nextjs: {
+            appDirectory: true,
+            navigation: {
+                pathname: "/workout-manual",
+            },
+        },
     },
-  },
-};
+}
 
 export const WeeklyRoutines: Story = {
-  name: "on /weekly-routines",
-  parameters: {
-    nextjs: {
-      appDirectory: true,
-      navigation: {
-        pathname: "/weekly-routines",
-      },
+    name: "on /weekly-routines",
+    parameters: {
+        nextjs: {
+            appDirectory: true,
+            navigation: {
+                pathname: "/weekly-routines",
+            },
+        },
     },
-  },
-};
+}
 
 export const Logout: Story = {
-  name: "on /logout",
-  parameters: {
-    nextjs: {
-      appDirectory: true,
-      navigation: {
-        pathname: "/logout",
-      },
+    name: "on /logout",
+    parameters: {
+        nextjs: {
+            appDirectory: true,
+            navigation: {
+                pathname: "/logout",
+            },
+        },
     },
-  },
-};
+}
 
 export const Home: Story = {
-  name: "on /",
-  parameters: {
-    nextjs: {
-      appDirectory: true,
-      navigation: {
-        pathname: "/",
-      },
+    name: "on /",
+    parameters: {
+        nextjs: {
+            appDirectory: true,
+            navigation: {
+                pathname: "/",
+            },
+        },
     },
-  },
-};
+}

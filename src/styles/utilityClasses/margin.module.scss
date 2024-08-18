@@ -1,7 +1,7 @@
 @for $iteration from 0 through 4 {
-  .m#{$iteration} {
-    margin: #{$iteration * 8}+ "px";
-  }
+    .m#{$iteration} {
+        margin: #{$iteration * 8}+ "px";
+    }
 }
 
 /*
@@ -20,29 +20,29 @@
   */
 
 @for $iteration from 0 through 4 {
-  .mt#{$iteration} {
-    margin-top: #{$iteration * 8}+ "px";
-  }
+    .mt#{$iteration} {
+        margin-top: #{$iteration * 8}+ "px";
+    }
 }
 
 @for $iteration from 0 through 4 {
-  .mr#{$iteration} {
-    margin-right: #{$iteration * 8}+ "px";
-  }
+    .mr#{$iteration} {
+        margin-right: #{$iteration * 8}+ "px";
+    }
 }
 
 @for $iteration from 0 through 4 {
-  .mb#{$iteration} {
-    margin-bottom: #{$iteration * 8}+ "px";
-  }
+    .mb#{$iteration} {
+        margin-bottom: #{$iteration * 8}+ "px";
+    }
 }
 
 @for $iteration from 0 through 4 {
-  .ml#{$iteration} {
-    margin-left: #{$iteration * 8}+ "px";
-  }
+    .ml#{$iteration} {
+        margin-left: #{$iteration * 8}+ "px";
+    }
 }
 
 .auto {
-  margin: auto;
+    margin: auto;
 }

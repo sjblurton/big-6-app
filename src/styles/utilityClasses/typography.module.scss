@@ -1,13 +1,13 @@
 @use "../colors/functions" as color;
 
 .white {
-  color: color.get-color("common", "white");
+    color: color.get-color("common", "white");
 }
 
 .bold {
-  font-weight: 700;
+    font-weight: 700;
 }
 
 .capitalize {
-  text-transform: capitalize;
+    text-transform: capitalize;
 }

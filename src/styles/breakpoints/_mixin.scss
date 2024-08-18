@@ -19,9 +19,9 @@
 ///
 
 @mixin media-query($key) {
-  $size: map.get($breakpoints, $key);
+    $size: map.get($breakpoints, $key);
 
-  @media (min-width: #{$size}px) {
-    @content;
-  }
+    @media (min-width: #{$size}px) {
+        @content;
+    }
 }

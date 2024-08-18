@@ -1,2 +1,2 @@
-export declare const text: string;
-export declare const wrapper: string;
+export declare const text: string
+export declare const wrapper: string

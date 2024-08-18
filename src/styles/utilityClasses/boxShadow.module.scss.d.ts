@@ -1,1 +1,1 @@
-export declare const subtle: string;
+export declare const subtle: string

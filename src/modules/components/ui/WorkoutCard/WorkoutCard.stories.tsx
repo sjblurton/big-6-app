@@ -1,38 +1,40 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react"
 
-import { mockExampleWorkout } from "@/modules/model/api/routes/workouts/mockData/workoutsMock";
-import { disableArg } from "@/modules/storybook/argTypes/disableArgs";
-import { WorkoutData } from "@/modules/model/api/routes/workouts-id/outputs/workoutDataSchemas";
-import { workoutIdsSchema } from "@/modules/model/api/routes/workouts/inputs/inputs";
-import { PropsWithChildren } from "react";
+import { mockExampleWorkout } from "@/modules/model/api/routes/workouts/mockData/workoutsMock"
+import { disableArg } from "@/modules/storybook/argTypes/disableArgs"
+import { WorkoutData } from "@/modules/model/api/routes/workouts-id/outputs/workoutDataSchemas"
+import { workoutIdsSchema } from "@/modules/model/api/routes/workouts/inputs/inputs"
+import { PropsWithChildren } from "react"
 import {
-  Title,
-  Subtitle,
-  Description,
-  Source,
-  Stories,
-  Primary,
-  Controls,
-  DocsContainer,
-  DocsContainerProps,
-} from "@storybook/blocks";
-import WorkoutCard from "./WorkoutCard";
+    Title,
+    Subtitle,
+    Description,
+    Source,
+    Stories,
+    Primary,
+    Controls,
+    DocsContainer,
+    DocsContainerProps,
+} from "@storybook/blocks"
+import WorkoutCard from "./WorkoutCard"
 
 type Args = {
-  mockProps: WorkoutData;
-  workoutName: string;
-};
+    mockProps: WorkoutData
+    workoutName: string
+}
 
-const initialMockProps = mockExampleWorkout("bridges");
+const initialMockProps = mockExampleWorkout("bridges")
 
 function mergeUserOverrides(args: Args) {
-  const mergedArgs = args;
+    const mergedArgs = args
 
-  if (args.workoutName && args.mockProps) {
-    mergedArgs.mockProps.workoutId = workoutIdsSchema.parse(args.workoutName);
-  }
+    if (args.workoutName && args.mockProps) {
+        mergedArgs.mockProps.workoutId = workoutIdsSchema.parse(
+            args.workoutName
+        )
+    }
 
-  return { workout: mergedArgs.mockProps };
+    return { workout: mergedArgs.mockProps }
 }
 
 /**
@@ -41,17 +43,17 @@ function mergeUserOverrides(args: Args) {
  */
 
 const meta: Meta = {
-  title: "Components/Feedback/WorkoutCard",
-  component: WorkoutCard,
-  parameters: {
-    docs: {
-      container: (props: PropsWithChildren<DocsContainerProps>) => (
-        <DocsContainer {...props}>
-          <Title />
-          <Subtitle />
-          <Description />
-          <Source
-            code={`<WorkoutCard
+    title: "Components/Feedback/WorkoutCard",
+    component: WorkoutCard,
+    parameters: {
+        docs: {
+            container: (props: PropsWithChildren<DocsContainerProps>) => (
+                <DocsContainer {...props}>
+                    <Title />
+                    <Subtitle />
+                    <Description />
+                    <Source
+                        code={`<WorkoutCard
   workout={{
     comments: "This is a comment",
     date: 1720892933102,
@@ -62,83 +64,83 @@ const meta: Meta = {
     workoutId: "handstands",
   }}
 />`}
-          />
-          <Primary />
-          <Controls />
-          <Stories />
-        </DocsContainer>
-      ),
+                    />
+                    <Primary />
+                    <Controls />
+                    <Stories />
+                </DocsContainer>
+            ),
+        },
     },
-  },
-  argTypes: {
-    workout: disableArg,
-    mockProps: disableArg,
-    workoutName: {
-      description: "The name of the workout",
-      control: {
-        type: "select",
-      },
-      options: [
-        "bridges",
-        "handstands",
-        "leg-raises",
-        "pull-ups",
-        "push-ups",
-        "squats",
-      ],
+    argTypes: {
+        workout: disableArg,
+        mockProps: disableArg,
+        workoutName: {
+            description: "The name of the workout",
+            control: {
+                type: "select",
+            },
+            options: [
+                "bridges",
+                "handstands",
+                "leg-raises",
+                "pull-ups",
+                "push-ups",
+                "squats",
+            ],
+        },
     },
-  },
-  args: {
-    mockProps: initialMockProps,
-    workoutName: "bridges",
-  },
-  decorators: [
-    (Story) => (
-      <div style={{ width: "500px" }}>
-        <Story />
-      </div>
-    ),
-  ],
+    args: {
+        mockProps: initialMockProps,
+        workoutName: "bridges",
+    },
+    decorators: [
+        (Story) => (
+            <div style={{ width: "500px" }}>
+                <Story />
+            </div>
+        ),
+    ],
 
-  render: (args) => <WorkoutCard {...mergeUserOverrides(args as Args)} />,
-};
+    render: (args) => <WorkoutCard {...mergeUserOverrides(args as Args)} />,
+}
 
-export default meta;
+export default meta
 
-type Story = StoryObj<Args>;
+type Story = StoryObj<Args>
 
 export const Bridges: Story = {
-  args: {
-    workoutName: "bridges",
-  },
-};
+    args: {
+        workoutName: "bridges",
+    },
+}
 
 export const Handstands: Story = {
-  args: {
-    workoutName: "handstands",
-  },
-};
+    args: {
+        workoutName: "handstands",
+    },
+}
 
 export const LegRaises: Story = {
-  args: {
-    workoutName: "leg-raises",
-  },
-};
+    args: {
+        workoutName: "leg-raises",
+    },
+}
 
 export const PullUps: Story = {
-  args: {
-    workoutName: "pull-ups",
-  },
-};
+    args: {
+        workoutName: "pull-ups",
+    },
+}
 
 export const PushUps: Story = {
-  args: {
-    workoutName: "push-ups",
-  },
-};
+    args: {
+        workoutName: "push-ups",
+    },
+}
 
 export const Squats: Story = {
-  args: {
-    workoutName: "squats",
-  },
-};
+    args: {
+        workoutName: "squats",
+    },
+}

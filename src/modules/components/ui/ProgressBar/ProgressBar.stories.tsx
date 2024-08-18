@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react"
 
-import ProgressBar from "./ProgressBar";
+import ProgressBar from "./ProgressBar"
 
 /**
  * The ProgressBar component is used to show the progress of a user
@@ -9,41 +9,41 @@ import ProgressBar from "./ProgressBar";
  */
 
 const meta: Meta = {
-  title: "Components/Indicators/ProgressBar",
-  component: ProgressBar,
-  argTypes: {
-    goal: {
-      control: "number",
-      description: "The goal that the user is trying to reach",
+    title: "Components/Indicators/ProgressBar",
+    component: ProgressBar,
+    argTypes: {
+        goal: {
+            control: "number",
+            description: "The goal that the user is trying to reach",
+        },
+        actual: {
+            control: "number",
+            description: "The actual progress the user has made",
+        },
     },
-    actual: {
-      control: "number",
-      description: "The actual progress the user has made",
-    },
-  },
-};
+}
 
-export default meta;
+export default meta
 
-type Story = StoryObj<typeof ProgressBar>;
+type Story = StoryObj<typeof ProgressBar>
 
 export const Half: Story = {
-  args: {
-    actual: 20,
-    goal: 40,
-  },
-};
+    args: {
+        actual: 20,
+        goal: 40,
+    },
+}
 
 export const Full: Story = {
-  args: {
-    actual: 40,
-    goal: 40,
-  },
-};
+    args: {
+        actual: 40,
+        goal: 40,
+    },
+}
 
 export const Empty: Story = {
-  args: {
-    actual: 0,
-    goal: 40,
-  },
-};
+    args: {
+        actual: 0,
+        goal: 40,
+    },
+}

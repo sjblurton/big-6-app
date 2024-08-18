@@ -1,4 +1,4 @@
 export type WorkoutSvgProps = {
-  width?: number;
-  height?: number;
-};
+    width?: number
+    height?: number
+}

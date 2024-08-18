@@ -1,33 +1,33 @@
 @use "../../../../styles/colors/functions" as *;
 
 .card {
-  position: relative;
-  display: flex;
-  width: clamp(275px, 95%, 335px);
-  height: 110px;
-  align-items: center;
-  justify-content: space-between;
-  padding: 8px;
-  border-radius: 16px;
-  cursor: pointer;
+    position: relative;
+    display: flex;
+    width: clamp(275px, 95%, 335px);
+    height: 110px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px;
+    border-radius: 16px;
+    cursor: pointer;
 
-  &:last-of-type {
-    margin-bottom: 66px;
-  }
+    &:last-of-type {
+        margin-bottom: 66px;
+    }
 }
 
 .box {
-  z-index: 1;
-  display: flex;
-  height: 90%;
-  flex-direction: column;
-  justify-content: space-around;
+    z-index: 1;
+    display: flex;
+    height: 90%;
+    flex-direction: column;
+    justify-content: space-around;
 }
 
 .svg {
-  position: absolute;
-  z-index: 0;
-  right: 120px;
-  width: 80px;
-  height: 80px;
+    position: absolute;
+    z-index: 0;
+    right: 120px;
+    width: 80px;
+    height: 80px;
 }

@@ -1,19 +1,19 @@
-import { Meta, StoryObj } from "@storybook/react";
-import buildOas from "../../model/api/openapiBuilder";
+import { Meta, StoryObj } from "@storybook/react"
+import buildOas from "../../model/api/openapiBuilder"
 
-import Swagger from "./Swagger";
+import Swagger from "./Swagger"
 
 const meta: Meta = {
-  title: "Documentation/Swagger",
-  component: Swagger,
-  tags: ["!autodocs"],
-  args: {
-    json: buildOas(),
-  },
-};
+    title: "Documentation/Swagger",
+    component: Swagger,
+    tags: ["!autodocs"],
+    args: {
+        json: buildOas(),
+    },
+}
 
-export default meta;
+export default meta
 
-type Story = StoryObj<typeof Swagger>;
+type Story = StoryObj<typeof Swagger>
 
-export const API: Story = {};
+export const API: Story = {}

@@ -2,17 +2,17 @@
 
 /* stylelint-disable */
 :export {
-  primary: get-color("primary", "main");
-  primaryLight: get-color("primary", "light");
-  secondaryLight: get-color("secondary", "light");
-  secondaryDark: get-color("secondary", "dark");
-  white: get-color("common", "white");
-  black: get-color("common", "black");
-  accent: get-color("common", "accent");
-  grey500: get-color("grey", "500");
-  grey600: get-color("grey", "600");
-  grey700: get-color("grey", "700");
-  grey800: get-color("grey", "800");
-  grey900: get-color("grey", "900");
+    primary: get-color("primary", "main");
+    primaryLight: get-color("primary", "light");
+    secondaryLight: get-color("secondary", "light");
+    secondaryDark: get-color("secondary", "dark");
+    white: get-color("common", "white");
+    black: get-color("common", "black");
+    accent: get-color("common", "accent");
+    grey500: get-color("grey", "500");
+    grey600: get-color("grey", "600");
+    grey700: get-color("grey", "700");
+    grey800: get-color("grey", "800");
+    grey900: get-color("grey", "900");
 }
 /* stylelint-enable */

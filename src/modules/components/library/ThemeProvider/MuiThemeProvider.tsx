@@ -1,72 +1,72 @@
-"uae client";
+"uae client"
 
 import {
-  primary,
-  white,
-  primaryLight,
-  secondaryDark,
-  secondaryLight,
-} from "@/styles/colors/_exports.module.scss";
-import { ThemeProvider, createTheme } from "@mui/material/styles";
+    primary,
+    white,
+    primaryLight,
+    secondaryDark,
+    secondaryLight,
+} from "@/styles/colors/_exports.module.scss"
+import { ThemeProvider, createTheme } from "@mui/material/styles"
 
 const muiTheme = createTheme({
-  palette: {
-    primary: {
-      main: primary,
-      dark: primary,
-      light: primaryLight,
+    palette: {
+        primary: {
+            main: primary,
+            dark: primary,
+            light: primaryLight,
+        },
+        secondary: {
+            main: secondaryLight,
+            light: secondaryDark,
+        },
+        text: {
+            primary: white,
+        },
     },
-    secondary: {
-      main: secondaryLight,
-      light: secondaryDark,
+    typography: {
+        h1: {
+            fontStyle: "normal",
+            fontWeight: "bold",
+            fontSize: "clamp(2rem, 4vw + 1rem, 4rem)",
+            lineHeight: "clamp(2.25rem, 4vw, 4.75rem)",
+            letterSpacing: "-0.02em",
+            textTransform: "capitalize",
+        },
+        h2: {
+            fontStyle: "normal",
+            fontWeight: "bold",
+            fontSize: "clamp(1.5rem, 2vw + 1rem, 2rem)",
+            lineHeight: "2.9rem",
+            letterSpacing: "-0.02em",
+            textTransform: "capitalize",
+        },
+        h3: {
+            fontStyle: "normal",
+            fontWeight: "bold",
+            fontSize: "clamp(1rem, 2vw + 1rem, 1.5rem)",
+            lineHeight: "28px",
+            letterSpacing: "-0.02em",
+            textTransform: "capitalize",
+        },
+        body1: {
+            fontStyle: "normal",
+            fontWeight: "500",
+            fontSize: "1rem",
+            lineHeight: "140%",
+            letterSpacing: "-0.02em",
+        },
+        caption: {
+            fontStyle: "normal",
+            fontWeight: "500",
+            fontSize: "0.875rem",
+            lineHeight: "140%",
+        },
     },
-    text: {
-      primary: white,
-    },
-  },
-  typography: {
-    h1: {
-      fontStyle: "normal",
-      fontWeight: "bold",
-      fontSize: "clamp(2rem, 4vw + 1rem, 4rem)",
-      lineHeight: "clamp(2.25rem, 4vw, 4.75rem)",
-      letterSpacing: "-0.02em",
-      textTransform: "capitalize",
-    },
-    h2: {
-      fontStyle: "normal",
-      fontWeight: "bold",
-      fontSize: "clamp(1.5rem, 2vw + 1rem, 2rem)",
-      lineHeight: "2.9rem",
-      letterSpacing: "-0.02em",
-      textTransform: "capitalize",
-    },
-    h3: {
-      fontStyle: "normal",
-      fontWeight: "bold",
-      fontSize: "clamp(1rem, 2vw + 1rem, 1.5rem)",
-      lineHeight: "28px",
-      letterSpacing: "-0.02em",
-      textTransform: "capitalize",
-    },
-    body1: {
-      fontStyle: "normal",
-      fontWeight: "500",
-      fontSize: "1rem",
-      lineHeight: "140%",
-      letterSpacing: "-0.02em",
-    },
-    caption: {
-      fontStyle: "normal",
-      fontWeight: "500",
-      fontSize: "0.875rem",
-      lineHeight: "140%",
-    },
-  },
-});
+})
 
 function MuiThemeProvider({ children }: { children: React.ReactNode }) {
-  return <ThemeProvider theme={muiTheme}>{children}</ThemeProvider>;
+    return <ThemeProvider theme={muiTheme}>{children}</ThemeProvider>
 }
 
-export default MuiThemeProvider;
+export default MuiThemeProvider

@@ -1,21 +1,21 @@
 .center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .column {
-  flex-direction: column;
+    flex-direction: column;
 }
 
 .row {
-  flex-direction: row;
+    flex-direction: row;
 }
 
 @for $iteration from 0 through 100 {
-  .f#{$iteration} {
-    flex: #{$iteration}+ "%";
-  }
+    .f#{$iteration} {
+        flex: #{$iteration}+ "%";
+    }
 }
 
 /*
@@ -34,9 +34,9 @@
   */
 
 @for $iteration from 0 through 4 {
-  .gap#{$iteration} {
-    gap: #{calc(($iteration * 8) / 16)}+ "em";
-  }
+    .gap#{$iteration} {
+        gap: #{calc(($iteration * 8) / 16)}+ "em";
+    }
 }
 
 /*

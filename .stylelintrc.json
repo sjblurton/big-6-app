@@ -1,9 +1,9 @@
 {
-  "extends": [
-    "stylelint-config-standard",
-    "stylelint-config-standard-scss",
-    "stylelint-config-idiomatic-order",
-    "stylelint-config-prettier-scss"
-  ],
-  "ignoreFiles": ["src/modules/documentation/Swagger/swagger-ui.scss"]
+    "extends": [
+        "stylelint-config-standard",
+        "stylelint-config-standard-scss",
+        "stylelint-config-idiomatic-order",
+        "stylelint-config-prettier-scss"
+    ],
+    "ignoreFiles": ["src/modules/documentation/Swagger/swagger-ui.scss"]
 }

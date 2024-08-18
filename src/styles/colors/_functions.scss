@@ -14,5 +14,5 @@
 ///
 
 @function get-color($palette, $color) {
-  @return map.get(map.get($colors, $palette), $color);
+    @return map.get(map.get($colors, $palette), $color);
 }

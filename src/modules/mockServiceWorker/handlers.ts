@@ -1,3 +1,3 @@
-import { instructionsOverviewHandlers } from "./handlers/instructionsOverview";
+import { instructionsOverviewHandlers } from "./handlers/instructionsOverview"
 
-export const handlers = [...instructionsOverviewHandlers];
+export const handlers = [...instructionsOverviewHandlers]
