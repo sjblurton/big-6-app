@@ -25,7 +25,7 @@ async function HomePage() {
 
     return (
         <MuiContainer maxWidth="md" disableGutters>
-            <MuiGrid container gap={4} mt={4} mb={4}>
+            <MuiGrid container gap={4} mt={4} mb={6}>
                 <MuiGrid item xs={11} m="auto">
                     <MuiTypography variant="h1" component="h1">
                         Big 6
