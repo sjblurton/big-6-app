@@ -8,6 +8,7 @@ declare global {
             NEXT_PUBLIC_DB_MESSAGING_SENDER_ID: string
             NEXT_PUBLIC_DB_APP_ID: string
             NEXT_PUBLIC_DB_MEASUREMENT_ID: string
+            NEXT_PUBLIC_BASE_URL: string
             GOOGLE_CLIENT_ID: string
             GOOGLE_CLIENT_SECRET: string
             NEXT_PUBLIC_BASE_URL: string
