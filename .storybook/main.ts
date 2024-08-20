@@ -10,6 +10,7 @@ const config: StorybookConfig = {
         "@storybook/addon-styling-webpack",
         "storybook-addon-theme-provider",
         "storybook-addon-mock",
+        "@storybook/addon-viewport",
         {
             name: "@storybook/addon-styling-webpack",
             options: {

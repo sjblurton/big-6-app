@@ -9,6 +9,7 @@ import {
     DocsContainer,
     DocsContainerProps,
 } from "@storybook/blocks"
+import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport"
 import BottomNavigation from "./BottomNavigation"
 
 /**
@@ -17,12 +18,18 @@ import BottomNavigation from "./BottomNavigation"
  * of navigation is at a more convent reach for the thumb.
  * This will be the main navigation from the dashboard to move around
  * and for daily uses.
+ *
+ * The BottomNavigation component is only visible on mobile devices.
  */
 
 const meta: Meta = {
     title: "Components/Navigation/Bottom Navigation",
     component: BottomNavigation,
     parameters: {
+        viewport: {
+            viewports: INITIAL_VIEWPORTS,
+            defaultViewport: "iphone6",
+        },
         nextjs: {
             pathname: "/dashboard",
         },

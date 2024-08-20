@@ -35,6 +35,12 @@
             "rules": {
                 "react/jsx-filename-extension": "off"
             }
+        },
+        {
+            "files": ["*.stories.ts,*.stories.tsx"],
+            "rules": {
+                "import/no-extraneous-dependencies": "off"
+            }
         }
     ],
     "parser": "@typescript-eslint/parser",

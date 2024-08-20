@@ -36,10 +36,6 @@ export default meta
 
 type Story = StoryObj<typeof Navbar>
 
-export const Dashboard: Story = {
-    name: "on /dashboard",
-}
-
 export const WorkoutManual: Story = {
     name: "on /workout-manual",
     parameters: {
