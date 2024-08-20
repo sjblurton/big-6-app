@@ -13,7 +13,7 @@ class WorkoutController {
     }
 
     async GET() {
-        return NextResponse.json(await this.workoutService.getServiceData())
+        return NextResponse.json(this.workoutService.getServiceData())
     }
 }
 

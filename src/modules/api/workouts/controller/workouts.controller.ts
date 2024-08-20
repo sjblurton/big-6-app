@@ -1,15 +1,17 @@
 import { NextRequest, NextResponse } from "next/server"
-import { WorkoutsService } from "../services/workouts.service"
+import { WorkoutsService } from "../services/workouts.services"
 
 class WorkoutsController {
-    private readonly workoutsService: WorkoutsService
+    request: NextRequest
 
     constructor(request: NextRequest) {
-        this.workoutsService = new WorkoutsService(request)
+        this.request = request
     }
 
     async GET() {
-        return NextResponse.json(await this.workoutsService.getServiceData())
+        return NextResponse.json(
+            await new WorkoutsService(this.request).getServiceData()
+        )
     }
 }
 

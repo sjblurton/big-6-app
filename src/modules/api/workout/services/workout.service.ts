@@ -5,14 +5,15 @@ import {
 import { limitBySchema } from "@/modules/model/api/routes/workouts-id/inputs/querySchema"
 import { NextRequest } from "next/server"
 import GetWorkoutData from "@/modules/database/workouts/read/getWorkoutData"
-import AuthService from "../../data-layer/auth.service"
 import { ApiBadRequestError } from "../../error-handler/errors/api.error.bad-request"
 
-export class WorkoutService extends AuthService {
+export class WorkoutService {
     private workoutId: WorkoutIds
 
+    private request: NextRequest
+
     constructor(request: NextRequest, workoutId: WorkoutIds) {
-        super(request)
+        this.request = request
         this.workoutId = workoutId
     }
 
