@@ -17,6 +17,14 @@ jest.mock("next/navigation", () => ({
 
 const mockUsePathname = usePathname as jest.Mock
 
+jest.mock("next-auth/react", () => ({
+    SessionProvider: jest.fn(({ children }) => <div>{children}</div>),
+    useSession: jest.fn(() => ({
+        data: null,
+        status: "unauthenticated",
+    })),
+}))
+
 describe("Navbar", () => {
     beforeEach(() => {
         jest.clearAllMocks()

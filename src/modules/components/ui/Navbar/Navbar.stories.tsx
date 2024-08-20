@@ -25,14 +25,6 @@ const meta: Meta<NavbarProps> = {
                 path: "/weekly-routines",
             },
             {
-                name: "Logout",
-                path: "/logout",
-            },
-            {
-                name: "Dashboard",
-                path: "/dashboard",
-            },
-            {
                 name: "Home",
                 path: "/",
             },
@@ -67,18 +59,6 @@ export const WeeklyRoutines: Story = {
             appDirectory: true,
             navigation: {
                 pathname: "/weekly-routines",
-            },
-        },
-    },
-}
-
-export const Logout: Story = {
-    name: "on /logout",
-    parameters: {
-        nextjs: {
-            appDirectory: true,
-            navigation: {
-                pathname: "/logout",
             },
         },
     },

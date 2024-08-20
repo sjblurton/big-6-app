@@ -15,7 +15,6 @@ const routes = [
     { name: "Home", path: "/" },
     { name: "instructions", path: "/instructions/pull-ups/level-1" },
     { name: "Stopwatch", path: "/stopwatch" },
-    { name: "Dashboard", path: "/dashboard" },
 ]
 
 function RootLayout({

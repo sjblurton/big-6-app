@@ -3,13 +3,18 @@ import {
     MuiIconButton,
     MuiMenu,
     MuiMenuIcon,
+    MuiMenuItem,
     MuiToolbar,
     MuiTypography,
 } from "@/modules/components/library/mui"
 import Link from "next/link"
 import React from "react"
+import { black as blackText } from "@/styles/colors/_exports.module.scss"
+import { signOut, useSession } from "next-auth/react"
+
 import LogoSvg from "../../Logo/Logo"
 import LinkItems from "./LinkItems"
+import LinkItem from "./LinkItem"
 
 type Props = {
     routes: { name: string; path: string }[]
@@ -31,6 +36,8 @@ function Toolbar({
     anchorElNav,
     handleCloseNavMenu,
 }: Props) {
+    const { data: session } = useSession()
+
     return (
         <MuiToolbar disableGutters>
             <MuiBox
@@ -87,6 +94,27 @@ function Toolbar({
                         routes={routes}
                         handleCloseNavMenu={handleCloseNavMenu}
                     />
+                    {session ? (
+                        <LinkItem
+                            path="/dashboard"
+                            name="Dashboard"
+                            handleCloseNavMenu={handleCloseNavMenu}
+                        />
+                    ) : null}
+                    {session ? (
+                        <MuiMenuItem
+                            onClick={(e) => {
+                                e.preventDefault()
+                                signOut({ callbackUrl: "/" })
+                                handleCloseNavMenu()
+                            }}
+                            data-testid="nav-menu-item-logout"
+                        >
+                            <MuiTypography textAlign="center" color={blackText}>
+                                logout
+                            </MuiTypography>
+                        </MuiMenuItem>
+                    ) : null}
                 </MuiMenu>
             </MuiBox>
         </MuiToolbar>
