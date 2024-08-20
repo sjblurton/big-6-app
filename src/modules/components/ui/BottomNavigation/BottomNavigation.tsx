@@ -42,23 +42,22 @@ function BottomNavigation() {
             }}
             elevation={3}
         >
+            <div className={styles.add}>
+                <MuiFloatingActionButton
+                    color="warning"
+                    aria-label="add"
+                    LinkComponent={Link}
+                    href="/add"
+                >
+                    <MuiAddIcon fontSize="large" />
+                </MuiFloatingActionButton>
+            </div>
             <MuiBottomNavigation
                 value={pathname}
                 sx={{
                     width: "100%",
                 }}
             >
-                <div className={styles.add}>
-                    <MuiFloatingActionButton
-                        color="warning"
-                        aria-label="add"
-                        LinkComponent={Link}
-                        href="/add"
-                    >
-                        <MuiAddIcon fontSize="large" />
-                    </MuiFloatingActionButton>
-                </div>
-
                 {navigation.map((nav) => (
                     <MuiBottomNavigationAction
                         key={nav.value}
