@@ -13,7 +13,7 @@
             "skipped": 0,
             "pct": 92.27
         },
-        "branches": { "total": 54, "covered": 38, "skipped": 0, "pct": 70.37 },
+        "branches": { "total": 54, "covered": 40, "skipped": 0, "pct": 74.07 },
         "branchesTrue": { "total": 0, "covered": 0, "skipped": 0, "pct": 100 }
     },
     "/Users/blurton/Documents/big-6-app/src/app/api/v1/workouts/route.ts": {
@@ -1032,7 +1032,7 @@
             "skipped": 0,
             "pct": 78.57
         },
-        "branches": { "total": 6, "covered": 4, "skipped": 0, "pct": 66.66 }
+        "branches": { "total": 6, "covered": 6, "skipped": 0, "pct": 100 }
     },
     "/Users/blurton/Documents/big-6-app/src/modules/components/ui/ProgressBar/hooks/useCountUp.tsx": {
         "lines": { "total": 36, "covered": 34, "skipped": 0, "pct": 94.44 },

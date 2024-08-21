@@ -98,6 +98,7 @@ function Toolbar({
                         <LinkItem
                             path="/dashboard"
                             name="Dashboard"
+                            data-testid="nav-menu-link-dashboard"
                             handleCloseNavMenu={handleCloseNavMenu}
                         />
                     ) : null}
@@ -108,7 +109,7 @@ function Toolbar({
                                 signOut({ callbackUrl: "/" })
                                 handleCloseNavMenu()
                             }}
-                            data-testid="nav-menu-item-logout"
+                            data-testid="nav-menu-link-logout"
                         >
                             <MuiTypography textAlign="center" color={blackText}>
                                 logout

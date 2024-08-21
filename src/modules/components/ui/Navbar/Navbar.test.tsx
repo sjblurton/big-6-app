@@ -1,6 +1,7 @@
 import React from "react"
 import { render, fireEvent, act, waitFor } from "@testing-library/react"
 import { usePathname } from "next/navigation"
+import { useSession } from "next-auth/react"
 import { toKebabCase } from "@/modules/strings/transform"
 import Navbar from "./Navbar"
 
@@ -146,5 +147,49 @@ describe("Navbar", () => {
         const { getByTestId } = render(<Navbar routes={pages} />)
         const activePage = getByTestId("nav-active-page")
         expect(activePage).toHaveTextContent("")
+    })
+
+    it("should not display 'Dashboard' and 'Logout' when there is no session", async () => {
+        const { getByTestId, queryByTestId } = render(<Navbar routes={pages} />)
+        const menuButton = getByTestId("nav-menu-button")
+
+        act(() => {
+            fireEvent.click(menuButton)
+        })
+
+        await waitFor(() => {
+            const dashboardLink = queryByTestId("nav-menu-link-dashboard")
+            const logoutItem = queryByTestId("nav-menu-item-logout")
+
+            expect(dashboardLink).not.toBeInTheDocument()
+            expect(logoutItem).not.toBeInTheDocument()
+        })
+    })
+
+    it("should display 'Dashboard' and 'Logout' when there is a session", async () => {
+        const { getByTestId } = render(<Navbar routes={pages} />)
+
+        jest.mocked(useSession).mockReturnValueOnce({
+            data: {
+                user: { name: "John Doe" },
+                expires: "2021-10-01T00:00:00.000Z",
+            },
+            status: "authenticated",
+            update: jest.fn(),
+        })
+
+        const menuButton = getByTestId("nav-menu-button")
+
+        act(() => {
+            fireEvent.click(menuButton)
+        })
+
+        await waitFor(() => {
+            const dashboardLink = getByTestId("nav-menu-link-dashboard")
+            const logoutItem = getByTestId("nav-menu-link-logout")
+
+            expect(dashboardLink).toBeVisible()
+            expect(logoutItem).toBeVisible()
+        })
     })
 })
