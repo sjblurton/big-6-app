@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server"
 import ErrorHandler from "@/modules/api/error-handler/ErrorHandler"
-import WorkoutsController from "@/modules/api/workouts/controller/workouts.controller"
+import WorkoutsController from "@/app/api/v1/workouts/workouts.controller"
 import WorkoutController from "@/modules/api/workout/controller/workout.controller"
 import { ApiNotFoundError } from "@/modules/api/error-handler/errors/api.error.not-found"
 import { ApiZodValidationError } from "@/modules/api/error-handler/errors/api.error.zod-validation"

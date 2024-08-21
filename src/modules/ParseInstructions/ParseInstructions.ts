@@ -73,6 +73,26 @@ class ParseInstructions {
         }
         return workoutLevelInstructions
     }
+
+    public findLevelGoal(): number {
+        const parsedParams = paramsSchema.parse(this.params)
+        const workoutLevelInstructions = ParseInstructions.filterById(
+            parsedParams.name
+        ).find(
+            (instruction) =>
+                instruction.level === pathLevelToNumber(parsedParams.level)
+        )
+
+        if (!workoutLevelInstructions) {
+            throw new Error(
+                `Workout instructions for level: ${parsedParams.level} not found`
+            )
+        }
+        return (
+            workoutLevelInstructions.progressions.advanced.sets *
+            workoutLevelInstructions.progressions.advanced.reps
+        )
+    }
 }
 
 export default ParseInstructions

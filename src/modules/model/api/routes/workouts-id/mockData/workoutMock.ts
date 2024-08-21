@@ -1,8 +1,34 @@
 import { generateMock } from "@anatine/zod-mock"
+import { faker } from "@faker-js/faker"
 import { WorkoutIds } from "../../workouts/inputs/inputs"
 import { WorkoutData, workoutSchema } from "../outputs/workoutDataSchemas"
 
-export const mockExampleWorkout = ({
+export const mockWorkout = ({
+    workoutId,
+    email = "email@email.com",
+}: {
+    workoutId: WorkoutIds
+    email?: string
+}) => {
+    const mock = generateMock(workoutSchema)
+    const reps = new Array(faker.number.int({ min: 1, max: 3 }))
+        .fill(0)
+        .map(() => faker.number.int({ min: 1, max: 20 }))
+        .sort((a, b) => a - b)
+
+    return {
+        ...mock,
+        user: email,
+        date: faker.date.past().getTime(),
+        workoutId,
+        reps,
+        level: faker.number.int({ min: 1, max: 8 }),
+        key: faker.string.uuid(),
+        comments: faker.lorem.sentence(),
+    }
+}
+
+export const mockExampleWorkouts = ({
     workoutId,
     entries,
     email = "email@email.com",

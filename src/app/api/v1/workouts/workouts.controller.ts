@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server"
-import { WorkoutsService } from "../services/workouts.services"
+import { WorkoutsService } from "./workouts.services"
 
 class WorkoutsController {
     request: NextRequest
