@@ -31,9 +31,7 @@ export const getStaticPaths = (async () => ({
 })) satisfies GetStaticPaths
 
 function getWorkoutInstructionsPageData({ level, name }: InstructionParams) {
-    const data = new ParseInstructions({ level, name }).filterByLevel()
-
-    return data
+    return new ParseInstructions({ level, name }).filterByLevel()
 }
 
 export async function generateMetadata({

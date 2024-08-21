@@ -4,6 +4,9 @@ import { MuiTypography } from "@/modules/components/library/mui"
 import * as background from "@/styles/utilityClasses/background.module.scss"
 import * as boxShadow from "@/styles/utilityClasses/boxShadow.module.scss"
 import { WorkoutData } from "@/modules/model/api/routes/workouts-id/outputs/workoutDataSchemas"
+import ParseInstructions from "@/modules/ParseInstructions/ParseInstructions"
+import { z } from "zod"
+import { levelArray } from "@/modules/model/api/routes/instructions-id-level/constants/levels"
 import ProgressBar from "../ProgressBar/ProgressBar"
 import { box, card, svg } from "./WorkoutCard.module.scss"
 import { workoutSvgs } from "../../assets/workouts"
@@ -15,12 +18,17 @@ type Props = {
 function WorkoutCard({
     workout: { date, level, reps, workoutId: workout },
 }: Props) {
+    const advanceGoal = new ParseInstructions({
+        level: z.enum(levelArray).parse(`level-${level}`),
+        name: workout,
+    }).findLevelGoal()
+
     const totalReps = reps.reduce((acc, curr) => acc + curr, 0)
     const { title, component: Workout } = workoutSvgs[workout]
     const time = DateTime.fromMillis(date).toRelativeCalendar()
 
     return (
-        <Link href="/" passHref>
+        <Link href="/" style={{ display: "contents" }}>
             <article
                 className={`${card} ${background.light} ${boxShadow.subtle}`}
             >
@@ -36,8 +44,7 @@ function WorkoutCard({
                 <div className={svg}>
                     <Workout />
                 </div>
-                {/* TODO: Dynamically get the goal */}
-                <ProgressBar goal={80} actual={totalReps} />
+                <ProgressBar goal={advanceGoal} actual={totalReps} />
             </article>
         </Link>
     )

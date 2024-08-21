@@ -1,10 +1,10 @@
-import SignOutButton from "@/modules/components/ui/Button/SignOutButton/SignOutButton"
 import { Metadata } from "next"
 import { createMetadata } from "@/modules/seo/createMetadata"
-import { MuiContainer } from "@/modules/components/library/mui"
+import { MuiContainer, MuiGrid } from "@/modules/components/library/mui"
 import { getServerSession } from "next-auth"
 import { redirect } from "next/navigation"
-import { fetchWorkouts } from "@/modules/fetch/workouts"
+import { fetchLatestWorkouts } from "@/modules/fetch/workouts"
+import WorkoutCard from "@/modules/components/ui/WorkoutCard/WorkoutCard"
 import authOptions from "../api/auth/authOptions"
 
 export const metadata: Metadata = createMetadata({
@@ -17,13 +17,23 @@ async function Dashboard() {
     if (!session) {
         redirect("/")
     }
-    const workoutHistory = await fetchWorkouts()
-
+    const workoutHistory = await fetchLatestWorkouts()
     return (
         <MuiContainer maxWidth="md" disableGutters>
-            <h1>Dashboard</h1>
-            <p>{JSON.stringify(workoutHistory, null, 2)}</p>
-            <SignOutButton />
+            <MuiGrid container mt={3} mb={1}>
+                {workoutHistory.map((workout) => (
+                    <MuiGrid
+                        item
+                        xs={12}
+                        key={workout.key}
+                        display="flex"
+                        alignContent="center"
+                        justifyContent="center"
+                    >
+                        <WorkoutCard workout={workout} />
+                    </MuiGrid>
+                ))}
+            </MuiGrid>
         </MuiContainer>
     )
 }
