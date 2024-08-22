@@ -23,6 +23,8 @@ export const fetchLatestWorkouts = async () => {
             headers: new Headers(headers()),
         }
     )
-    const data = await workoutSchema.array().parseAsync(await res.json())
+    const data = await workoutSchema
+        .array()
+        .parseAsync((await res.json()) ?? [])
     return data
 }

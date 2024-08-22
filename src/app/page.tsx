@@ -4,8 +4,6 @@ import {
     MuiGrid,
     MuiTypography,
 } from "@/modules/components/library/mui"
-import InstructionsOverviewCard from "@/modules/components/ui/InstructionsOverviewCard/InstructionsOverviewCard"
-import { WORKOUT_ID_LIST } from "@/modules/model/api/routes/shared/workoutIds"
 
 import type { Metadata } from "next"
 import SignInButton from "@/modules/components/ui/Button/SignInButton/SignInButton"
@@ -13,6 +11,7 @@ import SignOutButton from "@/modules/components/ui/Button/SignOutButton/SignOutB
 import { createMetadata } from "@/modules/seo/createMetadata"
 import BottomNavigation from "@/modules/components/ui/BottomNavigation/BottomNavigation"
 import authOptions from "./api/auth/authOptions"
+import InstructionsOverviewCardList from "./components/InstructionsOverviewCardList/InstructionsOverviewCardList"
 
 export const metadata: Metadata = createMetadata({
     title: "Home",
@@ -47,11 +46,7 @@ async function HomePage() {
                 <MuiGrid item xs={11} m="auto">
                     {!session ? <SignInButton /> : <SignOutButton />}
                 </MuiGrid>
-                {WORKOUT_ID_LIST.map((workoutId) => (
-                    <MuiGrid item key={workoutId} xs={12}>
-                        <InstructionsOverviewCard workoutId={workoutId} />
-                    </MuiGrid>
-                ))}
+                <InstructionsOverviewCardList />
             </MuiGrid>
             {session ? <BottomNavigation /> : null}
         </MuiContainer>

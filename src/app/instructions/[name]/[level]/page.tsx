@@ -8,8 +8,6 @@ import {
     MuiTypography,
 } from "@/modules/components/library/mui"
 import * as colors from "@/styles/colors/_exports.module.scss"
-import InstructionsCard from "@/modules/components/ui/InstructionsCard/InstructionsCard"
-import InstructionsDropdownTitle from "@/modules/components/ui/InstructionsDropdownTitle/InstructionsDropdownTitle"
 import { levelArray } from "@/modules/model/api/routes/instructions-id-level/constants/levels"
 import { WORKOUT_ID_LIST } from "@/modules/model/api/routes/shared/workoutIds"
 import { GetStaticPaths, Metadata } from "next"
@@ -20,6 +18,9 @@ import {
 import Link from "next/link"
 import { createMetadata } from "@/modules/seo/createMetadata"
 import { workoutIdToTitleString } from "@/modules/strings/transform"
+import Progressions from "./components/Progressions/Progressions"
+import InstructionsCard from "./components/InstructionsCard/InstructionsCard"
+import InstructionsDropdownTitle from "./components/InstructionsDropdownTitle/InstructionsDropdownTitle"
 
 const paths = WORKOUT_ID_LIST.flatMap((name) =>
     levelArray.map((level) => ({ params: { name, level } }))
@@ -68,18 +69,7 @@ async function WorkoutInstructionsPage({
                     </MuiTypography>
                 </MuiGrid>
                 <MuiGrid item xs={12} p={1}>
-                    <MuiTypography variant="h6" component="h3">
-                        Beginner: {progressions.beginner.sets} sets of{" "}
-                        {progressions.beginner.reps} reps
-                    </MuiTypography>
-                    <MuiTypography variant="h6" component="h3">
-                        Intermediate: {progressions.intermediate.sets} sets of{" "}
-                        {progressions.intermediate.reps} reps
-                    </MuiTypography>
-                    <MuiTypography variant="h6" component="h3">
-                        Advanced: {progressions.advanced.sets} sets of{" "}
-                        {progressions.advanced.reps} reps
-                    </MuiTypography>
+                    <Progressions {...progressions} />
                 </MuiGrid>
                 <MuiGrid item xs={12} pb={1} pt={1}>
                     <InstructionsCard

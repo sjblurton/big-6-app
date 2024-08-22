@@ -1,6 +1,6 @@
 import { fireEvent, render, screen } from "@testing-library/react"
 import { useRouter } from "next/navigation"
-import DropdownLinks from "./DropdownLinks" // Adjust the import path as necessary
+import DropdownLinks from "./DropdownLinks"
 
 jest.mock("next/navigation", () => ({
     useRouter: jest.fn(),

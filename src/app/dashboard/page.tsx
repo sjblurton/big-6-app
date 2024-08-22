@@ -1,11 +1,11 @@
 import { Metadata } from "next"
 import { createMetadata } from "@/modules/seo/createMetadata"
-import { MuiContainer, MuiGrid } from "@/modules/components/library/mui"
+import { MuiContainer } from "@/modules/components/library/mui"
 import { getServerSession } from "next-auth"
 import { redirect } from "next/navigation"
-import { fetchLatestWorkouts } from "@/modules/fetch/workouts"
-import WorkoutCard from "@/modules/components/ui/WorkoutCard/WorkoutCard"
+
 import authOptions from "../api/auth/authOptions"
+import WorkoutCardList from "./components/WorkoutCardList/WorkoutCardList"
 
 export const metadata: Metadata = createMetadata({
     title: "Dashboard",
@@ -17,23 +17,10 @@ async function Dashboard() {
     if (!session) {
         redirect("/")
     }
-    const workoutHistory = await fetchLatestWorkouts()
+
     return (
         <MuiContainer maxWidth="md" disableGutters>
-            <MuiGrid container mt={3} mb={1}>
-                {workoutHistory.map((workout) => (
-                    <MuiGrid
-                        item
-                        xs={12}
-                        key={workout.key}
-                        display="flex"
-                        alignContent="center"
-                        justifyContent="center"
-                    >
-                        <WorkoutCard workout={workout} />
-                    </MuiGrid>
-                ))}
-            </MuiGrid>
+            <WorkoutCardList />
         </MuiContainer>
     )
 }

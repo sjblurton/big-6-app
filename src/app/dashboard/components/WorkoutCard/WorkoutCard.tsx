@@ -7,9 +7,9 @@ import { WorkoutData } from "@/modules/model/api/routes/workouts-id/outputs/work
 import ParseInstructions from "@/modules/ParseInstructions/ParseInstructions"
 import { z } from "zod"
 import { levelArray } from "@/modules/model/api/routes/instructions-id-level/constants/levels"
-import ProgressBar from "../ProgressBar/ProgressBar"
+import { workoutSvgs } from "@/modules/components/assets/workouts"
+import ProgressBar from "@/modules/components/ui/ProgressBar/ProgressBar"
 import { box, card, svg } from "./WorkoutCard.module.scss"
-import { workoutSvgs } from "../../assets/workouts"
 
 type Props = {
     workout: WorkoutData

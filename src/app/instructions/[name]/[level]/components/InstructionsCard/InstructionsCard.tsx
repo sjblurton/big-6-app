@@ -3,12 +3,15 @@ import * as boxShadow from "@/styles/utilityClasses/boxShadow.module.scss"
 import * as padding from "@/styles/utilityClasses/padding.module.scss"
 import * as borderRadius from "@/styles/utilityClasses/borderRadius.module.scss"
 import * as flex from "@/styles/utilityClasses/flex.module.scss"
-import * as styles from "./InstructionsCard.module.scss"
 import instructionImages, {
     InstructionImagesKeys,
-} from "../../assets/instructions"
-import { LevelKeys, levelKeysSchema } from "../../assets/instructions/types"
-import { MuiTypography } from "../../library/mui"
+} from "@/modules/components/assets/instructions"
+import {
+    LevelKeys,
+    levelKeysSchema,
+} from "@/modules/components/assets/instructions/types"
+import { MuiTypography } from "@/modules/components/library/mui"
+import * as styles from "./InstructionsCard.module.scss"
 
 const svgSelector = ({
     levelKey,

@@ -12,8 +12,8 @@ import { WorkoutIds } from "@/modules/model/api/routes/workouts/inputs/inputs"
 
 import ParseInstructions from "@/modules/ParseInstructions/ParseInstructions"
 import Link from "next/link"
-import { MuiTypography } from "../../library/mui"
-import { workoutSvgs } from "../../assets/workouts"
+import { workoutSvgs } from "@/modules/components/assets/workouts"
+import { MuiTypography } from "@/modules/components/library/mui"
 import ListItem from "./components/ListItem"
 
 type InstructionsOverviewCardProps = {
