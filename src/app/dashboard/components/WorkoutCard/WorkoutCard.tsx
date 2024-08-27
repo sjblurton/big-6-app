@@ -28,7 +28,7 @@ function WorkoutCard({
     const time = DateTime.fromMillis(date).toRelativeCalendar()
 
     return (
-        <Link href="/" style={{ display: "contents" }}>
+        <Link href={`/dashboard/${workout}`} style={{ display: "contents" }}>
             <article
                 className={`${card} ${background.light} ${boxShadow.subtle}`}
             >

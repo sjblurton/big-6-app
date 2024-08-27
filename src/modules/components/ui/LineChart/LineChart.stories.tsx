@@ -14,9 +14,8 @@ import {
 } from "@storybook/blocks"
 import { WorkoutIds } from "@/modules/model/api/routes/shared/workoutIds"
 import { faker } from "@faker-js/faker"
+import { TIME_MILLISECONDS } from "@/modules/time/constants"
 import LineChart from "./LineChart"
-
-const ONE_WEEK_MS = 7 * 24 * 60 * 60 * 1000
 
 function generateMockWorkoutData({
     numberOfEntries,
@@ -49,7 +48,7 @@ function generateMockWorkoutData({
 
         const mockEntry = {
             key: faker.string.uuid(),
-            date: new Date().getTime() - ONE_WEEK_MS * (i + 1),
+            date: new Date().getTime() - TIME_MILLISECONDS.ONE_WEEK * (i + 1),
             reps,
             level,
             workoutId,

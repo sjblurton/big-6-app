@@ -9,7 +9,6 @@ import type { Metadata } from "next"
 import SignInButton from "@/modules/components/ui/Button/SignInButton/SignInButton"
 import SignOutButton from "@/modules/components/ui/Button/SignOutButton/SignOutButton"
 import { createMetadata } from "@/modules/seo/createMetadata"
-import BottomNavigation from "@/modules/components/ui/BottomNavigation/BottomNavigation"
 import authOptions from "./api/auth/authOptions"
 import InstructionsOverviewCardList from "./components/InstructionsOverviewCardList/InstructionsOverviewCardList"
 
@@ -48,7 +47,6 @@ async function HomePage() {
                 </MuiGrid>
                 <InstructionsOverviewCardList />
             </MuiGrid>
-            {session ? <BottomNavigation /> : null}
         </MuiContainer>
     )
 }

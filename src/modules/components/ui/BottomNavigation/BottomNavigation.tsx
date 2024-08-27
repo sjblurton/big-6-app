@@ -3,7 +3,6 @@
 import { usePathname } from "next/navigation"
 
 import Link from "next/link"
-import { useMediaQuery } from "@mui/material"
 import {
     MuiBottomNavigation,
     MuiBottomNavigationAction,
@@ -23,12 +22,11 @@ const navigation = [
     { value: "/dashboard", label: "Dashboard", icon: <MuiHomeIcon /> },
     { value: "/log", label: "Log", icon: <MuiClipboardIcon /> },
     { value: "/calender", label: "Calender", icon: <MuiCalendarMonthIcon /> },
-    { value: "/timer", label: "Timer", icon: <MuiTimerIcon /> },
+    { value: "/stopwatch", label: "Stop Watch", icon: <MuiTimerIcon /> },
 ]
 
 function BottomNavigation() {
     const pathname = usePathname()
-    const isMobile = useMediaQuery("(max-width: 600px)")
 
     return (
         <MuiPaper
@@ -37,7 +35,6 @@ function BottomNavigation() {
                 bottom: 0,
                 left: 0,
                 right: 0,
-                display: isMobile ? "flex" : "none",
                 justifyContent: "center",
             }}
             elevation={3}
@@ -56,6 +53,8 @@ function BottomNavigation() {
                 value={pathname}
                 sx={{
                     width: "100%",
+                    maxWidth: "md",
+                    margin: "auto",
                 }}
             >
                 {navigation.map((nav) => (

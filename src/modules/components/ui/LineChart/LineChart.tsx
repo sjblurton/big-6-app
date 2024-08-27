@@ -1,3 +1,5 @@
+"use client"
+
 import { DateTime } from "luxon"
 import * as background from "@/styles/utilityClasses/background.module.scss"
 import * as boxShadow from "@/styles/utilityClasses/boxShadow.module.scss"
