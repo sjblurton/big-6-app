@@ -1,5 +1,6 @@
 import { generateMock } from "@anatine/zod-mock"
 import { faker } from "@faker-js/faker"
+import { TIME_MILLISECONDS } from "@/modules/time/constants"
 import { WorkoutIds } from "../../workouts/inputs/inputs"
 import { WorkoutData, workoutSchema } from "../outputs/workoutDataSchemas"
 
@@ -57,15 +58,27 @@ export const hardCodedMockWorkout = (
     workoutId: WorkoutIds,
     numberOf: number
 ): WorkoutData[] => {
-    const exampleWorkout = {
-        key: "0ec2272c-51c9-4972-9438-3d2cb49834cc-0",
-        date: 1719673447005,
-        reps: [10, 15, 20],
-        level: 10,
-        workoutId,
-        comments: "This is a comment",
-        user: "test@example.com",
+    const mockData = []
+
+    for (let i = 0; i < numberOf; i += 1) {
+        const lowReps = faker.number.int({ min: 1, max: 5 })
+        const averageRepRange = faker.number.int({ min: 6, max: 15 })
+        const highRepRange = faker.number.int({ min: 15, max: 30 })
+
+        const reps: number[] = [lowReps, averageRepRange, highRepRange]
+
+        const mockEntry = {
+            key: faker.string.uuid(),
+            date: new Date().getTime() - TIME_MILLISECONDS.ONE_WEEK * (i + 1),
+            reps,
+            level: 5,
+            workoutId,
+            comments: faker.lorem.sentence(),
+            user: faker.internet.email(),
+        }
+
+        mockData.push(mockEntry)
     }
 
-    return Array(numberOf).fill(exampleWorkout)
+    return mockData
 }

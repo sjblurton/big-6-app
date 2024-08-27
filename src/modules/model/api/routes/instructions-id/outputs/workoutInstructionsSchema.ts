@@ -8,7 +8,7 @@ const negativePositiveSchema = z.object({
     negative: z.string(),
 })
 
-const exerciseSchema = z.object({
+export const exerciseSchema = z.object({
     workoutId: z.enum(WORKOUT_ID_LIST),
     name: z.string(),
     level: z.number().min(1).max(10).int(),

@@ -1,8 +1,6 @@
 {
     "extends": [
         "next/core-web-vitals",
-        "airbnb",
-        "airbnb/hooks",
         "plugin:@typescript-eslint/recommended",
         "plugin:react/recommended",
         "plugin:jsx-a11y/recommended",
@@ -54,7 +52,6 @@
         "jest"
     ],
     "rules": {
-        "@typescript-eslint/explicit-module-boundary-types": "off",
         "@typescript-eslint/no-explicit-any": "error",
         "@tanstack/query/exhaustive-deps": "error",
         "import/no-extraneous-dependencies": [
@@ -70,8 +67,6 @@
                 "argsIgnorePattern": "^_"
             }
         ],
-        "import/no-unresolved": "off",
-        "import/prefer-default-export": "off",
         "import/extensions": [
             "error",
             "ignorePackages",
@@ -89,24 +84,20 @@
         "jest/valid-expect": "error",
         "no-console": "error",
         "no-throw-literal": "error",
-        "quotes": [
-            "error",
-            "double",
-            {
-                "avoidEscape": true
-            }
-        ],
         "react-hooks/exhaustive-deps": "warn",
         "react-hooks/rules-of-hooks": "error",
         "react/jsx-filename-extension": [
             1,
             {
-                "extensions": [".js", ".jsx", ".tsx"]
+                "extensions": [".tsx"]
             }
         ],
-        "react/jsx-props-no-spreading": "off",
-        "react/prop-types": "off",
         "react/react-in-jsx-scope": "off",
-        "react/require-default-props": "off"
+        "quotes": ["error", "double"],
+        "semi": ["error", "never"],
+        "camelcase": "error",
+        "no-multiple-empty-lines": "error",
+        "no-plusplus": "error",
+        "no-duplicate-imports": "error"
     }
 }
