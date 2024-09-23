@@ -1,10 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react"
-
 import { z } from "zod"
-import { disableArg } from "@/modules/storybook/argTypes/disableArgs"
-import Input from "./Input"
+import { disableArg } from "@/modules/storybook/argTypes/disable-args"
 import FormProvider from "../../library/FormProvider/FormProvider"
 import { MuiButton } from "../../library/mui/inputs"
+import Input from "./Input"
 
 const schema = z.object({
     test: z.string().min(1).max(255),
@@ -21,7 +20,6 @@ function OnSubmitButton() {
 }
 
 const onSubmit = async (data: FormData) => {
-    console.log({ data }) // eslint-disable-line no-console
     return new Response(JSON.stringify(data))
 }
 

@@ -1,5 +1,5 @@
 import { MuiGrid, MuiTypography } from "@/modules/components/library/mui"
-import { Instruction } from "@/modules/model/api/routes/instructions-id/data"
+import { type Instruction } from "@/modules/model/api/routes/instructions-id/data"
 
 function Progressions({
     advanced,

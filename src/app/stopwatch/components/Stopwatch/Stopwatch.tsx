@@ -6,7 +6,7 @@ import {
     MuiTypography,
 } from "@/modules/components/library/mui"
 import ActionButton from "./ActionButton/ActionButton"
-import useStopwatch from "./hooks/useStopwatch"
+import useStopwatch from "./hooks/use-stopwatch"
 
 function StopWatch() {
     const { milliseconds, minutes, seconds, reset, startAndStop, isRunning } =

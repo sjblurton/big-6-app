@@ -1,7 +1,7 @@
 "use client"
 
-import useCountUp from "./hooks/useCountUp"
 import Circle from "../../assets/Circle/Circle"
+import useCountUp from "./hooks/use-count-up"
 
 const ZERO_DASH_OFFSET = 345
 const DURATION = 750

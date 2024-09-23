@@ -1,7 +1,7 @@
 "server only"
 
-import { workoutOverviewSchema } from "../model/api/routes/instructions-id/outputs/workoutInstructionsSchema"
-import { WorkoutIds } from "../model/api/routes/workouts/inputs/inputs"
+import { workoutOverviewSchema } from "../model/api/routes/instructions-id/outputs/workout-instructions-schema"
+import { type WorkoutIds } from "../model/api/routes/workouts/inputs/inputs"
 
 export const fetchInstructions = async (id: WorkoutIds) => {
     const res = await fetch(

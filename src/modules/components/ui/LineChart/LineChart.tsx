@@ -2,15 +2,14 @@
 
 import { DateTime } from "luxon"
 import * as background from "@/styles/utilityClasses/background.module.scss"
-import * as boxShadow from "@/styles/utilityClasses/boxShadow.module.scss"
-import * as radius from "@/styles/utilityClasses/borderRadius.module.scss"
+import * as boxShadow from "@/styles/utilityClasses/box-shadow.module.scss"
 import * as width from "@/styles/utilityClasses/width.module.scss"
-
 import { secondaryLight } from "@/styles/colors/_exports.module.scss"
-import { WorkoutData } from "@/modules/model/api/routes/workouts-id/outputs/workoutDataSchemas"
+import { type WorkoutData } from "@/modules/model/api/routes/workouts-id/outputs/workout-data-schemas"
 import { toCapitalizedWords } from "@/modules/strings/transform"
-import { wrapper } from "./LineChart.module.scss"
+import * as radius from "@/styles/utilityClasses/border-radius.module.scss"
 import { MuiLineChart } from "../../library/mui/muix"
+import { wrapper } from "./LineChart.module.scss"
 
 type Props = {
     data: WorkoutData[]

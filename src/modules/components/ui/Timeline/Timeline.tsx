@@ -1,8 +1,8 @@
 import React from "react"
 import { DateTime } from "luxon"
-import * as flex from "@/styles/utilityClasses/flex.module.scss"
 import Link from "next/link"
-import { WorkoutIds } from "@/modules/model/api/routes/shared/workoutIds"
+import * as flex from "@/styles/utilityClasses/flex.module.scss"
+import { type WorkoutIds } from "@/modules/model/api/routes/shared/workout-ids"
 import {
     MuiTimeline,
     MuiTimelineConnector,

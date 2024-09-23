@@ -1,5 +1,5 @@
-import { WorkoutIds } from "@/modules/model/api/routes/workouts/inputs/inputs"
-import { NextRequest } from "next/server"
+import { type NextRequest } from "next/server"
+import { type WorkoutIds } from "@/modules/model/api/routes/workouts/inputs/inputs"
 import ErrorHandler from "@/modules/api/error-handler/ErrorHandler"
 import WorkoutController from "@/modules/api/workout/controller/workout.controller"
 

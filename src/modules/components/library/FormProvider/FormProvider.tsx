@@ -1,10 +1,10 @@
 import {
     useForm,
     FormProvider as ReactHookFormProvider,
-    FieldValues,
+    type FieldValues,
 } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { z } from "zod"
+import { type z } from "zod"
 
 type FormProviderProps<FormData extends FieldValues> = {
     children: React.ReactNode

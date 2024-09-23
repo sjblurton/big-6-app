@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react"
-
-import Navbar, { NavbarProps } from "./Navbar"
+import Navbar, { type NavbarProps } from "./Navbar"
 
 /**
  * The Navbar component is used to navigate

@@ -1,8 +1,7 @@
-import { MuiTypography } from "@/modules/components/library/mui"
-
 import Link from "next/link"
+import { MuiTypography } from "@/modules/components/library/mui"
 import * as colors from "@/styles/colors/_exports.module.scss"
-import { WorkoutIds } from "@/modules/model/api/routes/workouts/inputs/inputs"
+import { type WorkoutIds } from "@/modules/model/api/routes/workouts/inputs/inputs"
 
 type Props = {
     workoutId: WorkoutIds

@@ -1,0 +1,12 @@
+{
+    "overrides": [
+        {
+            "files": ["*.mdx"],
+            "extends": "plugin:mdx/recommended",
+            "rules": {
+                "react/jsx-filename-extension": "off"
+            }
+        }
+    ],
+    "extends": ["plugin:mdx/recommended"]
+}

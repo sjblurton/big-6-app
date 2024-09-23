@@ -1,5 +1,6 @@
 "uae client"
 
+import { ThemeProvider, createTheme } from "@mui/material/styles"
 import {
     primary,
     white,
@@ -7,7 +8,6 @@ import {
     secondaryDark,
     secondaryLight,
 } from "@/styles/colors/_exports.module.scss"
-import { ThemeProvider, createTheme } from "@mui/material/styles"
 
 const muiTheme = createTheme({
     palette: {

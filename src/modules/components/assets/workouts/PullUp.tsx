@@ -1,5 +1,5 @@
 import React from "react"
-import { WorkoutSvgProps } from "./@types"
+import { type WorkoutSvgProps } from "./@types"
 
 function PullUp({ height, width }: WorkoutSvgProps) {
     return (

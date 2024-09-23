@@ -1,7 +1,7 @@
 import {
     API_ERROR_NAMES,
     ApiBaseError,
-    ErrorInputs,
+    type ErrorInputs,
     HTTP_ERROR_CODES,
 } from "./api.error.base"
 

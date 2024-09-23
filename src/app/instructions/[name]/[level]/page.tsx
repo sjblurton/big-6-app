@@ -1,5 +1,7 @@
+import { type GetStaticPaths, type Metadata } from "next"
+import Link from "next/link"
 import ParseInstructions, {
-    InstructionParams,
+    type InstructionParams,
 } from "@/modules/ParseInstructions/ParseInstructions"
 import {
     MuiButton,
@@ -9,15 +11,13 @@ import {
 } from "@/modules/components/library/mui"
 import * as colors from "@/styles/colors/_exports.module.scss"
 import { levelArray } from "@/modules/model/api/routes/instructions-id-level/constants/levels"
-import { WORKOUT_ID_LIST } from "@/modules/model/api/routes/shared/workoutIds"
-import { GetStaticPaths, Metadata } from "next"
+import { workoutIdToTitleString } from "@/modules/strings/transform"
+import { createMetadata } from "@/modules/seo/create-metadata"
 import {
     MuiChevronLeftIcon,
     MuiChevronRightIcon,
-} from "@/modules/components/library/mui/muiIcons"
-import Link from "next/link"
-import { createMetadata } from "@/modules/seo/createMetadata"
-import { workoutIdToTitleString } from "@/modules/strings/transform"
+} from "@/modules/components/library/mui/mui-icons"
+import { WORKOUT_ID_LIST } from "@/modules/model/api/routes/shared/workout-ids"
 import Progressions from "./components/Progressions/Progressions"
 import InstructionsCard from "./components/InstructionsCard/InstructionsCard"
 import InstructionsDropdownTitle from "./components/InstructionsDropdownTitle/InstructionsDropdownTitle"

@@ -1,8 +1,8 @@
-import { ZodIssue } from "zod-validation-error"
+import { type ZodIssue } from "zod-validation-error"
 import {
     API_ERROR_NAMES,
     ApiBaseError,
-    ErrorInputs,
+    type ErrorInputs,
     HTTP_ERROR_CODES,
 } from "./api.error.base"
 

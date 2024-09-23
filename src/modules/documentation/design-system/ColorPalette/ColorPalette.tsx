@@ -1,6 +1,5 @@
 import * as React from "react"
 import * as colors from "../../../../styles/colors/_exports.module.scss"
-
 import {
     MuiBox,
     MuiGrid,
@@ -8,7 +7,7 @@ import {
     MuiTypography,
 } from "../../../components/library/mui"
 import { toCapitalizedWords } from "../../../strings/transform"
-import { getTextContrast } from "../../../color/getTextContrast"
+import { getTextContrast } from "../../../color/get-text-contrast"
 
 function ColorCard({
     color,

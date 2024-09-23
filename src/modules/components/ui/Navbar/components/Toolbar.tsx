@@ -1,3 +1,7 @@
+import Link from "next/link"
+import React from "react"
+import { signOut, useSession } from "next-auth/react"
+import { black as blackText } from "@/styles/colors/_exports.module.scss"
 import {
     MuiBox,
     MuiIconButton,
@@ -7,11 +11,6 @@ import {
     MuiToolbar,
     MuiTypography,
 } from "@/modules/components/library/mui"
-import Link from "next/link"
-import React from "react"
-import { black as blackText } from "@/styles/colors/_exports.module.scss"
-import { signOut, useSession } from "next-auth/react"
-
 import LogoSvg from "../../Logo/Logo"
 import LinkItems from "./LinkItems"
 import LinkItem from "./LinkItem"

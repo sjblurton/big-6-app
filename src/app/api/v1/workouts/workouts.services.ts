@@ -1,5 +1,5 @@
-import GetWorkoutData from "@/modules/database/workouts/read/getWorkoutData"
-import { NextRequest } from "next/server"
+import { type NextRequest } from "next/server"
+import GetWorkoutData from "@/modules/database/workouts/read/get-workout-data"
 
 export class WorkoutsService {
     request: NextRequest

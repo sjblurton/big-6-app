@@ -1,7 +1,6 @@
 "use client"
 
 import { usePathname } from "next/navigation"
-
 import Link from "next/link"
 import {
     MuiBottomNavigation,
@@ -15,7 +14,7 @@ import {
     MuiClipboardIcon,
     MuiHomeIcon,
     MuiTimerIcon,
-} from "../../library/mui/muiIcons"
+} from "../../library/mui/mui-icons"
 import * as styles from "./BottomNavigation.module.scss"
 
 const navigation = [

@@ -1,20 +1,19 @@
 import type { Meta, StoryObj } from "@storybook/react"
-
-import { disableControlsOnly } from "@/modules/storybook/argTypes/disableArgs"
-import { WorkoutData } from "@/modules/model/api/routes/workouts-id/outputs/workoutDataSchemas"
-import { PropsWithChildren } from "react"
+import { type PropsWithChildren } from "react"
 import {
     Title,
     Subtitle,
     Description,
     Source,
     DocsContainer,
-    DocsContainerProps,
+    type DocsContainerProps,
     Primary,
 } from "@storybook/blocks"
-import { WorkoutIds } from "@/modules/model/api/routes/shared/workoutIds"
 import { faker } from "@faker-js/faker"
+import { disableControlsOnly } from "@/modules/storybook/argTypes/disable-args"
+import { type WorkoutData } from "@/modules/model/api/routes/workouts-id/outputs/workout-data-schemas"
 import { TIME_MILLISECONDS } from "@/modules/time/constants"
+import { type WorkoutIds } from "@/modules/model/api/routes/shared/workout-ids"
 import LineChart from "./LineChart"
 
 function generateMockWorkoutData({

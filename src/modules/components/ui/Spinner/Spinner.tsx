@@ -2,8 +2,8 @@
 
 import Circle from "../../assets/Circle/Circle"
 import useIncrementalValue, {
-    UseIncrementalValueSpeed,
-} from "./hooks/useIncrementalValue"
+    type UseIncrementalValueSpeed,
+} from "./hooks/use-incremental-value"
 
 type Props = {
     speed: UseIncrementalValueSpeed

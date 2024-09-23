@@ -1,8 +1,8 @@
 import bridges from "./bridges"
 import handstands from "./handstands"
-import pullUps from "./pullUps"
-import pushUps from "./pushUps"
-import legRaises from "./legRaises"
+import pullUps from "./pull-ups"
+import pushUps from "./push-ups"
+import legRaises from "./leg-raises"
 import squats from "./squats"
 
 const allInstructions = [

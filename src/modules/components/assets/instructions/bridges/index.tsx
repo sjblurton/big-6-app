@@ -1,3 +1,4 @@
+import { type LevelInstructionImages } from "../types"
 import L1pos from "./level1/pos"
 import L1neg from "./level1/neg"
 import L2pos from "./level2/pos"
@@ -18,7 +19,6 @@ import L9pos from "./level9/pos"
 import L9neg from "./level9/neg"
 import L10pos from "./level10/pos"
 import L10neg from "./level10/neg"
-import { LevelInstructionImages } from "../types"
 
 export const bridgesInstructionImages: LevelInstructionImages = {
     level1: {

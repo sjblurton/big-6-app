@@ -1,13 +1,12 @@
 import type { Meta, StoryObj } from "@storybook/react"
-
-import { PropsWithChildren } from "react"
+import { type PropsWithChildren } from "react"
 import {
     Title,
     Subtitle,
     Description,
     Source,
     DocsContainer,
-    DocsContainerProps,
+    type DocsContainerProps,
 } from "@storybook/blocks"
 import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport"
 import BottomNavigation from "./BottomNavigation"

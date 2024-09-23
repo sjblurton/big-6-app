@@ -1,7 +1,7 @@
-import { WORKOUT_IDS } from "@/modules/model/api/routes/shared/workoutIds"
 import { levelArray } from "@/modules/model/api/routes/instructions-id-level/constants/levels"
-import { InstructionParams } from "@/modules/ParseInstructions/ParseInstructions"
+import { type InstructionParams } from "@/modules/ParseInstructions/ParseInstructions"
 import { MuiGrid } from "@/modules/components/library/mui"
+import { WORKOUT_IDS } from "@/modules/model/api/routes/shared/workout-ids"
 import DropdownLinks from "./DropdownLinks/DropdownLinks"
 
 function InstructionsDropdownTitle({

@@ -1,4 +1,4 @@
-import { WorkoutInstruction } from "@/modules/model/api/routes/instructions-id/outputs/workoutInstructionsSchema"
+import { type WorkoutInstruction } from "@/modules/model/api/routes/instructions-id/outputs/workout-instructions-schema"
 
 const bridges: WorkoutInstruction[] = [
     {

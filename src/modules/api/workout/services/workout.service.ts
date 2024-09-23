@@ -1,10 +1,10 @@
+import { type NextRequest } from "next/server"
 import {
-    WorkoutIds,
+    type WorkoutIds,
     workoutIdsSchema,
 } from "@/modules/model/api/routes/workouts/inputs/inputs"
-import { limitBySchema } from "@/modules/model/api/routes/workouts-id/inputs/querySchema"
-import { NextRequest } from "next/server"
-import GetWorkoutData from "@/modules/database/workouts/read/getWorkoutData"
+import { limitBySchema } from "@/modules/model/api/routes/workouts-id/inputs/query-schema"
+import GetWorkoutData from "@/modules/database/workouts/read/get-workout-data"
 import { ApiBadRequestError } from "../../error-handler/errors/api.error.bad-request"
 
 export class WorkoutService {

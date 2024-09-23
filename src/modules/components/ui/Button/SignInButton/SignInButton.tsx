@@ -1,8 +1,8 @@
 "use client"
 
-import { MuiButton } from "@/modules/components/library/mui"
-import { MuiGoogleIcon } from "@/modules/components/library/mui/muiIcons"
 import { signIn } from "next-auth/react"
+import { MuiButton } from "@/modules/components/library/mui"
+import { MuiGoogleIcon } from "@/modules/components/library/mui/mui-icons"
 
 function SignInButton() {
     return (

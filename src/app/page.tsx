@@ -1,15 +1,14 @@
 import { getServerSession } from "next-auth"
+import type { Metadata } from "next"
 import {
     MuiContainer,
     MuiGrid,
     MuiTypography,
 } from "@/modules/components/library/mui"
-
-import type { Metadata } from "next"
 import SignInButton from "@/modules/components/ui/Button/SignInButton/SignInButton"
 import SignOutButton from "@/modules/components/ui/Button/SignOutButton/SignOutButton"
-import { createMetadata } from "@/modules/seo/createMetadata"
-import authOptions from "./api/auth/authOptions"
+import { createMetadata } from "@/modules/seo/create-metadata"
+import authOptions from "./api/auth/auth-options"
 import InstructionsOverviewCardList from "./components/InstructionsOverviewCardList/InstructionsOverviewCardList"
 
 export const metadata: Metadata = createMetadata({

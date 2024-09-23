@@ -1,8 +1,8 @@
 "use client"
 
-import { MuiButton } from "@/modules/components/library/mui"
-import { MuiLogoutIcon } from "@/modules/components/library/mui/muiIcons"
 import { signOut } from "next-auth/react"
+import { MuiButton } from "@/modules/components/library/mui"
+import { MuiLogoutIcon } from "@/modules/components/library/mui/mui-icons"
 
 function SignOutButton() {
     return (

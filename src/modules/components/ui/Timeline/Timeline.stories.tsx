@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react"
-
 import { faker } from "@faker-js/faker"
-import { WORKOUT_IDS } from "@/modules/model/api/routes/shared/workoutIds"
+import { WORKOUT_IDS } from "@/modules/model/api/routes/shared/workout-ids"
 import Timeline from "./Timeline"
 
 const today = new Date().getTime()

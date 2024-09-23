@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from "next/server"
+import { type NextRequest, NextResponse } from "next/server"
 import ErrorHandler from "@/modules/api/error-handler/ErrorHandler"
 import WorkoutsController from "@/app/api/v1/workouts/workouts.controller"
 import WorkoutController from "@/modules/api/workout/controller/workout.controller"

@@ -1,10 +1,9 @@
 "server only"
 
 import { headers } from "next/headers"
-
-import { workoutsSchema } from "../model/api/routes/workouts/outputs/workoutsDataSchemas"
-import { workoutSchema } from "../model/api/routes/workouts-id/outputs/workoutDataSchemas"
-import { WorkoutIds } from "../model/api/routes/shared/workoutIds"
+import { workoutsSchema } from "../model/api/routes/workouts/outputs/workouts-data-schemas"
+import { workoutSchema } from "../model/api/routes/workouts-id/outputs/workout-data-schemas"
+import { type WorkoutIds } from "../model/api/routes/shared/workout-ids"
 import ParseInstructions from "../ParseInstructions/ParseInstructions"
 
 export const fetchWorkouts = async () => {

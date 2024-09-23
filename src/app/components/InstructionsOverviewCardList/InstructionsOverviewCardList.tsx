@@ -1,6 +1,6 @@
-import { MuiGrid } from "@/modules/components/library/mui"
-import { WORKOUT_ID_LIST } from "@/modules/model/api/routes/shared/workoutIds"
 import React from "react"
+import { MuiGrid } from "@/modules/components/library/mui"
+import { WORKOUT_ID_LIST } from "@/modules/model/api/routes/shared/workout-ids"
 import InstructionsOverviewCard from "../InstructionsOverviewCard/InstructionsOverviewCard"
 
 function InstructionsOverviewCardList() {

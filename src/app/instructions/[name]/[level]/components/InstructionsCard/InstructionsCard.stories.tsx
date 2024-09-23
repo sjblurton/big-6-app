@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react"
-import pushUps from "@/modules/model/api/routes/instructions-id/data/pushUps"
+import pushUps from "@/modules/model/api/routes/instructions-id/data/push-ups"
 import squats from "@/modules/model/api/routes/instructions-id/data/squats"
-import pullUps from "@/modules/model/api/routes/instructions-id/data/pullUps"
+import pullUps from "@/modules/model/api/routes/instructions-id/data/pull-ups"
 import InstructionsCard from "./InstructionsCard"
 
 const pushUp6 = pushUps.filter(({ level: levelNumber }) => levelNumber === 6)[0]

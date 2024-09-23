@@ -1,103 +1,26 @@
 {
     "extends": [
-        "next/core-web-vitals",
-        "plugin:@typescript-eslint/recommended",
-        "plugin:react/recommended",
+        "./src/modules/eslint/best-practices",
+        "./src/modules/eslint/comments",
+        "./src/modules/eslint/errors",
+        "./src/modules/eslint/es6",
+        "./src/modules/eslint/imports",
+        "./src/modules/eslint/jest",
+        "./src/modules/eslint/next",
+        "./src/modules/eslint/react",
+        "./src/modules/eslint/storybook",
+        "./src/modules/eslint/stylistic",
+        "./src/modules/eslint/tanstack-query",
+        "./src/modules/eslint/typescript",
+        "./src/modules/eslint/unicorn",
+        "./src/modules/eslint/variables",
         "plugin:jsx-a11y/recommended",
-        "prettier",
-        "plugin:storybook/recommended",
-        "plugin:@tanstack/eslint-plugin-query/recommended",
-        "plugin:mdx/recommended"
+        "prettier"
     ],
-    "env": {
-        "jest/globals": true
-    },
-    "overrides": [
-        {
-            "files": ["**.test.*"],
-            "extends": ["eslint:recommended", "plugin:react/recommended"],
-            "rules": {
-                "react/react-in-jsx-scope": "off"
-            }
-        },
-        {
-            "files": ["*.js,*.jsx"],
-            "extends": ["plugin:storybook/recommended"],
-            "rules": {
-                "import/no-extraneous-dependencies": "off"
-            }
-        },
-        {
-            "files": ["*.mdx"],
-            "extends": "plugin:mdx/recommended",
-            "rules": {
-                "react/jsx-filename-extension": "off"
-            }
-        },
-        {
-            "files": ["*.stories.ts,*.stories.tsx"],
-            "rules": {
-                "import/no-extraneous-dependencies": "off"
-            }
-        }
-    ],
-    "parser": "@typescript-eslint/parser",
-    "plugins": [
-        "@tanstack/query",
-        "import",
-        "jsx-a11y",
-        "react",
-        "react-hooks",
-        "@typescript-eslint",
-        "jest"
-    ],
-    "rules": {
-        "@typescript-eslint/no-explicit-any": "error",
-        "@tanstack/query/exhaustive-deps": "error",
-        "import/no-extraneous-dependencies": [
-            "error",
-            {
-                "devDependencies": true
-            }
-        ],
-        "@tanstack/query/stable-query-client": "error",
-        "@typescript-eslint/no-unused-vars": [
-            "error",
-            {
-                "argsIgnorePattern": "^_"
-            }
-        ],
-        "import/extensions": [
-            "error",
-            "ignorePackages",
-            {
-                "js": "never",
-                "jsx": "never",
-                "ts": "never",
-                "tsx": "never"
-            }
-        ],
-        "jest/no-disabled-tests": "error",
-        "jest/no-focused-tests": "error",
-        "jest/no-identical-title": "error",
-        "jest/prefer-to-have-length": "error",
-        "jest/valid-expect": "error",
-        "no-console": "error",
-        "no-throw-literal": "error",
-        "react-hooks/exhaustive-deps": "warn",
-        "react-hooks/rules-of-hooks": "error",
-        "react/jsx-filename-extension": [
-            1,
-            {
-                "extensions": [".tsx"]
-            }
-        ],
-        "react/react-in-jsx-scope": "off",
-        "quotes": ["error", "double"],
-        "semi": ["error", "never"],
-        "camelcase": "error",
-        "no-multiple-empty-lines": "error",
-        "no-plusplus": "error",
-        "no-duplicate-imports": "error"
-    }
+    "plugins": ["jsx-a11y"],
+    "ignorePatterns": [
+        "src/modules/mockServiceWorker/mockServiceWorker.js",
+        "src/modules/components/assets/instructions/types.ts",
+        "src/modules/model/api/routes/instructions-id/constants/workoutOverviewDescriptions.ts"
+    ]
 }

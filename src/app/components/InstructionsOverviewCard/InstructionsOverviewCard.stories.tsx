@@ -1,15 +1,14 @@
 import type { Meta, StoryObj } from "@storybook/react"
-
-import { WORKOUT_ID_LIST } from "@/modules/model/api/routes/shared/workoutIds"
-import { PropsWithChildren } from "react"
+import { type PropsWithChildren } from "react"
 import {
     Title,
     Subtitle,
     Description,
     Source,
     DocsContainer,
-    DocsContainerProps,
+    type DocsContainerProps,
 } from "@storybook/blocks"
+import { WORKOUT_ID_LIST } from "@/modules/model/api/routes/shared/workout-ids"
 import InstructionsOverviewCard from "./InstructionsOverviewCard"
 
 /**

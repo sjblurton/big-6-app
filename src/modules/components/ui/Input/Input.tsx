@@ -1,5 +1,4 @@
-import { FieldValues, Path, useFormContext } from "react-hook-form"
-
+import { type FieldValues, type Path, useFormContext } from "react-hook-form"
 import get from "lodash.get"
 import { MuiTextField } from "../../library/mui/inputs"
 

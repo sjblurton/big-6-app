@@ -1,6 +1,6 @@
-import { ErrorResponse } from "@/modules/model/api/routes/shared/outputs/responseSchema"
 import { NextResponse } from "next/server"
-import { HTTP_ERROR_CODES, HttpCode } from "../errors/api.error.base"
+import { type ErrorResponse } from "@/modules/model/api/routes/shared/outputs/response-schema"
+import { HTTP_ERROR_CODES, type HttpCode } from "../errors/api.error.base"
 
 export class ErrorResponses {
     static respondToClient(

@@ -1,5 +1,5 @@
 import { z } from "zod"
-import { WORKOUT_ID_LIST } from "../../shared/workoutIds"
+import { WORKOUT_ID_LIST } from "../../shared/workout-ids"
 
 export const workoutIdsSchema = z.enum(WORKOUT_ID_LIST)
 

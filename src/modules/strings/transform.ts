@@ -1,17 +1,20 @@
 import {
     levelArray,
-    LevelPath,
+    type LevelPath,
 } from "../model/api/routes/instructions-id-level/constants/levels"
 import {
     WORKOUT_ID_LIST,
-    WorkoutIds,
-} from "../model/api/routes/shared/workoutIds"
+    type WorkoutIds,
+} from "../model/api/routes/shared/workout-ids"
 
 export function toKebabCase(str: string) {
     return str
         .trim()
-        .replace(/([a-z])([A-Z])/g, "$1-$2")
-        .replace(/([A-Z])([A-Z][a-z])/g, "$1-$2")
+        .replace(/(?<lower>[a-z])(?<upper>[A-Z])/g, "$<lower>-$<upper>")
+        .replace(
+            /(?<upper>[A-Z])(?<nextUpper>[A-Z][a-z])/g,
+            "$<upper>-$<nextUpper>"
+        )
         .replace(/\s+/g, "-")
         .toLowerCase()
 }

@@ -1,5 +1,5 @@
-import { WORKOUT_ID_LIST } from "@/modules/model/api/routes/shared/workoutIds"
-import { mockWorkout } from "@/modules/model/api/routes/workouts-id/mockData/workoutMock"
+import { mockWorkout } from "@/modules/model/api/routes/workouts-id/mockData/workout-mock"
+import { WORKOUT_ID_LIST } from "@/modules/model/api/routes/shared/workout-ids"
 
 class LatestService {
     static async getLatest() {

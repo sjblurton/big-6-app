@@ -1,5 +1,5 @@
-import { NextRequest, NextResponse } from "next/server"
-import { WorkoutIds } from "@/modules/model/api/routes/workouts/inputs/inputs"
+import { type NextRequest, NextResponse } from "next/server"
+import { type WorkoutIds } from "@/modules/model/api/routes/workouts/inputs/inputs"
 import { WorkoutService } from "../services/workout.service"
 
 class WorkoutController {

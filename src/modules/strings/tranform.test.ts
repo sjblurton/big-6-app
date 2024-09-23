@@ -1,18 +1,18 @@
 import {
+    levelArray,
+    type LevelPath,
+} from "../model/api/routes/instructions-id-level/constants/levels"
+import {
+    WORKOUT_ID_LIST,
+    type WorkoutIds,
+} from "../model/api/routes/shared/workout-ids"
+import {
     pathLevelToNumber,
     pathLevelToTitleString,
     toCapitalizedWords,
     toKebabCase,
     workoutIdToTitleString,
 } from "./transform"
-import {
-    levelArray,
-    LevelPath,
-} from "../model/api/routes/instructions-id-level/constants/levels"
-import {
-    WORKOUT_ID_LIST,
-    WorkoutIds,
-} from "../model/api/routes/shared/workoutIds"
 
 describe("toKebabCase", () => {
     it("converts camelCase to kebab-case", () => {

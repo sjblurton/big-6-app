@@ -1,4 +1,4 @@
-import { ZodError, ZodIssue } from "zod"
+import { ZodError, type ZodIssue } from "zod"
 import ErrorHandler from "./ErrorHandler"
 import { HTTP_ERROR_CODES } from "./errors/api.error.base"
 import { ApiBadRequestError } from "./errors/api.error.bad-request"

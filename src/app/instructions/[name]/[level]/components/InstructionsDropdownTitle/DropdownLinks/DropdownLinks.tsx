@@ -8,7 +8,7 @@ import {
     MuiButtonGroup,
     MuiTypography,
 } from "@/modules/components/library/mui"
-import { MuiArrowDropDownIcon } from "@/modules/components/library/mui/muiIcons"
+import { MuiArrowDropDownIcon } from "@/modules/components/library/mui/mui-icons"
 import Popper from "./Popper/Popper"
 
 type Props = {
@@ -20,13 +20,13 @@ function DropdownLinks({ options, defaultIndex, ...rest }: Props) {
     const [open, setOpen] = useState(false)
     const anchorRef = useRef<HTMLDivElement>(null)
     const [selectedIndex, setSelectedIndex] = useState(defaultIndex)
-    const { push } = useRouter()
+    const router = useRouter()
 
     const handleMenuItemClick = (
         _event: React.MouseEvent<HTMLLIElement, MouseEvent>,
         index: number
     ) => {
-        push(options[index].href)
+        router.push(options[index].href)
         setSelectedIndex(index)
         setOpen(false)
     }

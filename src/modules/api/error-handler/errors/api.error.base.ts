@@ -33,7 +33,7 @@ export abstract class ApiBaseError extends Error {
 
     public readonly response?: Response
 
-    public readonly cause: unknown | undefined
+    public readonly cause: unknown
 
     constructor({
         description,

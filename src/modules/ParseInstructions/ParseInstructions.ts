@@ -1,16 +1,15 @@
-import { WorkoutOverview } from "@/modules/model/api/routes/instructions-id/outputs/workoutInstructionsSchema"
-import workoutInstructions, {
-    Instruction,
-} from "@/modules/model/api/routes/instructions-id/data"
 import { z } from "zod"
-import {
-    WorkoutIds,
-    WORKOUT_ID_LIST,
-} from "@/modules/model/api/routes/shared/workoutIds"
-
+import { type WorkoutOverview } from "@/modules/model/api/routes/instructions-id/outputs/workout-instructions-schema"
+import workoutInstructions, {
+    type Instruction,
+} from "@/modules/model/api/routes/instructions-id/data"
 import { pathLevelToNumber } from "@/modules/strings/transform"
 import { levelArray } from "@/modules/model/api/routes/instructions-id-level/constants/levels"
 import { workoutOverviewDescriptions } from "@/modules/model/api/routes/instructions-id/constants/workoutOverviewDescriptions"
+import {
+    type WorkoutIds,
+    WORKOUT_ID_LIST,
+} from "@/modules/model/api/routes/shared/workout-ids"
 
 const paramsSchema = z.object({
     level: z.enum(levelArray),

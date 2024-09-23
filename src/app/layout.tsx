@@ -5,7 +5,6 @@ import "../styles/base/global.scss"
 import "../styles/main.scss"
 
 import { Inter } from "next/font/google"
-
 import Navbar from "@/modules/components/ui/Navbar/Navbar"
 import Providers from "@/modules/components/Providers/Providers"
 import BottomNavigation from "@/modules/components/ui/BottomNavigation/BottomNavigation"

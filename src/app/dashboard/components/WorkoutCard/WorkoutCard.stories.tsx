@@ -1,10 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react"
-
-import { mockExampleWorkout } from "@/modules/model/api/routes/workouts/mockData/workoutsMock"
-import { disableArg } from "@/modules/storybook/argTypes/disableArgs"
-import { WorkoutData } from "@/modules/model/api/routes/workouts-id/outputs/workoutDataSchemas"
-import { workoutIdsSchema } from "@/modules/model/api/routes/workouts/inputs/inputs"
-import { PropsWithChildren } from "react"
+import { type PropsWithChildren } from "react"
 import {
     Title,
     Subtitle,
@@ -14,8 +9,12 @@ import {
     Primary,
     Controls,
     DocsContainer,
-    DocsContainerProps,
+    type DocsContainerProps,
 } from "@storybook/blocks"
+import { mockExampleWorkout } from "@/modules/model/api/routes/workouts/mockData/workouts-mock"
+import { disableArg } from "@/modules/storybook/argTypes/disable-args"
+import { type WorkoutData } from "@/modules/model/api/routes/workouts-id/outputs/workout-data-schemas"
+import { workoutIdsSchema } from "@/modules/model/api/routes/workouts/inputs/inputs"
 import WorkoutCard from "./WorkoutCard"
 
 type Args = {

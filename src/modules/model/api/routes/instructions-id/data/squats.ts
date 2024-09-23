@@ -1,4 +1,4 @@
-import { WorkoutInstruction } from "../outputs/workoutInstructionsSchema"
+import { type WorkoutInstruction } from "../outputs/workout-instructions-schema"
 
 const squats: WorkoutInstruction[] = [
     {

@@ -1,6 +1,5 @@
-import { NextRequest } from "next/server"
+import { type NextRequest } from "next/server"
 import ErrorHandler from "@/modules/api/error-handler/ErrorHandler"
-
 import WorkoutsController from "@/app/api/v1/workouts/workouts.controller"
 
 export async function GET(request: NextRequest) {

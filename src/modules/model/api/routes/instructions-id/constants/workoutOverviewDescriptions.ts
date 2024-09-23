@@ -1,10 +1,10 @@
 import { bridgesOverview } from "@/modules/model/api/routes/instructions-id/data/bridges"
 import { handstandOverview } from "@/modules/model/api/routes/instructions-id/data/handstands"
 import { legRaisesOverview } from "@/modules/model/api/routes/instructions-id/data/legRaises"
-import { pullUpsOverview } from "@/modules/model/api/routes/instructions-id/data/pullUps"
-import { pushUpOverview } from "@/modules/model/api/routes/instructions-id/data/pushUps"
+import { pullUpsOverview } from "@/modules/model/api/routes/instructions-id/data/pull-ups"
+import { pushUpOverview } from "@/modules/model/api/routes/instructions-id/data/push-ups"
 import { squatOverview } from "@/modules/model/api/routes/instructions-id/data/squats"
-import { WORKOUT_IDS, WorkoutIds } from "../../shared/workoutIds"
+import { WORKOUT_IDS, type WorkoutIds } from "../../shared/workout-ids"
 
 export const workoutOverviewDescriptions: {
     [key in WorkoutIds]: {
