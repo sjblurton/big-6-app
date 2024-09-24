@@ -25,6 +25,7 @@ const muiTheme = createTheme({
         },
     },
     typography: {
+        fontFamily: '"Inter", sans-serif',
         h1: {
             fontStyle: "normal",
             fontWeight: "bold",
