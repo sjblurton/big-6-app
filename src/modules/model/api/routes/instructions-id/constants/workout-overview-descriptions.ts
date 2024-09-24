@@ -1,6 +1,6 @@
 import { bridgesOverview } from "@/modules/model/api/routes/instructions-id/data/bridges"
 import { handstandOverview } from "@/modules/model/api/routes/instructions-id/data/handstands"
-import { legRaisesOverview } from "@/modules/model/api/routes/instructions-id/data/legRaises"
+import { legRaisesOverview } from "@/modules/model/api/routes/instructions-id/data/leg-raises"
 import { pullUpsOverview } from "@/modules/model/api/routes/instructions-id/data/pull-ups"
 import { pushUpOverview } from "@/modules/model/api/routes/instructions-id/data/push-ups"
 import { squatOverview } from "@/modules/model/api/routes/instructions-id/data/squats"

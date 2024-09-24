@@ -18,9 +18,5 @@
         "prettier"
     ],
     "plugins": ["jsx-a11y"],
-    "ignorePatterns": [
-        "src/modules/mockServiceWorker/mockServiceWorker.js",
-        "src/modules/components/assets/instructions/types.ts",
-        "src/modules/model/api/routes/instructions-id/constants/workoutOverviewDescriptions.ts"
-    ]
+    "ignorePatterns": ["src/modules/mockServiceWorker/mockServiceWorker.js"]
 }

@@ -5,7 +5,7 @@ import workoutInstructions, {
 } from "@/modules/model/api/routes/instructions-id/data"
 import { pathLevelToNumber } from "@/modules/strings/transform"
 import { levelArray } from "@/modules/model/api/routes/instructions-id-level/constants/levels"
-import { workoutOverviewDescriptions } from "@/modules/model/api/routes/instructions-id/constants/workoutOverviewDescriptions"
+import { workoutOverviewDescriptions } from "@/modules/model/api/routes/instructions-id/constants/workout-overview-descriptions"
 import {
     type WorkoutIds,
     WORKOUT_ID_LIST,
