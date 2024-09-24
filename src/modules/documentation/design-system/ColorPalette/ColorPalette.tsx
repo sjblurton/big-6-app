@@ -7,7 +7,7 @@ import {
     MuiTypography,
 } from "../../../components/library/mui"
 import { toCapitalizedWords } from "../../../strings/transform"
-import { getTextContrast } from "../../../color/get-text-contrast"
+import { getTextContrast } from "../../../colors/get-text-contrast"
 
 function ColorCard({
     color,
