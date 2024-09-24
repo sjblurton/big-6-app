@@ -28,7 +28,11 @@ function Navbar({ routes }: NavbarProps) {
 
     return (
         <SessionProvider>
-            <MuiAppBar color="primary" position="static">
+            <MuiAppBar
+                color="primary"
+                position="static"
+                sx={{ display: pathname.includes("studio") ? "none" : "flex" }}
+            >
                 <MuiContainer maxWidth="md">
                     <Toolbar
                         routes={routes}

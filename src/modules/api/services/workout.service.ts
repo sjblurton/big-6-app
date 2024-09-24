@@ -5,7 +5,7 @@ import {
 } from "@/modules/model/api/routes/workouts/inputs/inputs"
 import { limitBySchema } from "@/modules/model/api/routes/workouts-id/inputs/query-schema"
 import GetWorkoutData from "@/modules/database/workouts/read/get-workout-data"
-import { ApiBadRequestError } from "../../error-handler/errors/api.error.bad-request"
+import { ApiBadRequestError } from "../error-handler/errors/api.error.bad-request"
 
 export class WorkoutService {
     private workoutId: WorkoutIds
