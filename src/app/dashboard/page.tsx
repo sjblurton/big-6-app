@@ -8,7 +8,7 @@ import WorkoutCardList from "./components/WorkoutCardList/WorkoutCardList"
 
 export const metadata: Metadata = createMetadata({
     title: "Dashboard",
-    description: "Dashboard for the Big 6 Callisthenics Training Log Book.",
+    description: "Dashboard for the Big 6 Calisthenics Training Log Book.",
 })
 
 async function Dashboard() {
