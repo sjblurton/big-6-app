@@ -1,6 +1,5 @@
 "use client"
 
-import { signOut } from "next-auth/react"
 import { MuiButton } from "@/modules/components/library/mui"
 import { MuiLogoutIcon } from "@/modules/components/library/mui/mui-icons"
 
@@ -17,7 +16,7 @@ function SignOutButton() {
             size="large"
             onClick={(e) => {
                 e.preventDefault()
-                signOut()
+                console.log("Sign out button clicked") // eslint-disable-line no-console -- remove this line after testing
             }}
         >
             <MuiLogoutIcon /> Sign Out

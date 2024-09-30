@@ -1,11 +1,10 @@
-import { type NextRequest } from "next/server"
+import { NextResponse } from "next/server"
 import ErrorHandler from "@/modules/api/error-handler/ErrorHandler"
-import WorkoutsController from "@/app/api/v1/workouts/workouts.controller"
+import { mockLatestWorkoutData } from "@/modules/model/api/routes/workouts-id/mockData/workout-mock"
 
-export async function GET(request: NextRequest) {
+export async function GET() {
     try {
-        const controller = new WorkoutsController(request)
-        return await controller.GET()
+        return NextResponse.json(mockLatestWorkoutData)
     } catch (error) {
         const errorHandler = new ErrorHandler(error)
         const errorResponse = errorHandler.handle()

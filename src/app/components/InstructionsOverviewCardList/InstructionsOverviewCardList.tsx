@@ -1,12 +1,17 @@
 import React from "react"
 import { MuiGrid } from "@/modules/components/library/mui"
-import { WORKOUT_ID_LIST } from "@/modules/model/api/routes/shared/workout-ids"
+import { SanityClient } from "@/modules/sanity/lib/client"
+import { TIME_SECONDS } from "@/modules/time/constants"
 import InstructionsOverviewCard from "../InstructionsOverviewCard/InstructionsOverviewCard"
 
-function InstructionsOverviewCardList() {
-    return WORKOUT_ID_LIST.map((workoutId) => (
-        <MuiGrid item key={workoutId} xs={12}>
-            <InstructionsOverviewCard workoutId={workoutId} />
+export const revalidate = TIME_SECONDS.ONE_DAY
+
+async function InstructionsOverviewCardList() {
+    const exerciseIds = await SanityClient.getExerciseIds()
+
+    return exerciseIds.map(({ _id }) => (
+        <MuiGrid item key={_id} xs={12}>
+            <InstructionsOverviewCard workoutId={_id} />
         </MuiGrid>
     ))
 }

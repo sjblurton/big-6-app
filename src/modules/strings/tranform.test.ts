@@ -1,17 +1,9 @@
-import {
-    levelArray,
-    type LevelPath,
-} from "../model/api/routes/instructions-id-level/constants/levels"
-import {
-    WORKOUT_ID_LIST,
-    type WorkoutIds,
-} from "../model/api/routes/shared/workout-ids"
+import { LEVELS, type LevelPath } from "./levels"
 import {
     pathLevelToNumber,
     pathLevelToTitleString,
     toCapitalizedWords,
     toKebabCase,
-    workoutIdToTitleString,
 } from "./transform"
 
 describe("toKebabCase", () => {
@@ -120,13 +112,13 @@ describe("pathLevelToNumber", () => {
 
         invalidLevels.forEach((invalidLevel) => {
             expect(() => pathLevelToNumber(invalidLevel as LevelPath)).toThrow(
-                `Invalid level: ${invalidLevel}`
+                `Invalid level format`
             )
         })
     })
 
     it("handles levelArray entries correctly", () => {
-        levelArray.forEach((level) => {
+        LEVELS.forEach((level) => {
             const number = parseInt(level.split("-")[1], 10)
             expect(pathLevelToNumber(level)).toBe(number)
         })
@@ -159,40 +151,8 @@ describe("pathLevelToTitleString", () => {
 
         invalidLevels.forEach((invalidLevel) => {
             expect(() => pathLevelToNumber(invalidLevel as LevelPath)).toThrow(
-                `Invalid level: ${invalidLevel}`
+                `Invalid level format`
             )
-        })
-    })
-})
-
-describe("workoutIdToTitleString", () => {
-    it("correctly converts workout IDs to title case strings", () => {
-        expect(workoutIdToTitleString("pull-ups")).toBe("Pull Ups")
-        expect(workoutIdToTitleString("push-ups")).toBe("Push Ups")
-        expect(workoutIdToTitleString("bridges")).toBe("Bridges")
-    })
-
-    it("throws an error for invalid workout IDs", () => {
-        const invalidIds = ["unknown-workout", "pull-up", "push_ups"]
-
-        invalidIds.forEach((invalidId) => {
-            expect(() =>
-                workoutIdToTitleString(invalidId as WorkoutIds)
-            ).toThrow(`Invalid workout id: ${invalidId}`)
-        })
-    })
-
-    it("handles valid IDs with various formats correctly", () => {
-        WORKOUT_ID_LIST.forEach((id) => {
-            const expectedTitle = id
-                .split("-")
-                .map(
-                    (word) =>
-                        word.charAt(0).toUpperCase() +
-                        word.slice(1).toLowerCase()
-                )
-                .join(" ")
-            expect(workoutIdToTitleString(id)).toBe(expectedTitle)
         })
     })
 })

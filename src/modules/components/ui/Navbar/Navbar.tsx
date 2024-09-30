@@ -2,7 +2,6 @@
 
 import React from "react"
 import { usePathname } from "next/navigation"
-import { SessionProvider } from "next-auth/react"
 import { MuiAppBar, MuiContainer } from "../../library/mui"
 import Toolbar from "./components/Toolbar"
 
@@ -27,23 +26,21 @@ function Navbar({ routes }: NavbarProps) {
     }
 
     return (
-        <SessionProvider>
-            <MuiAppBar
-                color="primary"
-                position="static"
-                sx={{ display: pathname.includes("studio") ? "none" : "flex" }}
-            >
-                <MuiContainer maxWidth="md">
-                    <Toolbar
-                        routes={routes}
-                        activePage={activePage}
-                        anchorElNav={anchorElNav}
-                        handleCloseNavMenu={handleCloseNavMenu}
-                        handleOpenNavMenu={handleOpenNavMenu}
-                    />
-                </MuiContainer>
-            </MuiAppBar>
-        </SessionProvider>
+        <MuiAppBar
+            color="primary"
+            position="static"
+            sx={{ display: pathname.includes("studio") ? "none" : "flex" }}
+        >
+            <MuiContainer maxWidth="md">
+                <Toolbar
+                    routes={routes}
+                    activePage={activePage}
+                    anchorElNav={anchorElNav}
+                    handleCloseNavMenu={handleCloseNavMenu}
+                    handleOpenNavMenu={handleOpenNavMenu}
+                />
+            </MuiContainer>
+        </MuiAppBar>
     )
 }
 

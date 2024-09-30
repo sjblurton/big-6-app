@@ -35,6 +35,9 @@ function BottomNavigation() {
                 left: 0,
                 right: 0,
                 justifyContent: "center",
+                display: pathname.startsWith("/studio")
+                    ? "none"
+                    : "inline-flex",
             }}
             elevation={3}
         >

@@ -1,15 +1,13 @@
-import { type NextRequest } from "next/server"
-import { type WorkoutIds } from "@/modules/model/api/routes/workouts/inputs/inputs"
+import { NextResponse } from "next/server"
 import ErrorHandler from "@/modules/api/error-handler/ErrorHandler"
-import WorkoutController from "@/modules/api/workout/controller/workout.controller"
+// import { type WorkoutIds } from "@/modules/model/api/routes/workouts-id/outputs/workout-data-schemas"
+import { mockPullUpWorkoutData } from "@/modules/model/api/routes/workouts-id/mockData/workout-mock"
 
-export async function GET(
-    request: NextRequest,
-    { params }: { params: { id: WorkoutIds } }
-) {
+export async function GET() {
+    // request: NextRequest,
+    // { params }: { params: { id: WorkoutIds } }
     try {
-        const controller = new WorkoutController(request, params)
-        return await controller.GET()
+        return NextResponse.json(mockPullUpWorkoutData)
     } catch (error) {
         const errorHandler = new ErrorHandler(error)
         const errorResponse = errorHandler.handle()

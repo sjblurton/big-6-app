@@ -1,4 +1,3 @@
-import { getServerSession } from "next-auth"
 import type { Metadata } from "next"
 import {
     MuiContainer,
@@ -6,20 +5,16 @@ import {
     MuiTypography,
 } from "@/modules/components/library/mui"
 import SignInButton from "@/modules/components/ui/Button/SignInButton/SignInButton"
-import SignOutButton from "@/modules/components/ui/Button/SignOutButton/SignOutButton"
 import { createMetadata } from "@/modules/seo/create-metadata"
-import authOptions from "./api/auth/auth-options"
 import InstructionsOverviewCardList from "./components/InstructionsOverviewCardList/InstructionsOverviewCardList"
 
 export const metadata: Metadata = createMetadata({
     title: "Home",
     description:
-        "Progressive callisthenics app based on the book; Convict Conditioning. Track your progress, and keep your focus as you master the Big 6 callisthenics movements!",
+        "Progressive calisthenics app based on the book; Convict Conditioning. Track your progress, and keep your focus as you master the Big 6 callisthenics movements!",
 })
 
 async function HomePage() {
-    const session = await getServerSession(authOptions)
-
     return (
         <MuiContainer maxWidth="md" disableGutters>
             <MuiGrid container gap={4} mt={4} mb={6}>
@@ -30,19 +25,19 @@ async function HomePage() {
                 </MuiGrid>
                 <MuiGrid item xs={11} m="auto">
                     <MuiTypography variant="h3" component="h2">
-                        Callisthenics Training Log Book
+                        Calisthenics Training Log Book
                     </MuiTypography>
                 </MuiGrid>
                 <MuiGrid item xs={11} m="auto">
                     <MuiTypography>
-                        Welcome to the Big 6 Callisthenics Training Log Book.
+                        Welcome to the Big 6 Calisthenics Training Log Book.
                         This app is based on the book; Convict Conditioning.
                         Track your progress, and keep your focus as you master
-                        the Big 6 callisthenics movements!
+                        the Big 6 calisthenics movements!
                     </MuiTypography>
                 </MuiGrid>
                 <MuiGrid item xs={11} m="auto">
-                    {!session ? <SignInButton /> : <SignOutButton />}
+                    <SignInButton />
                 </MuiGrid>
                 <InstructionsOverviewCardList />
             </MuiGrid>

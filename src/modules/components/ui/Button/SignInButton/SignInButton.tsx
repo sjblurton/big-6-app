@@ -1,6 +1,5 @@
 "use client"
 
-import { signIn } from "next-auth/react"
 import { MuiButton } from "@/modules/components/library/mui"
 import { MuiGoogleIcon } from "@/modules/components/library/mui/mui-icons"
 
@@ -17,9 +16,7 @@ function SignInButton() {
             size="large"
             onClick={(e) => {
                 e.preventDefault()
-                signIn("google", {
-                    callbackUrl: "/dashboard",
-                })
+                console.log("Sign in button clicked") // eslint-disable-line no-console -- remove this line after testing
             }}
         >
             <MuiGoogleIcon /> Google Login

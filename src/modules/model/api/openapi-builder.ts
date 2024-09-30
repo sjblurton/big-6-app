@@ -1,8 +1,6 @@
 import { OpenApiBuilder } from "openapi3-ts/oas31"
 import workoutsPath from "./routes/workouts/open-api-route-workouts"
 import workoutPath from "./routes/workouts-id/open-api-route-workout"
-import workoutsInstructionsPathId from "./routes/instructions-id/open-api-route-workouts-instructions"
-import workoutsInstructionsPathIdLevel from "./routes/instructions-id-level/open-api-route-workouts-instructions"
 
 function buildOas() {
     const test = OpenApiBuilder.create()
@@ -28,11 +26,6 @@ function buildOas() {
         })
         .addPath("/api/v1/workouts", workoutsPath)
         .addPath("/api/v1/workouts/{id}", workoutPath)
-        .addPath("/api/v1/docs/instructions/{id}", workoutsInstructionsPathId)
-        .addPath(
-            "/api/v1/docs/instructions/{id}/{level}",
-            workoutsInstructionsPathIdLevel
-        )
 
     return test.getSpec()
 }

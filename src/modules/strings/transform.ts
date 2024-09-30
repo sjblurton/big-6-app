@@ -1,11 +1,4 @@
-import {
-    levelArray,
-    type LevelPath,
-} from "../model/api/routes/instructions-id-level/constants/levels"
-import {
-    WORKOUT_ID_LIST,
-    type WorkoutIds,
-} from "../model/api/routes/shared/workout-ids"
+import { LEVELS, type LevelPath } from "./levels"
 
 export function toKebabCase(str: string) {
     return str
@@ -30,23 +23,17 @@ export function toCapitalizedWords(name: string) {
     return words.map((word) => capitalize(word.toLowerCase())).join(" ")
 }
 
-export function pathLevelToNumber(level: LevelPath) {
-    if (!levelArray.includes(level)) {
-        throw new Error(`Invalid level: ${level}`)
+export function pathLevelToNumber(level: string): number {
+    const levelMatch = /^level-(?<levelNumber>10|[1-9])$/.exec(level)
+    if (!levelMatch) {
+        throw new Error("Invalid level format")
     }
-    return parseInt(level.split("-")[1], 10)
+    return parseInt(levelMatch[1], 10)
 }
 
 export function pathLevelToTitleString(level: LevelPath) {
-    if (!levelArray.includes(level)) {
+    if (!LEVELS.includes(level)) {
         throw new Error(`Invalid level: ${level}`)
     }
     return level.split("-").map(capitalize).join(" ")
-}
-
-export function workoutIdToTitleString(id: WorkoutIds) {
-    if (!WORKOUT_ID_LIST.includes(id)) {
-        throw new Error(`Invalid workout id: ${id}`)
-    }
-    return id.split("-").map(toCapitalizedWords).join(" ")
 }

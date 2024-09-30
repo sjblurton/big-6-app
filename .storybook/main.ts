@@ -1,7 +1,7 @@
 import type { StorybookConfig } from "@storybook/nextjs"
 
 const config: StorybookConfig = {
-    stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
+    stories: ["../src/**/*.stories.tsx"],
     addons: [
         "@storybook/addon-links",
         "@storybook/addon-essentials",
@@ -11,11 +11,11 @@ const config: StorybookConfig = {
         "storybook-addon-theme-provider",
         "storybook-addon-mock",
         "@storybook/addon-viewport",
+        "storybook-addon-fetch-mock",
         {
             name: "@storybook/addon-styling-webpack",
             options: {
                 rules: [
-                    // Replaces any existing Sass rules with given rules
                     {
                         test: /\.s[ac]ss$/i,
                         use: [
@@ -41,6 +41,6 @@ const config: StorybookConfig = {
         name: "@storybook/nextjs",
         options: {},
     },
-    staticDirs: ["../src/modules/mockServiceWorker"],
+    staticDirs: ["../src/modules/mockServiceWorker", "../public"],
 }
 export default config

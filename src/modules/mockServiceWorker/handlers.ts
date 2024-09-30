@@ -1,3 +1,3 @@
-import { instructionsOverviewHandlers } from "./handlers/instructions-overview"
+import { sanityMocks } from "./handlers/sanity"
 
-export const handlers = [...instructionsOverviewHandlers]
+export const handlers = [...sanityMocks]

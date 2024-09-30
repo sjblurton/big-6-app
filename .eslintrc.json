@@ -14,6 +14,7 @@
         "./src/modules/eslint/typescript",
         "./src/modules/eslint/unicorn",
         "./src/modules/eslint/variables",
+        "./src/modules/eslint/async",
         "plugin:jsx-a11y/recommended",
         "prettier"
     ],

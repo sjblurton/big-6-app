@@ -1,5 +1,6 @@
 import React from "react"
 import Link from "next/link"
+import Image from "next/image"
 import * as flex from "@/styles/utilityClasses/flex.module.scss"
 import * as margin from "@/styles/utilityClasses/margin.module.scss"
 import * as padding from "@/styles/utilityClasses/padding.module.scss"
@@ -7,25 +8,26 @@ import * as shadow from "@/styles/utilityClasses/box-shadow.module.scss"
 import * as width from "@/styles/utilityClasses/width.module.scss"
 import * as background from "@/styles/utilityClasses/background.module.scss"
 import * as colors from "@/styles/colors/_exports.module.scss"
-import { type WorkoutIds } from "@/modules/model/api/routes/workouts/inputs/inputs"
-import ParseInstructions from "@/modules/ParseInstructions/ParseInstructions"
-import { workoutSvgs } from "@/modules/components/assets/workouts"
 import { MuiTypography } from "@/modules/components/library/mui"
 import * as borderRadius from "@/styles/utilityClasses/border-radius.module.scss"
 import * as maxWidth from "@/styles/utilityClasses/max-width.module.scss"
+import { TIME_SECONDS } from "@/modules/time/constants"
+import { urlFor } from "@/modules/sanity/lib/image"
+import { SanityClient } from "@/modules/sanity/lib/client"
+import { type WorkoutIds } from "@/modules/model/api/routes/workouts-id/outputs/workout-data-schemas"
 import ListItem from "./components/ListItem"
 
 type InstructionsOverviewCardProps = {
     workoutId: WorkoutIds
 }
 
+export const revalidate = TIME_SECONDS.ONE_DAY
+
 async function InstructionsOverviewCard({
     workoutId,
 }: InstructionsOverviewCardProps) {
-    const { component: TitleSvg, title } = workoutSvgs[workoutId]
-    const { description, levelNames } = new ParseInstructions({
-        name: workoutId,
-    }).parseWorkoutOverview()
+    const { name, image, description, steps } =
+        await SanityClient.getExerciseDocument(workoutId)
 
     return (
         <article
@@ -45,7 +47,12 @@ async function InstructionsOverviewCard({
             <div
                 className={[padding.p2, maxWidth.medium, margin.auto].join(" ")}
             >
-                <TitleSvg height={150} />
+                <Image
+                    height={150}
+                    width={150}
+                    src={urlFor(image).height(150).width(150).toString()}
+                    alt={`A person performing the level ten version of the exercise ${name}`}
+                />
             </div>
 
             <MuiTypography
@@ -54,18 +61,18 @@ async function InstructionsOverviewCard({
                 component="h2"
                 width="100%"
             >
-                <Link href={`instructions/${workoutId}/level-1`}>{title}</Link>
+                <Link href={`instructions/${workoutId}/level-1`}>{name}</Link>
             </MuiTypography>
 
             <MuiTypography style={{ flex: 2 }}>{description}</MuiTypography>
 
             <ul style={{ width: "100%" }}>
-                {levelNames.map((content, i) => (
+                {steps.map(({ _key, name: stepName, step }) => (
                     <ListItem
-                        key={content}
+                        key={_key}
                         workoutId={workoutId}
-                        content={content}
-                        level={i + 1}
+                        content={stepName}
+                        level={step}
                     />
                 ))}
             </ul>

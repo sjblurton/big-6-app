@@ -3,8 +3,11 @@ import {
     commonOpenApiErrorResponses,
     errorResponseOpenApiSchema,
 } from "../shared/open-api-error-response"
-import { WORKOUT_ID_LIST } from "../shared/workout-ids"
 import { workoutOpenApiSchema } from "./outputs/response-schema"
+import {
+    openApiWorkoutIdsSchema,
+    workoutIds,
+} from "./outputs/workout-data-schemas"
 
 const workoutPath: PathItemObject = {
     get: {
@@ -15,11 +18,9 @@ const workoutPath: PathItemObject = {
             {
                 name: "id",
                 in: "path",
-                description: `The Id of workouts to get. Available Ids are: ${WORKOUT_ID_LIST.join(", ")}`,
+                description: `The Id of workouts to get. Available Ids are: ${Object.values(workoutIds).join(", ")}`,
                 required: true,
-                schema: {
-                    type: "string",
-                },
+                schema: openApiWorkoutIdsSchema,
             },
             {
                 name: "limitBy",

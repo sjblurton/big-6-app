@@ -1,6 +1,9 @@
 import React from "react"
 import { render, screen } from "@testing-library/react"
-import { type WorkoutData } from "@/modules/model/api/routes/workouts-id/outputs/workout-data-schemas"
+import {
+    workoutIds,
+    type WorkoutData,
+} from "@/modules/model/api/routes/workouts-id/outputs/workout-data-schemas"
 import LineChart from "./LineChart"
 
 const ONE_WEEK = 604800000
@@ -11,7 +14,7 @@ const mockLineChartArgs: WorkoutData[] = [
         date: new Date().getTime(),
         reps: [30, 23, 28],
         level: 5,
-        workoutId: "push-ups",
+        workoutId: workoutIds.pushUpId,
         comments: "comments",
         user: "user@email.co.uk",
     },
@@ -20,7 +23,7 @@ const mockLineChartArgs: WorkoutData[] = [
         date: new Date().getTime() - ONE_WEEK,
         reps: [30, 27, 22],
         level: 5,
-        workoutId: "push-ups",
+        workoutId: workoutIds.pushUpId,
         comments: "comments",
         user: "user@email.co.uk",
     },
@@ -29,7 +32,7 @@ const mockLineChartArgs: WorkoutData[] = [
         date: new Date().getTime() - ONE_WEEK * 2,
         reps: [25, 22, 18],
         level: 5,
-        workoutId: "push-ups",
+        workoutId: workoutIds.pushUpId,
         comments: "comments",
         user: "user@email.co.uk",
     },
@@ -38,7 +41,7 @@ const mockLineChartArgs: WorkoutData[] = [
         date: new Date().getTime() - ONE_WEEK * 3,
         reps: [20, 18, 15],
         level: 5,
-        workoutId: "push-ups",
+        workoutId: workoutIds.pushUpId,
         comments: "comments",
         user: "user@email.co.uk",
     },

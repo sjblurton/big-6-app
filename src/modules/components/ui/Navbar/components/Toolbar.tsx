@@ -1,13 +1,10 @@
 import Link from "next/link"
 import React from "react"
-import { signOut, useSession } from "next-auth/react"
-import { black as blackText } from "@/styles/colors/_exports.module.scss"
 import {
     MuiBox,
     MuiIconButton,
     MuiMenu,
     MuiMenuIcon,
-    MuiMenuItem,
     MuiToolbar,
     MuiTypography,
 } from "@/modules/components/library/mui"
@@ -35,8 +32,6 @@ function Toolbar({
     anchorElNav,
     handleCloseNavMenu,
 }: Props) {
-    const { data: session } = useSession()
-
     return (
         <MuiToolbar disableGutters>
             <MuiBox
@@ -93,28 +88,13 @@ function Toolbar({
                         routes={routes}
                         handleCloseNavMenu={handleCloseNavMenu}
                     />
-                    {session ? (
-                        <LinkItem
-                            path="/dashboard"
-                            name="Dashboard"
-                            data-testid="nav-menu-link-dashboard"
-                            handleCloseNavMenu={handleCloseNavMenu}
-                        />
-                    ) : null}
-                    {session ? (
-                        <MuiMenuItem
-                            onClick={(e) => {
-                                e.preventDefault()
-                                signOut({ callbackUrl: "/" })
-                                handleCloseNavMenu()
-                            }}
-                            data-testid="nav-menu-link-logout"
-                        >
-                            <MuiTypography textAlign="center" color={blackText}>
-                                logout
-                            </MuiTypography>
-                        </MuiMenuItem>
-                    ) : null}
+
+                    <LinkItem
+                        path="/dashboard"
+                        name="Dashboard"
+                        data-testid="nav-menu-link-dashboard"
+                        handleCloseNavMenu={handleCloseNavMenu}
+                    />
                 </MuiMenu>
             </MuiBox>
         </MuiToolbar>

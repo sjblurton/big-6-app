@@ -19,7 +19,7 @@ import {
     DocsContainerProps,
 } from "@storybook/blocks"
 
-initialize()
+initialize({ onUnhandledRequest: "warn" })
 
 const preview: Preview = {
     tags: ["autodocs"],
