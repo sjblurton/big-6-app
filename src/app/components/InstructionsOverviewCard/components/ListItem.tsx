@@ -1,15 +1,15 @@
 import Link from "next/link"
 import { MuiTypography } from "@/modules/components/library/mui"
 import * as colors from "@/styles/colors/_exports.module.scss"
-import { type WorkoutIds } from "@/modules/model/api/routes/workouts-id/outputs/workout-data-schemas"
+import { type WorkoutTypeIds } from "@/modules/model/api/routes/shared/schemas/workout-data-schemas"
 
 type Props = {
-    workoutId: WorkoutIds
+    type: WorkoutTypeIds
     content: string
     level: number
 }
 
-function ListItem({ workoutId, content, level }: Props) {
+function ListItem({ type, content, level }: Props) {
     return (
         <li>
             <MuiTypography
@@ -19,7 +19,7 @@ function ListItem({ workoutId, content, level }: Props) {
                 width="100%"
                 color={colors.secondaryLight}
             >
-                <Link href={`instructions/${workoutId}/level-${level}`}>
+                <Link href={`instructions/${type}/level-${level}`}>
                     {content}
                 </Link>
             </MuiTypography>

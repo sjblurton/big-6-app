@@ -7,7 +7,7 @@ export async function GET() {
     // request: NextRequest,
     // { params }: { params: { id: WorkoutIds } }
     try {
-        return NextResponse.json(mockPullUpWorkoutData[0])
+        return NextResponse.json(mockPullUpWorkoutData)
     } catch (error) {
         const errorHandler = new ErrorHandler(error)
         const errorResponse = errorHandler.handle()

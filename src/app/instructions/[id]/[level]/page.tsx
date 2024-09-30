@@ -16,13 +16,13 @@ import { urlFor } from "@/modules/sanity/lib/image"
 import { pathLevelToNumber } from "@/modules/strings/transform"
 import { levelUrls } from "@/modules/model/urls/levels"
 import { SanityClient } from "@/modules/sanity/lib/client"
-import { type WorkoutIds } from "@/modules/model/api/routes/workouts-id/outputs/workout-data-schemas"
+import { type WorkoutTypeIds } from "@/modules/model/api/routes/shared/schemas/workout-data-schemas"
 import Progressions from "./components/Progressions/Progressions"
 import InstructionsCard from "./components/InstructionsCard/InstructionsCard"
 import InstructionsDropdownTitle from "./components/InstructionsDropdownTitle/InstructionsDropdownTitle"
 
 type Params = {
-    id: WorkoutIds
+    id: WorkoutTypeIds
     level: string
 }
 

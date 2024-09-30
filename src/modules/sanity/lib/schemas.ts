@@ -1,5 +1,5 @@
 import { z } from "zod"
-import { workoutIdsUnion } from "@/modules/model/api/routes/workouts-id/outputs/workout-data-schemas"
+import { workoutTypeIdsUnion } from "@/modules/model/api/routes/shared/schemas/workout-data-schemas"
 
 const imageSchema = z.object({
     _type: z.literal("image"),
@@ -45,7 +45,7 @@ export type ExerciseStep = z.infer<typeof stepSchema>
 
 export const exerciseDocumentSchema = z.object({
     _createdAt: z.string(),
-    _id: workoutIdsUnion,
+    _id: workoutTypeIdsUnion,
     _rev: z.string(),
     _type: z.literal("exercise-document"),
     _updatedAt: z.string(),
@@ -58,7 +58,7 @@ export const exerciseDocumentSchema = z.object({
 export const cmsExerciseSchema = exerciseDocumentSchema.array()
 
 export const cmsExerciseIdsSchema = z.array(
-    z.object({ _id: workoutIdsUnion, name: z.string() })
+    z.object({ _id: workoutTypeIdsUnion, name: z.string() })
 )
 
 export const exerciseStepDataSchema = z.object({

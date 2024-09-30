@@ -1,6 +1,8 @@
 import { OpenApiBuilder } from "openapi3-ts/oas31"
 import workoutsPath from "./routes/workouts/open-api-route-workouts"
-import workoutPath from "./routes/workouts-id/open-api-route-workout"
+import workoutTypeIdPath from "./routes/workouts-type-id/open-api-route-workout"
+import workoutTypesPath from "./routes/workout-types/open-api-route-workout-type"
+import workoutIdPath from "./routes/workouts-id/open-api-route-workout"
 
 function buildOas() {
     const test = OpenApiBuilder.create()
@@ -25,7 +27,9 @@ function buildOas() {
             description: "Workout tracking",
         })
         .addPath("/api/v1/workouts", workoutsPath)
-        .addPath("/api/v1/workouts/{id}", workoutPath)
+        .addPath("/api/v1/workouts/types/{id}", workoutTypeIdPath)
+        .addPath("/api/v1/workouts/{id}", workoutIdPath)
+        .addPath("/api/v1/workouts/types", workoutTypesPath)
 
     return test.getSpec()
 }

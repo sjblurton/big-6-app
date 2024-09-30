@@ -1,8 +1,12 @@
 import { MuiGrid } from "@/modules/components/library/mui"
-import { mockLatestWorkoutData } from "@/modules/model/api/routes/workouts-id/mockData/workout-mock"
+import { type WorkoutData } from "@/modules/model/api/routes/shared/schemas/workout-data-schemas"
 import WorkoutCard from "../WorkoutCard/WorkoutCard"
 
 async function WorkoutCardList() {
+    const mockLatestWorkoutData: WorkoutData[] = await fetch(
+        "http://localhost:3000/api/v1/workouts"
+    ).then((res) => res.json())
+
     return (
         <MuiGrid container mt={3} mb={1}>
             {mockLatestWorkoutData.map((workout) => (

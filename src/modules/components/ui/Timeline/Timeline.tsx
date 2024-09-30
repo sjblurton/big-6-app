@@ -2,7 +2,8 @@ import React from "react"
 import { DateTime } from "luxon"
 import Link from "next/link"
 import * as flex from "@/styles/utilityClasses/flex.module.scss"
-import { type WorkoutIds } from "@/modules/model/api/routes/shared/workout-ids"
+import { type WorkoutData } from "@/modules/model/api/routes/shared/schemas/workout-data-schemas"
+import { SanityClient } from "@/modules/sanity/lib/client"
 import {
     MuiTimeline,
     MuiTimelineConnector,
@@ -15,23 +16,39 @@ import {
 import { MuiButton, MuiTypography } from "../../library/mui"
 
 type TimelineProps = {
-    data: {
-        time: number
-        workoutId: WorkoutIds
-        title: string
-        level: number
-        description: string
-        key: string
-    }[]
+    data: WorkoutData[]
 }
 
-function Timeline({ data }: TimelineProps) {
+interface TimelineData extends WorkoutData {
+    title: string
+    description: string
+}
+
+async function getTimelineData(data: WorkoutData[]): Promise<TimelineData[]> {
+    const timelineData = await Promise.all(
+        data.map(async (workout) => {
+            const sanityData = await SanityClient.getExerciseDocument(
+                workout.type
+            )
+            return {
+                ...workout,
+                title: sanityData.name,
+                description: `${sanityData.steps[workout.level - 1].name}`,
+            }
+        })
+    )
+    return timelineData
+}
+
+async function Timeline({ data }: TimelineProps) {
+    const timeline = await getTimelineData(data)
+
     return (
-        <>
+        <div>
             <MuiTimeline>
-                {data.map(
-                    ({ level, description, time, title, key, workoutId }) => (
-                        <Link href={`/dashboard/${workoutId}/${key}`} key={key}>
+                {timeline.map(
+                    ({ level, date, key, type, title, description }) => (
+                        <Link href={`/dashboard/${type}/${key}`} key={key}>
                             <MuiTimelineItem
                                 sx={{
                                     "&::before": {
@@ -41,7 +58,7 @@ function Timeline({ data }: TimelineProps) {
                             >
                                 <MuiTimelineOppositeContent>
                                     {DateTime.fromMillis(
-                                        time
+                                        date
                                     ).toRelativeCalendar()}
                                 </MuiTimelineOppositeContent>
                                 <MuiTimelineSeparator>
@@ -69,7 +86,7 @@ function Timeline({ data }: TimelineProps) {
                     More
                 </MuiButton>
             </div>
-        </>
+        </div>
     )
 }
 

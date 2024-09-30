@@ -3,30 +3,19 @@ import {
     commonOpenApiErrorResponses,
     errorResponseOpenApiSchema,
 } from "../shared/open-api-error-response"
-import { workoutOpenApiSchema } from "../shared/outputs/response-schema"
+import { workoutTypesOpenApiSchema } from "../shared/outputs/response-schema"
 
-const workoutIdPath: PathItemObject = {
+const workoutTypesPath: PathItemObject = {
     get: {
         tags: ["workouts"],
-        summary: "Get the workout document for the id",
+        summary: "Get all most workout types (names and Ids)",
         description: "",
-        parameters: [
-            {
-                name: "id",
-                in: "path",
-                description: "The document id",
-                required: true,
-                schema: {
-                    type: "string",
-                },
-            },
-        ],
         responses: {
             200: {
                 description: "Successful response",
                 content: {
                     "application/json": {
-                        schema: workoutOpenApiSchema,
+                        schema: workoutTypesOpenApiSchema,
                     },
                 },
             },
@@ -43,4 +32,4 @@ const workoutIdPath: PathItemObject = {
     },
 }
 
-export default workoutIdPath
+export default workoutTypesPath

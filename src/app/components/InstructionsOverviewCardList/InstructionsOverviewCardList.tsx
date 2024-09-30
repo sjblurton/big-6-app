@@ -11,7 +11,7 @@ async function InstructionsOverviewCardList() {
 
     return exerciseIds.map(({ _id }) => (
         <MuiGrid item key={_id} xs={12}>
-            <InstructionsOverviewCard workoutId={_id} />
+            <InstructionsOverviewCard type={_id} />
         </MuiGrid>
     ))
 }

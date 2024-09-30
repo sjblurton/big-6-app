@@ -1,5 +1,5 @@
 import { createClient, groq } from "next-sanity"
-import { type WorkoutIds } from "@/modules/model/api/routes/workouts-id/outputs/workout-data-schemas"
+import { type WorkoutTypeIds } from "@/modules/model/api/routes/shared/schemas/workout-data-schemas"
 import { apiVersion, dataset, projectId } from "../env"
 import {
     cmsExerciseIdsSchema,
@@ -26,7 +26,7 @@ export class SanityClient {
         )
     }
 
-    static async getExerciseDocument(id: WorkoutIds) {
+    static async getExerciseDocument(id: WorkoutTypeIds) {
         return exerciseDocumentSchema.parseAsync(
             await staticClient.fetch(groq`
             *[_type == 'exercise-document' && _id == "${id}"][0]
@@ -34,7 +34,7 @@ export class SanityClient {
         )
     }
 
-    static async getExerciseStep(id: WorkoutIds, step: number) {
+    static async getExerciseStep(id: WorkoutTypeIds, step: number) {
         return exerciseStepDataSchema.parseAsync(
             await staticClient.fetch(groq`
             *[_type == 'exercise-document' && _id == "${id}"][0]{

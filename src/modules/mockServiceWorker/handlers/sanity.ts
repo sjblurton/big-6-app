@@ -1,5 +1,5 @@
 import { http, HttpResponse } from "msw"
-import { workoutIds } from "@/modules/model/api/routes/workouts-id/outputs/workout-data-schemas"
+import { workoutTypes } from "@/modules/model/api/routes/shared/schemas/workout-data-schemas"
 import { sanityPullUpMock } from "../mocks/pull-up"
 
 export const sanityMocks = [
@@ -9,7 +9,7 @@ export const sanityMocks = [
             const url = new URL(request.url)
             const query = url.searchParams.get("query")
 
-            if (query?.includes(workoutIds.pullUpId)) {
+            if (query?.includes(workoutTypes.pullUp.id)) {
                 return HttpResponse.json({ ...sanityPullUpMock })
             }
             return new HttpResponse(null, { status: 404 })

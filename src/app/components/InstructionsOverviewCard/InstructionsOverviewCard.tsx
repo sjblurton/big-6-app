@@ -14,20 +14,20 @@ import * as maxWidth from "@/styles/utilityClasses/max-width.module.scss"
 import { TIME_SECONDS } from "@/modules/time/constants"
 import { urlFor } from "@/modules/sanity/lib/image"
 import { SanityClient } from "@/modules/sanity/lib/client"
-import { type WorkoutIds } from "@/modules/model/api/routes/workouts-id/outputs/workout-data-schemas"
+import { type WorkoutTypeIds } from "@/modules/model/api/routes/shared/schemas/workout-data-schemas"
 import ListItem from "./components/ListItem"
 
 type InstructionsOverviewCardProps = {
-    workoutId: WorkoutIds
+    type: WorkoutTypeIds
 }
 
 export const revalidate = TIME_SECONDS.ONE_DAY
 
 async function InstructionsOverviewCard({
-    workoutId,
+    type,
 }: InstructionsOverviewCardProps) {
     const { name, image, description, steps } =
-        await SanityClient.getExerciseDocument(workoutId)
+        await SanityClient.getExerciseDocument(type)
 
     return (
         <article
@@ -61,7 +61,7 @@ async function InstructionsOverviewCard({
                 component="h2"
                 width="100%"
             >
-                <Link href={`instructions/${workoutId}/level-1`}>{name}</Link>
+                <Link href={`instructions/${type}/level-1`}>{name}</Link>
             </MuiTypography>
 
             <MuiTypography style={{ flex: 2 }}>{description}</MuiTypography>
@@ -70,7 +70,7 @@ async function InstructionsOverviewCard({
                 {steps.map(({ _key, name: stepName, step }) => (
                     <ListItem
                         key={_key}
-                        workoutId={workoutId}
+                        type={type}
                         content={stepName}
                         level={step}
                     />

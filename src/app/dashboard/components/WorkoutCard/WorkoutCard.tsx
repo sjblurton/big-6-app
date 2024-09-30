@@ -4,7 +4,7 @@ import Image from "next/image"
 import { MuiTypography } from "@/modules/components/library/mui"
 import * as background from "@/styles/utilityClasses/background.module.scss"
 import * as boxShadow from "@/styles/utilityClasses/box-shadow.module.scss"
-import { type WorkoutData } from "@/modules/model/api/routes/workouts-id/outputs/workout-data-schemas"
+import { type WorkoutData } from "@/modules/model/api/routes/shared/schemas/workout-data-schemas"
 import ProgressBar from "@/modules/components/ui/ProgressBar/ProgressBar"
 import { SanityClient } from "@/modules/sanity/lib/client"
 import { urlFor } from "@/modules/sanity/lib/image"
@@ -14,11 +14,9 @@ type Props = {
     workout: WorkoutData
 }
 
-async function WorkoutCard({
-    workout: { date, level, reps, workoutId },
-}: Props) {
+async function WorkoutCard({ workout: { date, level, reps, type } }: Props) {
     const { image, step, name } = await SanityClient.getExerciseStep(
-        workoutId,
+        type,
         level
     )
 
@@ -37,7 +35,7 @@ async function WorkoutCard({
     const time = DateTime.fromMillis(date).toRelativeCalendar()
 
     return (
-        <Link href={`/dashboard/${workoutId}`} style={{ display: "contents" }}>
+        <Link href={`/dashboard/type/${type}`} style={{ display: "contents" }}>
             <article
                 className={`${card} ${background.light} ${boxShadow.subtle}`}
             >
