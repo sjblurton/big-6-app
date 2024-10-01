@@ -10,13 +10,13 @@
         ],
         "func-names": ["error", "as-needed"],
         "new-cap": ["error", { "capIsNew": false }],
-        "new-parens": "warn",
+        "new-parens": "error",
         "no-bitwise": "error",
-        "no-lonely-if": "warn",
+        "no-lonely-if": "error",
         "no-multi-assign": ["error"],
         "no-nested-ternary": "error",
         "no-unneeded-ternary": "error",
-        "prefer-object-spread": "warn",
+        "prefer-object-spread": "error",
         "quotes": ["error", "double"],
         "semi": ["error", "never"]
     }

@@ -36,6 +36,6 @@
         "prefer-named-capture-group": "error",
         "prefer-promise-reject-errors": ["error", { "allowEmptyReject": true }],
         "prefer-regex-literals": "error",
-        "yoda": "warn"
+        "yoda": "error"
     }
 }

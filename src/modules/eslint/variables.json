@@ -1,7 +1,7 @@
 {
     "rules": {
         "no-label-var": "error",
-        "no-undef-init": "warn",
+        "no-undef-init": "error",
         "no-unused-vars": [
             "error",
             {

@@ -7,18 +7,18 @@
     "extends": ["plugin:@typescript-eslint/recommended"],
     "rules": {
         "@typescript-eslint/consistent-type-exports": [
-            "warn",
+            "error",
             { "fixMixedExportsWithInlineTypeSpecifier": true }
         ],
         "@typescript-eslint/consistent-type-imports": [
-            "warn",
+            "error",
             {
                 "disallowTypeAnnotations": true,
                 "fixStyle": "inline-type-imports",
                 "prefer": "type-imports"
             }
         ],
-        "@typescript-eslint/method-signature-style": "warn",
+        "@typescript-eslint/method-signature-style": "error",
         "@typescript-eslint/naming-convention": [
             "error",
             {
@@ -35,9 +35,9 @@
                 "format": null
             }
         ],
-        "@typescript-eslint/no-redundant-type-constituents": "warn",
-        "@typescript-eslint/no-unnecessary-qualifier": "warn",
-        "@typescript-eslint/prefer-regexp-exec": "warn",
+        "@typescript-eslint/no-redundant-type-constituents": "error",
+        "@typescript-eslint/no-unnecessary-qualifier": "error",
+        "@typescript-eslint/prefer-regexp-exec": "error",
         "@typescript-eslint/require-array-sort-compare": [
             "error",
             { "ignoreStringArrays": true }
