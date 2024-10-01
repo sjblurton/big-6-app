@@ -8,7 +8,7 @@ import { Inter } from "next/font/google"
 import Navbar from "@/modules/components/ui/Navbar/Navbar"
 import Providers from "@/modules/components/Providers/Providers"
 import BottomNavigation from "@/modules/components/ui/BottomNavigation/BottomNavigation"
-import { workoutTypes } from "@/modules/model/api/routes/shared/schemas/workout-data-schemas"
+import { workoutTypes } from "@/modules/model/workout/workout-schemas"
 
 const inter = Inter({ subsets: ["latin"] })
 

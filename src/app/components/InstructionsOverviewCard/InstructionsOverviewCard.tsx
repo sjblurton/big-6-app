@@ -12,9 +12,9 @@ import { MuiTypography } from "@/modules/components/library/mui"
 import * as borderRadius from "@/styles/utilityClasses/border-radius.module.scss"
 import * as maxWidth from "@/styles/utilityClasses/max-width.module.scss"
 import { TIME_SECONDS } from "@/modules/time/constants"
-import { urlFor } from "@/modules/sanity/lib/image"
-import { SanityClient } from "@/modules/sanity/lib/client"
-import { type WorkoutTypeIds } from "@/modules/model/api/routes/shared/schemas/workout-data-schemas"
+import { urlFor } from "@/modules/cms/client/image"
+import { CmsClient } from "@/modules/cms/client/client"
+import { type WorkoutTypeIds } from "@/modules/model/workout/workout-schemas"
 import ListItem from "./components/ListItem"
 
 type InstructionsOverviewCardProps = {
@@ -27,7 +27,7 @@ async function InstructionsOverviewCard({
     type,
 }: InstructionsOverviewCardProps) {
     const { name, image, description, steps } =
-        await SanityClient.getExerciseDocument(type)
+        await CmsClient.getExerciseDocument(type)
 
     return (
         <article

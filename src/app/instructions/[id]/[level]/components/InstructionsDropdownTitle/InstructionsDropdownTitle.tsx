@@ -1,8 +1,8 @@
 import { MuiGrid } from "@/modules/components/library/mui"
 import { pathLevelToNumber } from "@/modules/strings/transform"
 import { levelUrls } from "@/modules/model/urls/levels"
-import { SanityClient } from "@/modules/sanity/lib/client"
-import { type WorkoutTypeIds } from "@/modules/model/api/routes/shared/schemas/workout-data-schemas"
+import { CmsClient } from "@/modules/cms/client/client"
+import { type WorkoutTypeIds } from "@/modules/model/workout/workout-schemas"
 import DropdownLinks from "./DropdownLinks/DropdownLinks"
 
 type Props = {
@@ -11,7 +11,7 @@ type Props = {
 }
 
 async function InstructionsDropdownTitle({ level, id }: Props) {
-    const exerciseIds = await SanityClient.getExerciseIds()
+    const exerciseIds = await CmsClient.getExerciseIds()
 
     return (
         <MuiGrid container justifyContent="center" gap={2}>

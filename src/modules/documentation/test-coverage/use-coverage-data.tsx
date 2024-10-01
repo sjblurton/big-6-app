@@ -4,7 +4,7 @@ import {
     testCoverageJsonSchema,
     type TestCoverageSummary,
     testCoverageSummarySchema,
-} from "@/modules/model/test-coverage/test-coverage-json-schema"
+} from "@/modules/documentation/test-coverage/test-coverage-json-schema"
 import coverage from "./coverage-summary.json"
 import { tableColumnNames } from "./constants"
 

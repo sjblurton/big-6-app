@@ -2,8 +2,8 @@ import React from "react"
 import { DateTime } from "luxon"
 import Link from "next/link"
 import * as flex from "@/styles/utilityClasses/flex.module.scss"
-import { type WorkoutData } from "@/modules/model/api/routes/shared/schemas/workout-data-schemas"
-import { SanityClient } from "@/modules/sanity/lib/client"
+import { type WorkoutData } from "@/modules/model/workout/workout-schemas"
+import { CmsClient } from "@/modules/cms/client/client"
 import {
     MuiTimeline,
     MuiTimelineConnector,
@@ -27,9 +27,7 @@ interface TimelineData extends WorkoutData {
 async function getTimelineData(data: WorkoutData[]): Promise<TimelineData[]> {
     const timelineData = await Promise.all(
         data.map(async (workout) => {
-            const sanityData = await SanityClient.getExerciseDocument(
-                workout.type
-            )
+            const sanityData = await CmsClient.getExerciseDocument(workout.type)
             return {
                 ...workout,
                 title: sanityData.name,
@@ -46,40 +44,33 @@ async function Timeline({ data }: TimelineProps) {
     return (
         <div>
             <MuiTimeline>
-                {timeline.map(
-                    ({ level, date, key, type, title, description }) => (
-                        <Link href={`/dashboard/${type}/${key}`} key={key}>
-                            <MuiTimelineItem
-                                sx={{
-                                    "&::before": {
-                                        content: "none",
-                                    },
-                                }}
-                            >
-                                <MuiTimelineOppositeContent>
-                                    {DateTime.fromMillis(
-                                        date
-                                    ).toRelativeCalendar()}
-                                </MuiTimelineOppositeContent>
-                                <MuiTimelineSeparator>
-                                    <MuiTimelineDot />
-                                    <MuiTimelineConnector />
-                                </MuiTimelineSeparator>
-                                <MuiTimelineContent>
-                                    <MuiTypography
-                                        variant="h6"
-                                        component="span"
-                                    >
-                                        {title}
-                                    </MuiTypography>
-                                    <MuiTypography>Level {level}</MuiTypography>
+                {timeline.map(({ level, date, key, title, description }) => (
+                    <Link href={`/dashboard/workouts/${key}`} key={key}>
+                        <MuiTimelineItem
+                            sx={{
+                                "&::before": {
+                                    content: "none",
+                                },
+                            }}
+                        >
+                            <MuiTimelineOppositeContent>
+                                {DateTime.fromMillis(date).toRelativeCalendar()}
+                            </MuiTimelineOppositeContent>
+                            <MuiTimelineSeparator>
+                                <MuiTimelineDot />
+                                <MuiTimelineConnector />
+                            </MuiTimelineSeparator>
+                            <MuiTimelineContent>
+                                <MuiTypography variant="h6" component="span">
+                                    {title}
+                                </MuiTypography>
+                                <MuiTypography>Level {level}</MuiTypography>
 
-                                    <MuiTypography>{description}</MuiTypography>
-                                </MuiTimelineContent>
-                            </MuiTimelineItem>
-                        </Link>
-                    )
-                )}
+                                <MuiTypography>{description}</MuiTypography>
+                            </MuiTimelineContent>
+                        </MuiTimelineItem>
+                    </Link>
+                ))}
             </MuiTimeline>
             <div className={flex.center}>
                 <MuiButton variant="contained" color="warning" size="medium">

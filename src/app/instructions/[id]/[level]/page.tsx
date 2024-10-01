@@ -12,11 +12,11 @@ import {
     MuiChevronLeftIcon,
     MuiChevronRightIcon,
 } from "@/modules/components/library/mui/mui-icons"
-import { urlFor } from "@/modules/sanity/lib/image"
+import { urlFor } from "@/modules/cms/client/image"
 import { pathLevelToNumber } from "@/modules/strings/transform"
 import { levelUrls } from "@/modules/model/urls/levels"
-import { SanityClient } from "@/modules/sanity/lib/client"
-import { type WorkoutTypeIds } from "@/modules/model/api/routes/shared/schemas/workout-data-schemas"
+import { CmsClient } from "@/modules/cms/client/client"
+import { type WorkoutTypeIds } from "@/modules/model/workout/workout-schemas"
 import Progressions from "./components/Progressions/Progressions"
 import InstructionsCard from "./components/InstructionsCard/InstructionsCard"
 import InstructionsDropdownTitle from "./components/InstructionsDropdownTitle/InstructionsDropdownTitle"
@@ -26,7 +26,7 @@ type Params = {
     level: string
 }
 
-const paths = (await SanityClient.getExerciseIds()).flatMap(({ _id }) =>
+const paths = (await CmsClient.getExerciseIds()).flatMap(({ _id }) =>
     levelUrls.map((level) => ({ params: { id: _id, level } }))
 )
 
@@ -40,10 +40,7 @@ export async function generateMetadata({
 }: {
     params: Params
 }): Promise<Metadata> {
-    const data = await SanityClient.getExerciseStep(
-        id,
-        pathLevelToNumber(level)
-    )
+    const data = await CmsClient.getExerciseStep(id, pathLevelToNumber(level))
     return createMetadata({
         title: `${data.name}`,
         description: `Instructions for the workout ${data.name} at level ${level} - ${data.name}.`,
@@ -65,7 +62,7 @@ async function WorkoutInstructionsPage({
             positiveImage,
             video,
         },
-    } = await SanityClient.getExerciseStep(id, pathLevelToNumber(level))
+    } = await CmsClient.getExerciseStep(id, pathLevelToNumber(level))
 
     return (
         <MuiContainer maxWidth="sm" disableGutters>

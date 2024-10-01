@@ -1,5 +1,5 @@
 import { MuiGrid, MuiTypography } from "@/modules/components/library/mui"
-import { type ExerciseStep } from "@/modules/sanity/lib/schemas"
+import { type ExerciseStep } from "@/modules/cms/client/schemas"
 
 function Progressions({ data }: { data: ExerciseStep["progressions"] }) {
     return (

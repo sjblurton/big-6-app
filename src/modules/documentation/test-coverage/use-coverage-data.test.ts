@@ -1,5 +1,5 @@
 import { renderHook } from "@testing-library/react"
-import { testCoverageSummarySchema } from "@/modules/model/test-coverage/test-coverage-json-schema"
+import { testCoverageSummarySchema } from "@/modules/documentation/test-coverage/test-coverage-json-schema"
 import useCoverageData from "./use-coverage-data"
 
 describe("useCoverageData", () => {

@@ -4,10 +4,10 @@ import Image from "next/image"
 import { MuiTypography } from "@/modules/components/library/mui"
 import * as background from "@/styles/utilityClasses/background.module.scss"
 import * as boxShadow from "@/styles/utilityClasses/box-shadow.module.scss"
-import { type WorkoutData } from "@/modules/model/api/routes/shared/schemas/workout-data-schemas"
+import { type WorkoutData } from "@/modules/model/workout/workout-schemas"
 import ProgressBar from "@/modules/components/ui/ProgressBar/ProgressBar"
-import { SanityClient } from "@/modules/sanity/lib/client"
-import { urlFor } from "@/modules/sanity/lib/image"
+import { CmsClient } from "@/modules/cms/client/client"
+import { urlFor } from "@/modules/cms/client/image"
 import { box, card, svg } from "./WorkoutCard.module.scss"
 
 type Props = {
@@ -15,10 +15,7 @@ type Props = {
 }
 
 async function WorkoutCard({ workout: { date, level, reps, type } }: Props) {
-    const { image, step, name } = await SanityClient.getExerciseStep(
-        type,
-        level
-    )
+    const { image, step, name } = await CmsClient.getExerciseStep(type, level)
 
     const stepProgression = step.progressions.find(
         (prog) => prog.stage === "Advanced"
@@ -35,7 +32,10 @@ async function WorkoutCard({ workout: { date, level, reps, type } }: Props) {
     const time = DateTime.fromMillis(date).toRelativeCalendar()
 
     return (
-        <Link href={`/dashboard/type/${type}`} style={{ display: "contents" }}>
+        <Link
+            href={`/dashboard/workouts/type/${type}`}
+            style={{ display: "contents" }}
+        >
             <article
                 className={`${card} ${background.light} ${boxShadow.subtle}`}
             >

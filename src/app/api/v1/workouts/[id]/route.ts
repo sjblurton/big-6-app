@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server"
-import ErrorHandler from "@/modules/api/error-handler/ErrorHandler"
 // import { type WorkoutIds } from "@/modules/model/api/routes/workouts-id/outputs/workout-data-schemas"
-import { mockPullUpWorkoutData } from "@/modules/model/api/routes/shared/mockData/workout-mock"
+import { mockPullUpWorkoutData } from "@/app/api/v1/workouts/shared/mockData/workout-mock"
+import ErrorHandler from "@/app/api/error-handler/ErrorHandler"
 
 export async function GET() {
     // request: NextRequest,
