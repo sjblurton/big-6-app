@@ -1,7 +1,8 @@
 import { ZodError, type ZodIssue } from "zod"
+
 import ErrorHandler from "./ErrorHandler"
-import { HTTP_ERROR_CODES } from "./errors/api.error.base"
 import { ApiBadRequestError } from "./errors/api.error.bad-request"
+import { HTTP_ERROR_CODES } from "./errors/api.error.base"
 import { ApiInternalServerError } from "./errors/api.error.internal-server"
 
 jest.mock("next/server", () => ({
@@ -13,7 +14,7 @@ jest.mock("next/server", () => ({
     },
 }))
 
-jest.mock("../../logger/logger", () => ({
+jest.mock("../../../modules/logger/logger", () => ({
     error: jest.fn(),
     info: jest.fn(),
 }))

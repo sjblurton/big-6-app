@@ -1,5 +1,6 @@
 import { extendApi, generateSchema } from "@anatine/zod-openapi"
 import { type ResponsesObject } from "openapi3-ts/oas31"
+
 import { errorResponseBodySchema } from "./outputs/response-schema"
 
 export const errorResponseOpenApiSchema = generateSchema(

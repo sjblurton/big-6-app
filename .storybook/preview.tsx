@@ -1,23 +1,24 @@
-import React, { PropsWithChildren } from "react"
-import type { Preview } from "@storybook/react"
-import MuiThemeProvider from "../src/modules/components/library/ThemeProvider/MuiThemeProvider"
-import "../src/styles/main.scss"
-import "../src/styles/base/reset.scss"
-import "../src/styles/base/global.scss"
-import { themes } from "@storybook/theming"
-import { mswLoader, initialize } from "msw-storybook-addon"
-import { handlers } from "../src/modules/mockServiceWorker/handlers"
 import {
-    Title,
-    Subtitle,
-    Description,
-    Source,
-    Stories,
-    Primary,
     Controls,
+    Description,
     DocsContainer,
     DocsContainerProps,
+    Primary,
+    Source,
+    Stories,
+    Subtitle,
+    Title,
 } from "@storybook/blocks"
+import type { Preview } from "@storybook/react"
+import { themes } from "@storybook/theming"
+import { initialize, mswLoader } from "msw-storybook-addon"
+import React, { PropsWithChildren } from "react"
+
+import MuiThemeProvider from "../src/modules/components/library/ThemeProvider/MuiThemeProvider"
+import { handlers } from "../src/modules/mockServiceWorker/handlers"
+import "../src/styles/base/global.scss"
+import "../src/styles/base/reset.scss"
+import "../src/styles/main.scss"
 
 initialize({ onUnhandledRequest: "warn" })
 

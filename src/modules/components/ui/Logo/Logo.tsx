@@ -1,4 +1,4 @@
-import { end, light, start, white, round } from "./logo.module.scss"
+import { end, light, round, start, white } from "./logo.module.scss"
 
 function LogoSvg() {
     return (

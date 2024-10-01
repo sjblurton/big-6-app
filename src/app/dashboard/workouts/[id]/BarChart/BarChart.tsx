@@ -1,9 +1,10 @@
+import { MuiBarChart } from "@/modules/components/library/mui/muix"
 import { secondaryLight } from "@/styles/colors/_exports.module.scss"
 import * as background from "@/styles/utilityClasses/background.module.scss"
+import * as radius from "@/styles/utilityClasses/border-radius.module.scss"
 import * as boxShadow from "@/styles/utilityClasses/box-shadow.module.scss"
 import * as width from "@/styles/utilityClasses/width.module.scss"
-import * as radius from "@/styles/utilityClasses/border-radius.module.scss"
-import { MuiBarChart } from "../../library/mui/muix"
+
 import { wrapper } from "./BarChart.module.scss"
 
 type Props = {

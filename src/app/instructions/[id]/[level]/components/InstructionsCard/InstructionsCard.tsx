@@ -1,10 +1,12 @@
 import Image from "next/image"
-import * as background from "@/styles/utilityClasses/background.module.scss"
-import * as boxShadow from "@/styles/utilityClasses/box-shadow.module.scss"
-import * as padding from "@/styles/utilityClasses/padding.module.scss"
-import * as flex from "@/styles/utilityClasses/flex.module.scss"
+
 import { MuiTypography } from "@/modules/components/library/mui"
+import * as background from "@/styles/utilityClasses/background.module.scss"
 import * as borderRadius from "@/styles/utilityClasses/border-radius.module.scss"
+import * as boxShadow from "@/styles/utilityClasses/box-shadow.module.scss"
+import * as flex from "@/styles/utilityClasses/flex.module.scss"
+import * as padding from "@/styles/utilityClasses/padding.module.scss"
+
 import * as styles from "./InstructionsCard.module.scss"
 
 function InstructionsCard({

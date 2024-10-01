@@ -1,4 +1,5 @@
 import { act, renderHook } from "@testing-library/react"
+
 import useIncrementalValue from "./use-incremental-value"
 
 const SPEED = { slow: 500, medium: 1000, fast: 2000 } as const

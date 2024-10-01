@@ -1,17 +1,19 @@
 "use client"
 
 import { DateTime } from "luxon"
-import * as background from "@/styles/utilityClasses/background.module.scss"
-import * as boxShadow from "@/styles/utilityClasses/box-shadow.module.scss"
-import * as width from "@/styles/utilityClasses/width.module.scss"
-import { secondaryLight } from "@/styles/colors/_exports.module.scss"
+
+import { MuiLineChart } from "@/modules/components/library/mui/muix"
 import {
     getExerciseNameById,
     type WorkoutData,
 } from "@/modules/model/workout/workout-schemas"
 import { toCapitalizedWords } from "@/modules/strings/transform"
+import { secondaryLight } from "@/styles/colors/_exports.module.scss"
+import * as background from "@/styles/utilityClasses/background.module.scss"
 import * as radius from "@/styles/utilityClasses/border-radius.module.scss"
-import { MuiLineChart } from "@/modules/components/library/mui/muix"
+import * as boxShadow from "@/styles/utilityClasses/box-shadow.module.scss"
+import * as width from "@/styles/utilityClasses/width.module.scss"
+
 import { wrapper } from "./LineChart.module.scss"
 
 type Props = {

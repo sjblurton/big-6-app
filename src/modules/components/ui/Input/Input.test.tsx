@@ -1,8 +1,10 @@
-import { render, screen, fireEvent, waitFor } from "@testing-library/react"
-import { z } from "zod"
+import { fireEvent, render, screen, waitFor } from "@testing-library/react"
 import { act } from "react"
-import FormProvider from "../../library/FormProvider/FormProvider"
+import { z } from "zod"
+
 import Input from "./Input"
+
+import FormProvider from "../../library/FormProvider/FormProvider"
 
 const schema = z.object({
     testField: z.string().min(1, "This field is required"),

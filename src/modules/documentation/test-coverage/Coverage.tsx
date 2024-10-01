@@ -21,8 +21,9 @@ import {
     bold as textBold,
     capitalize as textCapitalize,
 } from "@/styles/utilityClasses/typography.module.scss"
-import useCoverageData from "./use-coverage-data"
+
 import { tableColumnNames } from "./constants"
+import useCoverageData from "./use-coverage-data"
 
 function Coverage() {
     const data = useCoverageData()

@@ -1,8 +1,8 @@
 import {
+    API_ERROR_NAMES,
     ApiBaseError,
     type ErrorInputs,
     HTTP_ERROR_CODES,
-    API_ERROR_NAMES,
 } from "./api.error.base"
 
 export class ApiInternalServerError extends ApiBaseError {

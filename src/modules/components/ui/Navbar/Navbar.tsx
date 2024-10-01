@@ -1,9 +1,11 @@
 "use client"
 
-import React from "react"
 import { usePathname } from "next/navigation"
-import { MuiAppBar, MuiContainer } from "../../library/mui"
+import React from "react"
+
 import Toolbar from "./components/Toolbar"
+
+import { MuiAppBar, MuiContainer } from "../../library/mui"
 
 export type NavbarProps = {
     routes: { name: string; path: string }[]

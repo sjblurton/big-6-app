@@ -1,6 +1,8 @@
 import { type Meta, type StoryObj } from "@storybook/react"
-import buildOas from "../../../app/api/openapi-builder"
+
 import Swagger from "./Swagger"
+
+import buildOas from "../../../app/api/openapi-builder"
 
 const meta: Meta = {
     title: "Documentation/Swagger",

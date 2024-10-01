@@ -1,5 +1,5 @@
-import QueryProvider from "@/modules/tanstackQuery/QueryProvider"
 import MuiThemeProvider from "@/modules/components/library/ThemeProvider/MuiThemeProvider"
+import QueryProvider from "@/modules/tanstackQuery/QueryProvider"
 
 function Providers({
     children,

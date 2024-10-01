@@ -1,13 +1,15 @@
 import { DateTime } from "luxon"
-import Link from "next/link"
 import Image from "next/image"
-import { MuiTypography } from "@/modules/components/library/mui"
-import * as background from "@/styles/utilityClasses/background.module.scss"
-import * as boxShadow from "@/styles/utilityClasses/box-shadow.module.scss"
-import { type WorkoutData } from "@/modules/model/workout/workout-schemas"
-import ProgressBar from "@/modules/components/ui/ProgressBar/ProgressBar"
+import Link from "next/link"
+
 import { CmsClient } from "@/modules/cms/client/client"
 import { urlFor } from "@/modules/cms/client/image"
+import { MuiTypography } from "@/modules/components/library/mui"
+import ProgressBar from "@/modules/components/ui/ProgressBar/ProgressBar"
+import { type WorkoutData } from "@/modules/model/workout/workout-schemas"
+import * as background from "@/styles/utilityClasses/background.module.scss"
+import * as boxShadow from "@/styles/utilityClasses/box-shadow.module.scss"
+
 import { box, card, svg } from "./WorkoutCard.module.scss"
 
 type Props = {
@@ -17,15 +19,7 @@ type Props = {
 async function WorkoutCard({ workout: { date, level, reps, type } }: Props) {
     const { image, step, name } = await CmsClient.getExerciseStep(type, level)
 
-    const stepProgression = step.progressions.find(
-        (prog) => prog.stage === "Advanced"
-    )
-
-    if (!stepProgression) {
-        throw new Error("Advanced stage progression not found")
-    }
-
-    const advanceGoal = stepProgression.sets * stepProgression.reps
+    const advanceGoal = CmsClient.getAdvanceGoal(step.progressions)
 
     const totalReps = reps.reduce((acc, curr) => acc + curr, 0)
 

@@ -1,5 +1,7 @@
 import { http, HttpResponse } from "msw"
+
 import { workoutTypes } from "@/modules/model/workout/workout-schemas"
+
 import { sanityPullUpMock } from "../mocks/pull-up"
 
 export const sanityMocks = [

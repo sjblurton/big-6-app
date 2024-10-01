@@ -1,4 +1,5 @@
 import React from "react"
+
 import LinkItem from "./LinkItem"
 
 type LinkItemProps = {

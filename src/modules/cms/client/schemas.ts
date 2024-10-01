@@ -1,4 +1,5 @@
 import { z } from "zod"
+
 import { workoutTypeIdsUnion } from "@/modules/model/workout/workout-schemas"
 
 const imageSchema = z.object({

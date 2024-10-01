@@ -1,14 +1,15 @@
 {
     "rules": {
-        "no-useless-computed-key": "warn",
-        "no-useless-rename": "warn",
+        "no-useless-computed-key": "error",
+        "no-useless-rename": "error",
         "no-var": "error",
-        "object-shorthand": "warn",
-        "prefer-const": "warn",
+        "object-shorthand": "error",
+        "prefer-const": "error",
         "prefer-numeric-literals": "error",
         "prefer-rest-params": "error",
         "prefer-spread": "error",
-        "prefer-template": "warn",
-        "symbol-description": "error"
+        "prefer-template": "error",
+        "symbol-description": "error",
+        "arrow-body-style": ["error", "as-needed"]
     }
 }

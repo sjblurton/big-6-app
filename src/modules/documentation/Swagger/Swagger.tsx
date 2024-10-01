@@ -1,6 +1,7 @@
-import SwaggerUI from "swagger-ui-react"
-import "./swagger-ui.scss"
 import { type OpenAPIObject } from "openapi3-ts/oas31"
+import SwaggerUI from "swagger-ui-react"
+
+import "./swagger-ui.scss"
 
 function Swagger({ json }: { json: OpenAPIObject }) {
     return (

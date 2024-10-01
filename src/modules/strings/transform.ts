@@ -1,4 +1,4 @@
-import { LEVELS, type LevelPath } from "./levels"
+import { type LevelPath, LEVELS } from "./levels"
 
 export function toKebabCase(str: string) {
     return str

@@ -1,5 +1,7 @@
-import { render, screen, fireEvent, act } from "@testing-library/react"
+import { act, fireEvent, render, screen } from "@testing-library/react"
+
 import { TIME_MILLISECONDS } from "@/modules/time/constants"
+
 import Stopwatch from "./Stopwatch"
 
 jest.useFakeTimers()

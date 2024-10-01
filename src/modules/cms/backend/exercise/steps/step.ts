@@ -1,4 +1,5 @@
 import { defineField } from "sanity"
+
 import { progressionField } from "./progresstions"
 
 const stepFields = [

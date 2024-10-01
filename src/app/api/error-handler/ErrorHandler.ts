@@ -1,10 +1,12 @@
-import { ZodError } from "zod"
 import { type NextResponse } from "next/server"
+import { ZodError } from "zod"
 import { fromError } from "zod-validation-error"
+
 import { type ErrorResponse } from "@/app/api/v1/workouts/shared/outputs/response-schema"
 import logger from "@/modules/logger/logger"
-import { ErrorResponses } from "./responses/responses"
+
 import { ApiBaseError } from "./errors/api.error.base"
+import { ErrorResponses } from "./responses/responses"
 
 // TODO: Add request and response objects to the constructor for logging to the database when ready
 class ErrorHandler {

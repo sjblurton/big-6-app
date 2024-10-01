@@ -1,4 +1,5 @@
 import Link from "next/link"
+
 import { MuiMenuItem, MuiTypography } from "@/modules/components/library/mui"
 import { toKebabCase } from "@/modules/strings/transform"
 import { black as blackText } from "@/styles/colors/_exports.module.scss"

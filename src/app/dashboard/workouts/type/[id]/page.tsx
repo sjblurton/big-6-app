@@ -1,12 +1,14 @@
 import { type Metadata } from "next"
+
+import { CmsClient } from "@/modules/cms/client/client"
 import { MuiContainer, MuiGrid } from "@/modules/components/library/mui"
-import { createMetadata } from "@/modules/seo/create-metadata"
+import Timeline from "@/modules/components/ui/Timeline/Timeline"
 import {
     type WorkoutData,
     type WorkoutTypeIds,
 } from "@/modules/model/workout/workout-schemas"
-import { CmsClient } from "@/modules/cms/client/client"
-import Timeline from "@/modules/components/ui/Timeline/Timeline"
+import { createMetadata } from "@/modules/seo/create-metadata"
+
 import LineChart from "./LineChart/LineChart"
 
 type Params = {

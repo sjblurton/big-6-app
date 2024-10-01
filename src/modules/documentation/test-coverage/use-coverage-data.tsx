@@ -1,12 +1,14 @@
 import { v4 as uuidv4 } from "uuid"
+
 import {
     type TestCoverageData,
     testCoverageJsonSchema,
     type TestCoverageSummary,
     testCoverageSummarySchema,
 } from "@/modules/documentation/test-coverage/test-coverage-json-schema"
-import coverage from "./coverage-summary.json"
+
 import { tableColumnNames } from "./constants"
+import coverage from "./coverage-summary.json"
 
 const coverageData = testCoverageJsonSchema.parse(coverage)
 

@@ -1,7 +1,10 @@
 "use client"
 
-import { usePathname } from "next/navigation"
 import Link from "next/link"
+import { usePathname } from "next/navigation"
+
+import * as styles from "./BottomNavigation.module.scss"
+
 import {
     MuiBottomNavigation,
     MuiBottomNavigationAction,
@@ -15,7 +18,6 @@ import {
     MuiHomeIcon,
     MuiTimerIcon,
 } from "../../library/mui/mui-icons"
-import * as styles from "./BottomNavigation.module.scss"
 
 const navigation = [
     { value: "/dashboard", label: "Dashboard", icon: <MuiHomeIcon /> },

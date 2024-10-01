@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server"
-import { CmsClient } from "@/modules/cms/client/client"
+
 import ErrorHandler from "@/app/api/error-handler/ErrorHandler"
+import { CmsClient } from "@/modules/cms/client/client"
 
 export async function GET() {
     try {

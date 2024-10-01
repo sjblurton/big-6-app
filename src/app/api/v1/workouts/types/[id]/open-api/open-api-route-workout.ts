@@ -1,14 +1,15 @@
-import type { PathItemObject } from "openapi3-ts/oas31"
+import {
+    openApiWorkoutIdsSchema,
+    workoutTypes,
+} from "../../../../../../../modules/model/workout/workout-schemas"
 import {
     commonOpenApiErrorResponses,
     errorResponseOpenApiSchema,
     openApi404ErrorResponse,
 } from "../../../shared/open-api-error-response"
-import {
-    openApiWorkoutIdsSchema,
-    workoutTypes,
-} from "../../../../../../../modules/model/workout/workout-schemas"
 import { workoutsOpenApiSchema } from "../../../shared/outputs/response-schema"
+
+import type { PathItemObject } from "openapi3-ts/oas31"
 
 const workoutTypeIdPath: PathItemObject = {
     get: {

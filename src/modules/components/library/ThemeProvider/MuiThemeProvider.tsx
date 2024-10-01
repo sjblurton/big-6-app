@@ -1,12 +1,13 @@
 "uae client"
 
-import { ThemeProvider, createTheme } from "@mui/material/styles"
+import { createTheme, ThemeProvider } from "@mui/material/styles"
+
 import {
     primary,
-    white,
     primaryLight,
     secondaryDark,
     secondaryLight,
+    white,
 } from "@/styles/colors/_exports.module.scss"
 
 const muiTheme = createTheme({

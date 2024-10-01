@@ -1,4 +1,5 @@
 import { defineField } from "sanity"
+
 import { exerciseList } from "../lists/exercises"
 
 export const titleField = defineField({

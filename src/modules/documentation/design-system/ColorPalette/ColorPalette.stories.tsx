@@ -1,4 +1,5 @@
 import { type Meta, type StoryObj } from "@storybook/react"
+
 import ColorPalette from "./ColorPalette"
 
 const meta: Meta = {

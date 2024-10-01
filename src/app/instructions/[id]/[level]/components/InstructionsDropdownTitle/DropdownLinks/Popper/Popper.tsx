@@ -1,10 +1,12 @@
 import { type RefObject } from "react"
+
 import {
     MuiClickAwayListener,
     MuiGrow,
     MuiPaper,
     MuiPopper,
 } from "@/modules/components/library/mui"
+
 import MenuList from "./MenuList/MenuList"
 
 type Props = {

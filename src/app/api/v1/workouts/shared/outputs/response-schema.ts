@@ -1,6 +1,8 @@
-import { z } from "zod"
 import { extendApi, generateSchema } from "@anatine/zod-openapi"
+import { z } from "zod"
+
 import { cmsExerciseIdsSchema } from "@/modules/cms/client/schemas"
+
 import { workoutSchema } from "../../../../../../modules/model/workout/workout-schemas"
 
 const baseErrorSchema = z.object({

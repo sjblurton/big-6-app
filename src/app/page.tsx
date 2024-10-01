@@ -1,4 +1,3 @@
-import type { Metadata } from "next"
 import {
     MuiContainer,
     MuiGrid,
@@ -6,7 +5,10 @@ import {
 } from "@/modules/components/library/mui"
 import SignInButton from "@/modules/components/ui/Button/SignInButton/SignInButton"
 import { createMetadata } from "@/modules/seo/create-metadata"
+
 import InstructionsOverviewCardList from "./components/InstructionsOverviewCardList/InstructionsOverviewCardList"
+
+import type { Metadata } from "next"
 
 export const metadata: Metadata = createMetadata({
     title: "Home",

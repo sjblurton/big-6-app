@@ -1,11 +1,15 @@
 import { createClient, groq } from "next-sanity"
+
 import { type WorkoutTypeIds } from "@/modules/model/workout/workout-schemas"
-import { apiVersion, dataset, projectId } from "../env"
+
 import {
     cmsExerciseIdsSchema,
     exerciseDocumentSchema,
+    type ExerciseStep,
     exerciseStepDataSchema,
 } from "./schemas"
+
+import { apiVersion, dataset, projectId } from "../env"
 
 const staticClient = createClient({
     projectId,
@@ -44,5 +48,17 @@ export class CmsClient {
             }
         `)
         )
+    }
+
+    static getAdvanceGoal(progressions: ExerciseStep["progressions"]) {
+        const stepProgression = progressions.find(
+            (prog) => prog.stage === "Advanced"
+        )
+
+        if (!stepProgression) {
+            throw new Error("Advanced stage progression not found")
+        }
+
+        return stepProgression.sets * stepProgression.reps
     }
 }

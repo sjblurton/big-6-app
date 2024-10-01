@@ -1,9 +1,12 @@
-import React from "react"
 import { DateTime } from "luxon"
 import Link from "next/link"
-import * as flex from "@/styles/utilityClasses/flex.module.scss"
-import { type WorkoutData } from "@/modules/model/workout/workout-schemas"
+import React from "react"
+
 import { CmsClient } from "@/modules/cms/client/client"
+import { type WorkoutData } from "@/modules/model/workout/workout-schemas"
+import * as flex from "@/styles/utilityClasses/flex.module.scss"
+
+import { MuiButton, MuiTypography } from "../../library/mui"
 import {
     MuiTimeline,
     MuiTimelineConnector,
@@ -13,7 +16,6 @@ import {
     MuiTimelineOppositeContent,
     MuiTimelineSeparator,
 } from "../../library/mui/lab"
-import { MuiButton, MuiTypography } from "../../library/mui"
 
 type TimelineProps = {
     data: WorkoutData[]

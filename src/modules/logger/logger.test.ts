@@ -1,4 +1,5 @@
 import pino from "pino"
+
 import logger from "./logger"
 
 jest.mock("pino", () => {

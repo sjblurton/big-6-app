@@ -1,14 +1,15 @@
 "use client"
 
-import "../styles/base/reset.scss"
-import "../styles/base/global.scss"
-import "../styles/main.scss"
-
 import { Inter } from "next/font/google"
-import Navbar from "@/modules/components/ui/Navbar/Navbar"
+
 import Providers from "@/modules/components/Providers/Providers"
 import BottomNavigation from "@/modules/components/ui/BottomNavigation/BottomNavigation"
+import Navbar from "@/modules/components/ui/Navbar/Navbar"
 import { workoutTypes } from "@/modules/model/workout/workout-schemas"
+
+import "../styles/base/global.scss"
+import "../styles/base/reset.scss"
+import "../styles/main.scss"
 
 const inter = Inter({ subsets: ["latin"] })
 

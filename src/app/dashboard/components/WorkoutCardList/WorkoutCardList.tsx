@@ -1,5 +1,6 @@
 import { MuiGrid } from "@/modules/components/library/mui"
 import { type WorkoutData } from "@/modules/model/workout/workout-schemas"
+
 import WorkoutCard from "../WorkoutCard/WorkoutCard"
 
 async function WorkoutCardList() {

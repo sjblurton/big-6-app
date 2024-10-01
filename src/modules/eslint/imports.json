@@ -12,18 +12,50 @@
         "import/no-relative-packages": "warn",
         "import/no-self-import": "error",
         "import/no-useless-path-segments": ["error"],
+        "sort-imports": [
+            "error",
+            {
+                "ignoreCase": true,
+                "ignoreDeclarationSort": true
+            }
+        ],
         "import/order": [
             "error",
             {
+                "newlines-between": "always",
                 "groups": [
-                    "builtin",
                     "external",
+                    "builtin",
                     "internal",
-                    "parent",
                     "sibling",
-                    "index"
+                    "parent",
+                    "index",
+                    "type"
                 ],
-                "newlines-between": "never"
+                "pathGroups": [
+                    {
+                        "pattern": "components",
+                        "group": "internal"
+                    },
+                    {
+                        "pattern": "common",
+                        "group": "internal"
+                    },
+                    {
+                        "pattern": "routes/ **",
+                        "group": "internal"
+                    },
+                    {
+                        "pattern": "assets/**",
+                        "group": "internal",
+                        "position": "after"
+                    }
+                ],
+                "pathGroupsExcludedImportTypes": ["internal"],
+                "alphabetize": {
+                    "order": "asc",
+                    "caseInsensitive": true
+                }
             }
         ],
         "import/extensions": [

@@ -1,8 +1,9 @@
-import { MuiGrid } from "@/modules/components/library/mui"
-import { pathLevelToNumber } from "@/modules/strings/transform"
-import { levelUrls } from "@/modules/model/urls/levels"
 import { CmsClient } from "@/modules/cms/client/client"
+import { MuiGrid } from "@/modules/components/library/mui"
+import { levelUrls } from "@/modules/model/urls/levels"
 import { type WorkoutTypeIds } from "@/modules/model/workout/workout-schemas"
+import { pathLevelToNumber } from "@/modules/strings/transform"
+
 import DropdownLinks from "./DropdownLinks/DropdownLinks"
 
 type Props = {

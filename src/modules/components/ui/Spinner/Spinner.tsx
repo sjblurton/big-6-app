@@ -1,9 +1,10 @@
 "use client"
 
-import Circle from "../../assets/Circle/Circle"
 import useIncrementalValue, {
     type UseIncrementalValueSpeed,
 } from "./hooks/use-incremental-value"
+
+import Circle from "../../assets/Circle/Circle"
 
 type Props = {
     speed: UseIncrementalValueSpeed

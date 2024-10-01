@@ -1,8 +1,9 @@
 "use client"
 
-import * as background from "@/styles/utilityClasses/background.module.scss"
 import { MuiTypography } from "@/modules/components/library/mui"
+import * as background from "@/styles/utilityClasses/background.module.scss"
 import * as boarderRadius from "@/styles/utilityClasses/border-radius.module.scss"
+
 import { button } from "./ActionButton.module.scss"
 
 type Props = {

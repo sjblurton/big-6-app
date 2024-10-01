@@ -1,25 +1,27 @@
 import { type GetStaticPaths, type Metadata } from "next"
 import Link from "next/link"
+
+import { CmsClient } from "@/modules/cms/client/client"
+import { urlFor } from "@/modules/cms/client/image"
 import {
     MuiButton,
     MuiContainer,
     MuiGrid,
     MuiTypography,
 } from "@/modules/components/library/mui"
-import * as colors from "@/styles/colors/_exports.module.scss"
-import { createMetadata } from "@/modules/seo/create-metadata"
 import {
     MuiChevronLeftIcon,
     MuiChevronRightIcon,
 } from "@/modules/components/library/mui/mui-icons"
-import { urlFor } from "@/modules/cms/client/image"
-import { pathLevelToNumber } from "@/modules/strings/transform"
 import { levelUrls } from "@/modules/model/urls/levels"
-import { CmsClient } from "@/modules/cms/client/client"
 import { type WorkoutTypeIds } from "@/modules/model/workout/workout-schemas"
-import Progressions from "./components/Progressions/Progressions"
+import { createMetadata } from "@/modules/seo/create-metadata"
+import { pathLevelToNumber } from "@/modules/strings/transform"
+import * as colors from "@/styles/colors/_exports.module.scss"
+
 import InstructionsCard from "./components/InstructionsCard/InstructionsCard"
 import InstructionsDropdownTitle from "./components/InstructionsDropdownTitle/InstructionsDropdownTitle"
+import Progressions from "./components/Progressions/Progressions"
 
 type Params = {
     id: WorkoutTypeIds

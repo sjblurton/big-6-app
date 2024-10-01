@@ -1,6 +1,8 @@
 import { type Metadata } from "next"
+
 import { MuiContainer } from "@/modules/components/library/mui"
 import { createMetadata } from "@/modules/seo/create-metadata"
+
 import WorkoutCardList from "./components/WorkoutCardList/WorkoutCardList"
 
 export const metadata: Metadata = createMetadata({

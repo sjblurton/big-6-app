@@ -1,9 +1,11 @@
-import React from "react"
 import { render, screen } from "@testing-library/react"
+import React from "react"
+
 import {
-    workoutTypes,
     type WorkoutData,
+    workoutTypes,
 } from "@/modules/model/workout/workout-schemas"
+
 import LineChart from "./LineChart"
 
 const ONE_WEEK = 604800000

@@ -1,7 +1,8 @@
 import { OpenApiBuilder } from "openapi3-ts/oas31"
-import workoutTypeIdPath from "./v1/workouts/types/[id]/open-api/open-api-route-workout"
+
 import workoutIdPath from "./v1/workouts/[id]/open-api/open-api-route-workout"
 import workoutsPath from "./v1/workouts/open-api/open-api-route-workouts"
+import workoutTypeIdPath from "./v1/workouts/types/[id]/open-api/open-api-route-workout"
 import workoutTypesPath from "./v1/workouts/types/open-api/open-api-route-workout-type"
 
 function buildOas() {

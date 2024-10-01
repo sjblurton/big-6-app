@@ -1,4 +1,5 @@
 import { act, renderHook } from "@testing-library/react"
+
 import useCountUp from "./use-count-up"
 
 describe("useCountUp", () => {

@@ -1,7 +1,9 @@
 import "@testing-library/jest-dom"
 import { render, screen } from "@testing-library/react"
 import { axe, toHaveNoViolations } from "jest-axe"
+
 import { type TestCoverageSummary } from "@/modules/documentation/test-coverage/test-coverage-json-schema"
+
 import TestCoveragePage from "./Coverage"
 import useCoverageData from "./use-coverage-data"
 

@@ -1,4 +1,5 @@
 import React from "react"
+
 import { MuiBox, MuiGrid, MuiTypography } from "../../../components/library/mui"
 
 const headingsList = [

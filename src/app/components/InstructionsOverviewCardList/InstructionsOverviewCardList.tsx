@@ -1,7 +1,9 @@
 import React from "react"
-import { MuiGrid } from "@/modules/components/library/mui"
+
 import { CmsClient } from "@/modules/cms/client/client"
+import { MuiGrid } from "@/modules/components/library/mui"
 import { TIME_SECONDS } from "@/modules/time/constants"
+
 import InstructionsOverviewCard from "../InstructionsOverviewCard/InstructionsOverviewCard"
 
 export const revalidate = TIME_SECONDS.ONE_DAY

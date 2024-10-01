@@ -4,6 +4,7 @@ import {
     secondaryDark,
     secondaryLight,
 } from "@/styles/colors/_exports.module.scss"
+
 import CircleText from "./CircleText"
 
 function Circle({
