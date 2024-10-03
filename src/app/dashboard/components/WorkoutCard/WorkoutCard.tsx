@@ -1,3 +1,5 @@
+"use client"
+
 import { DateTime } from "luxon"
 import Image from "next/image"
 import Link from "next/link"
@@ -7,17 +9,32 @@ import { urlFor } from "@/modules/cms/client/image"
 import { MuiTypography } from "@/modules/components/library/mui"
 import ProgressBar from "@/modules/components/ui/ProgressBar/ProgressBar"
 import { type WorkoutData } from "@/modules/model/workout/workout-schemas"
+import useGetExerciseStep from "@/modules/tanstackQuery/hooks/use-get-exercise-step"
 import * as background from "@/styles/utilityClasses/background.module.scss"
 import * as boxShadow from "@/styles/utilityClasses/box-shadow.module.scss"
 
 import { box, card, svg } from "./WorkoutCard.module.scss"
+import WorkoutCardSkeleton from "./WorkoutCardSkeleton"
 
 type Props = {
     workout: WorkoutData
 }
 
-async function WorkoutCard({ workout: { date, level, reps, type } }: Props) {
-    const { image, step, name } = await CmsClient.getExerciseStep(type, level)
+function WorkoutCard({ workout: { date, level, reps, type } }: Props) {
+    const { data, error, isLoading, isError } = useGetExerciseStep({
+        level,
+        type,
+    })
+
+    if (isLoading) {
+        return <WorkoutCardSkeleton />
+    }
+
+    if (isError || !data) {
+        throw error || new Error("No data")
+    }
+
+    const { name, image, step } = data
 
     const advanceGoal = CmsClient.getAdvanceGoal(step.progressions)
 

@@ -1,3 +1,4 @@
+// eslint-disable-next-line @typescript-eslint/no-require-imports -- jest config
 const nextJest = require("next/jest")
 
 const createJestConfig = nextJest({
@@ -9,6 +10,9 @@ const customJestConfig = {
     setupFilesAfterEnv: ["<rootDir>/jest.setup.js"],
     collectCoverage: true,
     coverageReporters: ["json-summary", "text"],
+    coveragePathIgnorePatterns: [
+        "<rootDir>/src/modules/components/library/mui/*.*",
+    ],
     coverageDirectory: "./src/modules/documentation/test-coverage",
     coverageThreshold: {
         global: {

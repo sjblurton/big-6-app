@@ -6,7 +6,7 @@ import { secondaryLight } from "@/styles/colors/_exports.module.scss"
 
 import BarChart from "./BarChart"
 
-jest.mock("../../../../../modules/components/library/mui/muix", () => ({
+jest.mock("../../../../../../modules/components/library/mui/muix", () => ({
     MuiBarChart: jest.fn(() => <div data-testid="muibarchart" />),
 }))
 
