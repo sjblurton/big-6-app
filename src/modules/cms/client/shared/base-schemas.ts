@@ -14,3 +14,5 @@ export const imageSchema = z.object({
         _type: z.string(),
     }),
 })
+
+export type ImageAsset = z.infer<typeof imageSchema>
