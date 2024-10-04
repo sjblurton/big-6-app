@@ -1,5 +1,8 @@
 import { defineField } from "sanity"
 
+import { progressionStages } from "@/modules/contants/progression-stages"
+import { toCapitalizedWords } from "@/modules/strings/transform"
+
 export const progressionField = defineField({
     type: "object",
     name: "progression",
@@ -12,7 +15,11 @@ export const progressionField = defineField({
             description: "The stage of the exercise",
             validation: (Rule) => Rule.required(),
             options: {
-                list: ["Beginner", "Intermediate", "Advanced"],
+                list: [
+                    progressionStages.beginner,
+                    progressionStages.intermediate,
+                    progressionStages.advanced,
+                ],
             },
         },
         {
@@ -46,7 +53,7 @@ export const progressionField = defineField({
         prepare: ({ stage, isSeconds, sets, reps }) => {
             const repsOrSeconds = isSeconds ? "Second" : "Rep"
             return {
-                title: stage,
+                title: toCapitalizedWords(stage),
                 subtitle: `${sets} ${sets > 1 ? "sets" : "set"} of ${reps} ${reps > 1 ? `${repsOrSeconds}s` : repsOrSeconds}`,
             }
         },

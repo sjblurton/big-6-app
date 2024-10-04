@@ -1,4 +1,4 @@
-import { CmsClient } from "@/modules/cms/client/client"
+import exerciseCmsClient from "@/modules/cms/client/exercise/exercise-client"
 import { MuiGrid } from "@/modules/components/library/mui"
 import { levelUrls } from "@/modules/model/urls/levels"
 import { type WorkoutTypeIds } from "@/modules/model/workout/workout-schemas"
@@ -12,7 +12,7 @@ type Props = {
 }
 
 async function InstructionsDropdownTitle({ level, id }: Props) {
-    const exerciseIds = await CmsClient.getExerciseIds()
+    const exerciseIds = await exerciseCmsClient.getExerciseIds()
 
     return (
         <MuiGrid container justifyContent="center" gap={2}>

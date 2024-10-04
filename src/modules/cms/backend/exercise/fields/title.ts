@@ -1,6 +1,6 @@
 import { defineField } from "sanity"
 
-import { exerciseList } from "../lists/exercises"
+import { exerciseNames } from "@/modules/contants/exercise-names"
 
 export const titleField = defineField({
     name: "name",
@@ -8,7 +8,14 @@ export const titleField = defineField({
     type: "string",
     description: "The name of the exercise",
     options: {
-        list: exerciseList,
+        list: [
+            exerciseNames.pushUp,
+            exerciseNames.pullUp,
+            exerciseNames.squat,
+            exerciseNames.legRaise,
+            exerciseNames.handstand,
+            exerciseNames.bridge,
+        ],
     },
     validation: (Rule) => Rule.required(),
 })

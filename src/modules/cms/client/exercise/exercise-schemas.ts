@@ -1,14 +1,10 @@
 import { z } from "zod"
 
+import { exerciseNames } from "@/modules/contants/exercise-names"
+import { progressionStages } from "@/modules/contants/progression-stages"
 import { workoutTypeIdsUnion } from "@/modules/model/workout/workout-schemas"
 
-const imageSchema = z.object({
-    _type: z.literal("image"),
-    asset: z.object({
-        _ref: z.string(),
-        _type: z.string(),
-    }),
-})
+import { documentBaseSchema, imageSchema } from "../shared/base-schemas"
 
 const progressionSchema = z.object({
     _key: z.string(),
@@ -16,10 +12,10 @@ const progressionSchema = z.object({
     isSeconds: z.boolean(),
     reps: z.number(),
     sets: z.number(),
-    stage: z.union([
-        z.literal("Beginner"),
-        z.literal("Intermediate"),
-        z.literal("Advanced"),
+    stage: z.enum([
+        progressionStages.beginner.value,
+        progressionStages.intermediate.value,
+        progressionStages.advanced.value,
     ]),
 })
 
@@ -44,15 +40,19 @@ export const stepSchema = z.object({
 
 export type ExerciseStep = z.infer<typeof stepSchema>
 
-export const exerciseDocumentSchema = z.object({
-    _createdAt: z.string(),
+export const exerciseDocumentSchema = documentBaseSchema.extend({
     _id: workoutTypeIdsUnion,
-    _rev: z.string(),
     _type: z.literal("exercise-document"),
-    _updatedAt: z.string(),
     image: imageSchema,
     description: z.string(),
-    name: z.string(),
+    name: z.enum([
+        exerciseNames.bridge.value,
+        exerciseNames.handstand.value,
+        exerciseNames.legRaise.value,
+        exerciseNames.pullUp.value,
+        exerciseNames.pushUp.value,
+        exerciseNames.squat.value,
+    ]),
     steps: z.array(stepSchema),
 })
 

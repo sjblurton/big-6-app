@@ -1,7 +1,7 @@
 import { extendApi, generateSchema } from "@anatine/zod-openapi"
 import { z } from "zod"
 
-import { cmsExerciseIdsSchema } from "@/modules/cms/client/schemas"
+import { cmsExerciseIdsSchema } from "@/modules/cms/client/exercise/exercise-schemas"
 
 import { workoutSchema } from "../../../../../../modules/model/workout/workout-schemas"
 

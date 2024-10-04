@@ -1,7 +1,7 @@
 import { type GetStaticPaths, type Metadata } from "next"
 import Link from "next/link"
 
-import { CmsClient } from "@/modules/cms/client/client"
+import exerciseCmsClient from "@/modules/cms/client/exercise/exercise-client"
 import { urlFor } from "@/modules/cms/client/image"
 import {
     MuiButton,
@@ -28,7 +28,7 @@ type Params = {
     level: string
 }
 
-const paths = (await CmsClient.getExerciseIds()).flatMap(({ _id }) =>
+const paths = (await exerciseCmsClient.getExerciseIds()).flatMap(({ _id }) =>
     levelUrls.map((level) => ({ params: { id: _id, level } }))
 )
 
@@ -42,7 +42,10 @@ export async function generateMetadata({
 }: {
     params: Params
 }): Promise<Metadata> {
-    const data = await CmsClient.getExerciseStep(id, pathLevelToNumber(level))
+    const data = await exerciseCmsClient.getExerciseStep(
+        id,
+        pathLevelToNumber(level)
+    )
     return createMetadata({
         title: `${data.name}`,
         description: `Instructions for the workout ${data.name} at level ${level} - ${data.name}.`,
@@ -64,7 +67,7 @@ async function WorkoutInstructionsPage({
             positiveImage,
             video,
         },
-    } = await CmsClient.getExerciseStep(id, pathLevelToNumber(level))
+    } = await exerciseCmsClient.getExerciseStep(id, pathLevelToNumber(level))
 
     return (
         <MuiContainer maxWidth="sm" disableGutters>

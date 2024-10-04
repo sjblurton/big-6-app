@@ -22,7 +22,7 @@ import {
 const navigation = [
     { value: "/dashboard", label: "Dashboard", icon: <MuiHomeIcon /> },
     { value: "/log", label: "Log", icon: <MuiClipboardIcon /> },
-    { value: "/calender", label: "Calender", icon: <MuiCalendarMonthIcon /> },
+    { value: "/routines", label: "Routines", icon: <MuiCalendarMonthIcon /> },
     { value: "/stopwatch", label: "Stop Watch", icon: <MuiTimerIcon /> },
 ]
 

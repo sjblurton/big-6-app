@@ -2,7 +2,7 @@ import Image from "next/image"
 import Link from "next/link"
 import React from "react"
 
-import { CmsClient } from "@/modules/cms/client/client"
+import exerciseCmsClient from "@/modules/cms/client/exercise/exercise-client"
 import { urlFor } from "@/modules/cms/client/image"
 import { MuiTypography } from "@/modules/components/library/mui"
 import { type WorkoutTypeIds } from "@/modules/model/workout/workout-schemas"
@@ -29,7 +29,7 @@ async function InstructionsOverviewCard({
     type,
 }: InstructionsOverviewCardProps) {
     const { name, image, description, steps } =
-        await CmsClient.getExerciseDocument(type)
+        await exerciseCmsClient.getExerciseDocument(type)
 
     return (
         <article

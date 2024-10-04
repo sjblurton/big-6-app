@@ -2,7 +2,7 @@
 
 import { useQuery } from "@tanstack/react-query"
 
-import { CmsClient } from "@/modules/cms/client/client"
+import exerciseCmsClient from "@/modules/cms/client/exercise/exercise-client"
 import { type WorkoutTypeIds } from "@/modules/model/workout/workout-schemas"
 
 import { WORKOUTS_QUERY_KEY } from "../keys/query-keys"
@@ -17,7 +17,7 @@ function useGetExerciseStep(args: Args) {
         queryKey: [WORKOUTS_QUERY_KEY, args],
         queryFn: () =>
             args
-                ? CmsClient.getExerciseStep(args.type, args.level)
+                ? exerciseCmsClient.getExerciseStep(args.type, args.level)
                 : Promise.resolve(null),
         enabled: Boolean(args),
     })

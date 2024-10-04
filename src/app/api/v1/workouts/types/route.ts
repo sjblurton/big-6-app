@@ -1,11 +1,11 @@
 import { NextResponse } from "next/server"
 
 import ErrorHandler from "@/app/api/error-handler/ErrorHandler"
-import { CmsClient } from "@/modules/cms/client/client"
+import exerciseCmsClient from "@/modules/cms/client/exercise/exercise-client"
 
 export async function GET() {
     try {
-        return NextResponse.json(await CmsClient.getExerciseIds())
+        return NextResponse.json(await exerciseCmsClient.getExerciseIds())
     } catch (error) {
         const errorHandler = new ErrorHandler(error)
         const errorResponse = errorHandler.handle()

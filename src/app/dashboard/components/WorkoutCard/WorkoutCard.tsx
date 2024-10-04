@@ -4,7 +4,6 @@ import { DateTime } from "luxon"
 import Image from "next/image"
 import Link from "next/link"
 
-import { CmsClient } from "@/modules/cms/client/client"
 import { urlFor } from "@/modules/cms/client/image"
 import { MuiTypography } from "@/modules/components/library/mui"
 import ProgressBar from "@/modules/components/ui/ProgressBar/ProgressBar"
@@ -34,9 +33,7 @@ function WorkoutCard({ workout: { date, level, reps, type } }: Props) {
         throw error || new Error("No data")
     }
 
-    const { name, image, step } = data
-
-    const advanceGoal = CmsClient.getAdvanceGoal(step.progressions)
+    const { name, image, advanceGoal } = data
 
     const totalReps = reps.reduce((acc, curr) => acc + curr, 0)
 

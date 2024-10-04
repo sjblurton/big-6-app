@@ -2,7 +2,7 @@ import { DateTime } from "luxon"
 import Link from "next/link"
 import React from "react"
 
-import { CmsClient } from "@/modules/cms/client/client"
+import exerciseCmsClient from "@/modules/cms/client/exercise/exercise-client"
 import { type WorkoutData } from "@/modules/model/workout/workout-schemas"
 import * as flex from "@/styles/utilityClasses/flex.module.scss"
 
@@ -29,7 +29,9 @@ interface TimelineData extends WorkoutData {
 async function getTimelineData(data: WorkoutData[]): Promise<TimelineData[]> {
     const timelineData = await Promise.all(
         data.map(async (workout) => {
-            const sanityData = await CmsClient.getExerciseDocument(workout.type)
+            const sanityData = await exerciseCmsClient.getExerciseDocument(
+                workout.type
+            )
             return {
                 ...workout,
                 title: sanityData.name,

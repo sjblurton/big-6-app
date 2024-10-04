@@ -1,6 +1,6 @@
 import { type Metadata } from "next"
 
-import { CmsClient } from "@/modules/cms/client/client"
+import exerciseCmsClient from "@/modules/cms/client/exercise/exercise-client"
 import { MuiContainer, MuiGrid } from "@/modules/components/library/mui"
 import Timeline from "@/modules/components/ui/Timeline/Timeline"
 import {
@@ -20,7 +20,7 @@ export async function generateMetadata({
 }: {
     params: Params
 }): Promise<Metadata> {
-    const data = await CmsClient.getExerciseDocument(id)
+    const data = await exerciseCmsClient.getExerciseDocument(id)
     return createMetadata({
         title: `${data.name} dashboard`,
         description: `The latest workout data for the ${data.name} exercise.`,

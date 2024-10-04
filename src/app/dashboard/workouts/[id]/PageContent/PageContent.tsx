@@ -3,7 +3,6 @@
 import { DateTime } from "luxon"
 import { useParams } from "next/navigation"
 
-import { CmsClient } from "@/modules/cms/client/client"
 import { MuiGrid, MuiTypography } from "@/modules/components/library/mui"
 import ProgressBar from "@/modules/components/ui/ProgressBar/ProgressBar"
 import { toCapitalizedWords } from "@/modules/strings/transform"
@@ -32,9 +31,11 @@ function PageContent() {
 
     const { date, reps, comments } = workout
 
-    const { progressions } = step.step
+    const {
+        step: { progressions },
+        advanceGoal,
+    } = step
 
-    const advanceGoal = CmsClient.getAdvanceGoal(progressions)
     return (
         <MuiGrid container mt={3} mb={1}>
             <MuiGrid
