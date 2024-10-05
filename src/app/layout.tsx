@@ -24,27 +24,6 @@ const routes = [
     { name: "Stopwatch", path: "/stopwatch" },
     { name: "Workouts", path: "/workouts" },
     { name: "Dashboard", path: `${dashboardRoute}` },
-    {
-        name: "Push Ups",
-        path: `${dashboardRoute}/${workoutTypes.pushUp.id}`,
-    },
-    {
-        name: "Pull Ups",
-        path: `${dashboardRoute}/${workoutTypes.pullUp.id}`,
-    },
-    { name: "Squats", path: `${dashboardRoute}/${workoutTypes.squat.id}` },
-    {
-        name: "Bridges",
-        path: `${dashboardRoute}/${workoutTypes.bridge.id}`,
-    },
-    {
-        name: "Handstands",
-        path: `${dashboardRoute}/${workoutTypes.handstand.id}`,
-    },
-    {
-        name: "Leg Raises",
-        path: `${dashboardRoute}/${workoutTypes.legRaise.id}`,
-    },
 ]
 
 function RootLayout({
