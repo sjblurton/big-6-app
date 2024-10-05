@@ -110,7 +110,7 @@ async function WorkoutInstructionsPage({
                     container
                     xs={12}
                     pb={1}
-                    justifyContent={"center"}
+                    justifyContent="center"
                     m={2}
                 >
                     <MuiButton

@@ -42,7 +42,7 @@ function PageContent() {
                 item
                 container
                 xs={12}
-                justifyContent={"center"}
+                justifyContent="center"
                 mt={1}
                 mb={1}
             >
@@ -54,7 +54,7 @@ function PageContent() {
                 item
                 container
                 xs={12}
-                justifyContent={"center"}
+                justifyContent="center"
                 mt={1}
                 mb={1}
             >
@@ -66,7 +66,7 @@ function PageContent() {
                 item
                 container
                 xs={12}
-                justifyContent={"center"}
+                justifyContent="center"
                 mt={1}
                 mb={1}
             >
@@ -79,7 +79,7 @@ function PageContent() {
                 item
                 container
                 xs={12}
-                justifyContent={"center"}
+                justifyContent="center"
                 mt={1}
                 mb={1}
             >
@@ -89,7 +89,7 @@ function PageContent() {
                 item
                 container
                 xs={12}
-                justifyContent={"center"}
+                justifyContent="center"
                 mt={1}
                 mb={1}
             >

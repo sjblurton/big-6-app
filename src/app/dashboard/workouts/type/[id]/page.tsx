@@ -36,14 +36,14 @@ async function WorkoutSummery({ params: { id } }: { params: Params }) {
     return (
         <MuiContainer maxWidth="md" disableGutters>
             <MuiGrid container mt={3} mb={1}>
-                <MuiGrid item container xs={12} justifyContent={"center"}>
+                <MuiGrid item container xs={12} justifyContent="center">
                     <LineChart data={mockLatestWorkoutData} />
                 </MuiGrid>
                 <MuiGrid
                     item
                     container
                     xs={12}
-                    justifyContent={"center"}
+                    justifyContent="center"
                     mt={1}
                     mb={10}
                 >

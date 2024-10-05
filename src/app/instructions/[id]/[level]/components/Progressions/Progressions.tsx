@@ -23,7 +23,7 @@ function Progressions({ data }: { data: ExerciseStep["progressions"] }) {
                         variant="body1"
                         component="p"
                         display="inline-block"
-                        textAlign={"right"}
+                        textAlign="right"
                     >
                         {sets} {sets === 1 ? "set" : "sets"} of {reps}{" "}
                         {isSeconds ? "second" : "rep"}
