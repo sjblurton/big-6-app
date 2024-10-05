@@ -8,9 +8,7 @@ import { createMetadata } from "@/modules/seo/create-metadata"
 
 import InstructionsOverviewCardList from "./components/InstructionsOverviewCardList/InstructionsOverviewCardList"
 
-import type { Metadata } from "next"
-
-export const metadata: Metadata = createMetadata({
+export const metadata = createMetadata({
     title: "Home",
     description:
         "Progressive calisthenics app based on the book; Convict Conditioning. Track your progress, and keep your focus as you master the Big 6 callisthenics movements!",
