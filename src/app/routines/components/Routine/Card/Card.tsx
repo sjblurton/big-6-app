@@ -14,7 +14,7 @@ function Card({ day }: { day: RoutineDay }) {
         <MuiGrid
             container
             marginBlock={1}
-            marginInline={"auto"}
+            marginInline="auto"
             justifyContent="space-between"
             alignItems="center"
             className={`${wrapper} ${background.light} ${boxShadow.subtle}`}

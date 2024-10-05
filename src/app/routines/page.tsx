@@ -13,7 +13,7 @@ export const metadata = createMetadata({
 async function RoutinesPage() {
     const routines = await routineCmsClient.getRoutineDocuments()
     return (
-        <MuiContainer maxWidth="md">
+        <MuiContainer maxWidth="sm">
             <Routine routines={routines} />
         </MuiContainer>
     )
