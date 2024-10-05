@@ -49,6 +49,6 @@ class WorkoutsApi {
     }
 }
 
-export const workoutsApi = new WorkoutsApi()
+const workoutsApi = new WorkoutsApi()
 
 export default workoutsApi
