@@ -1,4 +1,4 @@
-export const disableArg = {
+export const disableArguments = {
     table: { disable: true },
     control: { disable: true },
 }

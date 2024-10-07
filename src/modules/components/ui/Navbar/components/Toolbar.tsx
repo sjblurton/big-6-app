@@ -15,7 +15,7 @@ import LinkItems from "./LinkItems"
 
 import LogoSvg from "../../Logo/Logo"
 
-type Props = {
+type Properties = {
     routes: { name: string; path: string }[]
     handleOpenNavMenu: (event: React.MouseEvent<HTMLElement>) => void
     activePage:
@@ -34,7 +34,7 @@ function Toolbar({
     activePage,
     anchorElNav,
     handleCloseNavMenu,
-}: Props) {
+}: Properties) {
     return (
         <MuiToolbar disableGutters>
             <MuiBox

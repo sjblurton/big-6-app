@@ -4,7 +4,7 @@ import { z } from "zod"
 
 import Input from "./Input"
 
-import FormProvider from "../../library/FormProvider/FormProvider"
+import FormProvider from "../../Providers/FormProvider/FormProvider"
 
 const schema = z.object({
     testField: z.string().min(1, "This field is required"),

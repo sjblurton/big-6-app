@@ -1,6 +1,6 @@
 import { MuiMenuItem, MuiMenuList } from "@/modules/components/library/mui"
 
-type Props = {
+type Properties = {
     options: { label: string; href: string }[]
     selectedIndex: number
     handleMenuItemClick: (
@@ -9,7 +9,7 @@ type Props = {
     ) => void
 }
 
-function MenuList({ options, selectedIndex, handleMenuItemClick }: Props) {
+function MenuList({ options, selectedIndex, handleMenuItemClick }: Properties) {
     return (
         <MuiMenuList id="split-button-menu" autoFocusItem>
             {options.map((option, index) => (

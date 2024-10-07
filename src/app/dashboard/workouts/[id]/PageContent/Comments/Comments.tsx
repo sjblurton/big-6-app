@@ -9,20 +9,20 @@ import * as width from "@/styles/utilityClasses/width.module.scss"
 
 import { wrapper } from "./Comments.module.scss"
 
-type Props = {
+type Properties = {
     isSeconds: boolean
     reps: number[]
     comments?: string
 }
 
-function Comments({ isSeconds, reps, comments }: Props) {
+function Comments({ isSeconds, reps, comments }: Properties) {
     const suffix = isSeconds ? "second" : "rep"
     return (
         <div
             className={`${background.light} ${boxShadow.subtle} ${radius.medium} ${width.w90} ${wrapper} ${padding.p3}`}
         >
-            {reps.map((rep, i) => {
-                const set = `Set ${i + 1}:`
+            {reps.map((rep, index) => {
+                const set = `Set ${index + 1}:`
 
                 return (
                     <MuiTypography key={set} variant="h6">

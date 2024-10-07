@@ -12,6 +12,6 @@ export default meta
 
 type Story = StoryObj<typeof Coverage>
 
-export const CoverageDocs: Story = {
+export const CoverageDocumentation: Story = {
     name: "Coverage",
 }

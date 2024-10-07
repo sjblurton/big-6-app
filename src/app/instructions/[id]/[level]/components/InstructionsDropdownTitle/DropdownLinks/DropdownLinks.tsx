@@ -13,14 +13,14 @@ import { MuiArrowDropDownIcon } from "@/modules/components/library/mui/mui-icons
 
 import Popper from "./Popper/Popper"
 
-type Props = {
+type Properties = {
     options: { label: string; href: string }[]
     defaultIndex: number
 }
 
-function DropdownLinks({ options, defaultIndex, ...rest }: Props) {
+function DropdownLinks({ options, defaultIndex, ...rest }: Properties) {
     const [open, setOpen] = useState(false)
-    const anchorRef = useRef<HTMLDivElement>(null)
+    const anchorReference = useRef<HTMLDivElement>(null)
     const [selectedIndex, setSelectedIndex] = useState(defaultIndex)
     const router = useRouter()
 
@@ -34,13 +34,13 @@ function DropdownLinks({ options, defaultIndex, ...rest }: Props) {
     }
 
     const handleToggle = () => {
-        setOpen((prevOpen) => !prevOpen)
+        setOpen((previousOpen) => !previousOpen)
     }
 
     const handleClose = (event: Event) => {
         if (
-            anchorRef.current &&
-            anchorRef.current.contains(event.target as HTMLElement)
+            anchorReference.current &&
+            anchorReference.current.contains(event.target as HTMLElement)
         ) {
             return
         }
@@ -52,7 +52,7 @@ function DropdownLinks({ options, defaultIndex, ...rest }: Props) {
         <>
             <MuiButtonGroup
                 variant="contained"
-                ref={anchorRef}
+                ref={anchorReference}
                 aria-label="Button group with a nested menu"
                 {...rest}
             >
@@ -76,7 +76,7 @@ function DropdownLinks({ options, defaultIndex, ...rest }: Props) {
                 </MuiButton>
             </MuiButtonGroup>
             <Popper
-                anchorRef={anchorRef}
+                anchorRef={anchorReference}
                 handleClose={handleClose}
                 handleMenuItemClick={handleMenuItemClick}
                 open={open}

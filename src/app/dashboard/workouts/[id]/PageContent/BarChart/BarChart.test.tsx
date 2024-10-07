@@ -26,7 +26,7 @@ describe("BarChart", () => {
                 xAxis: [
                     {
                         scaleType: "band",
-                        data: reps.map((_, i) => `Set: ${i + 1}`),
+                        data: reps.map((_, index) => `Set: ${index + 1}`),
                     },
                 ],
                 series: [{ data: reps, color: secondaryLight }],

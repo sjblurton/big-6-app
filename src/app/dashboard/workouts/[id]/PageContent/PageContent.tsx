@@ -12,12 +12,12 @@ import Comments from "./Comments/Comments"
 
 import useWorkoutSummery from "../hooks/use-workout-summery"
 
-type Params = {
+type Parameters = {
     id: string
 }
 
 function PageContent() {
-    const { id } = useParams<Params>()
+    const { id } = useParams<Parameters>()
 
     const { step, workout, isLoading, isError, error } = useWorkoutSummery(id)
 
@@ -71,7 +71,10 @@ function PageContent() {
                 mb={1}
             >
                 <ProgressBar
-                    actual={reps.reduce((acc, curr) => acc + curr, 0)}
+                    actual={reps.reduce(
+                        (accumulator, current) => accumulator + current,
+                        0
+                    )}
                     goal={advanceGoal}
                 />
             </MuiGrid>

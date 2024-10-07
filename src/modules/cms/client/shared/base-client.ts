@@ -1,6 +1,6 @@
 import { createClient } from "next-sanity"
 
-import { apiVersion, dataset, projectId } from "../../env"
+import { apiVersion, dataset, projectId } from "../../environment"
 
 const sanityClient = createClient({
     projectId,

@@ -4,13 +4,13 @@ import { MuiTypography } from "@/modules/components/library/mui"
 import { type WorkoutTypeIds } from "@/modules/model/workout/workout-schemas"
 import * as colors from "@/styles/colors/_exports.module.scss"
 
-type Props = {
+type Properties = {
     type: WorkoutTypeIds
     content: string
     level: number
 }
 
-function ListItem({ type, content, level }: Props) {
+function ListItem({ type, content, level }: Properties) {
     return (
         <li>
             <MuiTypography

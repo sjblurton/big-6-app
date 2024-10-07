@@ -14,8 +14,8 @@ function SignOutButton() {
                 justifyContent: "space-evenly",
             }}
             size="large"
-            onClick={(e) => {
-                e.preventDefault()
+            onClick={(error) => {
+                error.preventDefault()
                 console.log("Sign out button clicked") // eslint-disable-line no-console -- remove this line after testing
             }}
         >

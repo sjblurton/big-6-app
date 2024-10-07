@@ -17,7 +17,7 @@ import {
     MuiTimelineSeparator,
 } from "../../library/mui/lab"
 
-type TimelineProps = {
+type TimelineProperties = {
     data: WorkoutData[]
 }
 
@@ -42,7 +42,7 @@ async function getTimelineData(data: WorkoutData[]): Promise<TimelineData[]> {
     return timelineData
 }
 
-async function Timeline({ data }: TimelineProps) {
+async function Timeline({ data }: TimelineProperties) {
     const timeline = await getTimelineData(data)
 
     return (

@@ -16,12 +16,12 @@ import * as width from "@/styles/utilityClasses/width.module.scss"
 
 import { wrapper } from "./LineChart.module.scss"
 
-type Props = {
+type Properties = {
     data: WorkoutData[]
 }
 
-export default function LineChart(props: Props) {
-    const lineChartData = getLineChartData(props.data)
+export default function LineChart(properties: Properties) {
+    const lineChartData = getLineChartData(properties.data)
 
     return (
         <div
@@ -44,7 +44,7 @@ export default function LineChart(props: Props) {
                     {
                         data: lineChartData.map((day) => day.totalReps),
                         color: secondaryLight,
-                        label: `level ${props.data[0].level} ${toCapitalizedWords(getExerciseNameById(props.data[0].type))}`,
+                        label: `level ${properties.data[0].level} ${toCapitalizedWords(getExerciseNameById(properties.data[0].type))}`,
                     },
                 ]}
             />
@@ -65,7 +65,7 @@ function getLineChartData(data: WorkoutData[]) {
         .filter((workout) => workout.level === level)
         .map((workout) => ({
             date: workout.date,
-            totalReps: workout.reps.reduce((acc, curr) => acc + curr, 0),
+            totalReps: workout.reps.reduce((accumulator, current) => accumulator + current, 0),
         }))
         .sort((a, b) => a.date - b.date)
 }

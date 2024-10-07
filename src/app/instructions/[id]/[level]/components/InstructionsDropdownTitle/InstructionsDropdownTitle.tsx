@@ -6,12 +6,12 @@ import { pathLevelToNumber } from "@/modules/strings/transform"
 
 import DropdownLinks from "./DropdownLinks/DropdownLinks"
 
-type Props = {
+type Properties = {
     id: WorkoutTypeIds
     level: string
 }
 
-async function InstructionsDropdownTitle({ level, id }: Props) {
+async function InstructionsDropdownTitle({ level, id }: Properties) {
     const exerciseIds = await exerciseCmsClient.getExerciseIds()
 
     return (

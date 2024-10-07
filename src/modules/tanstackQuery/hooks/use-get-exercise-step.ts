@@ -7,19 +7,23 @@ import { type WorkoutTypeIds } from "@/modules/model/workout/workout-schemas"
 
 import { WORKOUTS_QUERY_KEY } from "../keys/query-keys"
 
-type Args = {
+type Arguments = {
     type: WorkoutTypeIds
     level: number
 } | null
 
-function useGetExerciseStep(args: Args) {
+function useGetExerciseStep(args: Arguments) {
     return useQuery({
         queryKey: [WORKOUTS_QUERY_KEY, args],
-        queryFn: () =>
-            args
-                ? exerciseCmsClient.getExerciseStep(args.type, args.level)
-                : Promise.resolve(null),
-        enabled: Boolean(args),
+        queryFn: () => {
+            if (args === null) {
+                throw new Error(
+                    "Running the query without arguments is not allowed"
+                )
+            }
+            return exerciseCmsClient.getExerciseStep(args.type, args.level)
+        },
+        enabled: args !== null,
     })
 }
 

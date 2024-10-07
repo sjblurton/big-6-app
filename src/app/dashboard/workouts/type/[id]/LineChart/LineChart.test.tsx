@@ -10,7 +10,7 @@ import LineChart from "./LineChart"
 
 const ONE_WEEK = 604800000
 
-const mockLineChartArgs: WorkoutData[] = [
+const mockLineChartArguments: WorkoutData[] = [
     {
         id: "id1",
         key: "key1",
@@ -59,7 +59,7 @@ jest.mock("../../../../../../modules/components/library/mui/muix.ts", () => ({
 
 describe("LineChart", () => {
     it("renders without crashing", () => {
-        render(<LineChart data={mockLineChartArgs} />)
+        render(<LineChart data={mockLineChartArguments} />)
         expect(screen.getByTestId("mui-line-chart")).toBeInTheDocument()
     })
 })

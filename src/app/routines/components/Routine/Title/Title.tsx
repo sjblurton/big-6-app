@@ -6,7 +6,7 @@ import {
     MuiTypography,
 } from "@/modules/components/library/mui"
 
-type TitleProps = {
+type TitleProperties = {
     list: {
         max: number
         active: number
@@ -15,13 +15,13 @@ type TitleProps = {
     title: string
 }
 
-function Title({ list: { max, active }, setActive, title }: TitleProps) {
+function Title({ list: { max, active }, setActive, title }: TitleProperties) {
     const handleBackClick = () => {
-        setActive((curr) => (curr === 0 ? 0 : curr - 1))
+        setActive((current) => (current === 0 ? 0 : current - 1))
     }
 
     const handleNextClick = () => {
-        setActive((curr) => (curr === max ? max : curr + 1))
+        setActive((current) => (current === max ? max : current + 1))
     }
 
     return (

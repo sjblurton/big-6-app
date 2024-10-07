@@ -3,7 +3,7 @@ import { type FieldValues, type Path, useFormContext } from "react-hook-form"
 
 import { MuiTextField } from "../../library/mui/inputs"
 
-type InputProps<FormData extends FieldValues> = {
+type InputProperties<FormData extends FieldValues> = {
     label: string
     isMultiline: boolean
     name: Path<FormData>
@@ -15,7 +15,7 @@ function Input<FormData extends FieldValues>({
     isMultiline,
     name,
     isFullWidth,
-}: InputProps<FormData>) {
+}: InputProperties<FormData>) {
     const {
         register,
         formState: { errors },

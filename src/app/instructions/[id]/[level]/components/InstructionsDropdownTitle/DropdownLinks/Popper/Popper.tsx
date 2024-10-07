@@ -9,7 +9,7 @@ import {
 
 import MenuList from "./MenuList/MenuList"
 
-type Props = {
+type Properties = {
     options: { label: string; href: string }[]
     selectedIndex: number
     handleMenuItemClick: (
@@ -28,7 +28,7 @@ function Popper({
     anchorRef,
     open,
     handleClose,
-}: Props) {
+}: Properties) {
     return (
         <MuiPopper
             placement="bottom-start"

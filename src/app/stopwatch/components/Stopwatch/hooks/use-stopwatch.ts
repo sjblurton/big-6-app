@@ -10,7 +10,7 @@ function useStopwatch() {
         let intervalId: NodeJS.Timeout
         if (isRunning) {
             intervalId = setInterval(
-                () => setTime((prevTime) => prevTime + 1),
+                () => setTime((previousTime) => previousTime + 1),
                 10
             )
         }

@@ -1,7 +1,7 @@
 import { type LevelPath, LEVELS } from "./levels"
 
-export function toKebabCase(str: string) {
-    return str
+export function toKebabCase(string: string) {
+    return string
         .trim()
         .replace(/(?<lower>[a-z])(?<upper>[A-Z])/g, "$<lower>-$<upper>")
         .replace(
@@ -17,8 +17,8 @@ function capitalize(word: string) {
 }
 
 export function toCapitalizedWords(name: string) {
-    const cleanedName = name.replace(/[^a-zA-Z]+/g, " ")
-    const words = cleanedName.match(/[a-zA-Z][a-zA-Z]*/g) || []
+    const cleanedName = name.replace(/[^A-Za-z]+/g, " ")
+    const words = cleanedName.match(/[A-Za-z]+/g) || []
 
     return words.map((word) => capitalize(word.toLowerCase())).join(" ")
 }

@@ -2,12 +2,12 @@ import React from "react"
 
 import LinkItem from "./LinkItem"
 
-type LinkItemProps = {
+type LinkItemProperties = {
     routes: { name: string; path: string }[]
     handleCloseNavMenu: () => void
 }
 
-function LinkItems({ routes, handleCloseNavMenu }: LinkItemProps) {
+function LinkItems({ routes, handleCloseNavMenu }: LinkItemProperties) {
     return routes.length > 0
         ? routes.map(({ name, path }) => (
               <LinkItem

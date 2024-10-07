@@ -15,11 +15,11 @@ import * as boxShadow from "@/styles/utilityClasses/box-shadow.module.scss"
 import { box, card, svg } from "./WorkoutCard.module.scss"
 import WorkoutCardSkeleton from "./WorkoutCardSkeleton"
 
-type Props = {
+type Properties = {
     workout: WorkoutData
 }
 
-function WorkoutCard({ workout: { date, level, reps, type } }: Props) {
+function WorkoutCard({ workout: { date, level, reps, type } }: Properties) {
     const { data, error, isLoading, isError } = useGetExerciseStep({
         level,
         type,
@@ -35,7 +35,7 @@ function WorkoutCard({ workout: { date, level, reps, type } }: Props) {
 
     const { name, image, advanceGoal } = data
 
-    const totalReps = reps.reduce((acc, curr) => acc + curr, 0)
+    const totalReps = reps.reduce((accumulator, current) => accumulator + current, 0)
 
     const time = DateTime.fromMillis(date).toRelativeCalendar()
 

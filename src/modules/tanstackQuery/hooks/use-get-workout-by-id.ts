@@ -9,9 +9,15 @@ import { WORKOUTS_QUERY_KEY } from "../keys/query-keys"
 function useGetWorkoutById(id: string | null) {
     return useQuery({
         queryKey: [WORKOUTS_QUERY_KEY, id],
-        queryFn: () =>
-            id ? workoutAxiosClient.getWorkout(id) : Promise.resolve(null),
-        enabled: Boolean(id),
+        queryFn: () => {
+            if (id === null) {
+                throw new Error(
+                    "Running the query without arguments is not allowed"
+                )
+            }
+            return workoutAxiosClient.getWorkout(id)
+        },
+        enabled: id !== null,
     })
 }
 

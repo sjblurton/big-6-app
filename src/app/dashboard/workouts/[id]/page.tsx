@@ -5,14 +5,14 @@ import { createMetadata } from "@/modules/seo/create-metadata"
 
 import PageContent from "./PageContent/PageContent"
 
-type Params = {
+type Parameters = {
     id: string
 }
 
 export async function generateMetadata({
     params: { id },
 }: {
-    params: Params
+    params: Parameters
 }): Promise<Metadata> {
     return createMetadata({
         title: `Document: ${id}`,

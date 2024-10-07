@@ -2,16 +2,16 @@
 
 import { useCallback, useEffect, useRef, useState } from "react"
 
-type Props = {
+type Properties = {
     start: number
     end: number
     duration?: number
 }
 
-function useCountUp({ end, start, duration = 2000 }: Props) {
+function useCountUp({ end, start, duration = 2000 }: Properties) {
     const [value, setValue] = useState<number>(start)
-    const currentValueRef = useRef<number>(start)
-    const timeoutRef = useRef<NodeJS.Timeout | null>(null)
+    const currentValueReference = useRef<number>(start)
+    const timeoutReference = useRef<NodeJS.Timeout | null>(null)
     const isInitRender = useRef(true)
 
     const interval = 70
@@ -19,14 +19,14 @@ function useCountUp({ end, start, duration = 2000 }: Props) {
     const increment = (end - start) / steps
 
     const updateValue = useCallback(() => {
-        currentValueRef.current += increment
-        setValue(currentValueRef.current)
+        currentValueReference.current += increment
+        setValue(currentValueReference.current)
     }, [increment])
 
     const clearTimer = useCallback(() => {
-        if (timeoutRef.current) {
-            clearTimeout(timeoutRef.current)
-            timeoutRef.current = null
+        if (timeoutReference.current) {
+            clearTimeout(timeoutReference.current)
+            timeoutReference.current = null
         }
     }, [])
 
@@ -37,14 +37,14 @@ function useCountUp({ end, start, duration = 2000 }: Props) {
         }
         if (isInitRender.current) {
             isInitRender.current = false
-            timeoutRef.current = setTimeout(countUp, interval)
+            timeoutReference.current = setTimeout(countUp, interval)
             return
         }
         updateValue()
 
         const hasEnded =
-            (increment > 0 && currentValueRef.current >= end) ||
-            (increment < 0 && currentValueRef.current <= end)
+            (increment > 0 && currentValueReference.current >= end) ||
+            (increment < 0 && currentValueReference.current <= end)
 
         if (hasEnded) {
             setValue(end)
@@ -52,11 +52,11 @@ function useCountUp({ end, start, duration = 2000 }: Props) {
             return
         }
 
-        timeoutRef.current = setTimeout(countUp, interval)
+        timeoutReference.current = setTimeout(countUp, interval)
     }, [start, end, increment, interval, updateValue, clearTimer])
 
     useEffect(() => {
-        timeoutRef.current = setTimeout(countUp, interval)
+        timeoutReference.current = setTimeout(countUp, interval)
         return () => {
             clearTimer()
         }

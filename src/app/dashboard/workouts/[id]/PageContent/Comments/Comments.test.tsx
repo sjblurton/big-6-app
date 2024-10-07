@@ -9,9 +9,9 @@ describe("Comments", () => {
 
     it("renders without crashing", () => {
         render(<Comments isSeconds={false} reps={reps} />)
-        reps.forEach((rep, i) => {
+        reps.forEach((rep, index) => {
             expect(
-                screen.getByText(`Set ${i + 1}: ${rep} reps`)
+                screen.getByText(`Set ${index + 1}: ${rep} reps`)
             ).toBeInTheDocument()
         })
     })
@@ -28,9 +28,9 @@ describe("Comments", () => {
 
     it("renders with seconds suffix when isSeconds is true", () => {
         render(<Comments isSeconds={true} reps={reps} />)
-        reps.forEach((rep, i) => {
+        reps.forEach((rep, index) => {
             expect(
-                screen.getByText(`Set ${i + 1}: ${rep} seconds`)
+                screen.getByText(`Set ${index + 1}: ${rep} seconds`)
             ).toBeInTheDocument()
         })
     })

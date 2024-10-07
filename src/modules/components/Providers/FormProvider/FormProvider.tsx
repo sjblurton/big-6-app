@@ -6,7 +6,7 @@ import {
 } from "react-hook-form"
 import { type z } from "zod"
 
-type FormProviderProps<FormData extends FieldValues> = {
+type FormProviderProperties<FormData extends FieldValues> = {
     children: React.ReactNode
     schema: z.ZodType<FormData>
     onSubmit: (data: FormData) => Promise<Response>
@@ -16,7 +16,7 @@ function FormProvider<FormData extends FieldValues>({
     children,
     schema,
     onSubmit,
-}: FormProviderProps<FormData>) {
+}: FormProviderProperties<FormData>) {
     const methods = useForm<FormData>({
         resolver: zodResolver(schema),
     })

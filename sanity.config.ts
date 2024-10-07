@@ -9,7 +9,7 @@ import { structureTool } from "sanity/structure"
 
 import { schema } from "./src/modules/cms/backend"
 // Go to https://www.sanity.io/docs/api-versioning to learn how API versioning works
-import { apiVersion, dataset, projectId } from "./src/modules/cms/env"
+import { apiVersion, dataset, projectId } from "./src/modules/cms/environment"
 import { structure } from "./src/modules/cms/structure"
 
 export default defineConfig({

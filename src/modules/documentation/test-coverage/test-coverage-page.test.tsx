@@ -101,7 +101,7 @@ describe("TestCoveragePage - with specific data", () => {
         ).toBeInTheDocument()
 
         expect(
-            screen.getByRole("cell", { name: /ComponentA/i })
+            screen.getByRole("cell", { name: /componenta/i })
         ).toBeInTheDocument()
     })
 

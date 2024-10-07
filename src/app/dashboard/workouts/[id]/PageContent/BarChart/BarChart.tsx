@@ -7,11 +7,11 @@ import * as width from "@/styles/utilityClasses/width.module.scss"
 
 import { wrapper } from "./BarChart.module.scss"
 
-type Props = {
+type Properties = {
     reps: number[]
 }
 
-export default function BarChart({ reps }: Props) {
+export default function BarChart({ reps }: Properties) {
     return (
         <div
             className={`${background.light} ${boxShadow.subtle} ${radius.medium} ${width.w90} ${wrapper}`}
@@ -21,7 +21,7 @@ export default function BarChart({ reps }: Props) {
                 xAxis={[
                     {
                         scaleType: "band",
-                        data: reps.map((_, i) => `Set: ${i + 1}`),
+                        data: reps.map((_, index) => `Set: ${index + 1}`),
                     },
                 ]}
                 series={[{ data: reps, color: secondaryLight }]}

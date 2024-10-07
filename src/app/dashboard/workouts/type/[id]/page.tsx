@@ -11,14 +11,14 @@ import { createMetadata } from "@/modules/seo/create-metadata"
 
 import LineChart from "./LineChart/LineChart"
 
-type Params = {
+type Parameters = {
     id: WorkoutTypeIds
 }
 
 export async function generateMetadata({
     params: { id },
 }: {
-    params: Params
+    params: Parameters
 }): Promise<Metadata> {
     const data = await exerciseCmsClient.getExerciseDocument(id)
     return createMetadata({
@@ -27,7 +27,7 @@ export async function generateMetadata({
     })
 }
 
-async function WorkoutSummery({ params: { id } }: { params: Params }) {
+async function WorkoutSummery({ params: { id } }: { params: Parameters }) {
     const mockLatestWorkoutData: WorkoutData[] = await fetch(
         `http://localhost:3000/api/v1/workouts/types/${id}`,
         { cache: "no-store" }

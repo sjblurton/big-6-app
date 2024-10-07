@@ -10,6 +10,38 @@
                 }
             }
         ],
+        "unicorn/no-useless-undefined": "error",
+        "unicorn/no-await-in-promise-methods": "error",
+        "unicorn/prevent-abbreviations": [
+            "error",
+            {
+                "replacements": {
+                    "e": {
+                        "event": true
+                    },
+                    "res": false,
+                    "cmd": {
+                        "command": true
+                    },
+                    "errCb": {
+                        "handleError": true
+                    },
+                    "props": {
+                        "properties": true
+                    },
+                    "args": {
+                        "arguments": false
+                    },
+                    "Params": {
+                        "parameters": true
+                    }
+                }
+            }
+        ],
+        "unicorn/no-unnecessary-await": "error",
+        "unicorn/consistent-destructuring": "error",
+        "unicorn/better-regex": "error",
+        "unicorn/catch-error-name": "error",
         "unicorn/prefer-node-protocol": "error"
     }
 }

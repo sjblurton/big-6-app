@@ -1,6 +1,6 @@
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools"
 
-import MuiThemeProvider from "@/modules/components/library/ThemeProvider/MuiThemeProvider"
+import MuiThemeProvider from "@/modules/components/Providers/ThemeProvider/MuiThemeProvider"
 import QueryProvider from "@/modules/tanstackQuery/QueryProvider"
 
 function Providers({

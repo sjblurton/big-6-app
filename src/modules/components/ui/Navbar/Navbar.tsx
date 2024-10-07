@@ -7,24 +7,23 @@ import Toolbar from "./components/Toolbar"
 
 import { MuiAppBar, MuiContainer } from "../../library/mui"
 
-export type NavbarProps = {
+export type NavbarProperties = {
     routes: { name: string; path: string }[]
 }
 
-function Navbar({ routes }: NavbarProps) {
+function Navbar({ routes }: NavbarProperties) {
     const pathname = usePathname()
     const activePage = routes.find(({ path }) => path === pathname)
 
-    const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
-        null
-    )
+    const [anchorElementNav, setAnchorElementNav] =
+        React.useState<null | HTMLElement>(null)
 
     const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
-        setAnchorElNav(event.currentTarget)
+        setAnchorElementNav(event.currentTarget)
     }
 
     const handleCloseNavMenu = () => {
-        setAnchorElNav(null)
+        setAnchorElementNav(null)
     }
 
     return (
@@ -37,7 +36,7 @@ function Navbar({ routes }: NavbarProps) {
                 <Toolbar
                     routes={routes}
                     activePage={activePage}
-                    anchorElNav={anchorElNav}
+                    anchorElNav={anchorElementNav}
                     handleCloseNavMenu={handleCloseNavMenu}
                     handleOpenNavMenu={handleOpenNavMenu}
                 />

@@ -6,12 +6,12 @@ import * as boarderRadius from "@/styles/utilityClasses/border-radius.module.scs
 
 import { button } from "./ActionButton.module.scss"
 
-type Props = {
+type Properties = {
     startAndStop: () => void
     isRunning: boolean
 }
 
-function ActionButton({ isRunning, startAndStop }: Props) {
+function ActionButton({ isRunning, startAndStop }: Properties) {
     const buttonClass = `${button} ${isRunning ? background.error : background.success} ${boarderRadius.round}`
 
     return (

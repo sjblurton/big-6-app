@@ -19,7 +19,7 @@ import * as width from "@/styles/utilityClasses/width.module.scss"
 
 import ListItem from "./components/ListItem"
 
-type InstructionsOverviewCardProps = {
+type InstructionsOverviewCardProperties = {
     type: WorkoutTypeIds
 }
 
@@ -27,7 +27,7 @@ export const revalidate = TIME_SECONDS.ONE_DAY
 
 async function InstructionsOverviewCard({
     type,
-}: InstructionsOverviewCardProps) {
+}: InstructionsOverviewCardProperties) {
     const { name, image, description, steps } =
         await exerciseCmsClient.getExerciseDocument(type)
 

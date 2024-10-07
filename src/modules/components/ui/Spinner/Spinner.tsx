@@ -6,11 +6,11 @@ import useIncrementalValue, {
 
 import Circle from "../../assets/Circle/Circle"
 
-type Props = {
+type Properties = {
     speed: UseIncrementalValueSpeed
 }
 
-function Spinner({ speed }: Props) {
+function Spinner({ speed }: Properties) {
     const dashOffsetValue = useIncrementalValue(speed)
 
     return <Circle dashOffsetValue={dashOffsetValue} />

@@ -23,7 +23,7 @@ import InstructionsCard from "./components/InstructionsCard/InstructionsCard"
 import InstructionsDropdownTitle from "./components/InstructionsDropdownTitle/InstructionsDropdownTitle"
 import Progressions from "./components/Progressions/Progressions"
 
-type Params = {
+type Parameters = {
     id: WorkoutTypeIds
     level: string
 }
@@ -40,7 +40,7 @@ export const getStaticPaths = (async () => ({
 export async function generateMetadata({
     params: { id, level },
 }: {
-    params: Params
+    params: Parameters
 }): Promise<Metadata> {
     const data = await exerciseCmsClient.getExerciseStep(
         id,
@@ -55,7 +55,7 @@ export async function generateMetadata({
 async function WorkoutInstructionsPage({
     params: { id, level },
 }: {
-    params: Params
+    params: Parameters
 }) {
     const {
         step: {

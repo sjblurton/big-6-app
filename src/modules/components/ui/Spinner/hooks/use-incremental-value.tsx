@@ -5,31 +5,31 @@ export type UseIncrementalValueSpeed = keyof typeof SPEED
 
 function useIncrementalValue(speed: UseIncrementalValueSpeed) {
     const [value, setValue] = useState<number>(0)
-    const currentValueRef = useRef<number>(0)
-    const timeoutRef = useRef<NodeJS.Timeout | null>(null)
+    const currentValueReference = useRef<number>(0)
+    const timeoutReference = useRef<NodeJS.Timeout | null>(null)
 
     const interval = 70
     const increment = SPEED[speed] / interval
 
     const updateValue = useCallback(() => {
-        currentValueRef.current += increment
-        setValue(currentValueRef.current)
+        currentValueReference.current += increment
+        setValue(currentValueReference.current)
     }, [increment])
 
     const clearTimer = useCallback(() => {
-        if (timeoutRef.current) {
-            clearTimeout(timeoutRef.current)
-            timeoutRef.current = null
+        if (timeoutReference.current) {
+            clearTimeout(timeoutReference.current)
+            timeoutReference.current = null
         }
     }, [])
 
     const countUp = useCallback(() => {
         updateValue()
-        timeoutRef.current = setTimeout(countUp, interval)
+        timeoutReference.current = setTimeout(countUp, interval)
     }, [interval, updateValue])
 
     useEffect(() => {
-        timeoutRef.current = setTimeout(countUp, interval)
+        timeoutReference.current = setTimeout(countUp, interval)
         return () => {
             clearTimer()
         }
