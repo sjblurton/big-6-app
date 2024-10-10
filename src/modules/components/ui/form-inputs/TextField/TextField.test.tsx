@@ -2,9 +2,9 @@ import { fireEvent, render, screen, waitFor } from "@testing-library/react"
 import { act } from "react"
 import { z } from "zod"
 
-import Input from "./Input"
+import TextField from "./TextField"
 
-import FormProvider from "../../Providers/FormProvider/FormProvider"
+import FormProvider from "../../../../../app/add/Form/Provider/Provider"
 
 const schema = z.object({
     testField: z.string().min(1, "This field is required"),
@@ -23,7 +23,7 @@ function renderInput() {
     return render(
         // @ts-expect-error - It's a test so I'm not too worried about the type
         <FormProvider schema={schema} onSubmit={onSubmit}>
-            <Input<FormData>
+            <TextField<FormData>
                 label="Test Field"
                 isMultiline={false}
                 name="testField"

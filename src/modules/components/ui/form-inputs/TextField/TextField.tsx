@@ -1,7 +1,7 @@
 import get from "lodash.get"
 import { type FieldValues, type Path, useFormContext } from "react-hook-form"
 
-import { MuiTextField } from "../../library/mui/inputs"
+import { MuiTextField } from "../../../library/mui/inputs"
 
 type InputProperties<FormData extends FieldValues> = {
     label: string
@@ -10,7 +10,7 @@ type InputProperties<FormData extends FieldValues> = {
     isFullWidth: boolean
 }
 
-function Input<FormData extends FieldValues>({
+function TextField<FormData extends FieldValues>({
     label,
     isMultiline,
     name,
@@ -53,4 +53,4 @@ function Input<FormData extends FieldValues>({
     )
 }
 
-export default Input
+export default TextField

@@ -1,0 +1,29 @@
+.wrapper {
+    text-align: center;
+    cursor: pointer;
+    padding: 8px;
+}
+
+.wrapper input {
+    display: none;
+}
+
+.wrapper label {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.scale {
+    transform: scale(1.1);
+}
+
+.large {
+    width: 130px;
+    height: 130px;
+}
+
+.small {
+    width: 80px;
+    height: 80px;
+}
