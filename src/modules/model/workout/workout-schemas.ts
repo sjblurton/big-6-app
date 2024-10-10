@@ -31,7 +31,6 @@ export const workoutTypeIdsUnion = z.union([
 export const openApiWorkoutIdsSchema = generateSchema(workoutTypeIdsUnion)
 
 export const workoutSchema = z.object({
-    key: z.string(),
     id: z.string(),
     date: z.number(),
     reps: z.array(z.number().min(1).max(200)).max(100),
@@ -40,6 +39,9 @@ export const workoutSchema = z.object({
     comments: z.string().optional(),
     user: z.string().email(),
 })
+
+export const createWorkoutSchema = workoutSchema.omit({ id: true })
+export type CreateWorkoutData = z.infer<typeof createWorkoutSchema>
 
 export type WorkoutTypeIds = z.infer<typeof workoutTypeIdsUnion>
 
