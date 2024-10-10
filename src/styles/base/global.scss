@@ -4,3 +4,8 @@ body {
     background-color: color.get-color("primary", "main");
     color: color.get-color("common", "white");
 }
+
+html,
+body {
+    min-height: 100vh;
+}
