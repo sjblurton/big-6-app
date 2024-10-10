@@ -15,4 +15,8 @@ export const imageSchema = z.object({
     }),
 })
 
+export const imageWithBlurSchema = imageSchema.extend({
+    lqip: z.string(),
+})
+
 export type ImageAsset = z.infer<typeof imageSchema>

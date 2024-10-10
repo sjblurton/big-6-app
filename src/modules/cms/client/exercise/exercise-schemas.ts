@@ -4,7 +4,11 @@ import { exerciseNames } from "@/modules/contants/exercise-names"
 import { progressionStages } from "@/modules/contants/progression-stages"
 import { workoutTypeIdsUnion } from "@/modules/model/workout/workout-schemas"
 
-import { documentBaseSchema, imageSchema } from "../shared/base-schemas"
+import {
+    documentBaseSchema,
+    imageSchema,
+    imageWithBlurSchema,
+} from "../shared/base-schemas"
 
 const progressionSchema = z.object({
     _key: z.string(),
@@ -58,9 +62,15 @@ export const exerciseDocumentSchema = documentBaseSchema.extend({
 
 export const cmsExerciseSchema = exerciseDocumentSchema.array()
 
-export const cmsExerciseIdsSchema = z.array(
-    z.object({ _id: workoutTypeIdsUnion, name: z.string() })
-)
+const cmsExerciseIdSchema = exerciseDocumentSchema
+    .pick({ _id: true, name: true })
+    .extend({
+        image: imageWithBlurSchema,
+    })
+
+export const cmsExerciseIdsSchema = cmsExerciseIdSchema.array()
+
+export type CmsExerciseIdSchema = z.infer<typeof cmsExerciseIdSchema>
 
 export const exerciseStepDataSchema = z.object({
     name: z.string(),

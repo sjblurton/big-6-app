@@ -18,11 +18,15 @@ class ExerciseCmsClient extends CmsBaseClient {
     async getExerciseIds() {
         return cmsExerciseIdsSchema.parseAsync(
             await this.fetch(groq`
-            *[_type == ${this.EXERCISE_DOCUMENT} && ${this._queryOmitDrafts}]{
-                _id,
-                name
-            }
-        `)
+                *[_type == ${this.EXERCISE_DOCUMENT} && ${this._queryOmitDrafts}]{
+                    _id,
+                    name,
+                    "image":{
+                        ...image,
+                        "lqip": image.asset->metadata.lqip
+                    }
+                }
+            `)
         )
     }
 
