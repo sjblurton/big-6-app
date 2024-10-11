@@ -48,8 +48,8 @@ async function Timeline({ data }: TimelineProperties) {
     return (
         <div>
             <MuiTimeline>
-                {timeline.map(({ level, date, key, title, description }) => (
-                    <Link href={`/dashboard/workouts/${key}`} key={key}>
+                {timeline.map(({ level, date, id, title, description }) => (
+                    <Link href={`/dashboard/workouts/${id}`} key={id}>
                         <MuiTimelineItem
                             sx={{
                                 "&::before": {

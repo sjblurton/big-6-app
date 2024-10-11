@@ -32,7 +32,7 @@ function WorkoutCardList() {
                     <MuiGrid
                         item
                         xs={12}
-                        key={workout.key}
+                        key={workout.id}
                         display="flex"
                         alignContent="center"
                         justifyContent="center"

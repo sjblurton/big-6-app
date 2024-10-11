@@ -65,7 +65,10 @@ function getLineChartData(data: WorkoutData[]) {
         .filter((workout) => workout.level === level)
         .map((workout) => ({
             date: workout.date,
-            totalReps: workout.reps.reduce((accumulator, current) => accumulator + current, 0),
+            totalReps: workout.reps.reduce(
+                (accumulator, current) => accumulator + current,
+                0
+            ),
         }))
         .sort((a, b) => a.date - b.date)
 }

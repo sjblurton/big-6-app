@@ -35,7 +35,10 @@ function WorkoutCard({ workout: { date, level, reps, type } }: Properties) {
 
     const { name, image, advanceGoal } = data
 
-    const totalReps = reps.reduce((accumulator, current) => accumulator + current, 0)
+    const totalReps = reps.reduce(
+        (accumulator, current) => accumulator + current,
+        0
+    )
 
     const time = DateTime.fromMillis(date).toRelativeCalendar()
 

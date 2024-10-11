@@ -30,10 +30,12 @@ export const workoutTypeIdsUnion = z.union([
 
 export const openApiWorkoutIdsSchema = generateSchema(workoutTypeIdsUnion)
 
+export const repsSchema = z.number().min(1).max(200).int()
+
 export const workoutSchema = z.object({
     id: z.string(),
     date: z.number(),
-    reps: z.array(z.number().min(1).max(200)).max(100),
+    reps: repsSchema.array().max(100),
     level: z.number().min(1).max(10).int(),
     type: workoutTypeIdsUnion,
     comments: z.string().optional(),
@@ -41,12 +43,15 @@ export const workoutSchema = z.object({
 })
 
 export const createWorkoutSchema = workoutSchema
-    .omit({ id: true, level: true })
+    .omit({ id: true, level: true, reps: true })
     .extend({
-        level: z
-            .string()
-            .regex(/^[1-9]|10$/)
-            .transform((level) => parseInt(level, 10)),
+        level: z.string().regex(/^[1-9]|10$/),
+        // .transform((level) => parseInt(level, 10)),
+        reps: z
+            .object({ value: z.number().min(1).max(200) })
+            .array()
+            .max(100),
+        // .transform((reps) => reps.map((rep) => rep.value)),
     })
 
 export type CreateWorkoutDataInput = z.input<typeof createWorkoutSchema>

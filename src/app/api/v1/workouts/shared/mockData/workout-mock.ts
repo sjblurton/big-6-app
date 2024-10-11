@@ -12,7 +12,6 @@ const December312022 = 1672531199000
 export const mockPullUpWorkoutData: WorkoutData[] = [
     {
         id: "workout1",
-        key: "workout1",
         date: December312022,
         reps: [10, 12, 15],
         level: 5,
@@ -22,7 +21,6 @@ export const mockPullUpWorkoutData: WorkoutData[] = [
     },
     {
         id: "workout2",
-        key: "workout2",
         date: December312022 - Number(TIME_MILLISECONDS.ONE_WEEK),
         reps: [8, 10, 12],
         level: 5,
@@ -32,7 +30,6 @@ export const mockPullUpWorkoutData: WorkoutData[] = [
     },
     {
         id: "workout3",
-        key: "workout3",
         date: December312022 - TIME_MILLISECONDS.ONE_WEEK * 2,
         reps: [20, 25, 30],
         level: 5,
@@ -42,7 +39,6 @@ export const mockPullUpWorkoutData: WorkoutData[] = [
     },
     {
         id: "workout4",
-        key: "workout4",
         date: December312022 - TIME_MILLISECONDS.ONE_WEEK * 3,
         reps: [5, 7, 10],
         level: 5,
@@ -52,7 +48,6 @@ export const mockPullUpWorkoutData: WorkoutData[] = [
     },
     {
         id: "workout5",
-        key: "workout5",
         date: December312022 - TIME_MILLISECONDS.ONE_WEEK * 4,
         reps: [15, 18, 20],
         level: 5,
@@ -62,7 +57,6 @@ export const mockPullUpWorkoutData: WorkoutData[] = [
     },
     {
         id: "workout6",
-        key: "workout6",
         date: December312022 - TIME_MILLISECONDS.ONE_WEEK * 5,
         reps: [12, 14, 16],
         level: 5,
@@ -75,7 +69,6 @@ export const mockPullUpWorkoutData: WorkoutData[] = [
 export const mockLatestWorkoutData: WorkoutData[] = [
     {
         id: "workout1",
-        key: "workout1",
         date: 1672531199000,
         reps: [10, 12, 15],
         level: 5,
@@ -85,7 +78,6 @@ export const mockLatestWorkoutData: WorkoutData[] = [
     },
     {
         id: "workout2",
-        key: "workout2",
         date: 1672617599000,
         reps: [2, 1],
         level: 5,
@@ -95,7 +87,6 @@ export const mockLatestWorkoutData: WorkoutData[] = [
     },
     {
         id: "workout3",
-        key: "workout3",
         date: 1672703999000,
         reps: [20, 25, 30],
         level: 5,
@@ -105,7 +96,6 @@ export const mockLatestWorkoutData: WorkoutData[] = [
     },
     {
         id: "workout4",
-        key: "workout4",
         date: 1672790399000,
         reps: [5, 7, 10],
         level: 5,
@@ -115,7 +105,6 @@ export const mockLatestWorkoutData: WorkoutData[] = [
     },
     {
         id: "workout5",
-        key: "workout5",
         date: 1672876799000,
         reps: [15, 18, 20],
         level: 5,
@@ -125,7 +114,6 @@ export const mockLatestWorkoutData: WorkoutData[] = [
     },
     {
         id: "workout6",
-        key: "workout6",
         date: 1672963199000,
         reps: [12, 14, 16],
         level: 5,

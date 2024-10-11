@@ -13,7 +13,6 @@ const ONE_WEEK = 604800000
 const mockLineChartArguments: WorkoutData[] = [
     {
         id: "id1",
-        key: "key1",
         date: new Date().getTime(),
         reps: [30, 23, 28],
         level: 5,
@@ -23,7 +22,6 @@ const mockLineChartArguments: WorkoutData[] = [
     },
     {
         id: "id2",
-        key: "key2",
         date: new Date().getTime() - ONE_WEEK,
         reps: [30, 27, 22],
         level: 5,
@@ -33,7 +31,6 @@ const mockLineChartArguments: WorkoutData[] = [
     },
     {
         id: "id3",
-        key: "key3",
         date: new Date().getTime() - ONE_WEEK * 2,
         reps: [25, 22, 18],
         level: 5,
@@ -43,7 +40,6 @@ const mockLineChartArguments: WorkoutData[] = [
     },
     {
         id: "id4",
-        key: "key4",
         date: new Date().getTime() - ONE_WEEK * 3,
         reps: [20, 18, 15],
         level: 5,

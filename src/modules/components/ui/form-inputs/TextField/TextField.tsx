@@ -5,16 +5,36 @@ import { MuiTextField } from "../../../library/mui/inputs"
 
 type InputProperties<FormData extends FieldValues> = {
     label: string
-    isMultiline: boolean
     name: Path<FormData>
-    isFullWidth: boolean
+    isMultiline?: boolean
+    isFullWidth?: boolean
+    isNumber?: boolean
+}
+
+export const textFieldStyles = {
+    "& .MuiFormLabel-root": {
+        color: "white",
+    },
+    "& .MuiFormLabel-root.Mui-focused": {
+        color: "white",
+    },
+    "& .MuiFilledInput-root::before": {
+        borderBottom: "1px solid white",
+    },
+    "& .MuiFormHelperText-root.Mui-error": {
+        backgroundColor: "error.light",
+        color: "white",
+        borderRadius: 1,
+        paddingInline: 2,
+    },
 }
 
 function TextField<FormData extends FieldValues>({
     label,
-    isMultiline,
     name,
-    isFullWidth,
+    isMultiline = false,
+    isFullWidth = false,
+    isNumber = false,
 }: InputProperties<FormData>) {
     const {
         register,
@@ -24,23 +44,7 @@ function TextField<FormData extends FieldValues>({
     const errorMessage = get(errors, name)?.message
     return (
         <MuiTextField
-            sx={{
-                "& .MuiFormLabel-root": {
-                    color: "white",
-                },
-                "& .MuiFormLabel-root.Mui-focused": {
-                    color: "white",
-                },
-                "& .MuiFilledInput-root::before": {
-                    borderBottom: "1px solid white",
-                },
-                "& .MuiFormHelperText-root.Mui-error": {
-                    backgroundColor: "error.light",
-                    color: "white",
-                    borderRadius: 1,
-                    paddingInline: 2,
-                },
-            }}
+            sx={textFieldStyles}
             size="small"
             error={Boolean(errorMessage)}
             variant="filled"
@@ -48,7 +52,8 @@ function TextField<FormData extends FieldValues>({
             helperText={errorMessage?.toString()}
             multiline={isMultiline}
             fullWidth={isFullWidth}
-            {...register(name)}
+            type={isNumber ? "number" : "text"}
+            {...register(name, { valueAsNumber: isNumber })}
         />
     )
 }
