@@ -1,10 +1,8 @@
 import { useFormContext } from "react-hook-form"
 
-import { type CreateWorkoutData } from "@/modules/model/workout/workout-schemas"
+import { type CreateWorkoutDataOutput } from "@/modules/model/workout/workout-schemas"
 
-function useCreateFormContext() {
-    const methods = useFormContext<CreateWorkoutData>()
+export function useCreateFormContextOutputs() {
+    const methods = useFormContext<CreateWorkoutDataOutput>()
     return methods
 }
-
-export default useCreateFormContext
