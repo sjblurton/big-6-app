@@ -1,3 +1,5 @@
+import { z } from "zod"
+
 export const LEVELS = [
     "level-1",
     "level-2",
@@ -11,4 +13,6 @@ export const LEVELS = [
     "level-10",
 ] as const
 
-export type LevelPath = (typeof LEVELS)[number]
+export const levelPathSchema = z.enum(LEVELS)
+
+export type LevelPath = z.infer<typeof levelPathSchema>

@@ -4,7 +4,7 @@ import React from "react"
 import { type CmsExerciseIdSchema } from "@/modules/cms/client/exercise/exercise-schemas"
 import { urlFor } from "@/modules/cms/client/image"
 import RadioButton from "@/modules/components/ui/form-inputs/RadioButton/RadioButton"
-import { type CreateWorkoutData } from "@/modules/model/workout/workout-schemas"
+import { type CreateWorkoutDataInput } from "@/modules/model/workout/workout-schemas"
 
 const size = 80
 
@@ -27,7 +27,7 @@ function WorkoutRadioButton({ _id, image, name }: CmsExerciseIdSchema) {
     } as const
 
     return (
-        <RadioButton<CreateWorkoutData, "type">
+        <RadioButton<CreateWorkoutDataInput, "type">
             label={
                 <Image
                     src={blackAndWhiteImage}

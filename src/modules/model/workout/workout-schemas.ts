@@ -40,8 +40,17 @@ export const workoutSchema = z.object({
     user: z.string().email(),
 })
 
-export const createWorkoutSchema = workoutSchema.omit({ id: true })
-export type CreateWorkoutData = z.infer<typeof createWorkoutSchema>
+export const createWorkoutSchema = workoutSchema
+    .omit({ id: true, level: true })
+    .extend({
+        level: z
+            .string()
+            .regex(/^[1-9]|10$/)
+            .transform((level) => parseInt(level, 10)),
+    })
+
+export type CreateWorkoutDataInput = z.input<typeof createWorkoutSchema>
+export type CreateWorkoutDataOutput = z.output<typeof createWorkoutSchema>
 
 export type WorkoutTypeIds = z.infer<typeof workoutTypeIdsUnion>
 

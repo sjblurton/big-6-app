@@ -1,7 +1,6 @@
 import Form from "@/app/add/Form/Form"
 import FormProvider from "@/app/add/Form/Provider/Provider"
 import { MuiContainer } from "@/modules/components/library/mui"
-import { type CreateWorkoutData } from "@/modules/model/workout/workout-schemas"
 import { createMetadata } from "@/modules/seo/create-metadata"
 
 export const metadata = createMetadata({
@@ -12,7 +11,7 @@ export const metadata = createMetadata({
 function Add() {
     return (
         <MuiContainer maxWidth="xs" sx={{ height: "calc(100vh - 150px)" }}>
-            <FormProvider<CreateWorkoutData>>
+            <FormProvider>
                 <Form />
             </FormProvider>
         </MuiContainer>

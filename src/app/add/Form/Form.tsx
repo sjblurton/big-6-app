@@ -3,17 +3,20 @@
 import { useState } from "react"
 
 import { MuiBox } from "@/modules/components/library/mui"
+import { type CreateWorkoutDataOutput } from "@/modules/model/workout/workout-schemas"
 
 import FormStepper from "./FormStepper/FormStepper"
-import useCreateFormContext from "./hooks/use-create-form-context"
+import { useCreateFormContextOutputs } from "./hooks/use-create-form-context"
 import LevelsRadio from "./steps/LevelsRadio/LevelsRadio"
 import WorkoutRadio from "./steps/WorkoutRadio/WorkoutRadio"
 
-const onSubmit = (data: unknown) => Promise.resolve(data)
+const onSubmit = (data: CreateWorkoutDataOutput) => Promise.resolve(data)
 
 function Form() {
     const [activeStep, setActiveStep] = useState(0)
-    const { handleSubmit } = useCreateFormContext()
+    const { handleSubmit } = useCreateFormContextOutputs()
+
+    // console.log({ formValues: getValues() }) -- TODO: Remove this line left for testing purposes
 
     return (
         <MuiBox
