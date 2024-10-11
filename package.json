@@ -32,6 +32,7 @@
         "@mui/lab": "^5.0.0-alpha.173",
         "@mui/material": "^5.16.7",
         "@mui/x-charts": "^7.14.0",
+        "@mui/x-date-pickers": "^7.19.0",
         "@sanity/image-url": "^1.0.2",
         "@sanity/vision": "^3.57.4",
         "@tanstack/react-query": "^5.52.1",
