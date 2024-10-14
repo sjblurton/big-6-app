@@ -25,22 +25,22 @@ function RepsArray() {
         clearErrors,
     } = useFormContext<CreateWorkoutDataInput>()
     const { fields, append, remove } = useFieldArray({
-        name: "reps",
+        name: "workout.reps",
         control,
     })
 
-    const repsError = get(errors, "reps")
+    const repsError = get(errors, "workout.reps")
 
     const handleAddSet = () => {
         const safe = repsSchema.safeParse(currentReps)
         if (!safe.success) {
-            setError("reps", {
+            setError("workout.reps", {
                 type: "manual",
                 message: safe.error.issues[0].message,
             })
             return
         }
-        clearErrors("reps")
+        clearErrors("workout.reps")
         setCurrentReps(0)
         append({ value: safe.data })
     }
