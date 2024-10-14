@@ -27,7 +27,7 @@ function WorkoutRadioButton({ _id, image, name }: CmsExerciseIdSchema) {
     } as const
 
     return (
-        <RadioButton<CreateWorkoutDataInput, "type">
+        <RadioButton<CreateWorkoutDataInput, "workout.type">
             label={
                 <Image
                     src={blackAndWhiteImage}
@@ -36,7 +36,7 @@ function WorkoutRadioButton({ _id, image, name }: CmsExerciseIdSchema) {
                 />
             }
             value={_id}
-            name="type"
+            name="workout.type"
             size="large"
             selectedLabel={
                 <Image src={colorImage} {...imageProperties} alt={alt} />
