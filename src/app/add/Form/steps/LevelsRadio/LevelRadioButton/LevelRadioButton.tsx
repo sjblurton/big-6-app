@@ -6,14 +6,14 @@ import { type CreateWorkoutDataInput } from "@/modules/model/workout/workout-sch
 
 function LevelRadioButton({ level }: { level: string }) {
     return (
-        <RadioButton<CreateWorkoutDataInput, "level">
+        <RadioButton<CreateWorkoutDataInput, "workout.level">
             label={
                 <MuiTypography variant="h6" component="h3">
                     {level}
                 </MuiTypography>
             }
             value={level}
-            name="level"
+            name="workout.level"
             size="small"
             selectedLabel={
                 <MuiTypography variant="h5" component="h3">
