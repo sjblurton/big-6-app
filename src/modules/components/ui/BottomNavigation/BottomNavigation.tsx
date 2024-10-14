@@ -3,6 +3,8 @@
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 
+import { ROUTES } from "@/modules/constants/routes"
+
 import * as styles from "./BottomNavigation.module.scss"
 
 import {
@@ -19,11 +21,27 @@ import {
     MuiTimerIcon,
 } from "../../library/mui/mui-icons"
 
-const navigation = [
-    { value: "/dashboard", label: "Dashboard", icon: <MuiHomeIcon /> },
-    { value: "/log", label: "Log", icon: <MuiClipboardIcon /> },
-    { value: "/routines", label: "Routines", icon: <MuiCalendarMonthIcon /> },
-    { value: "/stopwatch", label: "Stop Watch", icon: <MuiTimerIcon /> },
+const navigation: { value: string; label: string; icon: React.ReactNode }[] = [
+    {
+        value: ROUTES.dashboard.value,
+        label: ROUTES.dashboard.label,
+        icon: <MuiHomeIcon />,
+    },
+    {
+        value: ROUTES.log.value,
+        label: ROUTES.log.label,
+        icon: <MuiClipboardIcon />,
+    },
+    {
+        value: ROUTES.routines.value,
+        label: ROUTES.routines.label,
+        icon: <MuiCalendarMonthIcon />,
+    },
+    {
+        value: ROUTES.stopwatch.value,
+        label: ROUTES.stopwatch.label,
+        icon: <MuiTimerIcon />,
+    },
 ]
 
 function BottomNavigation() {
@@ -37,7 +55,7 @@ function BottomNavigation() {
                 left: 0,
                 right: 0,
                 justifyContent: "center",
-                display: pathname.startsWith("/studio")
+                display: pathname.startsWith(ROUTES.studio.value)
                     ? "none"
                     : "inline-flex",
             }}
@@ -48,7 +66,7 @@ function BottomNavigation() {
                     color="warning"
                     aria-label="add"
                     LinkComponent={Link}
-                    href="/add"
+                    href={ROUTES.add.value}
                 >
                     <MuiAddIcon fontSize="large" />
                 </MuiFloatingActionButton>

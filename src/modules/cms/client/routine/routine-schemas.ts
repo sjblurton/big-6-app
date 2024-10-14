@@ -1,7 +1,7 @@
 import { z } from "zod"
 
-import { exerciseNames } from "@/modules/contants/exercise-names"
-import { weekDays } from "@/modules/contants/week-days"
+import { exerciseNames } from "@/modules/constants/exercise-names"
+import { weekDays } from "@/modules/constants/week-days"
 
 import { documentBaseSchema, imageSchema } from "../shared/base-schemas"
 

@@ -1,6 +1,6 @@
 import { defineField } from "sanity"
 
-import { progressionStages } from "@/modules/contants/progression-stages"
+import { progressionStages } from "@/modules/constants/progression-stages"
 import { toCapitalizedWords } from "@/modules/strings/transform"
 
 export const progressionField = defineField({

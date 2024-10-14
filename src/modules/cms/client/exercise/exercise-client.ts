@@ -1,6 +1,6 @@
 import { groq } from "next-sanity"
 
-import { progressionStages } from "@/modules/contants/progression-stages"
+import { progressionStages } from "@/modules/constants/progression-stages"
 import { type WorkoutTypeIds } from "@/modules/model/workout/workout-schemas"
 
 import {

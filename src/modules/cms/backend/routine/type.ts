@@ -1,6 +1,6 @@
 import { defineField, defineType } from "sanity"
 
-import { weekDays } from "@/modules/contants/week-days"
+import { weekDays } from "@/modules/constants/week-days"
 import { toCapitalizedWords } from "@/modules/strings/transform"
 
 const routineType = defineType({

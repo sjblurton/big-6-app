@@ -2,6 +2,7 @@
 
 import { createTheme, ThemeProvider } from "@mui/material/styles"
 
+import { getTextContrast } from "@/modules/colors/get-text-contrast"
 import {
     primary,
     primaryLight,
@@ -20,6 +21,7 @@ const muiTheme = createTheme({
         secondary: {
             main: secondaryLight,
             light: secondaryDark,
+            contrastText: getTextContrast(secondaryDark),
         },
         text: {
             primary: white,

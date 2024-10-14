@@ -1,6 +1,6 @@
 import { defineField } from "sanity"
 
-import { exerciseNames } from "@/modules/contants/exercise-names"
+import { exerciseNames } from "@/modules/constants/exercise-names"
 
 export const titleField = defineField({
     name: "name",

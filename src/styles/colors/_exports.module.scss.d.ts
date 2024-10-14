@@ -1,5 +1,8 @@
 export declare const accent: string
 export declare const black: string
+export declare const errorDark: string
+export declare const errorLight: string
+export declare const errorMain: string
 export declare const grey500: string
 export declare const grey600: string
 export declare const grey700: string

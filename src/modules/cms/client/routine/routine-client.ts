@@ -1,6 +1,6 @@
 import { groq } from "next-sanity"
 
-import { type WeekDay, weekDayValues } from "@/modules/contants/week-days"
+import { type WeekDay, weekDayValues } from "@/modules/constants/week-days"
 
 import {
     type RoutineDay,

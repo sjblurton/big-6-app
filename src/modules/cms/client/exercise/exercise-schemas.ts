@@ -1,7 +1,7 @@
 import { z } from "zod"
 
-import { exerciseNames } from "@/modules/contants/exercise-names"
-import { progressionStages } from "@/modules/contants/progression-stages"
+import { exerciseNames } from "@/modules/constants/exercise-names"
+import { progressionStages } from "@/modules/constants/progression-stages"
 import { workoutTypeIdsUnion } from "@/modules/model/workout/workout-schemas"
 
 import {

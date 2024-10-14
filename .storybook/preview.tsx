@@ -14,11 +14,12 @@ import { themes } from "@storybook/theming"
 import { initialize, mswLoader } from "msw-storybook-addon"
 import React, { PropsWithChildren } from "react"
 
-import MuiThemeProvider from "../src/modules/components/library/ThemeProvider/MuiThemeProvider"
+import MuiThemeProvider from "../src/modules/components/Providers/ThemeProvider/MuiThemeProvider"
 import { handlers } from "../src/modules/mockServiceWorker/handlers"
 import "../src/styles/base/global.scss"
 import "../src/styles/base/reset.scss"
 import "../src/styles/main.scss"
+import { ROUTES } from "../src/modules/constants/routes"
 
 initialize({ onUnhandledRequest: "warn" })
 
@@ -28,7 +29,7 @@ const preview: Preview = {
         nextjs: {
             appDirectory: true,
             navigation: {
-                pathname: "/dashboard",
+                pathname: ROUTES.dashboard.value,
             },
         },
         controls: {
