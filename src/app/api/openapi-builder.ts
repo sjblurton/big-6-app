@@ -29,7 +29,7 @@ function buildOas() {
             name: "workouts",
             description: "Workout tracking",
         })
-        .addPath(workoutsApiModule.allWorkouts(), workoutsPath)
+        .addPath(workoutsApiModule.workouts(), workoutsPath)
         .addPath(
             workoutsApiModule.getWorkoutByTypeEndpoint(),
             workoutTypeIdPath

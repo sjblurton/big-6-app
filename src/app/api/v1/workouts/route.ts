@@ -16,7 +16,7 @@ export async function GET() {
     }
 }
 
-export async function POST({ request }: { request: Request }) {
+export async function POST(request: Request) {
     try {
         const body = await workoutSchema
             .omit({ id: true })
@@ -29,9 +29,12 @@ export async function POST({ request }: { request: Request }) {
             })
         }
 
-        return NextResponse.json(body)
+        return NextResponse.json({
+            id: "a2d9c1b6-1b0c-4f4b-8b6e-7d7a3d7b1a4a",
+            ...body.data,
+        })
     } catch (error) {
-        const errorHandler = new ErrorHandler(error)
+        const errorHandler = new ErrorHandler(error, request)
         const errorResponse = errorHandler.handle()
         return errorResponse
     }

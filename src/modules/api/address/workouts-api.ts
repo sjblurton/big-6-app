@@ -16,7 +16,7 @@ class WorkoutsApi {
         return includeBaseUrl ? this.baseUrl + endpoint : endpoint
     }
 
-    public allWorkouts(includeBaseUrl: boolean = true): string {
+    public workouts(includeBaseUrl: boolean = true): string {
         const endpoint = `${this.basePath}`
         return this.getEndpoint(endpoint, includeBaseUrl)
     }

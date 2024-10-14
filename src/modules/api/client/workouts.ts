@@ -4,6 +4,7 @@ import axios from "axios"
 
 import workoutsApiModule from "@/modules/api/address/workouts-api"
 import {
+    type CreateWorkoutDataOutput,
     type WorkoutData,
     workoutSchema,
 } from "@/modules/model/workout/workout-schemas"
@@ -15,10 +16,20 @@ class WorkoutAxiosClient {
         return axios.get(endpoint).then((res) => res.data)
     }
 
+    private async post<Data>(endpoint: string, data: unknown): Promise<Data> {
+        return axios.post(endpoint, data).then((res) => res.data)
+    }
+
+    public async postWorkout(data: CreateWorkoutDataOutput) {
+        return workoutSchema.parseAsync(
+            await this.post(this.workoutsApiModule.workouts(), data)
+        )
+    }
+
     public async getWorkouts() {
         return workoutSchema
             .array()
-            .parseAsync(await this.get(this.workoutsApiModule.allWorkouts()))
+            .parseAsync(await this.get(this.workoutsApiModule.workouts()))
     }
 
     public async getWorkout(id: string): Promise<WorkoutData> {

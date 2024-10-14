@@ -1,7 +1,14 @@
 "use client"
 
+import { useMutation } from "@tanstack/react-query"
+import { useRouter } from "next/navigation"
+
+import { workoutAxiosClient } from "@/modules/api/client/workouts"
 import { MuiBox } from "@/modules/components/library/mui"
-import { type CreateWorkoutDataOutput } from "@/modules/model/workout/workout-schemas"
+import {
+    type CreateWorkoutDataOutput,
+    type WorkoutData,
+} from "@/modules/model/workout/workout-schemas"
 
 import FormBreadcrumbs from "./Breadcrumbs/Breadcrumbs"
 import ButtonGroup from "./ButtonGroup/ButtonGroup"
@@ -11,13 +18,21 @@ import DetailsStep from "./steps/DetailsStep/DetailsStep"
 import LevelsRadio from "./steps/LevelsRadio/LevelsRadio"
 import WorkoutRadio from "./steps/WorkoutRadio/WorkoutRadio"
 
-const onSubmit = (data: CreateWorkoutDataOutput) => {
-    console.log("Submitted data: ", data)
-}
-
 function Form() {
+    const router = useRouter()
     const { handleSubmit } = useCreateFormContextOutputs()
+    const { mutateAsync } = useMutation({
+        mutationFn: (data: CreateWorkoutDataOutput) =>
+            workoutAxiosClient.postWorkout(data),
+        onSuccess: ({ id }: WorkoutData) => {
+            router.push(`/workouts/${id}`)
+        },
+    })
 
+    const onSubmit = async (data: CreateWorkoutDataOutput) => {
+        const response = await mutateAsync(data)
+        return response
+    }
     return (
         <MuiBox
             component="form"

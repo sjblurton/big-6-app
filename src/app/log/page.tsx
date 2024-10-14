@@ -13,7 +13,7 @@ export const metadata = createMetadata({
 })
 
 async function LogPage() {
-    const data = await fetch(workoutsApi.allWorkouts(), {
+    const data = await fetch(workoutsApi.workouts(), {
         next: { revalidate: TIME_SECONDS.ONE_MINUTE * 5 },
     }).then((res) => res.json())
     return (

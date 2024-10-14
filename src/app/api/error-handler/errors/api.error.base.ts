@@ -23,6 +23,7 @@ export type ErrorInputs = {
     httpCode: HttpCode
     description: string
     response?: Response
+    request?: Request
     cause?: unknown
 }
 
@@ -30,6 +31,8 @@ export abstract class ApiBaseError extends Error {
     public readonly codeName: ApiErrorNames
 
     public readonly httpCode: HttpCode
+
+    public readonly request?: Request
 
     public readonly response?: Response
 
@@ -54,16 +57,16 @@ export abstract class ApiBaseError extends Error {
         Error.captureStackTrace(this, this.constructor)
     }
 }
-/* 
+/*
   https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/setPrototypeOf
 
   Explanation:
   Using Object.setPrototypeOf in Constructor:
 
-  While the goal was to avoid Object.setPrototypeOf, using it once within the constructor 
+  While the goal was to avoid Object.setPrototypeOf, using it once within the constructor
   (and not dynamically changing prototypes elsewhere) mitigates most performance concerns.
   This is still a common pattern for extending built-in objects like Error.
-  
+
   Setting Properties Directly:
   We set the properties (name and httpCode) directly on this.
   Calling Error.captureStackTrace:

@@ -10,10 +10,12 @@ import { ErrorResponses } from "./responses/responses"
 
 // TODO: Add request and response objects to the constructor for logging to the database when ready
 class ErrorHandler {
-    error: unknown
+    readonly error: unknown
+    readonly request?: Request
 
-    constructor(error: unknown) {
+    constructor(error: unknown, request?: Request) {
         this.error = error
+        this.request = request
     }
 
     handle(): NextResponse<ErrorResponse> {
@@ -32,7 +34,7 @@ class ErrorHandler {
     }
 
     private logError(prefix: string) {
-        logger.error(prefix, this.error)
+        logger.error(prefix, { errors: this.error, request: this.request })
     }
 
     private logToDatabase() {
@@ -44,6 +46,7 @@ class ErrorHandler {
                 this.error.issues
             )
         }
+
         logger.info("Request, response, and error objects will be logged here")
     }
 
