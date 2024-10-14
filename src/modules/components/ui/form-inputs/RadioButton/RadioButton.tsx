@@ -60,7 +60,7 @@ function RadioButton<
     ].join(" ")
 
     return (
-        <span className={wrapperClasses}>
+        <div className={wrapperClasses}>
             <input
                 type="radio"
                 {...register(name)}
@@ -70,7 +70,7 @@ function RadioButton<
             <label className={labelClasses} htmlFor={`field-${value}`}>
                 {currentLabel}
             </label>
-        </span>
+        </div>
     )
 }
 

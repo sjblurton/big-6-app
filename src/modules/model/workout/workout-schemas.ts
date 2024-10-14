@@ -35,24 +35,39 @@ export const repsSchema = z.number().min(1).max(200).int()
 export const workoutSchema = z.object({
     id: z.string(),
     date: z.number(),
-    reps: repsSchema.array().max(100),
+    reps: repsSchema.array().max(100).min(1),
     level: z.number().min(1).max(10).int(),
     type: workoutTypeIdsUnion,
     comments: z.string().optional(),
     user: z.string().email(),
 })
 
-export const createWorkoutSchema = workoutSchema
-    .omit({ id: true, level: true, reps: true })
-    .extend({
-        level: z.string().regex(/^[1-9]|10$/),
-        // .transform((level) => parseInt(level, 10)),
-        reps: z
-            .object({ value: z.number().min(1).max(200) })
-            .array()
-            .max(100),
-        // .transform((reps) => reps.map((rep) => rep.value)),
+export const createWorkoutSchema = z
+    .object({
+        workout: workoutSchema
+            .omit({ id: true, level: true, reps: true })
+            .extend({
+                level: z.string().regex(/^[1-9]|10$/),
+                reps: z
+                    .object({ value: z.number().min(1).max(200) })
+                    .array()
+                    .max(100)
+                    .min(1),
+            }),
+        meta: z.object({
+            step: z.object({
+                current: z.number().int(),
+                total: z.number().int(),
+            }),
+        }),
     })
+    .transform((data) =>
+        workoutSchema.omit({ id: true }).parse({
+            ...data.workout,
+            level: parseInt(data.workout.level, 10),
+            reps: data.workout.reps.map((rep) => rep.value),
+        })
+    )
 
 export type CreateWorkoutDataInput = z.input<typeof createWorkoutSchema>
 export type CreateWorkoutDataOutput = z.output<typeof createWorkoutSchema>
