@@ -1,5 +1,5 @@
 import Form from "@/app/add/Form/Form"
-import FormProvider from "@/app/add/Form/Provider/Provider"
+import FormProvider from "@/app/add/Form/FormProvider/FormProvider"
 import { MuiContainer } from "@/modules/components/library/mui"
 import { createMetadata } from "@/modules/seo/create-metadata"
 
@@ -10,11 +10,18 @@ export const metadata = createMetadata({
 
 function Add() {
     return (
-        <MuiContainer maxWidth="xs" sx={{ height: "calc(100vh - 150px)" }}>
-            <FormProvider>
+        <FormProvider>
+            <MuiContainer
+                maxWidth="xs"
+                sx={{
+                    minHeight: "calc(100vh - 64px)",
+                    display: "flex",
+                    flexDirection: "column",
+                }}
+            >
                 <Form />
-            </FormProvider>
-        </MuiContainer>
+            </MuiContainer>
+        </FormProvider>
     )
 }
 

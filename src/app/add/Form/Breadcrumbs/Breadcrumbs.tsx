@@ -1,3 +1,5 @@
+import { useWatch } from "react-hook-form"
+
 import {
     MuiBox,
     MuiStep,
@@ -5,9 +7,17 @@ import {
     MuiStepper,
 } from "@/modules/components/library/mui"
 
-const steps = ["Select Exercise", "Select Level", "Log Workout"]
+import { useCreateFormContextInputs } from "../hooks/use-create-form-context"
 
-function FormBreadcrumbs({ activeStep }: { activeStep: number }) {
+const steps = ["Select Exercise", "Select Level", "Log Workout"] as const
+
+function FormBreadcrumbs() {
+    const { control } = useCreateFormContextInputs()
+    const activeStep = useWatch({
+        name: "meta.step.current",
+        control,
+    })
+
     return (
         <MuiBox sx={{ width: "100%" }}>
             <MuiStepper activeStep={activeStep} alternativeLabel>
