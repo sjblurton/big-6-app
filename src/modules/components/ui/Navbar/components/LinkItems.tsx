@@ -8,16 +8,17 @@ type LinkItemProperties = {
 }
 
 function LinkItems({ routes, handleCloseNavMenu }: LinkItemProperties) {
-    return routes.length > 0
-        ? routes.map(({ name, path }) => (
-              <LinkItem
-                  key={path}
-                  path={path}
-                  name={name}
-                  handleCloseNavMenu={handleCloseNavMenu}
-              />
-          ))
-        : null
+    return (
+        routes.length > 0 &&
+        routes.map(({ name, path }) => (
+            <LinkItem
+                key={path}
+                path={path}
+                name={name}
+                handleCloseNavMenu={handleCloseNavMenu}
+            />
+        ))
+    )
 }
 
 export default LinkItems

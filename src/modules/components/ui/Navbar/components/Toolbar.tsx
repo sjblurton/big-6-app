@@ -24,7 +24,7 @@ type Properties = {
               path: string
           }
         | undefined
-    anchorElNav: HTMLElement | null
+    anchorElNav: HTMLElement | undefined
     handleCloseNavMenu: () => void
 }
 

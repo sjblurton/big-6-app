@@ -35,9 +35,9 @@ function LevelsRadio() {
                     <LevelRadioButton level={value} />
                 </MuiGrid>
             ))}
-            {workoutLevelFormError ? (
+            {workoutLevelFormError && (
                 <StepError message="Please select a level" />
-            ) : null}
+            )}
         </MuiGrid>
     )
 }

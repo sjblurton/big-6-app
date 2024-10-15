@@ -55,11 +55,11 @@ export default function LineChart(properties: Properties) {
 function getLineChartData(data: WorkoutData[]) {
     const mostRecentDate = Math.max(...data.map((workout) => workout.date))
 
-    const filteredData = data.filter(
+    const mostRecentData = data.find(
         (workout) => workout.date === mostRecentDate
     )
 
-    const level = filteredData[0]?.level
+    const level = mostRecentData?.level
 
     return data
         .filter((workout) => workout.level === level)

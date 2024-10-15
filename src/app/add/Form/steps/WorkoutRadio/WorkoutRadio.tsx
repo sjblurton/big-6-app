@@ -42,9 +42,9 @@ function WorkoutRadio() {
                     <WorkoutRadioButton _id={_id} {...rest} />
                 </MuiGrid>
             ))}
-            {workoutTypeFormError ? (
+            {workoutTypeFormError && (
                 <StepError message="Please select a workout" />
-            ) : null}
+            )}
         </MuiGrid>
     )
 }

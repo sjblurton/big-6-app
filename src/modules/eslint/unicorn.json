@@ -1,5 +1,6 @@
 {
     "plugins": ["unicorn"],
+    "extends": "plugin:unicorn/recommended",
     "rules": {
         "unicorn/filename-case": [
             "error",
@@ -10,8 +11,6 @@
                 }
             }
         ],
-        "unicorn/no-useless-undefined": "error",
-        "unicorn/no-await-in-promise-methods": "error",
         "unicorn/prevent-abbreviations": [
             "error",
             {
@@ -38,10 +37,6 @@
                 }
             }
         ],
-        "unicorn/no-unnecessary-await": "error",
-        "unicorn/consistent-destructuring": "error",
-        "unicorn/better-regex": "error",
-        "unicorn/catch-error-name": "error",
-        "unicorn/prefer-node-protocol": "error"
+        "unicorn/better-regex": "error"
     }
 }

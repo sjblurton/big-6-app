@@ -2,7 +2,7 @@
     "rules": {
         "array-callback-return": ["error", { "allowImplicit": true }],
         "block-scoped-var": "error",
-        "curly": ["warn", "multi-line"],
+        "curly": "error",
         "default-case-last": "error",
         "eqeqeq": "error",
         "grouped-accessor-pairs": "error",

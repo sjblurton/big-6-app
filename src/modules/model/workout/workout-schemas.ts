@@ -64,7 +64,7 @@ export const createWorkoutSchema = z
     .transform((data) =>
         workoutSchema.omit({ id: true }).parse({
             ...data.workout,
-            level: parseInt(data.workout.level, 10),
+            level: Number.parseInt(data.workout.level, 10),
             reps: data.workout.reps.map((rep) => rep.value),
         })
     )

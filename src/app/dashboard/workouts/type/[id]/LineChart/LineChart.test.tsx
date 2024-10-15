@@ -8,12 +8,12 @@ import {
 
 import LineChart from "./LineChart"
 
-const ONE_WEEK = 604800000
+const ONE_WEEK = 604_800_000
 
 const mockLineChartArguments: WorkoutData[] = [
     {
         id: "id1",
-        date: new Date().getTime(),
+        date: Date.now(),
         reps: [30, 23, 28],
         level: 5,
         type: workoutTypes.pushUp.id,
@@ -22,7 +22,7 @@ const mockLineChartArguments: WorkoutData[] = [
     },
     {
         id: "id2",
-        date: new Date().getTime() - ONE_WEEK,
+        date: Date.now() - ONE_WEEK,
         reps: [30, 27, 22],
         level: 5,
         type: workoutTypes.pushUp.id,
@@ -31,7 +31,7 @@ const mockLineChartArguments: WorkoutData[] = [
     },
     {
         id: "id3",
-        date: new Date().getTime() - ONE_WEEK * 2,
+        date: Date.now() - ONE_WEEK * 2,
         reps: [25, 22, 18],
         level: 5,
         type: workoutTypes.pushUp.id,
@@ -40,7 +40,7 @@ const mockLineChartArguments: WorkoutData[] = [
     },
     {
         id: "id4",
-        date: new Date().getTime() - ONE_WEEK * 3,
+        date: Date.now() - ONE_WEEK * 3,
         reps: [20, 18, 15],
         level: 5,
         type: workoutTypes.pushUp.id,

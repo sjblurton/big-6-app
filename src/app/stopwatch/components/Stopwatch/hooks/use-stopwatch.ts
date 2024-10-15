@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from "react"
 
+import TimeFormatter from "@/modules/time/TimeFormatter"
+
 function useStopwatch() {
     const [time, setTime] = useState(0)
     const [isRunning, setIsRunning] = useState(false)
@@ -17,20 +19,6 @@ function useStopwatch() {
         return () => clearInterval(intervalId)
     }, [isRunning])
 
-    const minutes = Math.floor((time % 360000) / 6000)
-        .toString()
-        .padStart(2, "0")
-
-    const seconds = Math.floor((time % 6000) / 100)
-        .toString()
-        .padStart(2, "0")
-
-    const milliseconds = (time % 100)
-        .toString()
-        .padStart(2, "0")
-        .toString()
-        .padStart(2, "0")
-
     const startAndStop = () => {
         setIsRunning(!isRunning)
     }
@@ -40,7 +28,14 @@ function useStopwatch() {
         setTime(0)
     }
 
-    return { minutes, seconds, milliseconds, startAndStop, reset, isRunning }
+    return {
+        minutes: TimeFormatter.getMinutes(time),
+        seconds: TimeFormatter.getSeconds(time),
+        milliseconds: TimeFormatter.getMilliseconds(time),
+        startAndStop,
+        reset,
+        isRunning,
+    }
 }
 
 export default useStopwatch

@@ -22,16 +22,16 @@ function createData(name: string, data: TestCoverageData): TestCoverageSummary {
         branches: 0,
     }
 
-    tableColumnNames.forEach((column) => {
+    for (const column of tableColumnNames) {
         result[column] = Math.round(data[column].pct)
-    })
+    }
 
     return result
 }
 
 function parseName(name: string): string {
     const lastIndex = name.lastIndexOf("/")
-    const result = name.substring(lastIndex + 1)
+    const result = name.slice(Math.max(0, lastIndex + 1))
     return result
 }
 

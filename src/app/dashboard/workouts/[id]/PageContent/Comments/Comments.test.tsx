@@ -9,11 +9,11 @@ describe("Comments", () => {
 
     it("renders without crashing", () => {
         render(<Comments isSeconds={false} reps={reps} />)
-        reps.forEach((rep, index) => {
+        for (const [index, rep] of reps.entries()) {
             expect(
                 screen.getByText(`Set ${index + 1}: ${rep} reps`)
             ).toBeInTheDocument()
-        })
+        }
     })
 
     it("renders with rep suffix rep without plural", () => {
@@ -28,11 +28,11 @@ describe("Comments", () => {
 
     it("renders with seconds suffix when isSeconds is true", () => {
         render(<Comments isSeconds={true} reps={reps} />)
-        reps.forEach((rep, index) => {
+        for (const [index, rep] of reps.entries()) {
             expect(
                 screen.getByText(`Set ${index + 1}: ${rep} seconds`)
             ).toBeInTheDocument()
-        })
+        }
     })
 
     it("renders comments when provided", () => {

@@ -14,7 +14,7 @@ export const sanityMocks = [
             if (query?.includes(workoutTypes.pullUp.id)) {
                 return HttpResponse.json({ ...sanityPullUpMock })
             }
-            return new HttpResponse(null, { status: 404 })
+            return new HttpResponse(undefined, { status: 404 })
         }
     ),
 ]

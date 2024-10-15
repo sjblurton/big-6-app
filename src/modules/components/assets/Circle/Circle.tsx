@@ -47,13 +47,13 @@ function Circle({
                     strokeLinecap="round"
                 />
             </g>
-            {text ? (
+            {text && (
                 <CircleText
                     percent={text.percent}
                     goal={text.goal}
                     reps={text.reps}
                 />
-            ) : null}
+            )}
         </svg>
     )
 }

@@ -31,12 +31,12 @@ function Comments({ isSeconds, reps, comments }: Properties) {
                 )
             })}
             <br />
-            {comments ? (
+            {comments && (
                 <>
                     <MuiTypography variant="h6">Comments:</MuiTypography>
                     <MuiTypography variant="body1">{comments}</MuiTypography>
                 </>
-            ) : null}
+            )}
         </div>
     )
 }

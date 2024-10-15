@@ -110,18 +110,18 @@ describe("pathLevelToNumber", () => {
             "level-0", // Out of range
         ]
 
-        invalidLevels.forEach((invalidLevel) => {
+        for (const invalidLevel of invalidLevels) {
             expect(() => pathLevelToNumber(invalidLevel as LevelPath)).toThrow(
                 `Invalid level format`
             )
-        })
+        }
     })
 
     it("handles levelArray entries correctly", () => {
-        LEVELS.forEach((level) => {
-            const number = parseInt(level.split("-")[1], 10)
+        for (const level of LEVELS) {
+            const number = Number.parseInt(level.split("-")[1], 10)
             expect(pathLevelToNumber(level)).toBe(number)
-        })
+        }
     })
 })
 
@@ -149,10 +149,10 @@ describe("pathLevelToTitleString", () => {
             "level-0", // Out of range
         ]
 
-        invalidLevels.forEach((invalidLevel) => {
+        for (const invalidLevel of invalidLevels) {
             expect(() => pathLevelToNumber(invalidLevel as LevelPath)).toThrow(
                 `Invalid level format`
             )
-        })
+        }
     })
 })

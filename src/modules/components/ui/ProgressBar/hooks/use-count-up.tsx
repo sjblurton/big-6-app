@@ -1,5 +1,7 @@
 "use client"
 
+// TODO: Tis needs to be refactored as it's a bit messy
+
 import { useCallback, useEffect, useRef, useState } from "react"
 
 type Properties = {
@@ -11,7 +13,7 @@ type Properties = {
 function useCountUp({ end, start, duration = 2000 }: Properties) {
     const [value, setValue] = useState<number>(start)
     const currentValueReference = useRef<number>(start)
-    const timeoutReference = useRef<NodeJS.Timeout | null>(null)
+    const timeoutReference = useRef<NodeJS.Timeout | undefined>()
     const isInitRender = useRef(true)
 
     const interval = 70
@@ -26,7 +28,7 @@ function useCountUp({ end, start, duration = 2000 }: Properties) {
     const clearTimer = useCallback(() => {
         if (timeoutReference.current) {
             clearTimeout(timeoutReference.current)
-            timeoutReference.current = null
+            timeoutReference.current = undefined
         }
     }, [])
 

@@ -15,15 +15,16 @@ function Navbar({ routes }: NavbarProperties) {
     const pathname = usePathname()
     const activePage = routes.find(({ path }) => path === pathname)
 
-    const [anchorElementNav, setAnchorElementNav] =
-        React.useState<null | HTMLElement>(null)
+    const [anchorElementNav, setAnchorElementNav] = React.useState<
+        undefined | HTMLElement
+    >()
 
     const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
         setAnchorElementNav(event.currentTarget)
     }
 
     const handleCloseNavMenu = () => {
-        setAnchorElementNav(null)
+        setAnchorElementNav(undefined)
     }
 
     return (

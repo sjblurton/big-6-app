@@ -7,7 +7,7 @@ import {
 
 const { pullUp, bridge, handstand, legRaise, pushUp, squat } = workoutTypes
 
-const December312022 = 1672531199000
+const December312022 = 1_672_531_199_000
 
 export const mockPullUpWorkoutData: WorkoutData[] = [
     {
@@ -69,7 +69,7 @@ export const mockPullUpWorkoutData: WorkoutData[] = [
 export const mockLatestWorkoutData: WorkoutData[] = [
     {
         id: "workout1",
-        date: 1672531199000,
+        date: 1_672_531_199_000,
         reps: [10, 12, 15],
         level: 5,
         type: pullUp.id,
@@ -78,7 +78,7 @@ export const mockLatestWorkoutData: WorkoutData[] = [
     },
     {
         id: "workout2",
-        date: 1672617599000,
+        date: 1_672_617_599_000,
         reps: [2, 1],
         level: 5,
         type: handstand.id,
@@ -87,7 +87,7 @@ export const mockLatestWorkoutData: WorkoutData[] = [
     },
     {
         id: "workout3",
-        date: 1672703999000,
+        date: 1_672_703_999_000,
         reps: [20, 25, 30],
         level: 5,
         type: pushUp.id,
@@ -96,7 +96,7 @@ export const mockLatestWorkoutData: WorkoutData[] = [
     },
     {
         id: "workout4",
-        date: 1672790399000,
+        date: 1_672_790_399_000,
         reps: [5, 7, 10],
         level: 5,
         type: squat.id,
@@ -105,7 +105,7 @@ export const mockLatestWorkoutData: WorkoutData[] = [
     },
     {
         id: "workout5",
-        date: 1672876799000,
+        date: 1_672_876_799_000,
         reps: [15, 18, 20],
         level: 5,
         type: bridge.id,
@@ -114,7 +114,7 @@ export const mockLatestWorkoutData: WorkoutData[] = [
     },
     {
         id: "workout6",
-        date: 1672963199000,
+        date: 1_672_963_199_000,
         reps: [12, 14, 16],
         level: 5,
         type: legRaise.id,

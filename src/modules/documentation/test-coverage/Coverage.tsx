@@ -30,16 +30,6 @@ function Coverage() {
 
     const cellClassName = `${textCapitalize} ${textBold}`
 
-    const selectClassName = (value: number) => {
-        if (value < 80) {
-            return backgroundError
-        }
-        if (value < 90) {
-            return backgroundWarning
-        }
-        return backgroundSuccess
-    }
-
     return (
         <MuiContainer maxWidth="lg">
             <MuiBox
@@ -105,3 +95,13 @@ function Coverage() {
 }
 
 export default Coverage
+
+const selectClassName = (value: number) => {
+    if (value < 80) {
+        return backgroundError
+    }
+    if (value < 90) {
+        return backgroundWarning
+    }
+    return backgroundSuccess
+}

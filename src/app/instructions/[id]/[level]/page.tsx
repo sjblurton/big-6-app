@@ -28,7 +28,8 @@ type Parameters = {
     level: string
 }
 
-const paths = (await exerciseCmsClient.getExerciseIds()).flatMap(({ _id }) =>
+const exerciseIds = await exerciseCmsClient.getExerciseIds()
+const paths = exerciseIds.flatMap(({ _id }) =>
     levelUrls.map((level) => ({ params: { id: _id, level } }))
 )
 

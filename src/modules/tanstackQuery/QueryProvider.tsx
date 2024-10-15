@@ -5,7 +5,12 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 const queryClient = new QueryClient({
     defaultOptions: {
         queries: {
-            throwOnError: true,
+            retry(failureCount) {
+                if (failureCount < 2) {
+                    return true
+                }
+                return false
+            },
         },
     },
 })

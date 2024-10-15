@@ -5,7 +5,7 @@ import useGetWorkoutById from "@/modules/tanstackQuery/hooks/use-get-workout-by-
 
 function useWorkoutSummery(id: string) {
     const {
-        data: workoutdata,
+        data: workoutData,
         error: workoutError,
         isError: isWorkoutError,
         isLoading: isLoadingWorkout,
@@ -18,16 +18,16 @@ function useWorkoutSummery(id: string) {
         isError: isStepError,
         isLoading: isLoadingStep,
     } = useGetExerciseStep(
-        workoutdata
-            ? { level: workoutdata.level, type: workoutdata.type }
-            : null
+        workoutData
+            ? { level: workoutData.level, type: workoutData.type }
+            : undefined
     )
 
     return {
         isLoading: isLoadingWorkout || isLoadingStep,
         isError: isWorkoutError || isStepError,
         error: workoutError || stepError,
-        workout: workoutdata,
+        workout: workoutData,
         step: stepData,
         ...rest,
     }
