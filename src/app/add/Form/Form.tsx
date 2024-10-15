@@ -21,13 +21,17 @@ import WorkoutRadio from "./steps/WorkoutRadio/WorkoutRadio"
 function Form() {
     const router = useRouter()
     const { handleSubmit } = useCreateFormContextOutputs()
-    const { mutateAsync } = useMutation({
+    const { mutateAsync, isError, error } = useMutation({
         mutationFn: (data: CreateWorkoutDataOutput) =>
             workoutAxiosClient.postWorkout(data),
         onSuccess: ({ id }: WorkoutData) => {
             router.push(`/workouts/${id}`)
         },
     })
+
+    if (isError) {
+        throw error
+    }
 
     const onSubmit = async (data: CreateWorkoutDataOutput) => {
         const response = await mutateAsync(data)
