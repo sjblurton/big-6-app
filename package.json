@@ -3,30 +3,37 @@
     "version": "0.1.0",
     "private": true,
     "scripts": {
-        "dev": "next dev",
         "build": "next build",
-        "start": "next start",
-        "lint": "next lint --fix",
+        "build-storybook": "storybook build",
         "check-types": "tsc --noEmit",
+        "dev": "next dev",
+        "dev:all": "concurrently -k \"npm run dev\" \"npm run storybook\" \"npm run generate-scss-types:watch\" \"npm run test:watch\"",
         "format": "npx prettier . --write",
-        "lint:styles": "stylelint '**/*.{css,scss}' --fix",
-        "stylelint-scss-check": "stylelint-config-prettier-scss-check",
         "generate-scss-types": "npx typed-scss-modules src --ignore '**/swagger-ui.scss'",
         "generate-scss-types:watch": "npx typed-scss-modules src -w --ignore '**/swagger-ui.scss'",
+        "lint": "next lint --fix",
+        "lint:styles": "stylelint '**/*.{css,scss}' --fix",
         "prepare": "husky i",
-        "test": "jest",
-        "test:watch": "jest --watchAll",
-        "test:coverage": "jest --collect-coverage",
+        "start": "next start",
         "storybook": "storybook dev -p 6006",
-        "build-storybook": "storybook build",
-        "dev:all": "concurrently -k \"npm run dev\" \"npm run storybook\" \"npm run generate-scss-types:watch\" \"npm run test:watch\""
+        "test": "jest",
+        "test:coverage": "jest --collect-coverage",
+        "test:watch": "jest --watchAll"
+    },
+    "lint-staged": {
+        "*.{ts,tsx}": [
+            "bash -c 'npm run check-types'",
+            "bash -c 'npm run format'"
+        ],
+        "*.{css,scss}": [
+            "bash -c 'npm run generate-scss-types'",
+            "bash -c 'npm run lint:styles'"
+        ]
     },
     "dependencies": {
-        "@anatine/zod-mock": "^3.13.4",
         "@anatine/zod-openapi": "^2.2.6",
         "@emotion/react": "^11.13.3",
         "@emotion/styled": "^11.13.0",
-        "@fontsource/roboto": "^5.0.14",
         "@hookform/resolvers": "^3.9.0",
         "@mui/icons-material": "^5.16.7",
         "@mui/lab": "^5.0.0-alpha.173",
@@ -44,8 +51,7 @@
         "next-sanity": "^9.5.0",
         "openapi3-ts": "^4.3.3",
         "pino": "^9.3.2",
-        "pino-pretty": "^11.2.2",
-        "ramda": "^0.30.1",
+        "pino-pretty": "^11.3.0",
         "react": "^18",
         "react-dom": "^18",
         "react-hook-form": "^7.53.0",
@@ -59,10 +65,6 @@
         "zod-validation-error": "^3.3.1"
     },
     "devDependencies": {
-        "@babel/preset-env": "^7.25.4",
-        "@babel/preset-typescript": "^7.24.7",
-        "@chromatic-com/storybook": "^2.0.2",
-        "@faker-js/faker": "^8.4.1",
         "@jest/globals": "^29.7.0",
         "@storybook/addon-essentials": "^8.3.4",
         "@storybook/addon-interactions": "^8.3.2",
@@ -123,7 +125,7 @@
         "storybook-addon-sass-postcss": "^0.3.1",
         "storybook-addon-theme-provider": "^0.2.2",
         "style-loader": "^4.0.0",
-        "stylelint": "^16.8.2",
+        "stylelint": "^16.10.0",
         "stylelint-config-idiomatic-order": "^10.0.0",
         "stylelint-config-prettier-scss": "^1.0.0",
         "stylelint-config-standard": "^36.0.1",
@@ -134,15 +136,8 @@
         "typed-scss-modules": "^8.0.1",
         "typescript": "^5.6"
     },
-    "lint-staged": {
-        "*.{ts,tsx}": [
-            "bash -c 'npm run check-types'",
-            "npm run format"
-        ],
-        "*.{css,scss}": [
-            "npm run generate-scss-types",
-            "npm run lint:styles"
-        ]
+    "peerDependencies": {
+        "ramda": "^0.30.1"
     },
     "msw": {
         "workerDirectory": [
