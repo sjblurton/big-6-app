@@ -1,4 +1,4 @@
-// eslint-disable-next-line @typescript-eslint/no-require-imports -- jest config
+// eslint-disable-next-line @typescript-eslint/no-require-imports, unicorn/prefer-module -- jest config
 const nextJest = require("next/jest")
 
 const createJestConfig = nextJest({
@@ -6,6 +6,13 @@ const createJestConfig = nextJest({
 })
 const customJestConfig = {
     moduleDirectories: ["node_modules", "<rootDir>/"],
+    moduleNameMapper: {
+        "^@/(.*)$": "<rootDir>/src/$1",
+    },
+    extensionsToTreatAsEsm: [".ts", ".tsx"],
+    transform: {
+        "^.+\\.(ts|tsx)$": "ts-jest",
+    },
     testEnvironment: "jest-environment-jsdom",
     setupFilesAfterEnv: ["<rootDir>/jest.setup.js"],
     collectCoverage: true,
@@ -21,6 +28,11 @@ const customJestConfig = {
             lines: 90,
             statements: 90,
         },
+        "ts-jest": {
+            useESM: true,
+        },
     },
 }
+
+// eslint-disable-next-line unicorn/prefer-module -- jest config
 module.exports = createJestConfig(customJestConfig)
