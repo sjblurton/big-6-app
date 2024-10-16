@@ -1,36 +1,238 @@
-{"total": {"lines":{"total":370,"covered":352,"skipped":0,"pct":95.13},"statements":{"total":414,"covered":388,"skipped":0,"pct":93.71},"functions":{"total":93,"covered":86,"skipped":0,"pct":92.47},"branches":{"total":51,"covered":38,"skipped":0,"pct":74.5},"branchesTrue":{"total":0,"covered":0,"skipped":0,"pct":100}}
-,"/Users/simon-blurton/Documents/big-6-app/src/app/add/Form/Breadcrumbs/Breadcrumbs.tsx": {"lines":{"total":8,"covered":8,"skipped":0,"pct":100},"functions":{"total":2,"covered":2,"skipped":0,"pct":100},"statements":{"total":9,"covered":9,"skipped":0,"pct":100},"branches":{"total":0,"covered":0,"skipped":0,"pct":100}}
-,"/Users/simon-blurton/Documents/big-6-app/src/app/add/Form/ButtonGroup/ButtonGroup.tsx": {"lines":{"total":8,"covered":8,"skipped":0,"pct":100},"functions":{"total":1,"covered":1,"skipped":0,"pct":100},"statements":{"total":9,"covered":9,"skipped":0,"pct":100},"branches":{"total":2,"covered":2,"skipped":0,"pct":100}}
-,"/Users/simon-blurton/Documents/big-6-app/src/app/add/Form/ButtonGroup/hooks/use-handle-buttons.tsx": {"lines":{"total":32,"covered":27,"skipped":0,"pct":84.37},"functions":{"total":5,"covered":3,"skipped":0,"pct":60},"statements":{"total":35,"covered":28,"skipped":0,"pct":80},"branches":{"total":6,"covered":2,"skipped":0,"pct":33.33}}
-,"/Users/simon-blurton/Documents/big-6-app/src/app/add/Form/FormProvider/FormProvider.tsx": {"lines":{"total":6,"covered":6,"skipped":0,"pct":100},"functions":{"total":1,"covered":1,"skipped":0,"pct":100},"statements":{"total":7,"covered":7,"skipped":0,"pct":100},"branches":{"total":2,"covered":1,"skipped":0,"pct":50}}
-,"/Users/simon-blurton/Documents/big-6-app/src/app/add/Form/hooks/use-create-form-context.tsx": {"lines":{"total":8,"covered":5,"skipped":0,"pct":62.5},"functions":{"total":2,"covered":1,"skipped":0,"pct":50},"statements":{"total":8,"covered":5,"skipped":0,"pct":62.5},"branches":{"total":0,"covered":0,"skipped":0,"pct":100}}
-,"/Users/simon-blurton/Documents/big-6-app/src/app/api/error-handler/ErrorHandler.ts": {"lines":{"total":24,"covered":24,"skipped":0,"pct":100},"functions":{"total":6,"covered":6,"skipped":0,"pct":100},"statements":{"total":25,"covered":25,"skipped":0,"pct":100},"branches":{"total":3,"covered":3,"skipped":0,"pct":100}}
-,"/Users/simon-blurton/Documents/big-6-app/src/app/api/error-handler/errors/api.error.bad-request.ts": {"lines":{"total":3,"covered":3,"skipped":0,"pct":100},"functions":{"total":1,"covered":1,"skipped":0,"pct":100},"statements":{"total":3,"covered":3,"skipped":0,"pct":100},"branches":{"total":0,"covered":0,"skipped":0,"pct":100}}
-,"/Users/simon-blurton/Documents/big-6-app/src/app/api/error-handler/errors/api.error.base.ts": {"lines":{"total":10,"covered":10,"skipped":0,"pct":100},"functions":{"total":1,"covered":1,"skipped":0,"pct":100},"statements":{"total":12,"covered":12,"skipped":0,"pct":100},"branches":{"total":0,"covered":0,"skipped":0,"pct":100}}
-,"/Users/simon-blurton/Documents/big-6-app/src/app/api/error-handler/errors/api.error.internal-server.ts": {"lines":{"total":3,"covered":3,"skipped":0,"pct":100},"functions":{"total":1,"covered":1,"skipped":0,"pct":100},"statements":{"total":3,"covered":3,"skipped":0,"pct":100},"branches":{"total":0,"covered":0,"skipped":0,"pct":100}}
-,"/Users/simon-blurton/Documents/big-6-app/src/app/api/error-handler/responses/responses.ts": {"lines":{"total":5,"covered":5,"skipped":0,"pct":100},"functions":{"total":2,"covered":2,"skipped":0,"pct":100},"statements":{"total":6,"covered":6,"skipped":0,"pct":100},"branches":{"total":0,"covered":0,"skipped":0,"pct":100}}
-,"/Users/simon-blurton/Documents/big-6-app/src/app/dashboard/workouts/[id]/PageContent/BarChart/BarChart.tsx": {"lines":{"total":9,"covered":9,"skipped":0,"pct":100},"functions":{"total":2,"covered":2,"skipped":0,"pct":100},"statements":{"total":9,"covered":9,"skipped":0,"pct":100},"branches":{"total":0,"covered":0,"skipped":0,"pct":100}}
-,"/Users/simon-blurton/Documents/big-6-app/src/app/dashboard/workouts/[id]/PageContent/Comments/Comments.tsx": {"lines":{"total":12,"covered":12,"skipped":0,"pct":100},"functions":{"total":2,"covered":2,"skipped":0,"pct":100},"statements":{"total":13,"covered":13,"skipped":0,"pct":100},"branches":{"total":5,"covered":5,"skipped":0,"pct":100}}
-,"/Users/simon-blurton/Documents/big-6-app/src/app/dashboard/workouts/type/[id]/LineChart/LineChart.tsx": {"lines":{"total":25,"covered":24,"skipped":0,"pct":96},"functions":{"total":12,"covered":11,"skipped":0,"pct":91.66},"statements":{"total":26,"covered":25,"skipped":0,"pct":96.15},"branches":{"total":0,"covered":0,"skipped":0,"pct":100}}
-,"/Users/simon-blurton/Documents/big-6-app/src/app/instructions/[id]/[level]/components/InstructionsDropdownTitle/DropdownLinks/DropdownLinks.tsx": {"lines":{"total":21,"covered":18,"skipped":0,"pct":85.71},"functions":{"total":5,"covered":4,"skipped":0,"pct":80},"statements":{"total":23,"covered":20,"skipped":0,"pct":86.95},"branches":{"total":7,"covered":4,"skipped":0,"pct":57.14}}
-,"/Users/simon-blurton/Documents/big-6-app/src/app/instructions/[id]/[level]/components/InstructionsDropdownTitle/DropdownLinks/Popper/Popper.tsx": {"lines":{"total":3,"covered":3,"skipped":0,"pct":100},"functions":{"total":1,"covered":1,"skipped":0,"pct":100},"statements":{"total":4,"covered":4,"skipped":0,"pct":100},"branches":{"total":0,"covered":0,"skipped":0,"pct":100}}
-,"/Users/simon-blurton/Documents/big-6-app/src/app/instructions/[id]/[level]/components/InstructionsDropdownTitle/DropdownLinks/Popper/MenuList/MenuList.tsx": {"lines":{"total":4,"covered":4,"skipped":0,"pct":100},"functions":{"total":3,"covered":3,"skipped":0,"pct":100},"statements":{"total":5,"covered":5,"skipped":0,"pct":100},"branches":{"total":0,"covered":0,"skipped":0,"pct":100}}
-,"/Users/simon-blurton/Documents/big-6-app/src/app/stopwatch/components/Stopwatch/Stopwatch.tsx": {"lines":{"total":5,"covered":5,"skipped":0,"pct":100},"functions":{"total":1,"covered":1,"skipped":0,"pct":100},"statements":{"total":6,"covered":6,"skipped":0,"pct":100},"branches":{"total":0,"covered":0,"skipped":0,"pct":100}}
-,"/Users/simon-blurton/Documents/big-6-app/src/app/stopwatch/components/Stopwatch/ActionButton/ActionButton.tsx": {"lines":{"total":6,"covered":6,"skipped":0,"pct":100},"functions":{"total":1,"covered":1,"skipped":0,"pct":100},"statements":{"total":7,"covered":7,"skipped":0,"pct":100},"branches":{"total":4,"covered":4,"skipped":0,"pct":100}}
-,"/Users/simon-blurton/Documents/big-6-app/src/app/stopwatch/components/Stopwatch/hooks/use-stopwatch.ts": {"lines":{"total":16,"covered":16,"skipped":0,"pct":100},"functions":{"total":7,"covered":7,"skipped":0,"pct":100},"statements":{"total":19,"covered":19,"skipped":0,"pct":100},"branches":{"total":1,"covered":1,"skipped":0,"pct":100}}
-,"/Users/simon-blurton/Documents/big-6-app/src/modules/components/assets/Circle/Circle.tsx": {"lines":{"total":3,"covered":3,"skipped":0,"pct":100},"functions":{"total":1,"covered":1,"skipped":0,"pct":100},"statements":{"total":4,"covered":4,"skipped":0,"pct":100},"branches":{"total":1,"covered":1,"skipped":0,"pct":100}}
-,"/Users/simon-blurton/Documents/big-6-app/src/modules/components/assets/Circle/CircleText.tsx": {"lines":{"total":2,"covered":2,"skipped":0,"pct":100},"functions":{"total":1,"covered":1,"skipped":0,"pct":100},"statements":{"total":3,"covered":3,"skipped":0,"pct":100},"branches":{"total":0,"covered":0,"skipped":0,"pct":100}}
-,"/Users/simon-blurton/Documents/big-6-app/src/modules/components/ui/ProgressBar/hooks/use-count-up.tsx": {"lines":{"total":36,"covered":34,"skipped":0,"pct":94.44},"functions":{"total":6,"covered":6,"skipped":0,"pct":100},"statements":{"total":37,"covered":35,"skipped":0,"pct":94.59},"branches":{"total":9,"covered":7,"skipped":0,"pct":77.77}}
-,"/Users/simon-blurton/Documents/big-6-app/src/modules/components/ui/Spinner/hooks/use-incremental-value.tsx": {"lines":{"total":23,"covered":23,"skipped":0,"pct":100},"functions":{"total":6,"covered":6,"skipped":0,"pct":100},"statements":{"total":24,"covered":24,"skipped":0,"pct":100},"branches":{"total":1,"covered":1,"skipped":0,"pct":100}}
-,"/Users/simon-blurton/Documents/big-6-app/src/modules/constants/routes.ts": {"lines":{"total":1,"covered":1,"skipped":0,"pct":100},"functions":{"total":0,"covered":0,"skipped":0,"pct":100},"statements":{"total":2,"covered":1,"skipped":0,"pct":50},"branches":{"total":0,"covered":0,"skipped":0,"pct":100}}
-,"/Users/simon-blurton/Documents/big-6-app/src/modules/documentation/test-coverage/Coverage.tsx": {"lines":{"total":17,"covered":17,"skipped":0,"pct":100},"functions":{"total":5,"covered":5,"skipped":0,"pct":100},"statements":{"total":18,"covered":18,"skipped":0,"pct":100},"branches":{"total":3,"covered":3,"skipped":0,"pct":100}}
-,"/Users/simon-blurton/Documents/big-6-app/src/modules/documentation/test-coverage/constants.ts": {"lines":{"total":1,"covered":1,"skipped":0,"pct":100},"functions":{"total":0,"covered":0,"skipped":0,"pct":100},"statements":{"total":2,"covered":2,"skipped":0,"pct":100},"branches":{"total":0,"covered":0,"skipped":0,"pct":100}}
-,"/Users/simon-blurton/Documents/big-6-app/src/modules/documentation/test-coverage/test-coverage-json-schema.ts": {"lines":{"total":5,"covered":5,"skipped":0,"pct":100},"functions":{"total":0,"covered":0,"skipped":0,"pct":100},"statements":{"total":7,"covered":7,"skipped":0,"pct":100},"branches":{"total":0,"covered":0,"skipped":0,"pct":100}}
-,"/Users/simon-blurton/Documents/big-6-app/src/modules/documentation/test-coverage/use-coverage-data.tsx": {"lines":{"total":16,"covered":16,"skipped":0,"pct":100},"functions":{"total":4,"covered":4,"skipped":0,"pct":100},"statements":{"total":17,"covered":17,"skipped":0,"pct":100},"branches":{"total":2,"covered":1,"skipped":0,"pct":50}}
-,"/Users/simon-blurton/Documents/big-6-app/src/modules/logger/logger.ts": {"lines":{"total":3,"covered":3,"skipped":0,"pct":100},"functions":{"total":0,"covered":0,"skipped":0,"pct":100},"statements":{"total":4,"covered":4,"skipped":0,"pct":100},"branches":{"total":0,"covered":0,"skipped":0,"pct":100}}
-,"/Users/simon-blurton/Documents/big-6-app/src/modules/model/workout/workout-schemas.ts": {"lines":{"total":22,"covered":19,"skipped":0,"pct":86.36},"functions":{"total":4,"covered":2,"skipped":0,"pct":50},"statements":{"total":28,"covered":21,"skipped":0,"pct":75},"branches":{"total":1,"covered":0,"skipped":0,"pct":0}}
-,"/Users/simon-blurton/Documents/big-6-app/src/modules/strings/levels.ts": {"lines":{"total":3,"covered":3,"skipped":0,"pct":100},"functions":{"total":0,"covered":0,"skipped":0,"pct":100},"statements":{"total":5,"covered":4,"skipped":0,"pct":80},"branches":{"total":0,"covered":0,"skipped":0,"pct":100}}
-,"/Users/simon-blurton/Documents/big-6-app/src/modules/strings/transform.ts": {"lines":{"total":18,"covered":17,"skipped":0,"pct":94.44},"functions":{"total":7,"covered":7,"skipped":0,"pct":100},"statements":{"total":19,"covered":18,"skipped":0,"pct":94.73},"branches":{"total":4,"covered":3,"skipped":0,"pct":75}}
-,"/Users/simon-blurton/Documents/big-6-app/src/modules/time/TimeFormatter.tsx": {"lines":{"total":10,"covered":10,"skipped":0,"pct":100},"functions":{"total":3,"covered":3,"skipped":0,"pct":100},"statements":{"total":11,"covered":11,"skipped":0,"pct":100},"branches":{"total":0,"covered":0,"skipped":0,"pct":100}}
-,"/Users/simon-blurton/Documents/big-6-app/src/modules/time/constants.ts": {"lines":{"total":2,"covered":2,"skipped":0,"pct":100},"functions":{"total":0,"covered":0,"skipped":0,"pct":100},"statements":{"total":4,"covered":4,"skipped":0,"pct":100},"branches":{"total":0,"covered":0,"skipped":0,"pct":100}}
+{
+    "total": {
+        "lines": { "total": 367, "covered": 354, "skipped": 0, "pct": 96.45 },
+        "statements": {
+            "total": 411,
+            "covered": 393,
+            "skipped": 0,
+            "pct": 95.62
+        },
+        "functions": { "total": 93, "covered": 88, "skipped": 0, "pct": 94.62 },
+        "branches": { "total": 50, "covered": 41, "skipped": 0, "pct": 82 },
+        "branchesTrue": { "total": 0, "covered": 0, "skipped": 0, "pct": 100 }
+    },
+    "/Users/simon-blurton/Documents/big-6-app/src/app/add/Form/Breadcrumbs/Breadcrumbs.tsx": {
+        "lines": { "total": 8, "covered": 8, "skipped": 0, "pct": 100 },
+        "functions": { "total": 2, "covered": 2, "skipped": 0, "pct": 100 },
+        "statements": { "total": 9, "covered": 9, "skipped": 0, "pct": 100 },
+        "branches": { "total": 0, "covered": 0, "skipped": 0, "pct": 100 }
+    },
+    "/Users/simon-blurton/Documents/big-6-app/src/app/add/Form/ButtonGroup/ButtonGroup.tsx": {
+        "lines": { "total": 8, "covered": 8, "skipped": 0, "pct": 100 },
+        "functions": { "total": 1, "covered": 1, "skipped": 0, "pct": 100 },
+        "statements": { "total": 9, "covered": 9, "skipped": 0, "pct": 100 },
+        "branches": { "total": 2, "covered": 2, "skipped": 0, "pct": 100 }
+    },
+    "/Users/simon-blurton/Documents/big-6-app/src/app/add/Form/ButtonGroup/hooks/use-handle-buttons.tsx": {
+        "lines": { "total": 29, "covered": 29, "skipped": 0, "pct": 100 },
+        "functions": { "total": 5, "covered": 5, "skipped": 0, "pct": 100 },
+        "statements": { "total": 32, "covered": 32, "skipped": 0, "pct": 100 },
+        "branches": { "total": 5, "covered": 5, "skipped": 0, "pct": 100 }
+    },
+    "/Users/simon-blurton/Documents/big-6-app/src/app/add/Form/FormProvider/FormProvider.tsx": {
+        "lines": { "total": 6, "covered": 6, "skipped": 0, "pct": 100 },
+        "functions": { "total": 1, "covered": 1, "skipped": 0, "pct": 100 },
+        "statements": { "total": 7, "covered": 7, "skipped": 0, "pct": 100 },
+        "branches": { "total": 2, "covered": 1, "skipped": 0, "pct": 50 }
+    },
+    "/Users/simon-blurton/Documents/big-6-app/src/app/add/Form/hooks/use-create-form-context.tsx": {
+        "lines": { "total": 8, "covered": 5, "skipped": 0, "pct": 62.5 },
+        "functions": { "total": 2, "covered": 1, "skipped": 0, "pct": 50 },
+        "statements": { "total": 8, "covered": 5, "skipped": 0, "pct": 62.5 },
+        "branches": { "total": 0, "covered": 0, "skipped": 0, "pct": 100 }
+    },
+    "/Users/simon-blurton/Documents/big-6-app/src/app/api/error-handler/ErrorHandler.ts": {
+        "lines": { "total": 24, "covered": 24, "skipped": 0, "pct": 100 },
+        "functions": { "total": 6, "covered": 6, "skipped": 0, "pct": 100 },
+        "statements": { "total": 25, "covered": 25, "skipped": 0, "pct": 100 },
+        "branches": { "total": 3, "covered": 3, "skipped": 0, "pct": 100 }
+    },
+    "/Users/simon-blurton/Documents/big-6-app/src/app/api/error-handler/errors/api.error.bad-request.ts": {
+        "lines": { "total": 3, "covered": 3, "skipped": 0, "pct": 100 },
+        "functions": { "total": 1, "covered": 1, "skipped": 0, "pct": 100 },
+        "statements": { "total": 3, "covered": 3, "skipped": 0, "pct": 100 },
+        "branches": { "total": 0, "covered": 0, "skipped": 0, "pct": 100 }
+    },
+    "/Users/simon-blurton/Documents/big-6-app/src/app/api/error-handler/errors/api.error.base.ts": {
+        "lines": { "total": 10, "covered": 10, "skipped": 0, "pct": 100 },
+        "functions": { "total": 1, "covered": 1, "skipped": 0, "pct": 100 },
+        "statements": { "total": 12, "covered": 12, "skipped": 0, "pct": 100 },
+        "branches": { "total": 0, "covered": 0, "skipped": 0, "pct": 100 }
+    },
+    "/Users/simon-blurton/Documents/big-6-app/src/app/api/error-handler/errors/api.error.internal-server.ts": {
+        "lines": { "total": 3, "covered": 3, "skipped": 0, "pct": 100 },
+        "functions": { "total": 1, "covered": 1, "skipped": 0, "pct": 100 },
+        "statements": { "total": 3, "covered": 3, "skipped": 0, "pct": 100 },
+        "branches": { "total": 0, "covered": 0, "skipped": 0, "pct": 100 }
+    },
+    "/Users/simon-blurton/Documents/big-6-app/src/app/api/error-handler/responses/responses.ts": {
+        "lines": { "total": 5, "covered": 5, "skipped": 0, "pct": 100 },
+        "functions": { "total": 2, "covered": 2, "skipped": 0, "pct": 100 },
+        "statements": { "total": 6, "covered": 6, "skipped": 0, "pct": 100 },
+        "branches": { "total": 0, "covered": 0, "skipped": 0, "pct": 100 }
+    },
+    "/Users/simon-blurton/Documents/big-6-app/src/app/dashboard/workouts/[id]/PageContent/BarChart/BarChart.tsx": {
+        "lines": { "total": 9, "covered": 9, "skipped": 0, "pct": 100 },
+        "functions": { "total": 2, "covered": 2, "skipped": 0, "pct": 100 },
+        "statements": { "total": 9, "covered": 9, "skipped": 0, "pct": 100 },
+        "branches": { "total": 0, "covered": 0, "skipped": 0, "pct": 100 }
+    },
+    "/Users/simon-blurton/Documents/big-6-app/src/app/dashboard/workouts/[id]/PageContent/Comments/Comments.tsx": {
+        "lines": { "total": 12, "covered": 12, "skipped": 0, "pct": 100 },
+        "functions": { "total": 2, "covered": 2, "skipped": 0, "pct": 100 },
+        "statements": { "total": 13, "covered": 13, "skipped": 0, "pct": 100 },
+        "branches": { "total": 5, "covered": 5, "skipped": 0, "pct": 100 }
+    },
+    "/Users/simon-blurton/Documents/big-6-app/src/app/dashboard/workouts/type/[id]/LineChart/LineChart.tsx": {
+        "lines": { "total": 25, "covered": 24, "skipped": 0, "pct": 96 },
+        "functions": { "total": 12, "covered": 11, "skipped": 0, "pct": 91.66 },
+        "statements": {
+            "total": 26,
+            "covered": 25,
+            "skipped": 0,
+            "pct": 96.15
+        },
+        "branches": { "total": 0, "covered": 0, "skipped": 0, "pct": 100 }
+    },
+    "/Users/simon-blurton/Documents/big-6-app/src/app/instructions/[id]/[level]/components/InstructionsDropdownTitle/DropdownLinks/DropdownLinks.tsx": {
+        "lines": { "total": 21, "covered": 18, "skipped": 0, "pct": 85.71 },
+        "functions": { "total": 5, "covered": 4, "skipped": 0, "pct": 80 },
+        "statements": {
+            "total": 23,
+            "covered": 20,
+            "skipped": 0,
+            "pct": 86.95
+        },
+        "branches": { "total": 7, "covered": 4, "skipped": 0, "pct": 57.14 }
+    },
+    "/Users/simon-blurton/Documents/big-6-app/src/app/instructions/[id]/[level]/components/InstructionsDropdownTitle/DropdownLinks/Popper/Popper.tsx": {
+        "lines": { "total": 3, "covered": 3, "skipped": 0, "pct": 100 },
+        "functions": { "total": 1, "covered": 1, "skipped": 0, "pct": 100 },
+        "statements": { "total": 4, "covered": 4, "skipped": 0, "pct": 100 },
+        "branches": { "total": 0, "covered": 0, "skipped": 0, "pct": 100 }
+    },
+    "/Users/simon-blurton/Documents/big-6-app/src/app/instructions/[id]/[level]/components/InstructionsDropdownTitle/DropdownLinks/Popper/MenuList/MenuList.tsx": {
+        "lines": { "total": 4, "covered": 4, "skipped": 0, "pct": 100 },
+        "functions": { "total": 3, "covered": 3, "skipped": 0, "pct": 100 },
+        "statements": { "total": 5, "covered": 5, "skipped": 0, "pct": 100 },
+        "branches": { "total": 0, "covered": 0, "skipped": 0, "pct": 100 }
+    },
+    "/Users/simon-blurton/Documents/big-6-app/src/app/stopwatch/components/Stopwatch/Stopwatch.tsx": {
+        "lines": { "total": 5, "covered": 5, "skipped": 0, "pct": 100 },
+        "functions": { "total": 1, "covered": 1, "skipped": 0, "pct": 100 },
+        "statements": { "total": 6, "covered": 6, "skipped": 0, "pct": 100 },
+        "branches": { "total": 0, "covered": 0, "skipped": 0, "pct": 100 }
+    },
+    "/Users/simon-blurton/Documents/big-6-app/src/app/stopwatch/components/Stopwatch/ActionButton/ActionButton.tsx": {
+        "lines": { "total": 6, "covered": 6, "skipped": 0, "pct": 100 },
+        "functions": { "total": 1, "covered": 1, "skipped": 0, "pct": 100 },
+        "statements": { "total": 7, "covered": 7, "skipped": 0, "pct": 100 },
+        "branches": { "total": 4, "covered": 4, "skipped": 0, "pct": 100 }
+    },
+    "/Users/simon-blurton/Documents/big-6-app/src/app/stopwatch/components/Stopwatch/hooks/use-stopwatch.ts": {
+        "lines": { "total": 16, "covered": 16, "skipped": 0, "pct": 100 },
+        "functions": { "total": 7, "covered": 7, "skipped": 0, "pct": 100 },
+        "statements": { "total": 19, "covered": 19, "skipped": 0, "pct": 100 },
+        "branches": { "total": 1, "covered": 1, "skipped": 0, "pct": 100 }
+    },
+    "/Users/simon-blurton/Documents/big-6-app/src/modules/components/assets/Circle/Circle.tsx": {
+        "lines": { "total": 3, "covered": 3, "skipped": 0, "pct": 100 },
+        "functions": { "total": 1, "covered": 1, "skipped": 0, "pct": 100 },
+        "statements": { "total": 4, "covered": 4, "skipped": 0, "pct": 100 },
+        "branches": { "total": 1, "covered": 1, "skipped": 0, "pct": 100 }
+    },
+    "/Users/simon-blurton/Documents/big-6-app/src/modules/components/assets/Circle/CircleText.tsx": {
+        "lines": { "total": 2, "covered": 2, "skipped": 0, "pct": 100 },
+        "functions": { "total": 1, "covered": 1, "skipped": 0, "pct": 100 },
+        "statements": { "total": 3, "covered": 3, "skipped": 0, "pct": 100 },
+        "branches": { "total": 0, "covered": 0, "skipped": 0, "pct": 100 }
+    },
+    "/Users/simon-blurton/Documents/big-6-app/src/modules/components/ui/ProgressBar/hooks/use-count-up.tsx": {
+        "lines": { "total": 36, "covered": 34, "skipped": 0, "pct": 94.44 },
+        "functions": { "total": 6, "covered": 6, "skipped": 0, "pct": 100 },
+        "statements": {
+            "total": 37,
+            "covered": 35,
+            "skipped": 0,
+            "pct": 94.59
+        },
+        "branches": { "total": 9, "covered": 7, "skipped": 0, "pct": 77.77 }
+    },
+    "/Users/simon-blurton/Documents/big-6-app/src/modules/components/ui/Spinner/hooks/use-incremental-value.tsx": {
+        "lines": { "total": 23, "covered": 23, "skipped": 0, "pct": 100 },
+        "functions": { "total": 6, "covered": 6, "skipped": 0, "pct": 100 },
+        "statements": { "total": 24, "covered": 24, "skipped": 0, "pct": 100 },
+        "branches": { "total": 1, "covered": 1, "skipped": 0, "pct": 100 }
+    },
+    "/Users/simon-blurton/Documents/big-6-app/src/modules/constants/routes.ts": {
+        "lines": { "total": 1, "covered": 1, "skipped": 0, "pct": 100 },
+        "functions": { "total": 0, "covered": 0, "skipped": 0, "pct": 100 },
+        "statements": { "total": 2, "covered": 2, "skipped": 0, "pct": 100 },
+        "branches": { "total": 0, "covered": 0, "skipped": 0, "pct": 100 }
+    },
+    "/Users/simon-blurton/Documents/big-6-app/src/modules/documentation/test-coverage/Coverage.tsx": {
+        "lines": { "total": 17, "covered": 17, "skipped": 0, "pct": 100 },
+        "functions": { "total": 5, "covered": 5, "skipped": 0, "pct": 100 },
+        "statements": { "total": 18, "covered": 18, "skipped": 0, "pct": 100 },
+        "branches": { "total": 3, "covered": 3, "skipped": 0, "pct": 100 }
+    },
+    "/Users/simon-blurton/Documents/big-6-app/src/modules/documentation/test-coverage/constants.ts": {
+        "lines": { "total": 1, "covered": 1, "skipped": 0, "pct": 100 },
+        "functions": { "total": 0, "covered": 0, "skipped": 0, "pct": 100 },
+        "statements": { "total": 2, "covered": 2, "skipped": 0, "pct": 100 },
+        "branches": { "total": 0, "covered": 0, "skipped": 0, "pct": 100 }
+    },
+    "/Users/simon-blurton/Documents/big-6-app/src/modules/documentation/test-coverage/test-coverage-json-schema.ts": {
+        "lines": { "total": 5, "covered": 5, "skipped": 0, "pct": 100 },
+        "functions": { "total": 0, "covered": 0, "skipped": 0, "pct": 100 },
+        "statements": { "total": 7, "covered": 7, "skipped": 0, "pct": 100 },
+        "branches": { "total": 0, "covered": 0, "skipped": 0, "pct": 100 }
+    },
+    "/Users/simon-blurton/Documents/big-6-app/src/modules/documentation/test-coverage/use-coverage-data.tsx": {
+        "lines": { "total": 16, "covered": 16, "skipped": 0, "pct": 100 },
+        "functions": { "total": 4, "covered": 4, "skipped": 0, "pct": 100 },
+        "statements": { "total": 17, "covered": 17, "skipped": 0, "pct": 100 },
+        "branches": { "total": 2, "covered": 1, "skipped": 0, "pct": 50 }
+    },
+    "/Users/simon-blurton/Documents/big-6-app/src/modules/logger/logger.ts": {
+        "lines": { "total": 3, "covered": 3, "skipped": 0, "pct": 100 },
+        "functions": { "total": 0, "covered": 0, "skipped": 0, "pct": 100 },
+        "statements": { "total": 4, "covered": 4, "skipped": 0, "pct": 100 },
+        "branches": { "total": 0, "covered": 0, "skipped": 0, "pct": 100 }
+    },
+    "/Users/simon-blurton/Documents/big-6-app/src/modules/model/workout/workout-schemas.ts": {
+        "lines": { "total": 22, "covered": 19, "skipped": 0, "pct": 86.36 },
+        "functions": { "total": 4, "covered": 2, "skipped": 0, "pct": 50 },
+        "statements": { "total": 28, "covered": 21, "skipped": 0, "pct": 75 },
+        "branches": { "total": 1, "covered": 0, "skipped": 0, "pct": 0 }
+    },
+    "/Users/simon-blurton/Documents/big-6-app/src/modules/strings/levels.ts": {
+        "lines": { "total": 3, "covered": 3, "skipped": 0, "pct": 100 },
+        "functions": { "total": 0, "covered": 0, "skipped": 0, "pct": 100 },
+        "statements": { "total": 5, "covered": 4, "skipped": 0, "pct": 80 },
+        "branches": { "total": 0, "covered": 0, "skipped": 0, "pct": 100 }
+    },
+    "/Users/simon-blurton/Documents/big-6-app/src/modules/strings/transform.ts": {
+        "lines": { "total": 18, "covered": 17, "skipped": 0, "pct": 94.44 },
+        "functions": { "total": 7, "covered": 7, "skipped": 0, "pct": 100 },
+        "statements": {
+            "total": 19,
+            "covered": 18,
+            "skipped": 0,
+            "pct": 94.73
+        },
+        "branches": { "total": 4, "covered": 3, "skipped": 0, "pct": 75 }
+    },
+    "/Users/simon-blurton/Documents/big-6-app/src/modules/time/TimeFormatter.tsx": {
+        "lines": { "total": 10, "covered": 10, "skipped": 0, "pct": 100 },
+        "functions": { "total": 3, "covered": 3, "skipped": 0, "pct": 100 },
+        "statements": { "total": 11, "covered": 11, "skipped": 0, "pct": 100 },
+        "branches": { "total": 0, "covered": 0, "skipped": 0, "pct": 100 }
+    },
+    "/Users/simon-blurton/Documents/big-6-app/src/modules/time/constants.ts": {
+        "lines": { "total": 2, "covered": 2, "skipped": 0, "pct": 100 },
+        "functions": { "total": 0, "covered": 0, "skipped": 0, "pct": 100 },
+        "statements": { "total": 4, "covered": 4, "skipped": 0, "pct": 100 },
+        "branches": { "total": 0, "covered": 0, "skipped": 0, "pct": 100 }
+    }
 }

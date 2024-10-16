@@ -14,12 +14,6 @@ function useHandleButtons() {
 
     const triggerValidation = async () => {
         setIsLoading(true)
-        if (currentStep > 1) {
-            setIsLoading(false)
-            throw new Error(
-                "Not to but used to validate step any other than 0 and 1"
-            )
-        }
 
         const triggerStep = currentStep === 0 ? "workout.type" : "workout.level"
 

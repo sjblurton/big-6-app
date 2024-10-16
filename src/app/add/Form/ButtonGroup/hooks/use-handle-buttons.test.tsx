@@ -37,7 +37,10 @@ describe("useHandleButtons", () => {
     })
 
     it("should handle validation and step increment correctly", async () => {
-        mockContextInputs.getValues.mockReturnValue(0)
+        mockContextInputs.getValues.mockImplementation((field) => {
+            if (field === "meta.step.current") return 0
+            if (field === "meta.step.total") return 3
+        })
         mockContextInputs.trigger.mockResolvedValue(true)
 
         const { result } = renderHook(() => useHandleButtons())
@@ -53,14 +56,94 @@ describe("useHandleButtons", () => {
         expect(result.current.isLoading).toBe(false)
     })
 
-    it("should throw an error if current step is greater than 1", async () => {
-        mockContextInputs.getValues.mockReturnValue(2)
+    it("should return early if trigger returns false", async () => {
+        mockContextInputs.getValues.mockImplementation((field) => {
+            if (field === "meta.step.current") return 0
+            if (field === "meta.step.total") return 3
+        })
+        mockContextInputs.trigger.mockResolvedValue(false)
 
         const { result } = renderHook(() => useHandleButtons())
 
-        await expect(result.current.handleNext()).rejects.toThrow(
-            "Not to but used to validate step any other than 0 and 1"
+        await act(async () => {
+            await result.current.handleNext()
+        })
+
+        expect(mockContextInputs.setValue).not.toHaveBeenCalled()
+        expect(result.current.isLoading).toBe(false)
+    })
+
+    it("should handle previous step correctly", () => {
+        mockContextInputs.getValues.mockImplementation((field) => {
+            if (field === "meta.step.current") return 1
+            if (field === "meta.step.total") return 3
+        })
+
+        const { result } = renderHook(() => useHandleButtons())
+
+        result.current.handlePrevious()
+
+        expect(mockContextInputs.setValue).toHaveBeenCalledWith(
+            "meta.step.current",
+            0
         )
+    })
+
+    it("should return early if previous and step is 0", () => {
+        mockContextInputs.getValues.mockImplementation((field) => {
+            if (field === "meta.step.current") return 0
+            if (field === "meta.step.total") return 3
+        })
+
+        const { result } = renderHook(() => useHandleButtons())
+
+        result.current.handlePrevious()
+
+        expect(mockContextInputs.setValue).not.toHaveBeenCalled()
+    })
+
+    it("should handle cancel correctly", () => {
+        const { result } = renderHook(() => useHandleButtons())
+
+        result.current.handleCancel()
+
+        expect(mockContextInputs.reset).toHaveBeenCalled()
+        expect(mockRouter.push).toHaveBeenCalledWith("/dashboard")
+    })
+
+    it("should handle next step correctly if on step two", async () => {
+        mockContextInputs.getValues.mockImplementation((field) => {
+            if (field === "meta.step.current") return 1
+            if (field === "meta.step.total") return 3
+        })
+        mockContextInputs.trigger.mockResolvedValue(true)
+
+        const { result } = renderHook(() => useHandleButtons())
+
+        await act(async () => {
+            await result.current.handleNext()
+        })
+
+        expect(mockContextInputs.setValue).toHaveBeenCalledWith(
+            "meta.step.current",
+            2
+        )
+        expect(result.current.isLoading).toBe(false)
+    })
+
+    it("should return early if next step is the last step", async () => {
+        mockContextInputs.getValues.mockImplementation((field) => {
+            if (field === "meta.step.current") return 2
+            if (field === "meta.step.total") return 3
+        })
+
+        const { result } = renderHook(() => useHandleButtons())
+
+        await act(async () => {
+            await result.current.handleNext()
+        })
+
+        expect(mockContextInputs.setValue).not.toHaveBeenCalled()
         expect(result.current.isLoading).toBe(false)
     })
 })
