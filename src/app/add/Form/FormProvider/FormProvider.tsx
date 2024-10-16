@@ -9,10 +9,16 @@ import {
     createWorkoutSchema,
 } from "@/modules/model/workout/workout-schemas"
 
-function FormProvider({ children }: { children: React.ReactNode }) {
+function FormProvider({
+    children,
+    defaultValues,
+}: {
+    children: React.ReactNode
+    defaultValues?: Partial<CreateWorkoutDataInput>
+}) {
     const methods = useForm<CreateWorkoutDataInput>({
         resolver: zodResolver(createWorkoutSchema),
-        defaultValues: {
+        defaultValues: defaultValues || {
             workout: {
                 user: "user1@example.com",
                 date: DateTime.now().toMillis(),

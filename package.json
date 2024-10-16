@@ -16,7 +16,7 @@
         "prepare": "husky i",
         "start": "next start",
         "storybook": "storybook dev -p 6006",
-        "test": "jest && npm run format",
+        "test": "jest && npx prettier src/modules/documentation/test-coverage/coverage-summary.json --write",
         "test:coverage": "jest --collect-coverage",
         "test:watch": "jest --watchAll"
     },

@@ -44,7 +44,7 @@ function ButtonGroup() {
             >
                 cancel
             </MuiButton>
-            {isFirstStep && (
+            {!isFirstStep && (
                 <MuiButton
                     variant="contained"
                     type="button"
