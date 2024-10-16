@@ -8,13 +8,14 @@ import {
     type CreateWorkoutDataInput,
     createWorkoutSchema,
 } from "@/modules/model/workout/workout-schemas"
+import { type DeepPartial } from "@/modules/typescript/utility-types"
 
 function FormProvider({
     children,
     defaultValues,
 }: {
     children: React.ReactNode
-    defaultValues?: Partial<CreateWorkoutDataInput>
+    defaultValues?: DeepPartial<CreateWorkoutDataInput>
 }) {
     const methods = useForm<CreateWorkoutDataInput>({
         resolver: zodResolver(createWorkoutSchema),
