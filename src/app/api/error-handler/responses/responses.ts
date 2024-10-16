@@ -18,4 +18,4 @@ export const ErrorResponses = {
             HTTP_ERROR_CODES.INTERNAL_SERVER_ERROR
         )
     },
-};
+}
