@@ -10,9 +10,6 @@ const customJestConfig = {
         "^@/(.*)$": "<rootDir>/src/$1",
     },
     extensionsToTreatAsEsm: [".ts", ".tsx"],
-    transform: {
-        "^.+\\.(ts|tsx)$": "ts-jest",
-    },
     testEnvironment: "jest-environment-jsdom",
     setupFilesAfterEnv: ["<rootDir>/jest.setup.js"],
     collectCoverage: true,
@@ -27,9 +24,6 @@ const customJestConfig = {
             functions: 89,
             lines: 90,
             statements: 90,
-        },
-        "ts-jest": {
-            useESM: true,
         },
     },
 }

@@ -32,6 +32,3 @@ jobs:
 
             - name: Automated tests
               run: npm run test
-
-            - name: Format code
-              run: npm run format
