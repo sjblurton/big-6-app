@@ -21,17 +21,17 @@ jobs:
               run: npm ci
 
             - name: Generate SCSS types
-              run: npm generate-scss-types
+              run: npm run generate-scss-types
             - name: Check types
-              run: npm check-types
+              run: npm run check-types
 
             - name: Lint styles
-              run: npm lint:styles
+              run: npm run lint:styles
             - name: Lint code
-              run: npm lint
+              run: npm run lint
 
             - name: Automated tests
-              run: npm test
+              run: npm run test
 
             - name: Format code
-              run: npm format
+              run: npm run format
