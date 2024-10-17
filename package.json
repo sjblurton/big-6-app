@@ -22,12 +22,15 @@
     },
     "lint-staged": {
         "*.{ts,tsx}": [
-            "bash -c 'npm run check-types'",
-            "bash -c 'npm run format'"
+            "bash -c 'npm run check-types'"
         ],
         "*.{css,scss}": [
             "bash -c 'npm run generate-scss-types'",
             "bash -c 'npm run lint:styles'"
+        ],
+        "*": [
+            "bash -c 'npm run format'",
+            "bash -c 'npm run lint'"
         ]
     },
     "dependencies": {
