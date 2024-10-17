@@ -3,34 +3,48 @@
     "version": "0.1.0",
     "private": true,
     "scripts": {
-        "build": "next build",
         "build-storybook": "storybook build",
+        "build": "next build",
         "check-types": "tsc --noEmit",
-        "dev": "next dev",
         "dev:all": "concurrently -k \"npm run dev\" \"npm run storybook\" \"npm run generate-scss-types:watch\" \"npm run test:watch\"",
+        "dev": "next dev",
         "format": "npx prettier . --write",
-        "generate-scss-types": "npx typed-scss-modules src --ignore '**/swagger-ui.scss'",
         "generate-scss-types:watch": "npx typed-scss-modules src -w --ignore '**/swagger-ui.scss'",
-        "lint": "next lint --fix",
+        "generate-scss-types": "npx typed-scss-modules src --ignore '**/swagger-ui.scss'",
         "lint:styles": "stylelint '**/*.{css,scss}' --fix",
+        "lint": "next lint --fix",
+        "pre-commit": "lint-staged",
         "prepare": "husky i",
         "start": "next start",
         "storybook": "storybook dev -p 6006",
-        "test": "jest && npx prettier src/modules/documentation/test-coverage/coverage-summary.json --write",
         "test:coverage": "jest --collect-coverage",
-        "test:watch": "jest --watchAll"
+        "test:watch": "jest --watchAll",
+        "test": "jest && npx prettier src/modules/documentation/test-coverage/coverage-summary.json --write"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "npm run pre-commit"
+        }
     },
     "lint-staged": {
-        "*.{ts,tsx}": [
-            "bash -c 'npm run check-types'"
+        "*.{js,jsx,ts,tsx}": [
+            "npm run generate-scss-types",
+            "prettier --write",
+            "eslint --fix",
+            "npm run check-types",
+            "git add"
         ],
-        "*.{css,scss}": [
-            "bash -c 'npm run generate-scss-types'",
-            "bash -c 'npm run lint:styles'"
+        "*.{scss,css}": [
+            "stylelint --fix",
+            "git add"
         ],
-        "*": [
-            "bash -c 'npm run format'",
-            "bash -c 'npm run lint'"
+        "*.json": [
+            "prettier --write",
+            "git add"
+        ],
+        "*.md": [
+            "prettier --write",
+            "git add"
         ]
     },
     "dependencies": {
