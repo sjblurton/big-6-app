@@ -26,7 +26,6 @@ import { tableColumnNames } from "./constants"
 import useCoverageData from "./use-coverage-data"
 
 function Coverage() {
-    console.log("testing the pre-commit hook")
     const data = useCoverageData()
 
     const cellClassName = `${textCapitalize} ${textBold}`
