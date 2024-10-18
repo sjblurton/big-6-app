@@ -20,7 +20,7 @@ type Properties = {
     data: WorkoutData[]
 }
 
-export default function LineChart(properties: Properties) {
+function LineChart(properties: Properties) {
     const lineChartData = getLineChartData(properties.data)
 
     return (
@@ -72,3 +72,5 @@ function getLineChartData(data: WorkoutData[]) {
         }))
         .sort((a, b) => a.date - b.date)
 }
+
+export default LineChart

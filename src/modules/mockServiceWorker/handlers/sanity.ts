@@ -1,20 +1,20 @@
 import { http, HttpResponse } from "msw"
 
-import { workoutTypes } from "@/modules/model/workout/workout-schemas"
+import { workoutGroqQueries } from "@/modules/cms/queries/workout-queries"
 
-import { sanityPullUpMock } from "../mocks/pull-up"
+import { workoutIdsAndImages } from "../mocks/workout-ids-and-images"
 
 export const sanityMocks = [
     http.get(
-        "https://wnnwcpmb.api.sanity.io/v2024-09-24/data/query/production",
+        "https://wnnwcpmb.apicdn.sanity.io/v2024-09-24/data/query/production",
         ({ request }) => {
             const url = new URL(request.url)
             const query = url.searchParams.get("query")
 
-            if (query?.includes(workoutTypes.pullUp.id)) {
-                return HttpResponse.json({ ...sanityPullUpMock })
+            if (query === workoutGroqQueries.workoutIdsQuery()) {
+                return HttpResponse.json(workoutIdsAndImages)
             }
-            return new HttpResponse(undefined, { status: 404 })
+            return new HttpResponse("No Matching Query", { status: 400 })
         }
     ),
 ]

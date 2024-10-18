@@ -2,7 +2,7 @@
 
 import ErrorMessage from "@/modules/components/ui/ErrorMessage/ErrorMessage"
 
-export default function Error({
+function Error({
     reset,
 }: {
     error: Error & { digest?: string }
@@ -10,3 +10,5 @@ export default function Error({
 }) {
     return <ErrorMessage message="Oops, something went wrong!" reset={reset} />
 }
+
+export default Error

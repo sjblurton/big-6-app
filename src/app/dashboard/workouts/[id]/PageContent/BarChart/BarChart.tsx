@@ -11,7 +11,7 @@ type Properties = {
     reps: number[]
 }
 
-export default function BarChart({ reps }: Properties) {
+function BarChart({ reps }: Properties) {
     return (
         <div
             className={`${background.light} ${boxShadow.subtle} ${radius.medium} ${width.w90} ${wrapper}`}
@@ -29,3 +29,5 @@ export default function BarChart({ reps }: Properties) {
         </div>
     )
 }
+
+export default BarChart

@@ -34,6 +34,4 @@ class WorkoutGroq {
     }
 }
 
-export default WorkoutGroq
-
 export const workoutGroqQueries = new WorkoutGroq()
