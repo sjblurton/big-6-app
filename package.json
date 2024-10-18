@@ -82,6 +82,7 @@
         "zod-validation-error": "^3.3.1"
     },
     "devDependencies": {
+        "@chromatic-com/storybook": "^2.0.2",
         "@jest/globals": "^29.7.0",
         "@storybook/addon-essentials": "^8.3.4",
         "@storybook/addon-interactions": "^8.3.2",

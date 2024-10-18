@@ -23,6 +23,14 @@ export function toCapitalizedWords(name: string) {
     return words.map((word) => capitalize(word.toLowerCase())).join(" ")
 }
 
+export function parcelCaseToTitleString(parcelcase: string) {
+    return parcelcase
+        .replaceAll(/[A-Z]/g, " $&")
+        .replace(/^./, function capitalizeFirstLetter(string) {
+            return string.toUpperCase()
+        })
+}
+
 export function pathLevelToNumber(level: string): number {
     const levelMatch = /^level-(?<levelNumber>10|[1-9])$/.exec(level)
     if (!levelMatch) {
