@@ -8,7 +8,7 @@ import {
     MuiPaper,
     MuiTypography,
 } from "../../../components/library/mui"
-import { toCapitalizedWords } from "../../../strings/transform"
+import { parcelCaseToTitleString } from "../../../strings/transform"
 
 function ColorCard({
     color,
@@ -72,7 +72,7 @@ function ColorPalette() {
                     <ColorCard
                         key={key}
                         color={value}
-                        name={toCapitalizedWords(key)}
+                        name={parcelCaseToTitleString(key)}
                         variable={key}
                         textColor={getTextContrast(value)}
                     />
