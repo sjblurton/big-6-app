@@ -40,6 +40,7 @@ function Form() {
     return (
         <MuiBox
             component="form"
+            data-testid="form"
             pt={2}
             pb={10}
             sx={{
