@@ -10,7 +10,7 @@ function ButtonGroup() {
         useHandleButtons()
 
     const isFirstStep = currentStep === 0
-    const isLastStep = currentStep === getValues("meta.step.total") - 1
+    const isLastStep = currentStep === getValues("metadata.step.total") - 1
 
     return (
         <MuiButtonGroup

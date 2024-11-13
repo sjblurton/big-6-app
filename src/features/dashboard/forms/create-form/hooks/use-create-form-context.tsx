@@ -14,7 +14,7 @@ export function useCreateFormContextInputsWithStep() {
     const { control, ...rest } = useFormContext<CreateWorkoutDataInput>()
 
     const currentStep = useWatch({
-        name: "meta.step.current",
+        name: "metadata.step.current",
         control,
     })
     return { control, currentStep, ...rest }

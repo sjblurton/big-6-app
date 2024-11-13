@@ -45,7 +45,7 @@ describe("ButtonGroup", () => {
     ) => {
         mockHook.isLoading = isLoading
         const defaultValues: DeepPartial<CreateWorkoutDataInput> = {
-            meta: {
+            metadata: {
                 step: {
                     current: stepNumber,
                     total: 3,

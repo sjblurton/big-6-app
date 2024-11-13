@@ -14,7 +14,7 @@ const steps = ["Select Exercise", "Select Level", "Log Workout"] as const
 function FormBreadcrumbs() {
     const { control } = useCreateFormContextInputs()
     const activeStep = useWatch({
-        name: "meta.step.current",
+        name: "metadata.step.current",
         control,
     })
 

@@ -29,7 +29,7 @@ describe("FormProvider", () => {
                     workout: {
                         user: "user1@example.com",
                     },
-                    meta: {
+                    metadata: {
                         step: {
                             current: 0,
                             total: 3,
@@ -51,7 +51,7 @@ describe("FormProvider", () => {
             workout: {
                 user: "user2@example.com",
             },
-            meta: {
+            metadata: {
                 step: {
                     current: 1,
                     total: 5,

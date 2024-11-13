@@ -22,7 +22,7 @@ async function Add() {
                     date: DateTime.now().toMillis(),
                 },
 
-                meta: {
+                metadata: {
                     step: {
                         current: 0,
                         total: 3,

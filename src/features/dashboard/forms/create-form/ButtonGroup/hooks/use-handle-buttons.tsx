@@ -9,7 +9,7 @@ function useHandleButtons() {
     const [isLoading, setIsLoading] = useState(false)
     const { trigger, getValues, setValue, reset } = useCreateFormContextInputs()
     const router = useRouter()
-    const currentStepDotString = "meta.step.current"
+    const currentStepDotString = "metadata.step.current"
     const currentStep = getValues(currentStepDotString)
 
     const triggerValidation = async () => {
@@ -27,7 +27,7 @@ function useHandleButtons() {
     }
 
     const handleNext = async () => {
-        const maxStep = getValues("meta.step.total") - 1
+        const maxStep = getValues("metadata.step.total") - 1
 
         if (currentStep === maxStep) return
 

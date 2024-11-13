@@ -15,7 +15,7 @@ function WorkoutRadio() {
         formState: { errors: formErrors },
     } = useCreateFormContextInputs()
 
-    const workoutIds = getValues("meta.workoutIds")
+    const workoutIds = getValues("metadata.workoutIds")
 
     const workoutTypeFormError = get(formErrors, "workout.type")
 
