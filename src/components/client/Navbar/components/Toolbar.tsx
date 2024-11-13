@@ -10,7 +10,6 @@ import {
     MuiTypography,
 } from "@/components/libs/mui"
 
-import LinkItem from "./LinkItem"
 import LinkItems from "./LinkItems"
 
 import LogoSvg from "../../../server/Logo/Logo"
@@ -89,13 +88,6 @@ function Toolbar({
                 >
                     <LinkItems
                         routes={routes}
-                        handleCloseNavMenu={handleCloseNavMenu}
-                    />
-
-                    <LinkItem
-                        path="/dashboard"
-                        name="Dashboard"
-                        data-testid="nav-menu-link-dashboard"
                         handleCloseNavMenu={handleCloseNavMenu}
                     />
                 </MuiMenu>

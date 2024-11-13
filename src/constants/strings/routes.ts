@@ -6,4 +6,5 @@ export const ROUTES = {
     add: { value: "/create", label: "Create" },
     studio: { value: "/studio", label: "Studio" },
     home: { value: "/", label: "Home" },
-}
+    instructions: { value: "/instructions", label: "Instructions" },
+} as const

@@ -9,21 +9,24 @@ import { Inter } from "next/font/google"
 import BottomNavigation from "@/components/client/BottomNavigation/BottomNavigation"
 import Navbar from "@/components/client/Navbar/Navbar"
 import Providers from "@/components/Providers/Providers"
-import { WORKOUT_DETAILS } from "@/constants"
+import { ROUTES } from "@/constants/strings/routes"
 
 const inter = Inter({ subsets: ["latin"] })
 
-const dashboardRoute = "/dashboard"
-
 const routes = [
-    { name: "Home", path: "/" },
+    { name: ROUTES.home.label, path: ROUTES.home.value },
     {
-        name: "instructions",
-        path: `/instructions/${WORKOUT_DETAILS.pullUp.id}/level-1`,
+        name: ROUTES.instructions.label,
+        path: ROUTES.instructions.value,
     },
-    { name: "Stopwatch", path: "/stopwatch" },
-    { name: "Workouts", path: "/workouts" },
-    { name: "Dashboard", path: `${dashboardRoute}` },
+    {
+        name: ROUTES.stopwatch.label,
+        path: ROUTES.stopwatch.value,
+    },
+    {
+        name: ROUTES.dashboard.label,
+        path: ROUTES.dashboard.value,
+    },
 ]
 
 function RootLayout({
