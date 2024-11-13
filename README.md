@@ -40,7 +40,6 @@ The Big 6 Progressive Callisthenics Fitness App is inspired by Paul Wade's "Conv
     -   [Database Structure](#database-structure)
         -   [Importance of Robust Error Handling](#importance-of-robust-error-handling)
         -   [API Error Handling](#api-error-handling)
-            -   [Example Usage in API Logic](#example-usage-in-api-logic)
             -   [Error Handling in API Route](#error-handling-in-api-route)
             -   [Error Handler Class](#error-handler-class)
         -   [Frontend Error Handling](#frontend-error-handling)
@@ -111,32 +110,17 @@ Robust error handling is critical for the development and maintenance of any app
 -   Centralized Error Handling: A centralized ErrorHandler class is used to catch and handle errors in the API route, distinguishing between different error types and responding accordingly.
 -   Logging: Errors are logged further analysis.
 
-#### Example Usage in API Logic
-
-```typescript
-private getEmailFromHeaders(): string {
-  const safe = emailSchema.safeParse(this.request.headers.get("x-user-email"));
-  if (!safe.success) {
-    throw new ApiForbiddenError({
-      description: "Forbidden",
-      isOperational: true,
-    });
-  }
-  return safe.data;
-}
-```
-
 #### Error Handling in API Route
 
 ```typescript
-import ErrorHandler from "@/modules/api/error-handler/ErrorHandler"
+import ErrorHandler from "@ErrorHandler"
 import { NextRequest } from "next/server"
 
-import WorkoutsController from "../../../modules/api/workouts/controller/workouts.controller"
+import Controller from "controller"
 
 export async function GET(request: NextRequest) {
     try {
-        const controller = new WorkoutsController(request)
+        const controller = new Controller(request)
         return await controller.GET()
     } catch (error) {
         const errorHandler = new ErrorHandler(error)
@@ -157,16 +141,18 @@ class ErrorHandler {
     }
 
     handle(): NextResponse<ErrorResponse> {
-        if (
-            !(this.error instanceof ApiBaseError) ||
-            this.error instanceof ZodError ||
-            (this.error instanceof ApiBaseError && !this.error.isOperational)
-        ) {
-            this.logToDatabase()
-            return this.handleNonOperationalError()
+        if (!(this.error instanceof ApiBaseError)) {
+            return this.handelNoneOperationalError()
         }
 
-        return this.handleOperationalError(this.error)
+        const isOperationalError = this.error.httpCode < 500
+
+        if (!isOperationalError) {
+            this.logToDatabase()
+            return this.handelNoneOperationalError()
+        }
+
+        return this.handelOperationalError(this.error)
     }
     // rest of error handler
 }
