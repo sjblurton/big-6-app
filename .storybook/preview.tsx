@@ -14,12 +14,12 @@ import { themes } from "@storybook/theming"
 import { initialize, mswLoader } from "msw-storybook-addon"
 import React, { PropsWithChildren } from "react"
 
-import MuiThemeProvider from "../src/modules/components/Providers/ThemeProvider/MuiThemeProvider"
-import { handlers } from "../src/modules/mockServiceWorker/handlers"
+import MuiThemeProvider from "../src/components/Providers/ThemeProvider/MuiThemeProvider"
+import { handlers } from "../src/libs/mock-service-worker/handlers"
 import "../src/styles/base/global.scss"
 import "../src/styles/base/reset.scss"
 import "../src/styles/main.scss"
-import { ROUTES } from "../src/modules/constants/routes"
+import { ROUTES } from "../src/constants/strings/routes"
 
 initialize({ onUnhandledRequest: "warn" })
 

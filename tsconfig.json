@@ -32,7 +32,7 @@
         "**/*.tsx",
         ".next/types/**/*.ts",
         "jest.config.js",
-        "src/libs/mock-service-worker/mock-service-worker.js"
+        "src/libs/mock-service-worker/mockServiceWorker.js"
     ],
     "exclude": ["node_modules", ".next"],
     "types": ["@testing-library/jest-dom"]

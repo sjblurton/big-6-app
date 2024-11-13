@@ -41,6 +41,9 @@ const config: StorybookConfig = {
         name: "@storybook/nextjs",
         options: {},
     },
-    staticDirs: ["../src/lib/mock-service-worker", "../public"],
+    typescript: {
+        check: true,
+    },
+    staticDirs: ["../src/libs/mock-service-worker", "../public"],
 }
 export default config
