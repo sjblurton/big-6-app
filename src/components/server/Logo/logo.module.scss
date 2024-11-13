@@ -1,4 +1,4 @@
-@use "../../../../styles/colors/functions" as *;
+@use "../../../styles/colors/functions" as *;
 
 .white {
     fill: get-color("common", "white");
