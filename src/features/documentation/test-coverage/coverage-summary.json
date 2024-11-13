@@ -1,9 +1,9 @@
 {
     "total": {
-        "lines": { "total": 535, "covered": 524, "skipped": 0, "pct": 97.94 },
+        "lines": { "total": 534, "covered": 523, "skipped": 0, "pct": 97.94 },
         "statements": {
-            "total": 608,
-            "covered": 587,
+            "total": 607,
+            "covered": 586,
             "skipped": 0,
             "pct": 96.54
         },
@@ -202,14 +202,9 @@
         "branches": { "total": 2, "covered": 1, "skipped": 0, "pct": 50 }
     },
     "/Users/simon-blurton/Documents/big-6-app/src/features/instructions/components/InstructionsDropdownTitle/DropdownLinks/DropdownLinks.tsx": {
-        "lines": { "total": 19, "covered": 18, "skipped": 0, "pct": 94.73 },
+        "lines": { "total": 18, "covered": 17, "skipped": 0, "pct": 94.44 },
         "functions": { "total": 5, "covered": 4, "skipped": 0, "pct": 80 },
-        "statements": {
-            "total": 21,
-            "covered": 20,
-            "skipped": 0,
-            "pct": 95.23
-        },
+        "statements": { "total": 20, "covered": 19, "skipped": 0, "pct": 95 },
         "branches": { "total": 4, "covered": 4, "skipped": 0, "pct": 100 }
     },
     "/Users/simon-blurton/Documents/big-6-app/src/features/instructions/components/InstructionsDropdownTitle/DropdownLinks/Popper/Popper.tsx": {

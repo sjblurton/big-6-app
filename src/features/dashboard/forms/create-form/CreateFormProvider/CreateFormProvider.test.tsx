@@ -8,8 +8,8 @@ import CreateFormProvider from "./CreateFormProvider"
 
 const MockChildComponent = () => {
     const { getValues } = useFormContext()
-    const currentStep = getValues("meta.step.current")
-    const totalSteps = getValues("meta.step.total")
+    const currentStep = getValues("metadata.step.current")
+    const totalSteps = getValues("metadata.step.total")
     const user = getValues("workout.user")
 
     return (

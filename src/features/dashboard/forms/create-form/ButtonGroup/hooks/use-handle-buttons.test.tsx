@@ -38,8 +38,8 @@ describe("useHandleButtons", () => {
 
     it("should handle validation and step increment correctly", async () => {
         mockContextInputs.getValues.mockImplementation((key) => {
-            if (key === "meta.step.current") return 0
-            if (key === "meta.step.total") return 3
+            if (key === "metadata.step.current") return 0
+            if (key === "metadata.step.total") return 3
         })
         mockContextInputs.trigger.mockReturnValueOnce(true)
 
@@ -49,7 +49,7 @@ describe("useHandleButtons", () => {
         })
         expect(mockContextInputs.trigger).toHaveBeenCalled()
         expect(mockContextInputs.setValue).toHaveBeenCalledWith(
-            "meta.step.current",
+            "metadata.step.current",
             1
         )
     })
@@ -65,8 +65,8 @@ describe("useHandleButtons", () => {
 
     it("should handle previous step correctly", () => {
         mockContextInputs.getValues.mockImplementation((key) => {
-            if (key === "meta.step.current") return 1
-            if (key === "meta.step.total") return 3
+            if (key === "metadata.step.current") return 1
+            if (key === "metadata.step.total") return 3
         })
 
         const { result } = renderHook(() => useHandleButtons())
@@ -74,7 +74,7 @@ describe("useHandleButtons", () => {
             result.current.handlePrevious()
         })
         expect(mockContextInputs.setValue).toHaveBeenCalledWith(
-            "meta.step.current",
+            "metadata.step.current",
             0
         )
     })
