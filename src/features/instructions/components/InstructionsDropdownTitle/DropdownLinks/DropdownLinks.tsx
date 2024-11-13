@@ -1,6 +1,5 @@
 "use client"
 
-import Link from "next/link"
 import { useRouter } from "next/navigation"
 import { useRef, useState } from "react"
 
@@ -43,11 +42,9 @@ function DropdownLinks({ options, defaultIndex, ...rest }: Properties) {
                 variant="contained"
                 aria-label="Button group with a nested menu"
                 {...rest}
+                ref={anchorReference}
             >
-                <MuiButton
-                    LinkComponent={Link}
-                    href={options[selectedIndex].href}
-                >
+                <MuiButton onClick={handleToggle}>
                     <MuiTypography variant="h1" component="h3">
                         {options[selectedIndex].label}
                     </MuiTypography>
