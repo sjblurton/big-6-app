@@ -1,10 +1,10 @@
 import React from "react"
 
-import workoutsApi from "@/modules/api/address/workouts-api"
-import { MuiContainer } from "@/modules/components/library/mui"
-import Timeline from "@/modules/components/ui/Timeline/Timeline"
-import { createMetadata } from "@/modules/seo/create-metadata"
-import { TIME_SECONDS } from "@/modules/time/constants"
+import { MuiContainer } from "@/components/libs/mui"
+import Timeline from "@/components/server/Timeline/Timeline"
+import { TIME_SECONDS } from "@/constants/numbers/dates"
+import workoutsApiEndpoints from "@/server/endpoints/workouts-api-endpoints"
+import { createMetadata } from "@/utils/seo/create-metadata"
 
 export const metadata = createMetadata({
     title: "Log",
@@ -13,7 +13,7 @@ export const metadata = createMetadata({
 })
 
 async function LogPage() {
-    const data = await fetch(workoutsApi.workouts(), {
+    const data = await fetch(workoutsApiEndpoints.getWorkouts(), {
         next: { revalidate: TIME_SECONDS.ONE_MINUTE * 5 },
     }).then((res) => res.json())
     return (

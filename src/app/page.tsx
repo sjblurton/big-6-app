@@ -1,12 +1,8 @@
-import {
-    MuiContainer,
-    MuiGrid,
-    MuiTypography,
-} from "@/modules/components/library/mui"
-import SignInButton from "@/modules/components/ui/Button/SignInButton/SignInButton"
-import { createMetadata } from "@/modules/seo/create-metadata"
+import { MuiContainer, MuiGrid, MuiTypography } from "@/components/libs/mui"
+import SignInButton from "@/features/auth/components/client/Button/SignInButton/SignInButton"
+import { createMetadata } from "@/utils/seo/create-metadata"
 
-import InstructionsOverviewCardList from "./components/InstructionsOverviewCardList/InstructionsOverviewCardList"
+import InstructionsOverviewCardList from "../features/home/components/InstructionsOverviewCardList/InstructionsOverviewCardList"
 
 export const metadata = createMetadata({
     title: "Home",

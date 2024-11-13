@@ -1,15 +1,15 @@
 "use client"
 
-import { Inter } from "next/font/google"
-
-import Providers from "@/modules/components/Providers/Providers"
-import BottomNavigation from "@/modules/components/ui/BottomNavigation/BottomNavigation"
-import Navbar from "@/modules/components/ui/Navbar/Navbar"
-import { workoutTypes } from "@/modules/model/workout/workout-schemas"
-
 import "../styles/base/global.scss"
 import "../styles/base/reset.scss"
 import "../styles/main.scss"
+
+import { Inter } from "next/font/google"
+
+import BottomNavigation from "@/components/client/BottomNavigation/BottomNavigation"
+import Navbar from "@/components/client/Navbar/Navbar"
+import Providers from "@/components/Providers/Providers"
+import { WORKOUT_DETAILS } from "@/constants"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -19,7 +19,7 @@ const routes = [
     { name: "Home", path: "/" },
     {
         name: "instructions",
-        path: `/instructions/${workoutTypes.pullUp.id}/level-1`,
+        path: `/instructions/${WORKOUT_DETAILS.pullUp.id}/level-1`,
     },
     { name: "Stopwatch", path: "/stopwatch" },
     { name: "Workouts", path: "/workouts" },

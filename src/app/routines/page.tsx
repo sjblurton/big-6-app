@@ -1,8 +1,8 @@
-import routineCmsClient from "@/modules/cms/client/routine/routine-client"
-import { MuiContainer } from "@/modules/components/library/mui"
-import { createMetadata } from "@/modules/seo/create-metadata"
+import { MuiContainer } from "@/components/libs/mui"
+import routineCmsClient from "@/features/routines/lib/routine-client"
+import { createMetadata } from "@/utils/seo/create-metadata"
 
-import Routine from "./components/Routine/Routine"
+import Routine from "../../features/routines/components/Routine/Routine"
 
 export const metadata = createMetadata({
     title: "Routines",

@@ -15,13 +15,15 @@ const customJestConfig = {
     collectCoverage: true,
     coverageReporters: ["json-summary", "text"],
     coveragePathIgnorePatterns: [
-        "<rootDir>/src/modules/components/library/mui/*.*",
+        "<rootDir>/src/lib/*.*",
+        "<rootDir>/src/components/lib/*.*",
+        "<rootDir>/src/constants/*.*",
     ],
-    coverageDirectory: "./src/modules/documentation/test-coverage",
+    coverageDirectory: "./src/features/documentation/test-coverage",
     coverageThreshold: {
         global: {
-            branches: 69,
-            functions: 89,
+            branches: 85,
+            functions: 90,
             lines: 90,
             statements: 90,
         },

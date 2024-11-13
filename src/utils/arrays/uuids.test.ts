@@ -14,10 +14,10 @@ describe("uuids", () => {
 
     it("should create an array of UUIDs with valid UUID values", () => {
         const array = createUUIDs(10)
-        array.forEach((uuid) => {
+        for (const uuid of array) {
             expect(uuid).toMatch(
-                /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/
+                /^[\da-f]{8}-[\da-f]{4}-4[\da-f]{3}-[89ab][\da-f]{3}-[\da-f]{12}$/
             )
-        })
+        }
     })
 })

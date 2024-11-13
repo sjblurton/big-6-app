@@ -1,10 +1,24 @@
 import { NextResponse } from "next/server"
 
-import { mockLatestWorkoutData } from "@/app/api/v1/workouts/shared/mockData/workout-mock"
-import { workoutSchema } from "@/modules/model/workout/workout-schemas"
+import { workoutSchema } from "@/schemas/workouts"
+// eslint-disable-next-line jest/no-mocks-import -- temporary while working towards full implementation
+import { mockLatestWorkoutData } from "@/server/__mocks__/workout-mock"
 
-import ErrorHandler from "../../error-handler/ErrorHandler"
-import { ApiZodValidationError } from "../../error-handler/errors/api.error.zod-validation"
+import ErrorHandler from "../../../../server/error-handler/ErrorHandler"
+import { ApiZodValidationError } from "../../../../server/error-handler/errors/api.error.zod-validation"
+
+// async function workoutDataPlusSteps(workoutData: WorkoutData[]) {
+//     const workoutSteps = workoutData.map((workout) =>
+//         exerciseCmsClient.getExerciseStep(workout.type, workout.level)
+//     )
+//     const workoutDataWithSteps = await Promise.all(workoutSteps).then((steps) =>
+//         workoutData.map((workout, index) => ({
+//             ...workout,
+//             metadata: steps[index],
+//         }))
+//     )
+//     return workoutDataWithSteps
+// }
 
 export async function GET() {
     try {

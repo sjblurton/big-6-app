@@ -1,5 +1,6 @@
-import { createMetadata } from "./create-metadata"
 import { type Metadata } from "next"
+
+import { createMetadata } from "./create-metadata"
 
 describe("createMetadata", () => {
     it("should create metadata with the correct title and description", () => {

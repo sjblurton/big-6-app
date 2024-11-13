@@ -1,4 +1,8 @@
-import { type LevelPath, LEVELS_ARRAY } from "@/constants/levels-details"
+import {
+    type LevelPath,
+    LEVELS_ARRAY,
+} from "@/constants/strings/levels-details"
+
 import {
     parcelCaseToTitleString,
     pathLevelToNumber,

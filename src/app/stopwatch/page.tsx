@@ -1,9 +1,9 @@
 import { type Metadata } from "next"
 
-import { MuiContainer } from "@/modules/components/library/mui"
-import { createMetadata } from "@/modules/seo/create-metadata"
+import { MuiContainer } from "@/components/libs/mui"
+import { createMetadata } from "@/utils/seo/create-metadata"
 
-import StopWatch from "./components/Stopwatch/Stopwatch"
+import StopWatch from "../../features/stopwatch/components/Stopwatch/Stopwatch"
 
 export const metadata: Metadata = createMetadata({
     title: "Stop Watch",

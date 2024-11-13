@@ -33,12 +33,9 @@ The Big 6 Progressive Callisthenics Fitness App is inspired by Paul Wade's "Conv
     -   [Design Patterns](#design-patterns)
     -   [Folder Structure](#folder-structure)
         -   [app/](#app)
-        -   [modules/](#modules)
-        -   [api/](#api)
+        -   [features/](#features)
+        -   [server/](#server)
         -   [components/](#components)
-        -   [model/](#model)
-        -   [database/](#database)
-        -   [styles/](#styles)
         -   [Rationale](#rationale)
     -   [Database Structure](#database-structure)
         -   [Importance of Robust Error Handling](#importance-of-robust-error-handling)
@@ -61,93 +58,30 @@ The Big 6 Progressive Callisthenics Fitness App is inspired by Paul Wade's "Conv
 
 ## Folder Structure
 
-The project is organized in a modular fashion to ensure maintainability, scalability, and ease of navigation. Here's an overview of the folder structure and the rationale behind it:
+The project is organized in a feature fashion to ensure maintainability, scalability, and ease of navigation. We are using [eslint-plugin-boundaries](https://www.npmjs.com/package/eslint-plugin-boundaries) to enforce the folder structure and ensure that files are placed in the correct directories.
 
-```plaintext
-.
-└── src/
-    ├── app/
-    ├── modules/
-    │   ├── api/
-    │   │   └── [endpoint]/
-    │   │       ├── controller/
-    │   │       └── service/
-    │   ├── components/
-    │   │   └── ui/
-    │   │       └── [UiComponent]/
-    │   │           ├── hooks/
-    │   │           ├── [UiComponent].stories.tsx
-    │   │           ├── [UiComponent].module.scss
-    │   │           └── [UiComponent].tsx
-    │   ├── database/
-    │   │   ├── config/
-    │   │   └── [collection]/
-    │   │       ├── read/
-    │   │       └── create/
-    │   └── model/
-    │       ├── api/
-    │       │   ├── routes/
-    │       │   │   └── [route]/
-    │       │   │       ├── input/
-    │       │   │       └── output/
-    │       │   └── openApiBuilder.ts
-    │       └── [data]/
-    │           └── schemas
-    └── styles/
-        ├── base/
-        ├── breakpoints/
-        ├── colors/
-        ├── utilityClasses/
-        └── main.scss
-```
+![A Folder Structure Flow Chart](src/assets/images/folder-stucture-flow-chart.png "Folder Structure Chart")
 
 ### app/
 
-The app/ directory is used for the new Next.js routing system. This folder contains the route definitions and the corresponding components. Each folder within app/ typically represents a different route in the application.
+The app/ directory is used for the new Next.js routing system. This folder contains the route definitions and page files only.
 
-### modules/
+### features/
 
-The modules directory contains various sub-modules, each responsible for a distinct part of the application. This modular approach helps in isolating different functionalities and promotes separation of concerns.
+The features directory contains the main application logic, organized by feature. Each [feature] subfolder includes:
 
-### api/
+-   components/: Reusable UI components specific to the feature.
+-   utils/: Small utility functions and helper functions specific to the feature.
+-   schemas/: Data validation schemas normally using Zod.
+-   libs/: Usually external libraries or services used by the feature. But could also be a bigger library of internally written utility functions.
 
-The api folder is dedicated to backend-related functionality. Each [endpoint] subfolder represents a different API endpoint and contains:
+### server/
 
--   controller/: This layer handles incoming requests, processes them, and sends responses.
--   service/: This layer contains the business logic and communicates with the database or other services.
+Shared server-side code that is used by the API and the Next.js app.
 
 ### components/
 
-The components directory contains reusable UI components. It is further divided into:
-
--   ui/: Contains individual UI components. Each [UiComponent] folder includes:
-    -   hooks/: Custom hooks specific to the component. We could have over subfolders for more complex components.
-    -   [UiComponent].stories.tsx: Storybook stories for the component.
-    -   [UiComponent].module.scss: Component-specific styles.
-    -   [UiComponent].test.tsx: Component Automated Tests.
-    -   [UiComponent].tsx: The component implementation.
-
-### model/
-
-The model directory handles the data model definitions and API routes.
-
--   api/: Contains API route definitions, organized by:
-    -   routes/: Each [route] folder includes:
-        -   input/: Request input validation schemas.
-        -   output/: Response output schemas.
--   openApiBuilder.ts: A file to build OpenAPI specifications.
--   [data]/: Contains data schemas used throughout the application.
-
-### database/
-
-The database folder contains all database-related code only for inputs and outputs. No business logic organized by:
-
--   config/: Database configuration files.
--   [collection]/: Each collection represents a database table or document collection and contains:
--   create/
--   read/
--   update/
--   delete/
+The components directory contains shared UI components that are used across multiple features. Each component is organized into its own folder and sub-folders for related files.
 
 ### styles/
 
@@ -161,7 +95,7 @@ The styles directory contains global styles and design tokens. Not a complete li
 
 ### Rationale
 
-This structure is designed to promote a clear separation of concerns, making the codebase easier to navigate and maintain. By grouping related files together, each part of the application is isolated, which enhances modularity and testability. This organization also facilitates collaboration, as developers can work on different modules independently without causing conflicts.
+This structure is designed to promote a clear separation of concerns, making the codebase easier to navigate and maintain. By grouping related files together, each part of the application is isolated, which enhances modularity and testability. This organization also facilitates collaboration, as developers can work on different features independently without causing conflicts.
 
 ## Database Structure
 

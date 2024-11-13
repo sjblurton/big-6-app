@@ -1,9 +1,9 @@
 import { type Metadata } from "next"
 
-import { MuiContainer } from "@/modules/components/library/mui"
-import { createMetadata } from "@/modules/seo/create-metadata"
-
-import PageContent from "./PageContent/PageContent"
+import { MuiContainer } from "@/components/libs/mui"
+import WorkoutByIdPageContent from "@/features/dashboard/components/client/WorkoutByIdPageContent/WorkoutByIdPageContent"
+import { serverFetchClient } from "@/libs/cms/clients/workouts-fetch-client"
+import { createMetadata } from "@/utils/seo/create-metadata"
 
 type Parameters = {
     id: string
@@ -20,10 +20,12 @@ export async function generateMetadata({
     })
 }
 
-function WorkoutSummery() {
+async function WorkoutSummery({ params: { id } }: { params: Parameters }) {
+    const workoutSummery = await serverFetchClient.getWorkoutSummery(id)
+
     return (
         <MuiContainer maxWidth="md" disableGutters>
-            <PageContent />
+            <WorkoutByIdPageContent workoutSummery={workoutSummery} />
         </MuiContainer>
     )
 }

@@ -1,9 +1,9 @@
 import { type Metadata } from "next"
 
-import { MuiContainer } from "@/modules/components/library/mui"
-import { createMetadata } from "@/modules/seo/create-metadata"
-
-import WorkoutCardList from "./components/WorkoutCardList/WorkoutCardList"
+import { MuiContainer } from "@/components/libs/mui"
+import WorkoutCardList from "@/features/dashboard/components/server/WorkoutCardList/WorkoutCardList"
+import { serverFetchClient } from "@/libs/cms/clients/workouts-fetch-client"
+import { createMetadata } from "@/utils/seo/create-metadata"
 
 export const metadata: Metadata = createMetadata({
     title: "Dashboard",
@@ -11,9 +11,11 @@ export const metadata: Metadata = createMetadata({
 })
 
 async function Dashboard() {
+    const workoutData = await serverFetchClient.getWorkouts()
+
     return (
         <MuiContainer maxWidth="md" disableGutters>
-            <WorkoutCardList />
+            <WorkoutCardList workoutData={workoutData} />
         </MuiContainer>
     )
 }

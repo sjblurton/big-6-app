@@ -1,36 +1,36 @@
 import { type GetStaticPaths, type Metadata } from "next"
 import Link from "next/link"
 
-import exerciseCmsClient from "@/modules/cms/client/exercise/exercise-client"
-import { urlFor } from "@/modules/cms/client/image"
+import { type WorkoutTypeIds } from "@/@types/workouts/workout-types"
 import {
     MuiButton,
     MuiContainer,
     MuiGrid,
     MuiTypography,
-} from "@/modules/components/library/mui"
+} from "@/components/libs/mui"
 import {
     MuiChevronLeftIcon,
     MuiChevronRightIcon,
-} from "@/modules/components/library/mui/mui-icons"
-import { levelUrls } from "@/modules/model/urls/levels"
-import { type WorkoutTypeIds } from "@/modules/model/workout/workout-schemas"
-import { createMetadata } from "@/modules/seo/create-metadata"
-import { pathLevelToNumber } from "@/modules/strings/transform"
+} from "@/components/libs/mui/mui-icons"
+import { LEVELS_ARRAY } from "@/constants/strings/levels-details"
+import workoutCmsClient from "@/libs/cms/clients/workout-cms-client"
 import * as colors from "@/styles/colors/_exports.module.scss"
+import { urlFor } from "@/utils/cms/image"
+import { createMetadata } from "@/utils/seo/create-metadata"
+import { pathLevelToNumber } from "@/utils/strings/transform"
 
-import InstructionsCard from "./components/InstructionsCard/InstructionsCard"
-import InstructionsDropdownTitle from "./components/InstructionsDropdownTitle/InstructionsDropdownTitle"
-import Progressions from "./components/Progressions/Progressions"
+import InstructionsCard from "../../../../features/instructions/components/InstructionsCard/InstructionsCard"
+import InstructionsDropdownTitle from "../../../../features/instructions/components/InstructionsDropdownTitle/InstructionsDropdownTitle"
+import Progressions from "../../../../features/instructions/components/Progressions/Progressions"
 
 type Parameters = {
     id: WorkoutTypeIds
     level: string
 }
 
-const exerciseIds = await exerciseCmsClient.getExerciseIds()
+const exerciseIds = await workoutCmsClient.getExerciseIds()
 const paths = exerciseIds.flatMap(({ _id }) =>
-    levelUrls.map((level) => ({ params: { id: _id, level } }))
+    LEVELS_ARRAY.map(({ name }) => ({ params: { id: _id, level: name } }))
 )
 
 export const getStaticPaths = (async () => ({
@@ -43,7 +43,7 @@ export async function generateMetadata({
 }: {
     params: Parameters
 }): Promise<Metadata> {
-    const data = await exerciseCmsClient.getExerciseStep(
+    const data = await workoutCmsClient.getExerciseStep(
         id,
         pathLevelToNumber(level)
     )
@@ -68,7 +68,7 @@ async function WorkoutInstructionsPage({
             positiveImage,
             video,
         },
-    } = await exerciseCmsClient.getExerciseStep(id, pathLevelToNumber(level))
+    } = await workoutCmsClient.getExerciseStep(id, pathLevelToNumber(level))
 
     return (
         <MuiContainer maxWidth="sm" disableGutters>

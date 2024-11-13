@@ -1,6 +1,6 @@
 "use client"
 
-import ErrorMessage from "@/modules/components/ui/ErrorMessage/ErrorMessage"
+import ErrorMessage from "@/components/server/ErrorMessage/ErrorMessage"
 
 function Error({
     reset,

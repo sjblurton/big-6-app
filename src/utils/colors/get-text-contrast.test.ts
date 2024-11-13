@@ -1,5 +1,6 @@
-import { getTextContrast } from "./get-text-contrast"
 import { black, white } from "@/styles/colors/_exports.module.scss"
+
+import { getTextContrast } from "./get-text-contrast"
 
 describe("getTextContrast", () => {
     it("should return the correct contrast for a given color", () => {

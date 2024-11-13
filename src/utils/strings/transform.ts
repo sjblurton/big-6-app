@@ -1,6 +1,9 @@
-import { type LevelPath, LEVELS_ARRAY } from "@/constants/levels-details"
+import {
+    type LevelPath,
+    LEVELS_ARRAY,
+} from "@/constants/strings/levels-details"
 
-const LEVELS = LEVELS_ARRAY.map((level) => level.name)
+const LEVELS = new Set(LEVELS_ARRAY.map((level) => level.name))
 
 export function toKebabCase(string: string) {
     return string
@@ -25,8 +28,8 @@ export function toCapitalizedWords(name: string) {
     return words.map((word) => capitalize(word.toLowerCase())).join(" ")
 }
 
-export function parcelCaseToTitleString(parcelcase: string) {
-    return parcelcase
+export function parcelCaseToTitleString(parcelCase: string) {
+    return parcelCase
         .replaceAll(/[A-Z]/g, " $&")
         .replace(/^./, function capitalizeFirstLetter(string) {
             return string.toUpperCase()
@@ -43,7 +46,7 @@ export function pathLevelToNumber(level: string): number {
 }
 
 export function pathLevelToTitleString(level: LevelPath) {
-    if (!LEVELS.includes(level)) {
+    if (!LEVELS.has(level)) {
         throw new Error(`Invalid level: ${level}`)
     }
     return level

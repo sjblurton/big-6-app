@@ -1,8 +1,9 @@
 import { NextResponse } from "next/server"
 
-import ErrorHandler from "@/app/api/error-handler/ErrorHandler"
+// eslint-disable-next-line jest/no-mocks-import -- temporary while working towards full implementation
+import { mockPullUpWorkoutData } from "@/server/__mocks__/workout-mock"
+import ErrorHandler from "@/server/error-handler/ErrorHandler"
 // import { type WorkoutIds } from "@/modules/model/api/routes/workouts-id/outputs/workout-data-schemas"
-import { mockPullUpWorkoutData } from "@/app/api/v1/workouts/shared/mockData/workout-mock"
 
 export async function GET() {
     // request: NextRequest,
