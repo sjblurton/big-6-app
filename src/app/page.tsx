@@ -1,5 +1,5 @@
+import SignInButton from "@/auth/components/client/Button/SignInButton/SignInButton"
 import { MuiContainer, MuiGrid, MuiTypography } from "@/components/libs/mui"
-import SignInButton from "@/features/auth/components/client/Button/SignInButton/SignInButton"
 import { createMetadata } from "@/utils/seo/create-metadata"
 
 import InstructionsOverviewCardList from "../features/home/components/InstructionsOverviewCardList/InstructionsOverviewCardList"

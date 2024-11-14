@@ -2,41 +2,43 @@
     "plugins": ["boundaries"],
     "extends": ["plugin:boundaries/recommended"],
     "settings": {
+        "boundaries/root-path": "src",
         "import/resolver": {
             "typescript": {
                 "alwaysTryTypes": true
             }
         },
         "boundaries/include": ["src/**/*"],
+        "boundaries/no-private": [2, { "allowUncles": true }],
         "boundaries/elements": [
             {
                 "mode": "full",
                 "type": "shared",
                 "pattern": [
-                    "src/@types/**/*",
-                    "src/assets/**/*",
-                    "src/components/**/*",
-                    "src/config/**/*",
-                    "src/constants/**/*",
-                    "src/hooks/**/*",
-                    "src/libs/**/*",
-                    "src/schemas/**/*",
-                    "src/server/**/*",
-                    "src/styles/**/*",
-                    "src/utils/**/*"
+                    "@types/**/*",
+                    "assets/**/*",
+                    "auth/**/*",
+                    "components/**/*",
+                    "config/**/*",
+                    "constants/**/*",
+                    "libs/**/*",
+                    "schemas/**/*",
+                    "server/**/*",
+                    "styles/**/*",
+                    "utils/**/*"
                 ]
             },
             {
                 "mode": "full",
                 "type": "feature",
                 "capture": ["featureName"],
-                "pattern": ["src/features/*/**/*"]
+                "pattern": ["features/*/**/*"]
             },
             {
                 "mode": "full",
                 "type": "app",
                 "capture": ["_", "fileName"],
-                "pattern": ["src/app/**/*"]
+                "pattern": ["app/**/*"]
             },
             {
                 "mode": "full",
@@ -48,7 +50,6 @@
     "rules": {
         "boundaries/no-unknown": ["error"],
         "boundaries/no-unknown-files": ["error"],
-        "boundaries/no-private": "off",
         "boundaries/element-types": [
             "error",
             {

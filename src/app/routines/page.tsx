@@ -1,5 +1,5 @@
 import { MuiContainer } from "@/components/libs/mui"
-import routineCmsClient from "@/features/routines/lib/routine-client"
+import routineCmsClient from "@/features/routines/libs/routine-client"
 import { createMetadata } from "@/utils/seo/create-metadata"
 
 import Routine from "../../features/routines/components/Routine/Routine"
