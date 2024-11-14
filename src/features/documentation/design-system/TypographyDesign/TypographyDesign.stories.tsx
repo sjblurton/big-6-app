@@ -15,4 +15,18 @@ export default meta
 
 type Story = StoryObj<typeof TypographyDesign>
 
-export const Default: Story = {}
+export const Desktop: Story = {
+    parameters: {
+        viewport: {
+            defaultViewport: "responsive",
+        },
+    },
+}
+
+export const Mobile: Story = {
+    parameters: {
+        viewport: {
+            defaultViewport: "mobile1",
+        },
+    },
+}
